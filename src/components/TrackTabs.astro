@@ -1,0 +1,19 @@
+---
+import { TRACKS } from '../consts';
+
+interface Props {
+	current?: string;
+}
+const { current } = Astro.props;
+---
+
+<nav class="tabs" aria-label="Growth tracks">
+	<a href="/growth/" aria-current={!current ? 'page' : undefined}>All</a>
+	{
+		TRACKS.map((t) => (
+			<a href={`/growth/${t.slug}/`} aria-current={current === t.slug ? 'page' : undefined}>
+				{t.emoji} {t.label}
+			</a>
+		))
+	}
+</nav>

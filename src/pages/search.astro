@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Search" description="Search The Voyager.">
+	<header class="page-head">
+		<p class="eyebrow">Search</p>
+		<h1>Search</h1>
+	</header>
+	<div id="search" class="search prose"></div>
+	<noscript><p class="prose">Search needs JavaScript.</p></noscript>
+
+	<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+	<script is:inline src="/pagefind/pagefind-ui.js"></script>
+	<script is:inline>
+		window.addEventListener('DOMContentLoaded', () => {
+			if (!window.PagefindUI) {
+				document.getElementById('search').innerHTML =
+					'<p class="empty">Search works on the built site (npm run build, then npm run preview).</p>';
+				return;
+			}
+			new PagefindUI({ element: '#search', showSubResults: true, showImages: false, autofocus: true });
+		});
+	</script>
+</Base>
+
+<style>
+	.search {
+		--pagefind-ui-scale: 0.9;
+		--pagefind-ui-primary: var(--accent);
+		--pagefind-ui-text: var(--text);
+		--pagefind-ui-background: var(--surface);
+		--pagefind-ui-border: var(--border);
+		--pagefind-ui-tag: var(--surface-2);
+		--pagefind-ui-border-radius: 10px;
+		--pagefind-ui-font: inherit;
+	}
+</style>

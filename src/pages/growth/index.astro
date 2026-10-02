@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import TrackTabs from '../../components/TrackTabs.astro';
+import { getTrack } from '../../consts';
+import { getGrowth, growthUrl } from '../../lib/posts';
+
+const posts = await getGrowth();
+---
+
+<Base title="Growth Plan" description="🧭 The Architect Growth Plan: one deep topic a day across models, research, systems, interviews, GitHub, builds and an LLM architecture lab.">
+	<header class="page-head">
+		<p class="eyebrow">🧭 Growth Plan</p>
+		<h1>The Architect Growth Plan</h1>
+		<p>
+			One deep topic a day, on a weekly rotation that builds toward new LLM architectures. Curated with
+			AI; <a href="/growth/rss.xml">RSS</a>.
+		</p>
+	</header>
+	<TrackTabs />
+	{
+		posts.length ? (
+			<ul class="post-list">
+				{posts.map((p) => {
+					const t = getTrack(p.data.track);
+					return (
+						<PostCard href={growthUrl(p)} title={p.data.title} date={p.data.date} summary={p.data.summary} label={`${t.emoji} ${t.label}`} curated={p.data.curated_with_ai} />
+					);
+				})}
+			</ul>
+		) : (
+			<p class="empty">The first topic lands soon.</p>
+		)
+	}
+</Base>

@@ -1,0 +1,125 @@
+---
+import Base from './Base.astro';
+import CuratedBadge from '../components/CuratedBadge.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Mermaid from '../components/Mermaid.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+interface Props {
+	title: string;
+	date: Date;
+	summary: string;
+	tags?: string[];
+	/** Section name, shown above the title and used as a search filter. */
+	section: string;
+	sectionHref: string;
+	/** Optional extra label, e.g. the growth track. */
+	label?: string;
+	labelHref?: string;
+	/** Extra meta items, e.g. "⏱ 45 min" or "Week 3". */
+	extra?: string[];
+	minutes?: number;
+	curated?: boolean;
+	draft?: boolean;
+	hasMermaid?: boolean;
+	/** Show the newsletter box at the end (your own writing only). */
+	newsletter?: boolean;
+}
+
+const {
+	title,
+	date,
+	summary,
+	tags = [],
+	section,
+	sectionHref,
+	label,
+	labelHref,
+	extra = [],
+	minutes,
+	curated = false,
+	draft = false,
+	hasMermaid = false,
+	newsletter = false,
+} = Astro.props;
+---
+
+<Base
+	title={title}
+	description={summary}
+	noindex={curated}
+	hideFooterNewsletter={newsletter}
+	ogType="article"
+>
+	<article class="post prose" data-pagefind-body data-pagefind-filter={`section:${section}`}>
+		<header class="post-head">
+			<p class="eyebrow">
+				<a href={sectionHref} data-pagefind-ignore>{section}</a>
+				{label && labelHref && <span aria-hidden="true"> / </span>}
+				{label && labelHref && <a href={labelHref}>{label}</a>}
+			</p>
+			<h1>{title}</h1>
+			<p class="summary">{summary}</p>
+			<div class="meta">
+				<FormattedDate date={date} />
+				{minutes && <span>{minutes} min read</span>}
+				{extra.map((item) => <span>{item}</span>)}
+				{draft && <span class="draft">Draft: not published</span>}
+				{curated && <CuratedBadge />}
+			</div>
+		</header>
+
+		<div class="content">
+			<slot />
+		</div>
+
+		{
+			tags.length > 0 && (
+				<ul class="tags post-tags" aria-label="Tags">
+					{tags.map((tag) => (
+						<li class="tag">#{tag}</li>
+					))}
+				</ul>
+			)
+		}
+	</article>
+
+	{newsletter && <Newsletter />}
+	{hasMermaid && <Mermaid />}
+</Base>
+
+<style>
+	.post-head {
+		padding-bottom: 1.4rem;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid var(--border);
+	}
+	.eyebrow a {
+		color: var(--muted);
+		text-decoration: none;
+	}
+	.eyebrow a:hover {
+		color: var(--accent);
+	}
+	h1 {
+		margin-bottom: 0.6rem;
+	}
+	.summary {
+		font-size: 1.15rem;
+		color: var(--muted);
+		margin-bottom: 1rem;
+	}
+	.draft {
+		color: var(--amber);
+		font-weight: 700;
+	}
+	.content :global(h2:first-child) {
+		margin-top: 0;
+	}
+	.content :global(li) {
+		margin-bottom: 0.35em;
+	}
+	.post-tags {
+		margin-top: 2.5rem;
+	}
+</style>

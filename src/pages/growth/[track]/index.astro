@@ -1,0 +1,47 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PostCard from '../../../components/PostCard.astro';
+import TrackTabs from '../../../components/TrackTabs.astro';
+import { TRACKS } from '../../../consts';
+import { getGrowth, growthUrl } from '../../../lib/posts';
+
+export function getStaticPaths() {
+	return TRACKS.map((track) => ({ params: { track: track.slug }, props: { track } }));
+}
+
+const { track } = Astro.props;
+const posts = await getGrowth(track.slug);
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const when =
+	track.day !== null
+		? `${days[track.day]}s`
+		: track.slug === 'review'
+			? 'Every sixth week'
+			: 'Review-week Sundays';
+---
+
+<Base title={`${track.label} · Growth Plan`} description={`🧭 Growth Plan, ${track.label} track.`}>
+	<header class="page-head">
+		<p class="eyebrow"><a href="/growth/">🧭 Growth Plan</a> · {when}</p>
+		<h1>{track.emoji} {track.label}</h1>
+	</header>
+	<TrackTabs current={track.slug} />
+	{
+		posts.length ? (
+			<ul class="post-list">
+				{posts.map((p) => (
+					<PostCard href={growthUrl(p)} title={p.data.title} date={p.data.date} summary={p.data.summary} label={`Week ${p.data.week}`} curated={p.data.curated_with_ai} />
+				))}
+			</ul>
+		) : (
+			<p class="empty">Nothing in this track yet.</p>
+		)
+	}
+</Base>
+
+<style>
+	.eyebrow a {
+		color: inherit;
+		text-decoration: none;
+	}
+</style>

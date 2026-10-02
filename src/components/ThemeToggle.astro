@@ -1,0 +1,61 @@
+---
+// Cycles system → light → dark. "System" follows the device setting.
+---
+
+<button class="theme-toggle" type="button" aria-label="Theme: system" title="Theme: system">
+	<svg class="i-system" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"></path></svg>
+	<svg class="i-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+	<svg class="i-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"></path></svg>
+</button>
+
+<script is:inline>
+	(() => {
+		const btn = document.querySelector('.theme-toggle');
+		const order = ['system', 'light', 'dark'];
+		const current = () => document.documentElement.dataset.theme || 'system';
+		const show = (t) => {
+			btn.dataset.mode = t;
+			btn.setAttribute('aria-label', `Theme: ${t}`);
+			btn.title = `Theme: ${t}`;
+		};
+		show(current());
+		btn.addEventListener('click', () => {
+			const next = order[(order.indexOf(current()) + 1) % order.length];
+			try {
+				if (next === 'system') localStorage.removeItem('theme');
+				else localStorage.setItem('theme', next);
+			} catch (e) {}
+			if (next === 'system') delete document.documentElement.dataset.theme;
+			else document.documentElement.dataset.theme = next;
+			show(next);
+			document.dispatchEvent(new CustomEvent('themechange'));
+		});
+	})();
+</script>
+
+<style>
+	.theme-toggle {
+		display: grid;
+		place-items: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		border: 0;
+		border-radius: 8px;
+		background: none;
+		color: var(--muted);
+		cursor: pointer;
+	}
+	.theme-toggle:hover {
+		color: var(--text);
+		background: var(--surface-2);
+	}
+	.theme-toggle svg {
+		display: none;
+	}
+	.theme-toggle:not([data-mode]) .i-system,
+	.theme-toggle[data-mode='system'] .i-system,
+	.theme-toggle[data-mode='light'] .i-light,
+	.theme-toggle[data-mode='dark'] .i-dark {
+		display: block;
+	}
+</style>

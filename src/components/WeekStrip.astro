@@ -1,0 +1,146 @@
+---
+// "This week": Monday to Sunday as waypoints, each with that day's growth track and
+// links to whatever was published. Worked out at build time in the site's time zone.
+import { TRACKS } from '../consts';
+import { type Brief, type Growth, briefUrl, dayKey, growthUrl } from '../lib/posts';
+
+interface Props {
+	today: string; // YYYY-MM-DD
+	briefs: Brief[];
+	growth: Growth[];
+}
+const { today, briefs, growth } = Astro.props;
+
+const base = new Date(`${today}T00:00:00Z`);
+const monday = new Date(base);
+monday.setUTCDate(base.getUTCDate() - ((base.getUTCDay() + 6) % 7));
+
+const days = Array.from({ length: 7 }, (_, i) => {
+	const d = new Date(monday);
+	d.setUTCDate(monday.getUTCDate() + i);
+	const key = dayKey(d);
+	const brief = briefs.find((p) => dayKey(p.data.date) === key);
+	const topic = growth.find((p) => dayKey(p.data.date) === key);
+	const track = TRACKS.find((t) => t.day === d.getUTCDay());
+	const state = key === today ? 'today' : key < today ? 'past' : 'upcoming';
+	return {
+		key,
+		weekday: d.toLocaleDateString('en-GB', { weekday: 'short', timeZone: 'UTC' }),
+		date: d.getUTCDate(),
+		track,
+		brief,
+		topic,
+		state,
+		done: Boolean(brief || topic),
+	};
+});
+---
+
+<ol class="week" aria-label="This week">
+	{
+		days.map((day) => (
+			<li class:list={['day', day.state, { done: day.done }]} aria-current={day.state === 'today' ? 'date' : undefined}>
+				<span class="dot" aria-hidden="true" />
+				<span class="wd">{day.weekday}</span>
+				<span class="num">{day.date}</span>
+				{day.track && (
+					<span class="track" title={day.track.label}>
+						{day.track.emoji}
+						<span class="sr-only">{day.track.label}</span>
+					</span>
+				)}
+				<span class="links">
+					{day.topic && <a href={growthUrl(day.topic)} title={day.topic.data.title}>🧭<span class="sr-only">Growth topic</span></a>}
+					{day.brief && <a href={briefUrl(day.brief)} title={day.brief.data.title}>☕<span class="sr-only">Daily brief</span></a>}
+					{!day.done && <span class="none">{day.state === 'upcoming' ? '·' : '–'}</span>}
+				</span>
+			</li>
+		))
+	}
+</ol>
+
+<style>
+	.week {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(7, minmax(0, 1fr));
+		gap: 0.35rem;
+		position: relative;
+	}
+	/* The route line the waypoints sit on. */
+	.week::before {
+		content: '';
+		position: absolute;
+		left: 7%;
+		right: 7%;
+		top: 0.95rem;
+		border-top: 1px dashed var(--border);
+	}
+	.day {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.1rem;
+		padding: 0.55rem 0.15rem 0.6rem;
+		border-radius: 10px;
+		font-size: 0.8rem;
+		color: var(--muted);
+		text-align: center;
+	}
+	.dot {
+		width: 0.8rem;
+		height: 0.8rem;
+		border-radius: 50%;
+		border: 1.5px solid var(--border);
+		background: var(--bg);
+		margin-bottom: 0.3rem;
+	}
+	.done .dot {
+		background: var(--accent);
+		border-color: var(--accent);
+	}
+	.today {
+		background: var(--accent-soft);
+		color: var(--text);
+	}
+	.today .dot {
+		border-color: var(--accent);
+		box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
+	}
+	.upcoming {
+		opacity: 0.7;
+	}
+	.wd {
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		font-size: 0.68rem;
+		font-weight: 700;
+	}
+	.num {
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+	.links {
+		display: flex;
+		gap: 0.15rem;
+		min-height: 1.5rem;
+		align-items: center;
+	}
+	.links a {
+		text-decoration: none;
+		padding: 0.05rem 0.1rem;
+		border-radius: 6px;
+	}
+	.links a:hover {
+		background: var(--surface-2);
+	}
+	@media (min-width: 640px) {
+		.day {
+			font-size: 0.9rem;
+		}
+	}
+</style>

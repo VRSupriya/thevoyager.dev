@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getWriting, writingUrl } from '../../lib/posts';
+
+const posts = await getWriting();
+---
+
+<Base title="Writing" description="Original writing on LLM systems, agents, cloud and data architecture.">
+	<header class="page-head">
+		<p class="eyebrow">✍️ Writing</p>
+		<h1>Writing</h1>
+		<p>My own posts: what I'm learning, building and thinking about. <a href="/writing/rss.xml">RSS</a>.</p>
+	</header>
+	{
+		posts.length ? (
+			<ul class="post-list">
+				{posts.map((p) => (
+					<PostCard href={writingUrl(p)} title={p.data.title} date={p.data.date} summary={p.data.summary} draft={p.data.draft} />
+				))}
+			</ul>
+		) : (
+			<p class="empty">The first post is on its way.</p>
+		)
+	}
+</Base>

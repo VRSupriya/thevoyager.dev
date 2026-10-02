@@ -1,0 +1,28 @@
+---
+import { render } from 'astro:content';
+import Post from '../../layouts/Post.astro';
+import { type Writing, getWriting, readingMinutes } from '../../lib/posts';
+
+export async function getStaticPaths() {
+	const posts = await getWriting();
+	return posts.map((post) => ({ params: { slug: post.id }, props: post }));
+}
+
+const post = Astro.props as Writing;
+const { Content, remarkPluginFrontmatter } = await render(post);
+---
+
+<Post
+	title={post.data.title}
+	date={post.data.date}
+	summary={post.data.summary}
+	tags={post.data.tags}
+	section="✍️ Writing"
+	sectionHref="/writing/"
+	minutes={readingMinutes(post.body)}
+	draft={post.data.draft}
+	hasMermaid={remarkPluginFrontmatter.hasMermaid}
+	newsletter
+>
+	<Content />
+</Post>

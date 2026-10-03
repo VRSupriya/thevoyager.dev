@@ -1,15 +1,15 @@
 ---
-// "This week": Monday to Sunday as waypoints, each with that day's growth track and
+// "This week": Monday to Sunday as waypoints, each with that day's Deep Dives track and
 // links to whatever was published. Worked out at build time in the site's time zone.
 import { TRACKS } from '../consts';
-import { type Brief, type Growth, briefUrl, dayKey, growthUrl } from '../lib/posts';
+import { type Brief, type Dive, briefUrl, dayKey, diveUrl } from '../lib/posts';
 
 interface Props {
 	today: string; // YYYY-MM-DD
 	briefs: Brief[];
-	growth: Growth[];
+	dives: Dive[];
 }
-const { today, briefs, growth } = Astro.props;
+const { today, briefs, dives } = Astro.props;
 
 const base = new Date(`${today}T00:00:00Z`);
 const monday = new Date(base);
@@ -20,7 +20,7 @@ const days = Array.from({ length: 7 }, (_, i) => {
 	d.setUTCDate(monday.getUTCDate() + i);
 	const key = dayKey(d);
 	const brief = briefs.find((p) => dayKey(p.data.date) === key);
-	const topic = growth.find((p) => dayKey(p.data.date) === key);
+	const topic = dives.find((p) => dayKey(p.data.date) === key);
 	const track = TRACKS.find((t) => t.day === d.getUTCDay());
 	const state = key === today ? 'today' : key < today ? 'past' : 'upcoming';
 	return {
@@ -50,7 +50,7 @@ const days = Array.from({ length: 7 }, (_, i) => {
 					</span>
 				)}
 				<span class="links">
-					{day.topic && <a href={growthUrl(day.topic)} title={day.topic.data.title}>🧭<span class="sr-only">Growth topic</span></a>}
+					{day.topic && <a href={diveUrl(day.topic)} title={day.topic.data.title}>🔭<span class="sr-only">Deep dive</span></a>}
 					{day.brief && <a href={briefUrl(day.brief)} title={day.brief.data.title}>☕<span class="sr-only">Daily brief</span></a>}
 					{!day.done && <span class="none">{day.state === 'upcoming' ? '·' : '–'}</span>}
 				</span>

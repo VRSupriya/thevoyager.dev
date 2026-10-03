@@ -19,9 +19,9 @@ const brief = defineCollection({
 	schema: z.object(curated),
 });
 
-// 🧭 Growth Plan: src/content/growth/<track>/YYYY-MM-DD.md
-const growth = defineCollection({
-	loader: glob({ base: './src/content/growth', pattern: '**/*.{md,mdx}' }),
+// 🔭 Deep Dives: src/content/dives/<track>/YYYY-MM-DD.md
+const dives = defineCollection({
+	loader: glob({ base: './src/content/dives', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
 		...curated,
 		track: z.enum(TRACK_SLUGS),
@@ -55,4 +55,4 @@ const projects = defineCollection({
 	}),
 });
 
-export const collections = { brief, growth, writing, projects };
+export const collections = { brief, dives, writing, projects };

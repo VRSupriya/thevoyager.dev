@@ -244,7 +244,7 @@ a.card:hover {
 	color: var(--muted);
 }
 
-/* Horizontal tab rows (growth tracks) scroll sideways on phones. */
+/* Horizontal tab rows (Deep Dives tracks) scroll sideways on phones. */
 .tabs {
 	display: flex;
 	gap: 0.4rem;

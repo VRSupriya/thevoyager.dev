@@ -9,9 +9,9 @@ An Astro site on Cloudflare Pages. Cloudflare's Git integration builds every pus
 
 | Section | Content | Files |
 |---|---|---|
-| Today (`/`) | Today's brief + growth topic, this week's strip, newsletter | `src/pages/index.astro` |
+| Today (`/`) | Today's brief + deep dive, this week's strip, newsletter | `src/pages/index.astro` |
 | ☕ Daily Brief (`/brief/`) | Routine 1, curated with AI | `src/content/brief/YYYY-MM-DD.md` |
-| 🧭 Growth Plan (`/growth/<track>/`) | Routine 2, curated with AI | `src/content/growth/<track>/YYYY-MM-DD.md` |
+| 🔭 Deep Dives (`/deep-dives/<track>/`) | Routine 2, curated with AI | `src/content/dives/<track>/YYYY-MM-DD.md` |
 | ✍️ Writing (`/writing/`) | Your own posts (`draft: true` stays unpublished) | `src/content/writing/*.md` |
 | 🛰️ Projects (`/projects/`) | Finished builds | `src/content/projects/*.md` |
 
@@ -23,7 +23,7 @@ newsletter box; Writing posts do.
 
 Diagrams: use a ```` ```mermaid ```` code block. The Mermaid script loads only on pages that have one.
 
-RSS: `/brief/rss.xml`, `/growth/rss.xml`, `/writing/rss.xml`. Search: `/search/` (Pagefind, built after `astro build`).
+RSS: `/brief/rss.xml`, `/deep-dives/rss.xml`, `/writing/rss.xml`. Search: `/search/` (Pagefind, built after `astro build`).
 
 ## Commands
 

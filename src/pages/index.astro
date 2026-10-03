@@ -5,16 +5,16 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Newsletter from '../components/Newsletter.astro';
 import WeekStrip from '../components/WeekStrip.astro';
 import { SITE_DESCRIPTION, SITE_TAGLINE, getTrack } from '../consts';
-import { briefUrl, dayKey, getBriefs, getGrowth, getWriting, growthUrl, todayKey, writingUrl } from '../lib/posts';
+import { briefUrl, dayKey, getBriefs, getDives, getWriting, diveUrl, todayKey, writingUrl } from '../lib/posts';
 
 const today = todayKey();
 const briefs = await getBriefs();
-const growth = await getGrowth();
+const dives = await getDives();
 const writing = (await getWriting()).filter((p) => !p.data.draft).slice(0, 3);
 
 // Today's post if there is one, otherwise the latest.
 const brief = briefs.find((p) => dayKey(p.data.date) === today) ?? briefs[0];
-const topic = growth.find((p) => dayKey(p.data.date) === today) ?? growth[0];
+const topic = dives.find((p) => dayKey(p.data.date) === today) ?? dives[0];
 const isToday = (p?: { data: { date: Date } }) => !!p && dayKey(p.data.date) === today;
 const topicTrack = topic && getTrack(topic.data.track);
 const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
@@ -53,9 +53,9 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 		}
 		{
 			topic && topicTrack ? (
-				<a class="card today-card" href={growthUrl(topic)}>
+				<a class="card today-card" href={diveUrl(topic)}>
 					<p class="eyebrow">
-						🧭 {isToday(topic) ? "Today's topic" : 'Latest topic'} · {topicTrack.emoji} {topicTrack.label}
+						🔭 {isToday(topic) ? "Today's deep dive" : 'Latest deep dive'} · {topicTrack.emoji} {topicTrack.label}
 					</p>
 					<h3>{topic.data.title}</h3>
 					<p>{topic.data.summary}</p>
@@ -66,8 +66,8 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 				</a>
 			) : (
 				<div class="card today-card placeholder">
-					<p class="eyebrow">🧭 Growth Plan</p>
-					<p>The first topic lands soon.</p>
+					<p class="eyebrow">🔭 Deep Dives</p>
+					<p>The first deep dive lands soon.</p>
 				</div>
 			)
 		}
@@ -76,9 +76,9 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 	<section class="week-wrap" aria-labelledby="week-heading">
 		<div class="section-head">
 			<h2 id="week-heading">This week</h2>
-			<a href="/growth/">Growth Plan →</a>
+			<a href="/deep-dives/">Deep Dives →</a>
 		</div>
-		<WeekStrip today={today} briefs={briefs} growth={growth} />
+		<WeekStrip today={today} briefs={briefs} dives={dives} />
 	</section>
 
 	{

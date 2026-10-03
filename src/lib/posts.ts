@@ -2,7 +2,7 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import { TIME_ZONE } from '../consts';
 
 export type Brief = CollectionEntry<'brief'>;
-export type Growth = CollectionEntry<'growth'>;
+export type Dive = CollectionEntry<'dives'>;
 export type Writing = CollectionEntry<'writing'>;
 export type Project = CollectionEntry<'projects'>;
 
@@ -13,8 +13,8 @@ export async function getBriefs() {
 	return (await getCollection('brief')).sort(newestFirst);
 }
 
-export async function getGrowth(track?: string) {
-	const all = await getCollection('growth', (p) => !track || p.data.track === track);
+export async function getDives(track?: string) {
+	const all = await getCollection('dives', (p) => !track || p.data.track === track);
 	return all.sort(newestFirst);
 }
 
@@ -32,7 +32,7 @@ export async function getProjects() {
 const slugOf = (id: string) => id.split('/').pop()!;
 
 export const briefUrl = (p: Brief) => `/brief/${p.id}/`;
-export const growthUrl = (p: Growth) => `/growth/${p.data.track}/${slugOf(p.id)}/`;
+export const diveUrl = (p: Dive) => `/deep-dives/${p.data.track}/${slugOf(p.id)}/`;
 export const writingUrl = (p: Writing) => `/writing/${p.id}/`;
 export const projectUrl = (p: Project) => `/projects/${p.id}/`;
 export { slugOf };

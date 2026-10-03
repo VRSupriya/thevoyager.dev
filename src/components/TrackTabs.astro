@@ -7,11 +7,11 @@ interface Props {
 const { current } = Astro.props;
 ---
 
-<nav class="tabs" aria-label="Growth tracks">
-	<a href="/growth/" aria-current={!current ? 'page' : undefined}>All</a>
+<nav class="tabs" aria-label="Deep Dives tracks">
+	<a href="/deep-dives/" aria-current={!current ? 'page' : undefined}>All</a>
 	{
 		TRACKS.map((t) => (
-			<a href={`/growth/${t.slug}/`} aria-current={current === t.slug ? 'page' : undefined}>
+			<a href={`/deep-dives/${t.slug}/`} aria-current={current === t.slug ? 'page' : undefined}>
 				{t.emoji} {t.label}
 			</a>
 		))

@@ -1,19 +1,19 @@
 import rss from '@astrojs/rss';
 import { SITE_NAME, getTrack } from '../../consts';
-import { getGrowth, growthUrl } from '../../lib/posts';
+import { getDives, diveUrl } from '../../lib/posts';
 
 export async function GET(context) {
-	const posts = await getGrowth();
+	const posts = await getDives();
 	return rss({
-		title: `${SITE_NAME} · Growth Plan`,
-		description: 'The Architect Growth Plan: one deep topic a day. Curated with AI.',
+		title: `${SITE_NAME} · Deep Dives`,
+		description: 'Deep Dives: one topic a day, explained properly. Curated with AI.',
 		site: context.site,
 		items: posts.map((p) => ({
 			title: `${getTrack(p.data.track).emoji} ${p.data.title}`,
 			pubDate: p.data.date,
 			description: p.data.summary,
 			categories: [p.data.track, ...p.data.tags],
-			link: growthUrl(p),
+			link: diveUrl(p),
 		})),
 	});
 }

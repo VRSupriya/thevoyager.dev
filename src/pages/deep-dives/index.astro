@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import TrackTabs from '../../components/TrackTabs.astro';
+import { getTrack } from '../../consts';
+import { getDives, diveUrl } from '../../lib/posts';
+
+const posts = await getDives();
+---
+
+<Base title="Deep Dives" description="🔭 Deep Dives: one topic a day, explained properly, across models and agents, research, system design, interviews, open-source projects, builds and an LLM architecture lab.">
+	<header class="page-head">
+		<p class="eyebrow">🔭 Deep Dives</p>
+		<h1>Deep Dives</h1>
+		<p>
+			One topic a day, explained properly: models and agents, research, system design, interviews, open-source projects, weekend builds and an LLM architecture lab. Curated with
+			AI; <a href="/deep-dives/rss.xml">RSS</a>.
+		</p>
+	</header>
+	<TrackTabs />
+	{
+		posts.length ? (
+			<ul class="post-list">
+				{posts.map((p) => {
+					const t = getTrack(p.data.track);
+					return (
+						<PostCard href={diveUrl(p)} title={p.data.title} date={p.data.date} summary={p.data.summary} label={`${t.emoji} ${t.label}`} curated={p.data.curated_with_ai} />
+					);
+				})}
+			</ul>
+		) : (
+			<p class="empty">The first deep dive lands soon.</p>
+		)
+	}
+</Base>

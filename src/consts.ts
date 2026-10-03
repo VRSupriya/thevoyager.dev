@@ -21,13 +21,13 @@ export const LINKS = {
 export const NAV = [
 	{ href: '/', label: 'Today' },
 	{ href: '/brief/', label: 'Daily Brief' },
-	{ href: '/growth/', label: 'Growth Plan' },
+	{ href: '/deep-dives/', label: 'Deep Dives' },
 	{ href: '/writing/', label: 'Writing' },
 	{ href: '/projects/', label: 'Projects' },
 	{ href: '/about/', label: 'About' },
 ];
 
-// Growth Plan tracks, in tab order. `day` is the weekday the track runs (0 = Sunday).
+// Deep Dives tracks, in tab order. `day` is the weekday the track runs (0 = Sunday).
 export const TRACKS = [
 	{ slug: 'models-agentic', emoji: '🚀', label: 'Models & Agentic', day: 1 },
 	{ slug: 'research', emoji: '🔬', label: 'Research', day: 2 },
@@ -36,7 +36,7 @@ export const TRACKS = [
 	{ slug: 'github', emoji: '💻', label: 'GitHub', day: 5 },
 	{ slug: 'build', emoji: '🛠️', label: 'Builds', day: 6 },
 	{ slug: 'lab', emoji: '🧪', label: 'Lab', day: 0 },
-	{ slug: 'review', emoji: '🔁', label: 'Review', day: null },
+	{ slug: 'recap', emoji: '🔁', label: 'Recap', day: null },
 	{ slug: 'radar', emoji: '🎓', label: 'Learning Radar', day: null },
 ] as const;
 

@@ -2,17 +2,17 @@
 import { render } from 'astro:content';
 import Post from '../../../layouts/Post.astro';
 import { getTrack } from '../../../consts';
-import { type Growth, hasMermaid, getGrowth, slugOf } from '../../../lib/posts';
+import { type Dive, hasMermaid, getDives, slugOf } from '../../../lib/posts';
 
 export async function getStaticPaths() {
-	const posts = await getGrowth();
+	const posts = await getDives();
 	return posts.map((post) => ({
 		params: { track: post.data.track, slug: slugOf(post.id) },
 		props: post,
 	}));
 }
 
-const post = Astro.props as Growth;
+const post = Astro.props as Dive;
 const { Content } = await render(post);
 const track = getTrack(post.data.track);
 const time =
@@ -26,11 +26,11 @@ const time =
 	date={post.data.date}
 	summary={post.data.summary}
 	tags={post.data.tags}
-	section="🧭 Growth Plan"
-	sectionHref="/growth/"
+	section="🔭 Deep Dives"
+	sectionHref="/deep-dives/"
 	label={`${track.emoji} ${track.label}`}
-	labelHref={`/growth/${track.slug}/`}
-	extra={[`⏱ ${time} to work through`, `Week ${post.data.week} · ${post.data.phase}`]}
+	labelHref={`/deep-dives/${track.slug}/`}
+	extra={[`⏱ ${time}`]}
 	curated={post.data.curated_with_ai}
 	hasMermaid={hasMermaid(post.body)}
 >

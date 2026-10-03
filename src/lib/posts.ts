@@ -54,3 +54,6 @@ export function readingMinutes(body = '') {
 	const words = body.trim().split(/\s+/).filter(Boolean).length;
 	return Math.max(1, Math.round(words / 220));
 }
+
+// True when the post has a ```mermaid code block, so the diagram script is only loaded there.
+export const hasMermaid = (body = '') => /^\s*(```|~~~)\s*mermaid\b/m.test(body);

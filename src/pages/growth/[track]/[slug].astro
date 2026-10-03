@@ -2,7 +2,7 @@
 import { render } from 'astro:content';
 import Post from '../../../layouts/Post.astro';
 import { getTrack } from '../../../consts';
-import { type Growth, getGrowth, slugOf } from '../../../lib/posts';
+import { type Growth, hasMermaid, getGrowth, slugOf } from '../../../lib/posts';
 
 export async function getStaticPaths() {
 	const posts = await getGrowth();
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const post = Astro.props as Growth;
-const { Content, remarkPluginFrontmatter } = await render(post);
+const { Content } = await render(post);
 const track = getTrack(post.data.track);
 const time =
 	post.data.time_minutes >= 60
@@ -32,7 +32,7 @@ const time =
 	labelHref={`/growth/${track.slug}/`}
 	extra={[`⏱ ${time} to work through`, `Week ${post.data.week} · ${post.data.phase}`]}
 	curated={post.data.curated_with_ai}
-	hasMermaid={remarkPluginFrontmatter.hasMermaid}
+	hasMermaid={hasMermaid(post.body)}
 >
 	<Content />
 </Post>

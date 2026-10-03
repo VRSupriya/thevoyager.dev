@@ -3,7 +3,6 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
-import remarkMermaid from './src/plugins/remark-mermaid.mjs';
 
 // AI-curated posts (/brief/<post>/ and /growth/<track>/<post>/) are noindex, so they
 // stay out of the sitemap too. Your own writing, projects and the section pages stay in.
@@ -20,13 +19,6 @@ export default defineConfig({
 		mdx(),
 		sitemap({ filter: (page) => !isCuratedPost(page) && !page.endsWith('/search/') }),
 	],
-	markdown: {
-		remarkPlugins: [remarkMermaid],
-		shikiConfig: {
-			themes: { light: 'github-light', dark: 'github-dark' },
-			defaultColor: false,
-		},
-	},
 	fonts: [
 		{
 			provider: fontProviders.local(),

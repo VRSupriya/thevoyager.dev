@@ -67,7 +67,9 @@ def load_sources(feeds_dir: Path) -> tuple[list[dict], list[dict]]:
         (pages if entry["type"] == "html" else feeds).append(entry)
 
     for p in people.get("people", []):
-        if p.get("rss"):
+        if p.get("rss") and p.get("type") == "html":
+            pages.append({"name": p["name"], "url": p["rss"], "type": "html", "section": "core", "kind": "people"})
+        elif p.get("rss"):
             feeds.append(
                 {"name": p["name"], "url": p["rss"], "type": "rss", "section": "core", "kind": "people", "x": p.get("x")}
             )
@@ -176,13 +178,21 @@ def parse_json(body: bytes, src: dict) -> list[dict]:
 
 
 def fetch_source(src: dict, timeout: int) -> list[dict]:
-    body = fetch(src["url"], timeout)
-    items = parse_json(body, src) if src["type"] == "json" else parse_rss(body, src)
+    try:
+        items = _fetch_and_parse(src, timeout)
+    except Exception:
+        time.sleep(3)  # one retry: feeds sometimes fail once and work a moment later
+        items = _fetch_and_parse(src, timeout)
     for item in items:
         item.update(source=src["name"], section=src["section"], kind=src["kind"])
         if src.get("x"):
             item["x"] = src["x"]
     return [i for i in items if i.get("title") and i.get("url")]
+
+
+def _fetch_and_parse(src: dict, timeout: int) -> list[dict]:
+    body = fetch(src["url"], timeout)
+    return parse_json(body, src) if src["type"] == "json" else parse_rss(body, src)
 
 
 # ── Filtering and de-duplication ─────────────────────────────────────────────

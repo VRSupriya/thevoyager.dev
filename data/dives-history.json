@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "date": "2026-10-12",
+    "track": "models-agentic",
+    "week": 1,
+    "title": "Who owns the loop? OpenAI's Agents API and the agent loop underneath it",
+    "topic_key": "agentic-pattern/agent-loop-tool-calling"
+  }
+]

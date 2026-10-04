@@ -35,3 +35,11 @@ RSS: `/brief/rss.xml`, `/deep-dives/rss.xml`, `/writing/rss.xml`. Search: `/sear
 | `npm run preview` | Preview the build locally |
 
 `config/voice.md` is the writing voice both routines follow.
+
+## Routine data
+
+| Path | Purpose |
+|---|---|
+| `feeds/sources.yml`, `people.yml`, `youtube.yml` | What the Daily Brief routine reads each morning |
+| `scripts/fetch_feeds.py` | Fetches all feeds in parallel → `candidates.json` (`pip install -r scripts/requirements.txt`, then `python3 scripts/fetch_feeds.py --since 36h --out /tmp/candidates.json`) |
+| `data/brief-history.json` | Stories already covered, so the brief never repeats one |

@@ -1,0 +1,22 @@
+# People worth following (list kept as agreed on 2026-10-01).
+# rss: blog/newsletter feed (URLs marked verify are checked when fetch_feeds.py is first tested)
+# x:   handle, used only for WebSearch (no X API)
+
+people:
+  - {name: Andrej Karpathy,  x: karpathy,      rss: https://karpathy.bearblog.dev/feed/, verify: true}
+  - {name: Simon Willison,   x: simonw,        rss: https://simonwillison.net/atom/everything/}
+  - {name: Lilian Weng,      x: lilianweng,    rss: https://lilianweng.github.io/index.xml}
+  - {name: Chip Huyen,       x: chipro,        rss: https://huyenchip.com/feed.xml}
+  - {name: Sebastian Raschka, x: rasbt,        rss: https://magazine.sebastianraschka.com/feed}
+  - {name: Nathan Lambert,   x: natolambert,   rss: https://www.interconnects.ai/feed}
+  - {name: Eugene Yan,       x: eugeneyan,     rss: https://eugeneyan.com/rss/}
+  - {name: swyx / Latent Space, x: swyx,       rss: https://www.latent.space/feed}
+  - {name: Andrew Ng,        x: AndrewYNg,     rss: https://www.deeplearning.ai/the-batch/, type: html, verify: true}
+  - {name: Jay Alammar,      x: JayAlammar,    rss: https://jalammar.github.io/feed.xml, verify: true}
+  - {name: Hamel Husain,     x: HamelHusain,   rss: https://hamel.dev/index.xml, verify: true}
+  - {name: Jason Liu,        x: jxnlco,        rss: https://jxnl.co/feed_rss_created.xml, verify: true}
+  - {name: Harrison Chase,   x: hwchase17,     rss: https://blog.langchain.com/rss/, verify: true}
+  - {name: Yannic Kilcher,   x: ykilcher,      youtube: UCZHmQk67mSJgfCCTn7xBfew}
+  - {name: Gergely Orosz,    x: GergelyOrosz,  rss: https://newsletter.pragmaticengineer.com/feed}
+  - {name: Alex Xu,          x: alexxubyte,    rss: https://blog.bytebytego.com/feed}
+  - {name: Martin Kleppmann, x: martinkl,      rss: https://martin.kleppmann.com/feed.xml, verify: true}

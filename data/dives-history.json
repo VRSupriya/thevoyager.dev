@@ -5,5 +5,12 @@
     "week": 1,
     "title": "Gemini 4 Argon's pricing fine print, and the agent loop you still have to own",
     "topic_key": "agentic:agent-loop-tool-calling"
+  },
+  {
+    "date": "2026-10-15",
+    "track": "interview",
+    "week": 1,
+    "title": "Interview: design a Gemini assistant a bank's security team will sign off on",
+    "topic_key": "interview:system-design:google:ai-solution-architect:secure-rag"
   }
 ]

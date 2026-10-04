@@ -1,0 +1,49 @@
+# Feed sources for Routine 1. URLs marked "verify" are checked when fetch_feeds.py is first tested.
+# section: core     → candidates for the 5 main slots
+# section: regional → candidates for the separate "Middle East & events" block
+
+google_news:
+  # https://news.google.com/rss/search?q=<query>&hl=<hl>&gl=<gl>&ceid=<ceid>
+  global: {hl: en-US, gl: US, ceid: "US:en"}
+  uae:    {hl: en-AE, gl: AE, ceid: "AE:en"}
+  queries:
+    - {section: core, edition: global, q: '"large language model" OR LLM when:1d'}
+    - {section: core, edition: global, q: '"AI agents" OR "agentic AI" when:1d'}
+    - {section: core, edition: global, q: '"Model Context Protocol" OR "agent2agent" OR LangGraph OR "Agents SDK" OR "Agent SDK" OR CrewAI when:2d'}
+    - {section: core, edition: global, q: 'OpenAI OR Anthropic OR "Google DeepMind" OR Gemini when:1d'}
+    - {section: core, edition: global, q: '"Vertex AI" OR "Amazon Bedrock" OR "Azure AI" OR Databricks OR Snowflake when:1d'}
+    - {section: core, edition: global, q: '"data engineering" OR "system design" OR "distributed systems" when:2d'}
+    # Middle East AI news
+    - {section: regional, edition: uae, q: '"artificial intelligence" (UAE OR Dubai OR "Abu Dhabi" OR Saudi OR Qatar) when:2d'}
+    - {section: regional, edition: uae, q: 'G42 OR MBZUAI OR Falcon TII OR Core42 OR HUMAIN OR "Stargate UAE" when:3d'}
+    # Middle East conferences and events
+    - {section: regional, edition: uae, q: '("AI conference" OR "AI summit" OR "AI week") (Dubai OR "Abu Dhabi" OR Riyadh OR Doha) when:7d'}
+    - {section: regional, edition: uae, q: 'GITEX OR "Dubai AI Week" OR "World Government Summit" OR LEAP Riyadh OR "AI Everything" when:7d'}
+
+rss:
+  # AI labs
+  - {section: core, name: OpenAI News,         url: https://openai.com/news/rss.xml, verify: true}
+  - {section: core, name: Anthropic News,      url: https://www.anthropic.com/news, type: html, verify: true}
+  - {section: core, name: Google DeepMind,     url: https://deepmind.google/blog/rss.xml, verify: true}
+  - {section: core, name: Google Research,     url: https://research.google/blog/rss/, verify: true}
+  - {section: core, name: Google AI Blog,      url: https://blog.google/technology/ai/rss/, verify: true}
+  - {section: core, name: Meta AI,             url: https://ai.meta.com/blog/, type: html, verify: true}
+  - {section: core, name: Hugging Face Blog,   url: https://huggingface.co/blog/feed.xml, verify: true}
+  # Research
+  - {section: core, name: arXiv cs.CL,         url: https://rss.arxiv.org/rss/cs.CL}
+  - {section: core, name: arXiv cs.LG,         url: https://rss.arxiv.org/rss/cs.LG}
+  - {section: core, name: HF Daily Papers,     url: https://huggingface.co/api/daily_papers, type: json, verify: true}
+  # Community
+  - {section: core, name: Hacker News,         url: "https://hn.algolia.com/api/v1/search?tags=front_page", type: json}
+  # Cloud & systems
+  - {section: core, name: AWS What's New,      url: https://aws.amazon.com/about-aws/whats-new/recent/feed/}
+  - {section: core, name: Google Cloud Blog,   url: https://cloudblog.withgoogle.com/rss/, verify: true}
+  - {section: core, name: Azure Updates,       url: https://azure.microsoft.com/en-us/updates/feed/, verify: true}
+  - {section: core, name: InfoQ,               url: https://feed.infoq.com/}
+  - {section: core, name: ByteByteGo,          url: https://blog.bytebytego.com/feed}
+  - {section: core, name: Pragmatic Engineer,  url: https://newsletter.pragmaticengineer.com/feed}
+  - {section: core, name: Netflix Tech Blog,   url: https://netflixtechblog.com/feed}
+  - {section: core, name: Uber Engineering,    url: https://www.uber.com/blog/engineering/rss/, verify: true}
+  - {section: core, name: Databricks Blog,     url: https://www.databricks.com/feed, verify: true}
+  # Middle East
+  - {section: regional, name: MBZUAI News,     url: https://mbzuai.ac.ae/news/, type: html, verify: true}

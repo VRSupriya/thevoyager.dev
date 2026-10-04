@@ -1,0 +1,73 @@
+# YouTube subscriptions filtered from subscriptions.csv (2026-10-01).
+# RSS per channel: https://www.youtube.com/feeds/videos.xml?channel_id=<id>
+#
+# tier: news     → scanned daily by Routine 1 (AI Daily Brief)
+# tier: learning → not news; Routine 2 (Deep Dives) recommends these as study material
+#                  (research, lab, system, interview tracks)
+
+channels:
+  # ── News: AI labs ────────────────────────────────────────────────
+  - {id: UCXZCJLdBC09xxGZ6gcdrc6A, title: OpenAI,               tier: news, topic: ai-labs}
+  - {id: UCrDwWp7EBBv4NwvScIpBDOA, title: Anthropic,            tier: news, topic: ai-labs}
+  - {id: UCP7jMXSY2xbc3KCAE0MHQ-A, title: Google DeepMind,      tier: news, topic: ai-labs}
+  - {id: UCHlNU7kIZhRgSbhHvFoy72w, title: Hugging Face,         tier: news, topic: ai-labs}
+
+  # ── News: AI news, research explainers, people ───────────────────
+  - {id: UCXUPKJO5MZQN11PqgIvyuvQ, title: Andrej Karpathy,      tier: news, topic: llm}
+  - {id: UCZHmQk67mSJgfCCTn7xBfew, title: Yannic Kilcher,       tier: news, topic: research}
+  - {id: UCbfYPyITQ-7l4upoX8nvctg, title: Two Minute Papers,    tier: news, topic: research}
+  - {id: UCgfe2ooZD3VJPB6aJAnuQng, title: bycloud,              tier: news, topic: research}
+  - {id: UCMtxPy2z1qzwvP7wiarkoaw, title: Samuel Albanie,       tier: news, topic: research}
+  - {id: UCj8shE7aIn4Yawwbo2FceCQ, title: "Aleksa Gordić - The AI Epiphany", tier: news, topic: research}
+  - {id: UCLKPca3kwwd-B59HNr-_lvA, title: AI Engineer,          tier: news, topic: ai-engineering}
+  - {id: UCcIXc5mJsHVYTZR1maL5l9w, title: DeepLearningAI,       tier: news, topic: ai-engineering}
+  - {id: UCawZsQWqfGSbCI5yjkdVkTA, title: Matthew Berman,       tier: news, topic: ai-news}
+  - {id: UC-PQKtrPhk3JXyjUleBLgQQ, title: AI Edge,              tier: news, topic: ai-news}
+  - {id: UCvKRFNawVcuz4b9ihUTApCg, title: David Shapiro,        tier: news, topic: ai-news}
+  - {id: UCSHZKyawb77ixDdsGog4iWA, title: Lex Fridman,          tier: news, topic: podcast, note: "AI/tech episodes only"}
+  - {id: UCWvn6k4aeceyYKjAleML9VA, title: "AI Stories Podcast - Neil Leiser", tier: news, topic: podcast}
+  - {id: UCfzlCWGWYyIQ0aLC5w48gBQ, title: sentdex,              tier: news, topic: ai-engineering}
+  - {id: UCWN3xxRkmTPmbKwht9FuE5A, title: Siraj Raval,          tier: news, topic: ai-news}
+
+  # ── News: AI agents ──────────────────────────────────────────────
+  - {id: UC3KK7ENB_ierAXvrxVNnbZQ, title: Ben AI,               tier: news, topic: agents}
+  - {id: UCui4jxDaMb53Gdh-AZUTPAg, title: Liam Ottley,          tier: news, topic: agents, note: "business-leaning; use only for architecture-relevant content"}
+
+  # ── News: software, system architecture, data engineering ────────
+  - {id: UCsBjURrPoezykLs9EqgamOA, title: Fireship,             tier: news, topic: software}
+  - {id: UCzCsyvyrq38R6TnztEzOmgg, title: ByteMonk,             tier: news, topic: architecture}
+  - {id: UCmLGJ3VYBcfRaWbP6JLJcpA, title: Seattle Data Guy,     tier: news, topic: data-engineering}
+
+  # ── Learning: LLM / ML from scratch (good for the Sunday lab) ────
+  - {id: UCtAcpQcYerN8xxZJYTfWBMw, title: Umar Jamil,           tier: learning, topic: llm-from-scratch}
+  - {id: UCdEov4L0bpJ_h6W3sJxkfUA, title: Vizuara,              tier: learning, topic: llm-from-scratch}
+  - {id: UC1oXUA7qgs0GZc_yk46K2OQ, title: Alejandro AO,         tier: learning, topic: llm-apps}
+  - {id: UCNU_lfiiWBdtULKOw6X0Dig, title: Krish Naik,           tier: learning, topic: ml-genai}
+  - {id: UCh9nVJoWXmFb7sLApWGcLPQ, title: codebasics,           tier: learning, topic: ml-data}
+  - {id: UCH6gDteHtH4hg3o2343iObA, title: Analytics Vidhya,     tier: learning, topic: ml-data}
+
+  # ── Learning: maths & statistics ─────────────────────────────────
+  - {id: UCYO_jab_esuFRV4b17AJtAw, title: 3Blue1Brown,          tier: learning, topic: maths}
+  - {id: UCtYLUTtgS3k1Fg4y5tAhLbw, title: StatQuest with Josh Starmer, tier: learning, topic: statistics}
+  - {id: UCUcpVoi5KkJmnE3bvEhHR0Q, title: ritvikmath,           tier: learning, topic: statistics}
+  - {id: UCgBncpylJ1kiVaPyP-PZauQ, title: Luis Serrano Academy, tier: learning, topic: maths}
+  - {id: UCm5mt-A4w61lknZ9lCsZtBw, title: Steve Brunton,        tier: learning, topic: maths}
+  - {id: UCXrLAITYvjCFnufmpyA9M3g, title: "Maths Shorts with Dr. Asha Gauri Shankar", tier: learning, topic: maths}
+
+  # ── Learning: university courses (high volume, many off-topic) ───
+  - {id: UCBa5G_ESCn8Yd4vw5U-gIcg, title: Stanford Online,      tier: learning, topic: courses}
+  - {id: UCEBb1b_L6zDS3xTUrIALZOw, title: MIT OpenCourseWare,   tier: learning, topic: courses}
+  - {id: UCYa1WtI-vb_bx-anHdmpNfA, title: NPTEL-NOC IITM,       tier: learning, topic: courses}
+  - {id: UC8butISFwT-Wl7EV0hUK0BQ, title: freeCodeCamp.org,     tier: learning, topic: software}
+
+  # ── Learning: interviews & career (good for Thursdays) ───────────
+  - {id: UCAWsBMQY4KSuOuGODki-l7A, title: Emma Ding,            tier: learning, topic: interview}
+  - {id: UCQSMCVUX1HgrwxJhO_7VrJQ, title: DataInterview,        tier: learning, topic: interview}
+  - {id: UCa6HiFCukSxElDy2_sfFhbg, title: TechPrep,             tier: learning, topic: interview}
+  - {id: UCdMz6KKEDW_1Qqas-ya7S6w, title: Beyond Coding,        tier: learning, topic: career}
+  - {id: UC7cs8q-gJRlGwj4A8OmCmXg, title: Alex The Analyst,     tier: learning, topic: data}
+
+# Left out on purpose (relevant-ish but outside the requested topics). Add back if wanted:
+#   Qiskit, Institute for Quantum Computing  → quantum computing
+#   Varun Mayya, Jeff Su, Think School       → tech business / productivity, not architecture
+#   LKLogic, M TECH VAYALAR                  → unclear topic; check and add if AI/tech

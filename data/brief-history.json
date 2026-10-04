@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "date": "2026-10-04",
+    "slot": "🔥",
+    "title": "Apple tightens macOS Full Disk Access over AI agents",
+    "url": "https://www.theapplepost.com/2026/10/03/72916/apple-plans-tougher-mac-full-disk-access-controls-as-ai-agents-expand/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "🚀",
+    "title": "Aleph Alpha releases Kolibri-1",
+    "url": "https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "🤖",
+    "title": "Uber MCP Gateway",
+    "url": "https://www.uber.com/us/en/blog/designing-mcp-gateway/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "🔬",
+    "title": "ThinkingBox agent benchmark",
+    "url": "https://huggingface.co/blog/microsoft/thinkingbox"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "✍️",
+    "title": "Simon Willison: default hard budget caps",
+    "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "🏗️",
+    "title": "Istio 1.31 agentgateway waypoints",
+    "url": "https://www.infoq.com/news/2026/10/istio-1-31-agentgateway/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "🌍",
+    "title": "Abu Dhabi DMT and Siemens AI partnership",
+    "url": "https://economymiddleeast.com/news/dmt-partners-with-siemens-to-advance-abu-dhabis-digital-urban-infrastructure-and-transit-networks/"
+  }
+]

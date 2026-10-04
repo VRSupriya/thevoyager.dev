@@ -22,28 +22,28 @@ google_news:
 
 rss:
   # AI labs
-  - {section: core, name: OpenAI News,         url: https://openai.com/news/rss.xml, verify: true}
-  - {section: core, name: Anthropic News,      url: https://www.anthropic.com/news, type: html, verify: true}
-  - {section: core, name: Google DeepMind,     url: https://deepmind.google/blog/rss.xml, verify: true}
-  - {section: core, name: Google Research,     url: https://research.google/blog/rss/, verify: true}
-  - {section: core, name: Google AI Blog,      url: https://blog.google/technology/ai/rss/, verify: true}
-  - {section: core, name: Meta AI,             url: https://ai.meta.com/blog/, type: html, verify: true}
-  - {section: core, name: Hugging Face Blog,   url: https://huggingface.co/blog/feed.xml, verify: true}
+  - {section: core, name: OpenAI News,         url: https://openai.com/news/rss.xml, verify: true, weight: 3}
+  - {section: core, name: Anthropic News,      url: https://www.anthropic.com/news, type: html, verify: true, weight: 3}
+  - {section: core, name: Google DeepMind,     url: https://deepmind.google/blog/rss.xml, verify: true, weight: 3}
+  - {section: core, name: Google Research,     url: https://research.google/blog/rss/, verify: true, weight: 2}
+  - {section: core, name: Google AI Blog,      url: https://blog.google/technology/ai/rss/, verify: true, weight: 2}
+  - {section: core, name: Meta AI,             url: https://ai.meta.com/blog/, type: html, verify: true, weight: 2}
+  - {section: core, name: Hugging Face Blog,   url: https://huggingface.co/blog/feed.xml, verify: true, weight: 2}
   # Research
-  - {section: core, name: arXiv cs.CL,         url: https://rss.arxiv.org/rss/cs.CL}
-  - {section: core, name: arXiv cs.LG,         url: https://rss.arxiv.org/rss/cs.LG}
-  - {section: core, name: HF Daily Papers,     url: https://huggingface.co/api/daily_papers, type: json, verify: true}
+  - {section: core, name: arXiv cs.CL,         url: https://rss.arxiv.org/rss/cs.CL, weight: 1}
+  - {section: core, name: arXiv cs.LG,         url: https://rss.arxiv.org/rss/cs.LG, weight: 1}
+  - {section: core, name: HF Daily Papers,     url: https://huggingface.co/api/daily_papers, type: json, verify: true, weight: 2}
   # Community
-  - {section: core, name: Hacker News,         url: "https://hn.algolia.com/api/v1/search?tags=front_page", type: json}
+  - {section: core, name: Hacker News,         url: "https://hn.algolia.com/api/v1/search?tags=front_page", type: json, weight: 1}
   # Cloud & systems
-  - {section: core, name: AWS What's New,      url: https://aws.amazon.com/about-aws/whats-new/recent/feed/}
-  - {section: core, name: Google Cloud Blog,   url: https://cloudblog.withgoogle.com/rss/, verify: true}
-  - {section: core, name: Azure Updates,       url: https://www.microsoft.com/releasecommunications/api/v2/azure/rss}
-  - {section: core, name: InfoQ,               url: https://feed.infoq.com/}
-  - {section: core, name: ByteByteGo,          url: https://blog.bytebytego.com/feed}
-  - {section: core, name: Pragmatic Engineer,  url: https://newsletter.pragmaticengineer.com/feed}
-  - {section: core, name: Netflix Tech Blog,   url: https://netflixtechblog.com/feed}
-  - {section: core, name: Uber Engineering,    url: https://www.uber.com/us/en/blog/engineering/, type: html}
-  - {section: core, name: Databricks Blog,     url: https://www.databricks.com/feed, verify: true}
+  - {section: core, name: AWS What's New,      url: https://aws.amazon.com/about-aws/whats-new/recent/feed/, weight: 1}
+  - {section: core, name: Google Cloud Blog,   url: https://cloudblog.withgoogle.com/rss/, verify: true, weight: 2}
+  - {section: core, name: Azure Updates,       url: https://www.microsoft.com/releasecommunications/api/v2/azure/rss, weight: 1}
+  - {section: core, name: InfoQ,               url: https://feed.infoq.com/, weight: 2}
+  - {section: core, name: ByteByteGo,          url: https://blog.bytebytego.com/feed, weight: 3}
+  - {section: core, name: Pragmatic Engineer,  url: https://newsletter.pragmaticengineer.com/feed, weight: 3}
+  - {section: core, name: Netflix Tech Blog,   url: https://netflixtechblog.com/feed, weight: 3}
+  - {section: core, name: Uber Engineering,    url: https://www.uber.com/us/en/blog/engineering/, type: html, weight: 2}
+  - {section: core, name: Databricks Blog,     url: https://www.databricks.com/feed, verify: true, weight: 2}
   # Middle East
-  - {section: regional, name: MBZUAI News,     url: https://mbzuai.ac.ae/news/, type: html, verify: true}
+  - {section: regional, name: MBZUAI News,     url: https://mbzuai.ac.ae/news/, type: html, verify: true, weight: 2}

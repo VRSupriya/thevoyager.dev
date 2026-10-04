@@ -1,0 +1,162 @@
+# What the Daily Brief should favour. Read by scripts/fetch_feeds.py.
+# Audience: senior AI / solution architects, senior AI engineers, forward deployed engineers.
+#
+# score = source weight (1-3) x weight_points
+#       + relevance keywords found in title/summary (boost) - noise keywords (penalty)
+#       + small bonuses for engagement and freshness
+# Items below min_score are dropped, so off-topic stories never reach the routine.
+# Edit the lists freely: one word or phrase per entry, matched case-insensitively.
+
+weight_points: 10          # a weight-3 source starts at 30, weight-1 at 10
+min_score: 12              # below this = dropped as not relevant enough
+domain_cap: 2              # max items from one website among the picks (the final shortlist)
+alternates_per_slot: 3     # runners-up offered next to each pick
+
+boost:                     # +3 points per distinct hit (max 5 hits counted)
+  points: 3
+  terms:
+    - architecture
+    - system design
+    - agent
+    - agentic
+    - tool calling
+    - tool use
+    - mcp
+    - model context protocol
+    - a2a
+    - agent2agent
+    - multi-agent
+    - orchestration
+    - workflow
+    - gateway
+    - guardrail
+    - prompt injection
+    - sandbox
+    - identity
+    - authentication
+    - evals
+    - evaluation
+    - observability
+    - tracing
+    - latency
+    - throughput
+    - inference
+    - serving
+    - cost
+    - pricing
+    - budget
+    - caching
+    - context window
+    - context engineering
+    - memory
+    - rag
+    - retrieval
+    - embedding
+    - vector
+    - fine-tuning
+    - distillation
+    - mixture of experts
+    - moe
+    - production
+    - deployment
+    - enterprise
+    - reliability
+    - failure
+    - security
+    - governance
+    - compliance
+    - data residency
+    - kubernetes
+    - vertex ai
+    - bedrock
+    - azure ai
+    - databricks
+    - snowflake
+    - spark
+    - data pipeline
+    - lakehouse
+    - platform
+    - customer
+    - forward deployed
+    - benchmark
+    - open weights
+    - release notes
+    - sdk
+    - api
+    - audit
+    - microservices
+    - monolith
+    - distributed
+    - data engineering
+    - vulnerability
+    - cve
+    - incident
+    - postmortem
+    - scaling
+
+noise:                     # -8 points per hit: hype, clickbait, and off-topic business news
+  points: 8
+  terms:
+    - giveaway
+    - make money
+    - passive income
+    - side hustle
+    - get rich
+    - prompt pack
+    - top 10 ai tools
+    - best ai tools
+    - chatgpt tricks
+    - you won't believe
+    - shocking
+    - mind-blowing
+    - insane
+    - goes viral
+    - celebrity
+    - stock price
+    - shares fall
+    - shares rise
+    - ipo
+    - layoffs
+    - lawsuit
+    - crypto
+    - bitcoin
+    - agi by 20
+    - will replace you
+    - end of programmers
+    - sponsored
+    - webinar
+    - sponsors-only
+    - not much happened
+    - ethereum
+    - appointed
+    - chief technology
+    - graduates
+    - consumer tech
+
+# One pick per slot, filled in this order, so a niche slot is not starved by "top".
+# strict: true = no fallback to other sources (the slot stays empty if nothing matches)
+# prefer.kinds: news | source | people | youtube     prefer.sources: exact source names (substring match)
+slots:
+  top:
+    note: best overall by score
+  models:
+    prefer:
+      sources: [OpenAI, Anthropic, DeepMind, Google AI Blog, Meta AI, Hugging Face Blog]
+      keywords: [model, release, launch, pricing, context window, benchmark, open weights]
+  agents:
+    prefer:
+      keywords: [agent, agentic, mcp, a2a, tool use, orchestration, sandbox, gateway, guardrail, prompt injection]
+  research:
+    strict: true           # only from the listed sources; otherwise empty, and the routine searches for a paper
+    prefer:
+      sources: [HF Daily Papers, arXiv, Google Research, Hugging Face Blog, Yannic, Albanie, Gordić]
+      keywords: [paper, arxiv, we propose, benchmark, ablation, training]
+  people:
+    strict: true
+    prefer:
+      kinds: [people]
+      note: only from feeds/people.yml
+  architecture:
+    prefer:
+      sources: [InfoQ, ByteByteGo, Pragmatic Engineer, Netflix, Uber, Databricks, Google Cloud Blog, AWS, Azure]
+      keywords: [architecture, system design, platform, scaling, reliability, case study, data pipeline]

@@ -3,7 +3,9 @@
 
 Reads feeds/sources.yml, feeds/people.yml and feeds/youtube.yml, fetches every feed in
 parallel, keeps items published within --since, removes duplicates and writes one JSON
-file for the routine to rank. A source that fails is listed under "failed" and skipped;
+file for the routine to rank. Each item gets a score (source weight + audience relevance
+- noise penalty, see feeds/priorities.yml); irrelevant items are dropped and a shortlist with
+one pick per slot, at most two from the same website, is prepared. A source that fails is listed under "failed" and skipped;
 it never stops the run.
 
     pip install -r scripts/requirements.txt
@@ -30,6 +32,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 USER_AGENT = "Mozilla/5.0 (compatible; TheVoyagerBriefBot/1.0; +https://thevoyager.dev)"
 SUMMARY_CHARS = 400
+DEFAULT_WEIGHT = 2
 
 
 # ── Building the source list ─────────────────────────────────────────────────
@@ -52,7 +55,8 @@ def load_sources(feeds_dir: Path) -> tuple[list[dict], list[dict]]:
             f"q={quote_plus(q['q'])}&hl={ed['hl']}&gl={ed['gl']}&ceid={quote_plus(ed['ceid'])}"
         )
         feeds.append(
-            {"name": f"Google News: {q['q']}", "url": url, "type": "rss", "section": q["section"], "kind": "news"}
+            {"name": f"Google News: {q['q']}", "url": url, "type": "rss", "section": q["section"], "kind": "news",
+             "weight": q.get("weight", 1)}  # aggregator: low trust unless a query says otherwise
         )
 
     for s in sources.get("rss", []):
@@ -62,16 +66,19 @@ def load_sources(feeds_dir: Path) -> tuple[list[dict], list[dict]]:
             "type": s.get("type", "rss"),
             "section": s.get("section", "core"),
             "kind": "source",
+            "weight": s.get("weight", DEFAULT_WEIGHT),
         }
         # Pages without a feed: the agent opens them with WebFetch instead.
         (pages if entry["type"] == "html" else feeds).append(entry)
 
     for p in people.get("people", []):
         if p.get("rss") and p.get("type") == "html":
-            pages.append({"name": p["name"], "url": p["rss"], "type": "html", "section": "core", "kind": "people"})
+            pages.append({"name": p["name"], "url": p["rss"], "type": "html", "section": "core", "kind": "people",
+                          "weight": p.get("weight", DEFAULT_WEIGHT)})
         elif p.get("rss"):
             feeds.append(
-                {"name": p["name"], "url": p["rss"], "type": "rss", "section": "core", "kind": "people", "x": p.get("x")}
+                {"name": p["name"], "url": p["rss"], "type": "rss", "section": "core", "kind": "people", "x": p.get("x"),
+                 "weight": p.get("weight", DEFAULT_WEIGHT)}
             )
 
     for c in youtube.get("channels", []):
@@ -83,6 +90,7 @@ def load_sources(feeds_dir: Path) -> tuple[list[dict], list[dict]]:
                     "type": "rss",
                     "section": "core",
                     "kind": "youtube",
+                    "weight": c.get("weight", DEFAULT_WEIGHT),
                 }
             )
     return feeds, pages
@@ -184,7 +192,7 @@ def fetch_source(src: dict, timeout: int) -> list[dict]:
         time.sleep(3)  # one retry: feeds sometimes fail once and work a moment later
         items = _fetch_and_parse(src, timeout)
     for item in items:
-        item.update(source=src["name"], section=src["section"], kind=src["kind"])
+        item.update(source=src["name"], section=src["section"], kind=src["kind"], weight=src.get("weight", DEFAULT_WEIGHT))
         if src.get("x"):
             item["x"] = src["x"]
     return [i for i in items if i.get("title") and i.get("url")]
@@ -235,6 +243,97 @@ def select(items: list[dict], since: datetime, per_source: int) -> list[dict]:
     return kept
 
 
+# ── Relevance scoring and the shortlist ──────────────────────────────────────
+
+
+def load_priorities(feeds_dir: Path) -> dict:
+    return yaml.safe_load((feeds_dir / "priorities.yml").read_text())
+
+
+def hits(text: str, terms: list[str]) -> list[str]:
+    """Terms found in text. Short terms (mcp, rag, moe, api...) must match as whole words."""
+    found = []
+    for t in terms:
+        t = t.lower()
+        pattern = rf"\b{re.escape(t)}\b" if len(t) <= 4 else re.escape(t)
+        if re.search(pattern, text):
+            found.append(t)
+    return found
+
+
+def site_of(item: dict) -> str:
+    """The website an item really comes from (Google News links hide it behind a redirect)."""
+    if item.get("publisher"):
+        return item["publisher"].lower()
+    return urlsplit(item["url"]).netloc.lower().removeprefix("www.")
+
+
+def score_item(item: dict, prio: dict, now: datetime) -> None:
+    text = f"{item['title']} {item.get('summary', '')}".lower()
+    good = hits(text, prio["boost"]["terms"])
+    bad = hits(text, prio["noise"]["terms"])
+    score = item.get("weight", DEFAULT_WEIGHT) * prio["weight_points"]
+    score += prio["boost"]["points"] * min(len(good), 5)
+    score -= prio["noise"]["points"] * len(bad)
+    if item.get("published"):  # up to +4 for items under a day old
+        score += max(0.0, 4 - (now - item["published"]).total_seconds() / 21600)
+    if item.get("upvotes"):  # Hugging Face daily papers
+        score += min(item["upvotes"] / 20, 4)
+    if item.get("discussion"):  # Hacker News points are in the summary text
+        m = re.match(r"(\d+) points", item.get("summary", ""))
+        if m:
+            score += min(int(m.group(1)) / 100, 4)
+    item["score"] = round(score, 1)
+    item["relevance_hits"] = good[:5]
+    if bad:
+        item["noise_hits"] = bad
+
+
+def slot_bonus(item: dict, slot: dict) -> float:
+    pref = slot.get("prefer", {})
+    bonus = 0.0
+    if item["kind"] in pref.get("kinds", []):
+        bonus += 100  # a hard preference: "people" must come from followed people
+    if any(s.lower() in item["source"].lower() for s in pref.get("sources", [])):
+        bonus += 8
+    text = f"{item['title']} {item.get('summary', '')}".lower()
+    bonus += 3 * min(len(hits(text, pref.get("keywords", []))), 3)
+    return bonus
+
+
+def shortlist(candidates: list[dict], prio: dict) -> dict:
+    """One pick per slot (at most domain_cap per website), plus a few runners-up each."""
+    cap, n_alt = prio["domain_cap"], prio["alternates_per_slot"]
+    taken: set[str] = set()
+    per_site: dict[str, int] = {}
+    result: dict[str, dict] = {}
+    # Strict slots (people, research) pick first, so "top" cannot take their only candidate.
+    order = sorted(prio["slots"], key=lambda n: not prio["slots"][n].get("strict"))
+    for name in order:
+        slot = prio["slots"][name]
+        ranked = sorted(
+            (c for c in candidates if c["section"] == "core" and c["url"] not in taken),
+            key=lambda c: c["score"] + slot_bonus(c, slot),
+            reverse=True,
+        )
+        if slot.get("strict"):  # no fallback: only items from the slot's own kinds/sources
+            pref = slot.get("prefer", {})
+            ranked = [
+                c for c in ranked
+                if c["kind"] in pref.get("kinds", [])
+                or any(s.lower() in c["source"].lower() for s in pref.get("sources", []))
+            ]
+        pick = next((c for c in ranked if per_site.get(site_of(c), 0) < cap), None)
+        entry: dict = {"pick": None, "alternates": []}
+        if pick:
+            taken.add(pick["url"])
+            per_site[site_of(pick)] = per_site.get(site_of(pick), 0) + 1
+            entry["pick"] = pick
+            entry["alternates"] = [c for c in ranked if c is not pick][:n_alt]
+        result[name] = entry
+    return {name: result[name] for name in prio["slots"]}  # keep the order from priorities.yml
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 
@@ -271,8 +370,15 @@ def main(argv: list[str] | None = None) -> int:
             except Exception as exc:  # one bad source never stops the run
                 failed.append({"source": src["name"], "url": src["url"], "error": f"{type(exc).__name__}: {exc}"[:200]})
 
+    prio = load_priorities(args.feeds_dir)
     candidates = select(items, since, args.per_source)
     for c in candidates:
+        score_item(c, prio, now)
+    dropped = [c for c in candidates if c["score"] < prio["min_score"]]
+    candidates = sorted((c for c in candidates if c["score"] >= prio["min_score"]), key=lambda c: -c["score"])
+    picks = shortlist(candidates, prio)
+    regional = [c for c in candidates if c["section"] == "regional"]
+    for c in candidates + dropped:
         c["published"] = c["published"].isoformat() if c["published"] else None
 
     by_section: dict[str, int] = {}
@@ -287,9 +393,13 @@ def main(argv: list[str] | None = None) -> int:
             "sources_failed": len(failed),
             "items_fetched": len(items),
             "candidates": len(candidates),
+            "dropped_as_irrelevant": len(dropped),
             "by_section": by_section,
         },
+        "shortlist": picks,
+        "regional": regional[:8],
         "candidates": candidates,
+        "dropped_titles": [d["title"] for d in dropped][:40],
         "check_pages": pages,
         "failed": sorted(failed, key=lambda f: f["source"]),
     }

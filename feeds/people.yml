@@ -3,20 +3,20 @@
 # x:   handle, used only for WebSearch (no X API)
 
 people:
-  - {name: Andrej Karpathy,  x: karpathy,      note: "blog feed is behind a bot check; covered by his YouTube channel and WebSearch"}
-  - {name: Simon Willison,   x: simonw,        rss: https://simonwillison.net/atom/everything/}
-  - {name: Lilian Weng,      x: lilianweng,    rss: https://lilianweng.github.io/index.xml}
-  - {name: Chip Huyen,       x: chipro,        rss: https://huyenchip.com/feed.xml}
-  - {name: Sebastian Raschka, x: rasbt,        rss: https://magazine.sebastianraschka.com/feed}
-  - {name: Nathan Lambert,   x: natolambert,   rss: https://www.interconnects.ai/feed}
-  - {name: Eugene Yan,       x: eugeneyan,     rss: https://eugeneyan.com/rss/}
-  - {name: swyx / Latent Space, x: swyx,       rss: https://www.latent.space/feed}
-  - {name: Andrew Ng,        x: AndrewYNg,     rss: https://www.deeplearning.ai/the-batch/, type: html}
-  - {name: Jay Alammar,      x: JayAlammar,    rss: https://jalammar.github.io/feed.xml, verify: true}
-  - {name: Hamel Husain,     x: HamelHusain,   rss: https://hamel.dev/index.xml, verify: true}
-  - {name: Jason Liu,        x: jxnlco,        rss: https://jxnl.co/feed_rss_created.xml, verify: true}
-  - {name: Harrison Chase,   x: hwchase17,     rss: https://www.langchain.com/blog/rss.xml}
-  - {name: Yannic Kilcher,   x: ykilcher,      youtube: UCZHmQk67mSJgfCCTn7xBfew}
-  - {name: Gergely Orosz,    x: GergelyOrosz,  rss: https://newsletter.pragmaticengineer.com/feed}
-  - {name: Alex Xu,          x: alexxubyte,    rss: https://blog.bytebytego.com/feed}
-  - {name: Martin Kleppmann, x: martinkl,      rss: "https://feeds.feedburner.com/martinkl?format=xml"}
+  - {name: Andrej Karpathy,  x: karpathy,      note: "blog feed is behind a bot check; covered by his YouTube channel and WebSearch", weight: 3}
+  - {name: Simon Willison,   x: simonw,        rss: https://simonwillison.net/atom/everything/, weight: 3}
+  - {name: Lilian Weng,      x: lilianweng,    rss: https://lilianweng.github.io/index.xml, weight: 3}
+  - {name: Chip Huyen,       x: chipro,        rss: https://huyenchip.com/feed.xml, weight: 3}
+  - {name: Sebastian Raschka, x: rasbt,        rss: https://magazine.sebastianraschka.com/feed, weight: 2}
+  - {name: Nathan Lambert,   x: natolambert,   rss: https://www.interconnects.ai/feed, weight: 2}
+  - {name: Eugene Yan,       x: eugeneyan,     rss: https://eugeneyan.com/rss/, weight: 3}
+  - {name: swyx / Latent Space, x: swyx,       rss: https://www.latent.space/feed, weight: 2}
+  - {name: Andrew Ng,        x: AndrewYNg,     rss: https://www.deeplearning.ai/the-batch/, type: html, weight: 2}
+  - {name: Jay Alammar,      x: JayAlammar,    rss: https://jalammar.github.io/feed.xml, verify: true, weight: 2}
+  - {name: Hamel Husain,     x: HamelHusain,   rss: https://hamel.dev/index.xml, verify: true, weight: 3}
+  - {name: Jason Liu,        x: jxnlco,        rss: https://jxnl.co/feed_rss_created.xml, verify: true, weight: 2}
+  - {name: Harrison Chase,   x: hwchase17,     rss: https://www.langchain.com/blog/rss.xml, weight: 2}
+  - {name: Yannic Kilcher,   x: ykilcher,      youtube: UCZHmQk67mSJgfCCTn7xBfew, weight: 2}
+  - {name: Gergely Orosz,    x: GergelyOrosz,  rss: https://newsletter.pragmaticengineer.com/feed, weight: 3}
+  - {name: Alex Xu,          x: alexxubyte,    rss: https://blog.bytebytego.com/feed, weight: 3}
+  - {name: Martin Kleppmann, x: martinkl,      rss: "https://feeds.feedburner.com/martinkl?format=xml", weight: 3}

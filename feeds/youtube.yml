@@ -7,36 +7,36 @@
 
 channels:
   # ── News: AI labs ────────────────────────────────────────────────
-  - {id: UCXZCJLdBC09xxGZ6gcdrc6A, title: OpenAI,               tier: news, topic: ai-labs}
-  - {id: UCrDwWp7EBBv4NwvScIpBDOA, title: Anthropic,            tier: news, topic: ai-labs}
-  - {id: UCP7jMXSY2xbc3KCAE0MHQ-A, title: Google DeepMind,      tier: news, topic: ai-labs}
-  - {id: UCHlNU7kIZhRgSbhHvFoy72w, title: Hugging Face,         tier: news, topic: ai-labs}
+  - {id: UCXZCJLdBC09xxGZ6gcdrc6A, title: OpenAI,               tier: news, topic: ai-labs, weight: 3}
+  - {id: UCrDwWp7EBBv4NwvScIpBDOA, title: Anthropic,            tier: news, topic: ai-labs, weight: 3}
+  - {id: UCP7jMXSY2xbc3KCAE0MHQ-A, title: Google DeepMind,      tier: news, topic: ai-labs, weight: 3}
+  - {id: UCHlNU7kIZhRgSbhHvFoy72w, title: Hugging Face,         tier: news, topic: ai-labs, weight: 2}
 
   # ── News: AI news, research explainers, people ───────────────────
-  - {id: UCXUPKJO5MZQN11PqgIvyuvQ, title: Andrej Karpathy,      tier: news, topic: llm}
-  - {id: UCZHmQk67mSJgfCCTn7xBfew, title: Yannic Kilcher,       tier: news, topic: research}
-  - {id: UCbfYPyITQ-7l4upoX8nvctg, title: Two Minute Papers,    tier: news, topic: research}
-  - {id: UCgfe2ooZD3VJPB6aJAnuQng, title: bycloud,              tier: news, topic: research}
-  - {id: UCMtxPy2z1qzwvP7wiarkoaw, title: Samuel Albanie,       tier: news, topic: research}
-  - {id: UCj8shE7aIn4Yawwbo2FceCQ, title: "Aleksa Gordić - The AI Epiphany", tier: news, topic: research}
-  - {id: UCLKPca3kwwd-B59HNr-_lvA, title: AI Engineer,          tier: news, topic: ai-engineering}
-  - {id: UCcIXc5mJsHVYTZR1maL5l9w, title: DeepLearningAI,       tier: news, topic: ai-engineering}
-  - {id: UCawZsQWqfGSbCI5yjkdVkTA, title: Matthew Berman,       tier: news, topic: ai-news}
-  - {id: UC-PQKtrPhk3JXyjUleBLgQQ, title: AI Edge,              tier: news, topic: ai-news}
-  - {id: UCvKRFNawVcuz4b9ihUTApCg, title: David Shapiro,        tier: news, topic: ai-news}
-  - {id: UCSHZKyawb77ixDdsGog4iWA, title: Lex Fridman,          tier: news, topic: podcast, note: "AI/tech episodes only"}
-  - {id: UCWvn6k4aeceyYKjAleML9VA, title: "AI Stories Podcast - Neil Leiser", tier: news, topic: podcast}
-  - {id: UCfzlCWGWYyIQ0aLC5w48gBQ, title: sentdex,              tier: news, topic: ai-engineering}
-  - {id: UCWN3xxRkmTPmbKwht9FuE5A, title: Siraj Raval,          tier: news, topic: ai-news}
+  - {id: UCXUPKJO5MZQN11PqgIvyuvQ, title: Andrej Karpathy,      tier: news, topic: llm, weight: 3}
+  - {id: UCZHmQk67mSJgfCCTn7xBfew, title: Yannic Kilcher,       tier: news, topic: research, weight: 2}
+  - {id: UCbfYPyITQ-7l4upoX8nvctg, title: Two Minute Papers,    tier: news, topic: research, weight: 1}
+  - {id: UCgfe2ooZD3VJPB6aJAnuQng, title: bycloud,              tier: news, topic: research, weight: 1}
+  - {id: UCMtxPy2z1qzwvP7wiarkoaw, title: Samuel Albanie,       tier: news, topic: research, weight: 2}
+  - {id: UCj8shE7aIn4Yawwbo2FceCQ, title: "Aleksa Gordić - The AI Epiphany", tier: news, topic: research, weight: 2}
+  - {id: UCLKPca3kwwd-B59HNr-_lvA, title: AI Engineer,          tier: news, topic: ai-engineering, weight: 3}
+  - {id: UCcIXc5mJsHVYTZR1maL5l9w, title: DeepLearningAI,       tier: news, topic: ai-engineering, weight: 2}
+  - {id: UCawZsQWqfGSbCI5yjkdVkTA, title: Matthew Berman,       tier: news, topic: ai-news, weight: 1}
+  - {id: UC-PQKtrPhk3JXyjUleBLgQQ, title: AI Edge,              tier: news, topic: ai-news, weight: 1}
+  - {id: UCvKRFNawVcuz4b9ihUTApCg, title: David Shapiro,        tier: news, topic: ai-news, weight: 1}
+  - {id: UCSHZKyawb77ixDdsGog4iWA, title: Lex Fridman,          tier: news, topic: podcast, note: "AI/tech episodes only", weight: 1}
+  - {id: UCWvn6k4aeceyYKjAleML9VA, title: "AI Stories Podcast - Neil Leiser", tier: news, topic: podcast, weight: 1}
+  - {id: UCfzlCWGWYyIQ0aLC5w48gBQ, title: sentdex,              tier: news, topic: ai-engineering, weight: 1}
+  - {id: UCWN3xxRkmTPmbKwht9FuE5A, title: Siraj Raval,          tier: news, topic: ai-news, weight: 1}
 
   # ── News: AI agents ──────────────────────────────────────────────
-  - {id: UC3KK7ENB_ierAXvrxVNnbZQ, title: Ben AI,               tier: news, topic: agents}
-  - {id: UCui4jxDaMb53Gdh-AZUTPAg, title: Liam Ottley,          tier: news, topic: agents, note: "business-leaning; use only for architecture-relevant content"}
+  - {id: UC3KK7ENB_ierAXvrxVNnbZQ, title: Ben AI,               tier: news, topic: agents, weight: 1}
+  - {id: UCui4jxDaMb53Gdh-AZUTPAg, title: Liam Ottley,          tier: news, topic: agents, note: "business-leaning; use only for architecture-relevant content", weight: 1}
 
   # ── News: software, system architecture, data engineering ────────
-  - {id: UCsBjURrPoezykLs9EqgamOA, title: Fireship,             tier: news, topic: software}
-  - {id: UCzCsyvyrq38R6TnztEzOmgg, title: ByteMonk,             tier: news, topic: architecture}
-  - {id: UCmLGJ3VYBcfRaWbP6JLJcpA, title: Seattle Data Guy,     tier: news, topic: data-engineering}
+  - {id: UCsBjURrPoezykLs9EqgamOA, title: Fireship,             tier: news, topic: software, weight: 2}
+  - {id: UCzCsyvyrq38R6TnztEzOmgg, title: ByteMonk,             tier: news, topic: architecture, weight: 2}
+  - {id: UCmLGJ3VYBcfRaWbP6JLJcpA, title: Seattle Data Guy,     tier: news, topic: data-engineering, weight: 2}
 
   # ── Learning: LLM / ML from scratch (good for the Sunday lab) ────
   - {id: UCtAcpQcYerN8xxZJYTfWBMw, title: Umar Jamil,           tier: learning, topic: llm-from-scratch}

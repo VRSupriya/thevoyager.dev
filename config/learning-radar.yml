@@ -1,0 +1,69 @@
+# 🎓 Learning Radar: sources for the once-every-6-weeks certifications & courses post.
+# The routine checks these each time for new, updated, trending or retired items.
+# Exact names and versions change, so the routine verifies every item on the provider's site.
+# priority: 1 = best fit for an AI/Solution Architect targeting frontier labs + big tech.
+
+certification_providers:
+  - name: Google Cloud
+    url: https://cloud.google.com/learn/certification
+    priority: 1
+    watch: [Professional Cloud Architect, Professional Machine Learning Engineer,
+            Professional Data Engineer, Generative AI Leader]
+    why: "GCP is the main cloud in the roadmap; Google Cloud AI Architect roles value it"
+  - name: AWS
+    url: https://aws.amazon.com/certification/
+    priority: 1
+    watch: [Solutions Architect – Professional, Machine Learning Engineer – Associate,
+            AI Practitioner, Data Engineer – Associate]
+    why: "Most-asked cloud in enterprise architect job posts"
+  - name: Microsoft
+    url: https://learn.microsoft.com/credentials/
+    priority: 2
+    watch: [Azure Solutions Architect Expert (AZ-305), Azure AI Engineer Associate (AI-102),
+            Fabric Data Engineer Associate (DP-700)]
+    why: "Strong in enterprises that use OpenAI through Azure"
+  - name: Databricks
+    url: https://www.databricks.com/learn/certification
+    priority: 1
+    watch: [Generative AI Engineer Associate, Data Engineer Professional,
+            Machine Learning Professional]
+    why: "Builds on the PySpark/data-engineering strength"
+  - name: NVIDIA
+    url: https://www.nvidia.com/en-us/learn/certification/
+    priority: 2
+    watch: [Generative AI LLMs (Associate / Professional), AI Infrastructure]
+    why: "LLM serving and GPU infrastructure credibility"
+  - name: Linux Foundation / CNCF
+    url: https://training.linuxfoundation.org/certification-catalog/
+    priority: 3
+    watch: [CKA, CKAD, KCNA]
+    why: "Kubernetes underpins AI platforms"
+  - name: HashiCorp
+    url: https://developer.hashicorp.com/certifications
+    priority: 3
+    watch: [Terraform Associate]
+  - name: The Open Group
+    url: https://www.opengroup.org/certifications
+    priority: 3
+    watch: [TOGAF Enterprise Architecture]
+    why: "Useful for chief architect roles in enterprises; little weight at frontier labs"
+
+course_providers:
+  - {name: DeepLearning.AI,          url: https://www.deeplearning.ai/courses/,       priority: 1, note: "Free short courses on agents, RAG, evals, MCP; often co-built with the AI labs"}
+  - {name: Hugging Face Learn,       url: https://huggingface.co/learn,               priority: 1, note: "Free LLM, Agents and MCP courses"}
+  - {name: Stanford Online,          url: https://online.stanford.edu/,               priority: 1, note: "CS224N (NLP), CS336 (Language Modeling from Scratch) for the LLM-architecture goal"}
+  - {name: Coursera,                 url: https://www.coursera.org/,                  priority: 2, note: "DeepLearning.AI, Google, Stanford, IBM specialisations"}
+  - {name: Google Cloud Skills Boost, url: https://www.cloudskillsboost.google/,      priority: 1, note: "Official prep for Google Cloud certifications; GenAI learning paths"}
+  - {name: Microsoft Learn,          url: https://learn.microsoft.com/training/,      priority: 2, note: "Free official prep for Azure certifications"}
+  - {name: AWS Skill Builder,        url: https://skillbuilder.aws/,                  priority: 2, note: "Official prep for AWS certifications"}
+  - {name: Anthropic Academy,        url: https://www.anthropic.com/learn,            priority: 1, note: "Claude, MCP and agent-building courses"}
+  - {name: OpenAI Academy,           url: https://academy.openai.com/,                priority: 2}
+  - {name: Udemy,                    url: https://www.udemy.com/,                     priority: 2, note: "Variable quality. Best for certification exam prep from top instructors; check rating and last-updated date"}
+  - {name: Maven,                    url: https://maven.com/,                         priority: 2, note: "Cohort courses by practitioners (e.g. AI evals, LLM ops)"}
+  - {name: fast.ai,                  url: https://course.fast.ai/,                    priority: 3, note: "Free practical deep learning"}
+  - {name: "Karpathy: Neural Networks Zero to Hero", url: https://karpathy.ai/zero-to-hero.html, priority: 1, note: "Free; research-ladder step 1"}
+  - {name: MIT OpenCourseWare,       url: https://ocw.mit.edu/,                       priority: 3}
+  - {name: Linux Foundation Training, url: https://training.linuxfoundation.org/,     priority: 3}
+  - {name: ByteByteGo,               url: https://bytebytego.com/,                    priority: 2, note: "System design. Already taking AlgoMaster, so only flag new AI-era material"}
+
+# Already in progress (don't recommend these again): AlgoMaster system design, the AI agents course.

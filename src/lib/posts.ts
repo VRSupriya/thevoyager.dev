@@ -50,6 +50,15 @@ export function todayKey(now = new Date()) {
 	}).format(now);
 }
 
+const formatMinutes = (m: number) => (m >= 60 ? `${+(m / 60).toFixed(1)} h` : `${m} min`);
+
+// "10 min read · 35 min hands-on" when the post has an exercise, otherwise just the time.
+export function diveTime(data: { time_minutes: number; read_minutes?: number }) {
+	const { time_minutes: total, read_minutes: read } = data;
+	if (read && total - read >= 10) return `${read} min read · ${formatMinutes(total - read)} hands-on`;
+	return formatMinutes(read ?? total);
+}
+
 export function readingMinutes(body = '') {
 	const words = body.trim().split(/\s+/).filter(Boolean).length;
 	return Math.max(1, Math.round(words / 220));

@@ -5,7 +5,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Newsletter from '../components/Newsletter.astro';
 import WeekStrip from '../components/WeekStrip.astro';
 import { SITE_DESCRIPTION, SITE_TAGLINE, getTrack } from '../consts';
-import { briefUrl, dayKey, getBriefs, getDives, getWriting, diveUrl, todayKey, writingUrl } from '../lib/posts';
+import { briefUrl, dayKey, diveTime, getBriefs, getDives, getWriting, diveUrl, todayKey, writingUrl } from '../lib/posts';
 
 const today = todayKey();
 const briefs = await getBriefs();
@@ -60,7 +60,7 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 					<h3>{topic.data.title}</h3>
 					<p>{topic.data.summary}</p>
 					<div class="meta">
-						<span>⏱ {topic.data.time_minutes >= 60 ? `${+(topic.data.time_minutes / 60).toFixed(1)} h` : `${topic.data.time_minutes} min`}</span>
+						<span>⏱ {diveTime(topic.data)}</span>
 						{topic.data.curated_with_ai && <CuratedBadge />}
 					</div>
 				</a>

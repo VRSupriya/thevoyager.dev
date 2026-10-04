@@ -1,0 +1,14 @@
+start_date: 2026-10-12        # the Monday Deep Dives starts
+ramp:
+  - weeks: [1, 4]
+    days: [Mon, Thu, Sat]
+  - weeks: [5, 8]
+    days: [Mon, Tue, Thu, Sat, Sun]
+  - weeks: [9, 999]
+    days: [Mon, Tue, Wed, Thu, Fri, Sat, Sun]
+review_week_every: 6          # in weeks 6, 12, 18…: Saturday 🔁 Recap post + Sunday 🎓 Learning Radar only
+phases:
+  - {months: [1, 3],  name: "Foundations + LLM application layer"}
+  - {months: [4, 6],  name: "Production depth"}
+  - {months: [7, 9],  name: "Specialise + visibility"}
+  - {months: [10, 12], name: "Interviews + applications"}

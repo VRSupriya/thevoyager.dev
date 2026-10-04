@@ -28,6 +28,9 @@ const dives = defineCollection({
 		week: z.number().int(),
 		phase: z.string(),
 		time_minutes: z.number().int(),
+		read_minutes: z.number().int().optional(),
+		// For the author only: sent privately on Telegram, never shown on the site.
+		telegram_private: z.string().optional(),
 	}),
 });
 

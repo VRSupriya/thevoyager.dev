@@ -38,12 +38,12 @@ rss:
   # Cloud & systems
   - {section: core, name: AWS What's New,      url: https://aws.amazon.com/about-aws/whats-new/recent/feed/}
   - {section: core, name: Google Cloud Blog,   url: https://cloudblog.withgoogle.com/rss/, verify: true}
-  - {section: core, name: Azure Updates,       url: https://azure.microsoft.com/en-us/updates/feed/, verify: true}
+  - {section: core, name: Azure Updates,       url: https://www.microsoft.com/releasecommunications/api/v2/azure/rss}
   - {section: core, name: InfoQ,               url: https://feed.infoq.com/}
   - {section: core, name: ByteByteGo,          url: https://blog.bytebytego.com/feed}
   - {section: core, name: Pragmatic Engineer,  url: https://newsletter.pragmaticengineer.com/feed}
   - {section: core, name: Netflix Tech Blog,   url: https://netflixtechblog.com/feed}
-  - {section: core, name: Uber Engineering,    url: https://www.uber.com/blog/engineering/rss/, verify: true}
+  - {section: core, name: Uber Engineering,    url: https://www.uber.com/us/en/blog/engineering/, type: html}
   - {section: core, name: Databricks Blog,     url: https://www.databricks.com/feed, verify: true}
   # Middle East
   - {section: regional, name: MBZUAI News,     url: https://mbzuai.ac.ae/news/, type: html, verify: true}

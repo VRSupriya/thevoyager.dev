@@ -1,5 +1,5 @@
 research_step: 1              # 1–6, see the research ladder. Only you change this, when a step is done
 research_note: "Starting nanoGPT"
-current_build: ""             # filled in by the Saturday post
+current_build: "A tool-calling agent with a spend ledger and circuit breakers"             # filled in by the Saturday post
 skipped_tracks: []            # e.g. [github] to pause a layer
 build_request: ""             # optional: a project you want to build this Saturday; the routine plans it as Option A, then clears this

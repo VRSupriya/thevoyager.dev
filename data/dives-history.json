@@ -12,5 +12,12 @@
     "week": 1,
     "title": "Interview: design a Gemini assistant a bank's security team will sign off on",
     "topic_key": "interview:system-design:google:ai-solution-architect:secure-rag"
+  },
+  {
+    "date": "2026-10-17",
+    "track": "build",
+    "week": 1,
+    "title": "Build: an agent loop with a spend ledger, or a retriever that can't leak",
+    "topic_key": "build:guarded-agent-loop-ledger|acl-retrieval-leak-test"
   }
 ]

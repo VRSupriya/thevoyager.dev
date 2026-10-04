@@ -1,0 +1,27 @@
+---
+import { render } from 'astro:content';
+import Post from '../../layouts/Post.astro';
+import { type Brief, hasMermaid, getBriefs, readingMinutes } from '../../lib/posts';
+
+export async function getStaticPaths() {
+	const posts = await getBriefs();
+	return posts.map((post) => ({ params: { slug: post.id }, props: post }));
+}
+
+const post = Astro.props as Brief;
+const { Content } = await render(post);
+---
+
+<Post
+	title={post.data.title}
+	date={post.data.date}
+	summary={post.data.summary}
+	tags={post.data.tags}
+	section="☕ Daily Brief"
+	sectionHref="/brief/"
+	minutes={readingMinutes(post.body)}
+	curated={post.data.curated_with_ai}
+	hasMermaid={hasMermaid(post.body)}
+>
+	<Content />
+</Post>

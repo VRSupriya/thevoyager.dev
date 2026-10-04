@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { getProjects, projectUrl } from '../../lib/posts';
+
+const projects = await getProjects();
+---
+
+<Base title="Projects" description="Finished builds: LLM systems, agents and architecture experiments, with code.">
+	<header class="page-head">
+		<p class="eyebrow">🛰️ Projects</p>
+		<h1>Projects</h1>
+		<p>Finished builds, with the code and what I learned.</p>
+	</header>
+	{
+		projects.length ? (
+			<ul class="post-list">
+				{projects.map((p) => (
+					<li class="card project">
+						<div class="meta">
+							<FormattedDate date={p.data.date} />
+						</div>
+						<h3><a href={projectUrl(p)}>{p.data.title}</a></h3>
+						<p>{p.data.summary}</p>
+						<div class="foot">
+							<ul class="tags">
+								{p.data.tags.map((t) => (
+									<li class="tag">{t}</li>
+								))}
+							</ul>
+							{p.data.repo && <a href={p.data.repo}>Code →</a>}
+						</div>
+					</li>
+				))}
+			</ul>
+		) : (
+			<p class="empty">The first finished build will show up here.</p>
+		)
+	}
+</Base>
+
+<style>
+	.project h3 a {
+		color: var(--text);
+		text-decoration: none;
+	}
+	.project h3 a:hover {
+		color: var(--accent);
+	}
+	.foot {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		margin-top: 0.8rem;
+		font-size: 0.9rem;
+	}
+</style>

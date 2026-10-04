@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { SUBSTACK_URL } from '../consts';
+---
+
+<Base title="Privacy" description="What The Voyager collects (very little) and why.">
+	<article class="prose">
+		<p class="eyebrow">Privacy</p>
+		<h1>Privacy</h1>
+		<p><em>Last updated: 2 October 2026.</em></p>
+
+		<p>The short version: this site doesn't use cookies, doesn't run ads and doesn't track you across the web.</p>
+
+		<h2>Hosting</h2>
+		<p>
+			The site is hosted on Cloudflare Pages. Like any web host, Cloudflare processes basic request data
+			(such as IP address and browser type) to deliver pages and protect the site from abuse. See
+			<a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>.
+		</p>
+
+		<h2>Analytics</h2>
+		<p>
+			<!-- TODO: update this if you turn on Cloudflare Web Analytics. -->
+			No analytics are running yet. If that changes, it will be privacy-friendly, cookie-free page counts
+			(Cloudflare Web Analytics), and this page will say so.
+		</p>
+
+		<h2>Newsletter</h2>
+		<p>
+			The sign-up form is an embedded form from Substack. If you subscribe, Substack stores your email
+			address and handles sending the newsletter, under
+			<a href="https://substack.com/privacy">Substack's privacy policy</a>. You can unsubscribe from any
+			email. The newsletter lives at <a href={SUBSTACK_URL}>{SUBSTACK_URL.replace('https://', '')}</a>.
+		</p>
+
+		<h2>Your browser</h2>
+		<p>
+			If you pick light or dark mode with the theme button, that choice is saved in your browser's local
+			storage. It never leaves your device.
+		</p>
+
+		<h2>Contact</h2>
+		<p>
+			<!-- TODO: add a contact email if you want one here. -->
+			Questions about privacy? Reach out through the links on the <a href="/about/">About</a> page.
+		</p>
+	</article>
+</Base>

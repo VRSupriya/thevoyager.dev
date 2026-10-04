@@ -1,0 +1,28 @@
+---
+import { render } from 'astro:content';
+import Post from '../../layouts/Post.astro';
+import { type Project, hasMermaid, getProjects, readingMinutes } from '../../lib/posts';
+
+export async function getStaticPaths() {
+	const projects = await getProjects();
+	return projects.map((p) => ({ params: { slug: p.id }, props: p }));
+}
+
+const project = Astro.props as Project;
+const { Content } = await render(project);
+---
+
+<Post
+	title={project.data.title}
+	date={project.data.date}
+	summary={project.data.summary}
+	tags={project.data.tags}
+	section="🛰️ Projects"
+	sectionHref="/projects/"
+	minutes={readingMinutes(project.body)}
+	hasMermaid={hasMermaid(project.body)}
+	newsletter
+>
+	{project.data.repo && <p><a href={project.data.repo}>View the code on GitHub →</a></p>}
+	<Content />
+</Post>

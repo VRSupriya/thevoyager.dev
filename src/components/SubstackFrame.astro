@@ -1,0 +1,25 @@
+---
+import { SUBSTACK_EMBED } from '../consts';
+---
+
+<iframe
+	class="substack-frame"
+	src={SUBSTACK_EMBED}
+	title="Subscribe to The Voyager on Substack"
+	width="480"
+	height="320"
+	loading="lazy"
+	frameborder="0"
+	scrolling="no"></iframe>
+
+<style>
+	.substack-frame {
+		display: block;
+		width: 100%;
+		max-width: 480px;
+		height: 320px;
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		background: #fff;
+	}
+</style>

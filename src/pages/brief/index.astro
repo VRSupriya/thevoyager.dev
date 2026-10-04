@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { briefUrl, getBriefs } from '../../lib/posts';
+
+const posts = await getBriefs();
+---
+
+<Base title="Daily Brief" description="☕ The AI Daily Brief: the five things worth knowing in AI, cloud and systems each morning. Curated with AI.">
+	<header class="page-head">
+		<p class="eyebrow">☕ Daily Brief</p>
+		<h1>The AI Daily Brief</h1>
+		<p>
+			Each morning, the handful of things in AI, cloud and systems that are worth your time. Curated with
+			AI; <a href="/brief/rss.xml">RSS</a>.
+		</p>
+	</header>
+	{
+		posts.length ? (
+			<ul class="post-list">
+				{posts.map((p) => (
+					<PostCard href={briefUrl(p)} title={p.data.title} date={p.data.date} summary={p.data.summary} curated={p.data.curated_with_ai} />
+				))}
+			</ul>
+		) : (
+			<p class="empty">The first brief lands soon.</p>
+		)
+	}
+</Base>

@@ -1,0 +1,45 @@
+---
+// Draws ```mermaid diagrams in the browser. Only included on pages that have one,
+// and Mermaid itself is fetched from a CDN at that point, so other pages ship no extra JS.
+---
+
+<script is:inline type="module">
+	// Find the rendered ```mermaid code blocks, whatever markup the highlighter used.
+	const isMermaid = (pre) =>
+		pre.dataset.language === 'mermaid' ||
+		pre.classList.contains('language-mermaid') ||
+		!!pre.querySelector('code.language-mermaid, code[data-language="mermaid"]') ||
+		// Fallback if the highlighter drops the language: look at how the diagram starts.
+		/^\s*(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram(-v2)?|erDiagram|gantt|pie|journey|gitGraph|mindmap|timeline|quadrantChart|xychart(-beta)?|sankey(-beta)?|block(-beta)?|C4\w+|architecture(-beta)?|kanban|packet(-beta)?|requirementDiagram)\b/.test(pre.textContent);
+	const blocks = [...document.querySelectorAll('.content pre')].filter(isMermaid).map((pre) => {
+		const el = document.createElement('pre');
+		el.className = 'mermaid';
+		el.dataset.src = pre.textContent;
+		pre.replaceWith(el);
+		return el;
+	});
+	if (blocks.length) {
+		const { default: mermaid } = await import(
+			'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'
+		);
+		const isDark = () => {
+			const t = document.documentElement.dataset.theme;
+			return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+		};
+		const draw = async () => {
+			blocks.forEach((el) => {
+				el.removeAttribute('data-processed');
+				el.textContent = el.dataset.src;
+			});
+			mermaid.initialize({
+				startOnLoad: false,
+				theme: isDark() ? 'dark' : 'neutral',
+				fontFamily: 'inherit',
+			});
+			await mermaid.run({ nodes: blocks });
+		};
+		await draw();
+		document.addEventListener('themechange', draw);
+		matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+	}
+</script>

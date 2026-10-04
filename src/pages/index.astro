@@ -1,49 +1,200 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Base from '../layouts/Base.astro';
+import CuratedBadge from '../components/CuratedBadge.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Newsletter from '../components/Newsletter.astro';
+import WeekStrip from '../components/WeekStrip.astro';
+import { SITE_DESCRIPTION, SITE_TAGLINE, getTrack } from '../consts';
+import { briefUrl, dayKey, getBriefs, getDives, getWriting, diveUrl, todayKey, writingUrl } from '../lib/posts';
+
+const today = todayKey();
+const briefs = await getBriefs();
+const dives = await getDives();
+const writing = (await getWriting()).filter((p) => !p.data.draft).slice(0, 3);
+
+// Today's post if there is one, otherwise the latest.
+const brief = briefs.find((p) => dayKey(p.data.date) === today) ?? briefs[0];
+const topic = dives.find((p) => dayKey(p.data.date) === today) ?? dives[0];
+const isToday = (p?: { data: { date: Date } }) => !!p && dayKey(p.data.date) === today;
+const topicTrack = topic && getTrack(topic.data.track);
+const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
+	weekday: 'long',
+	day: 'numeric',
+	month: 'long',
+	timeZone: 'UTC',
+});
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your{' '}
-				<code>astro.config.mjs</code> file. You can customize your setup with{' '}
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to{' '}
-				<a href="https://docs.astro.build/">read the docs</a>{' '}
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out{' '}
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>{' '}
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Base hideFooterNewsletter>
+	<section class="hero">
+		<p class="eyebrow">{todayLabel}</p>
+		<h1>{SITE_TAGLINE}</h1>
+		<p class="lede">{SITE_DESCRIPTION}</p>
+	</section>
+
+	<section class="today" aria-label="Today">
+		{
+			brief ? (
+				<a class="card today-card" href={briefUrl(brief)}>
+					<p class="eyebrow">☕ {isToday(brief) ? "Today's brief" : 'Latest brief'}</p>
+					<h3>{brief.data.title}</h3>
+					<p>{brief.data.summary}</p>
+					<div class="meta">
+						<FormattedDate date={brief.data.date} />
+						{brief.data.curated_with_ai && <CuratedBadge />}
+					</div>
+				</a>
+			) : (
+				<div class="card today-card placeholder">
+					<p class="eyebrow">☕ Daily Brief</p>
+					<p>The first brief lands soon.</p>
+				</div>
+			)
+		}
+		{
+			topic && topicTrack ? (
+				<a class="card today-card" href={diveUrl(topic)}>
+					<p class="eyebrow">
+						🔭 {isToday(topic) ? "Today's deep dive" : 'Latest deep dive'} · {topicTrack.emoji} {topicTrack.label}
+					</p>
+					<h3>{topic.data.title}</h3>
+					<p>{topic.data.summary}</p>
+					<div class="meta">
+						<span>⏱ {topic.data.time_minutes >= 60 ? `${+(topic.data.time_minutes / 60).toFixed(1)} h` : `${topic.data.time_minutes} min`}</span>
+						{topic.data.curated_with_ai && <CuratedBadge />}
+					</div>
+				</a>
+			) : (
+				<div class="card today-card placeholder">
+					<p class="eyebrow">🔭 Deep Dives</p>
+					<p>The first deep dive lands soon.</p>
+				</div>
+			)
+		}
+	</section>
+
+	<section class="week-wrap" aria-labelledby="week-heading">
+		<div class="section-head">
+			<h2 id="week-heading">This week</h2>
+			<a href="/deep-dives/">Deep Dives →</a>
+		</div>
+		<WeekStrip today={today} briefs={briefs} dives={dives} />
+	</section>
+
+	{
+		writing.length > 0 && (
+			<section class="writing" aria-labelledby="writing-heading">
+				<div class="section-head">
+					<h2 id="writing-heading">Latest writing</h2>
+					<a href="/writing/">All writing →</a>
+				</div>
+				<ul class="post-list">
+					{writing.map((p) => (
+						<li>
+							<a class="card" href={writingUrl(p)}>
+								<div class="meta"><FormattedDate date={p.data.date} /></div>
+								<h3>{p.data.title}</h3>
+								<p>{p.data.summary}</p>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+
+	<Newsletter />
+</Base>
+
+<style>
+	.hero {
+		position: relative;
+		max-width: var(--measure);
+		margin: 0 auto 2.2rem;
+		padding: 2.2rem 0 0.5rem;
+		isolation: isolate;
+	}
+	/* A faint, static field of stars behind the tagline. */
+	.hero::before {
+		content: '';
+		position: absolute;
+		inset: -1rem -1.1rem 0;
+		z-index: -1;
+		background-image:
+			radial-gradient(1px 1px at 12% 22%, var(--star) 50%, transparent 51%),
+			radial-gradient(1.5px 1.5px at 78% 14%, var(--star) 50%, transparent 51%),
+			radial-gradient(1px 1px at 64% 58%, var(--star) 50%, transparent 51%),
+			radial-gradient(1px 1px at 33% 76%, var(--star) 50%, transparent 51%),
+			radial-gradient(1.5px 1.5px at 90% 70%, var(--star) 50%, transparent 51%),
+			radial-gradient(1px 1px at 48% 8%, var(--star) 50%, transparent 51%),
+			radial-gradient(1px 1px at 5% 60%, var(--star) 50%, transparent 51%),
+			radial-gradient(1px 1px at 22% 44%, var(--star) 50%, transparent 51%);
+		mask-image: linear-gradient(to bottom, #000 60%, transparent);
+	}
+	.hero h1 {
+		font-size: clamp(2rem, 7vw, 3.1rem);
+		line-height: 1.12;
+		letter-spacing: -0.02em;
+		margin: 0 0 1rem;
+	}
+	.lede {
+		font-size: 1.12rem;
+		color: var(--muted);
+		margin: 0;
+	}
+	.today {
+		max-width: var(--measure);
+		margin: 0 auto;
+		display: grid;
+		gap: 0.9rem;
+	}
+	@media (min-width: 900px) {
+		.hero,
+		.today,
+		.week-wrap,
+		.writing {
+			max-width: 60rem;
+		}
+		.today {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	.today-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+	.today-card h3 {
+		font-size: 1.25rem;
+	}
+	.today-card .meta {
+		margin-top: auto;
+		padding-top: 0.8rem;
+	}
+	.placeholder {
+		color: var(--muted);
+		border-style: dashed;
+		box-shadow: none;
+	}
+	.week-wrap,
+	.writing {
+		max-width: var(--measure);
+		margin: 2.8rem auto 0;
+	}
+	.section-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		margin-bottom: 0.9rem;
+	}
+	.section-head h2 {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+	.section-head a {
+		font-size: 0.9rem;
+	}
+	.writing .post-list {
+		max-width: none;
+	}
+</style>

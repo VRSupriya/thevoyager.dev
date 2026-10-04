@@ -1,0 +1,60 @@
+---
+import CuratedBadge from './CuratedBadge.astro';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+	href: string;
+	title: string;
+	date: Date;
+	summary: string;
+	label?: string;
+	curated?: boolean;
+	draft?: boolean;
+}
+const { href, title, date, summary, label, curated = false, draft = false } = Astro.props;
+---
+
+<li>
+	<article class="card post-card">
+		<div class="meta">
+			{label && <span class="label">{label}</span>}
+			<FormattedDate date={date} />
+			{draft && <span class="draft">Draft</span>}
+		</div>
+		<h3><a href={href}>{title}</a></h3>
+		<p>{summary}</p>
+		{curated && <div class="badge"><CuratedBadge /></div>}
+	</article>
+</li>
+
+<style>
+	.post-card {
+		position: relative;
+	}
+	.post-card:hover {
+		border-color: var(--accent);
+	}
+	/* Make the whole card clickable while keeping one link for screen readers. */
+	h3 a {
+		color: var(--text);
+		text-decoration: none;
+	}
+	h3 a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+	}
+	.label {
+		color: var(--accent);
+		font-weight: 700;
+	}
+	.draft {
+		color: var(--amber);
+		font-weight: 700;
+	}
+	.badge {
+		margin-top: 0.7rem;
+		position: relative;
+		z-index: 1;
+	}
+</style>

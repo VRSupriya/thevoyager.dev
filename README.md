@@ -1,63 +1,37 @@
-# Astro Starter Kit: Blog
+# The Voyager
 
-```sh
-npm create astro@latest -- --template blog
-```
+*Exploring the frontier, building what's next!* · https://thevoyager.dev
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+An Astro site on Cloudflare Pages. Cloudflare's Git integration builds every push
+(`npm run build`, output `dist`): `main` goes live, and other branches get a preview URL.
 
-Features:
+## Sections
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+| Section | Content | Files |
+|---|---|---|
+| Today (`/`) | Today's brief + deep dive, this week's strip, newsletter | `src/pages/index.astro` |
+| ☕ Daily Brief (`/brief/`) | Routine 1, curated with AI | `src/content/brief/YYYY-MM-DD.md` |
+| 🔭 Deep Dives (`/deep-dives/<track>/`) | Routine 2, curated with AI | `src/content/dives/<track>/YYYY-MM-DD.md` |
+| ✍️ Writing (`/writing/`) | Your own posts (`draft: true` stays unpublished) | `src/content/writing/*.md` |
+| 🛰️ Projects (`/projects/`) | Finished builds | `src/content/projects/*.md` |
 
-## 🚀 Project Structure
+Frontmatter schemas live in `src/content.config.ts`; tracks, links and site text in `src/consts.ts`.
 
-Inside of your Astro project, you'll see the following folders and files:
+Posts with `curated_with_ai: true` get the "Curated with AI" badge, a
+`noindex, follow` robots tag, and are left out of the sitemap. They never get the
+newsletter box; Writing posts do.
 
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+Diagrams: use a ```` ```mermaid ```` code block. The Mermaid script loads only on pages that have one.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+RSS: `/brief/rss.xml`, `/deep-dives/rss.xml`, `/writing/rss.xml`. Search: `/search/` (Pagefind, built after `astro build`).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Commands
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+| Command | Action |
+|---|---|
+| `npm install` | Install dependencies |
+| `npm run dev` | Dev server at `localhost:4321` (shows drafts; search needs a build) |
+| `npm run build` | Build to `dist/` and index it for search |
+| `npm run preview` | Preview the build locally |
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+`config/voice.md` is the writing voice both routines follow.

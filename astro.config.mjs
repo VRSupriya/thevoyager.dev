@@ -4,10 +4,21 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 
+// AI-curated posts (/brief/<post>/ and /deep-dives/<track>/<post>/) are noindex, so they
+// stay out of the sitemap too. Your own writing, projects and the section pages stay in.
+/** @param {string} url */
+const isCuratedPost = (url) => {
+	const path = new URL(url).pathname;
+	return /^\/brief\/[^/]+\/$/.test(path) || /^\/deep-dives\/[^/]+\/[^/]+\/$/.test(path);
+};
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://thevoyager.dev',
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({ filter: (page) => !isCuratedPost(page) && !page.endsWith('/search/') }),
+	],
 	fonts: [
 		{
 			provider: fontProviders.local(),

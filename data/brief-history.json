@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "date": "2026-10-04",
+    "slot": "top",
+    "title": "Agents shrink gap between fix and exploit",
+    "url": "https://www.infoq.com/news/2026/10/open-source-ai-security/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "models",
+    "title": "GPT-6.1 Sol",
+    "url": "https://www.infoq.com/news/2026/10/openai-devday-2026/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "agents",
+    "title": "Istio 1.31 agentgateway waypoints",
+    "url": "https://www.infoq.com/news/2026/10/istio-1-31-agentgateway/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "research",
+    "title": "ThinkingBox",
+    "url": "https://huggingface.co/blog/microsoft/thinkingbox"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "people",
+    "title": "Simon Willison: hard budget caps",
+    "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": "architecture",
+    "title": "DoorDash GenAI platform",
+    "url": "https://www.infoq.com/presentations/doordash-genai-platform-architecture/"
+  }
+]

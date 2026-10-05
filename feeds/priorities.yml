@@ -11,6 +11,7 @@ weight_points: 10          # a weight-3 source starts at 30, weight-1 at 10
 min_score: 12              # below this = dropped as not relevant enough
 domain_cap: 2              # max items from one website among the picks (the final shortlist)
 alternates_per_slot: 3     # runners-up offered next to each pick
+unverifiable_kinds: [youtube]   # WebFetch cannot read YouTube pages, so these are never a pick (alternates only, flagged)
 
 boost:                     # +3 points per distinct hit (max 5 hits counted)
   points: 3
@@ -124,6 +125,17 @@ noise:                     # -8 points per hit: hype, clickbait, and off-topic b
     - will replace you
     - end of programmers
     - sponsored
+    - enroll
+    - bootcamp
+    - masterclass
+    - '% off'
+    - limited time
+    - cohort
+    - last chance
+    - early bird
+    - register now
+    - last 3 days
+    - seats left
     - webinar
     - sponsors-only
     - not much happened

@@ -219,6 +219,21 @@ def normalise_title(title: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
 
 
+def load_covered(history_file: Path, days: int = 14) -> tuple[set[str], set[str]]:
+    """URLs and titles the brief used in the last `days` days, so they are never offered again."""
+    urls, titles = set(), set()
+    if not history_file.exists():
+        return urls, titles
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).date().isoformat()
+    for h in json.loads(history_file.read_text() or "[]"):
+        if h.get("date", "") >= cutoff:
+            if h.get("url"):
+                urls.add(normalise_url(h["url"]))
+            if h.get("title"):
+                titles.add(normalise_title(h["title"]))
+    return urls, titles
+
+
 def select(items: list[dict], since: datetime, per_source: int) -> list[dict]:
     """Keep recent items (or undated ones, capped per source), newest first, without duplicates.
 
@@ -323,13 +338,18 @@ def shortlist(candidates: list[dict], prio: dict) -> dict:
                 if c["kind"] in pref.get("kinds", [])
                 or any(s.lower() in c["source"].lower() for s in pref.get("sources", []))
             ]
-        pick = next((c for c in ranked if per_site.get(site_of(c), 0) < cap), None)
+        unverifiable = set(prio.get("unverifiable_kinds", []))
+        pick = next((c for c in ranked
+                     if per_site.get(site_of(c), 0) < cap and c["kind"] not in unverifiable), None)
         entry: dict = {"pick": None, "alternates": []}
         if pick:
             taken.add(pick["url"])
             per_site[site_of(pick)] = per_site.get(site_of(pick), 0) + 1
             entry["pick"] = pick
             entry["alternates"] = [c for c in ranked if c is not pick][:n_alt]
+            for alt in entry["alternates"]:
+                if alt["kind"] in unverifiable:
+                    alt["verify_note"] = "page cannot be fetched; use only if you can verify it another way, else skip"
         result[name] = entry
     return {name: result[name] for name in prio["slots"]}  # keep the order from priorities.yml
 
@@ -353,6 +373,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--timeout", type=int, default=20, help="seconds per request")
     ap.add_argument("--per-source", type=int, default=15, help="max items kept from one source")
     ap.add_argument("--workers", type=int, default=12)
+    ap.add_argument("--history", type=Path, default=ROOT / "data" / "brief-history.json",
+                    help="items already used in the last 14 days are dropped")
     args = ap.parse_args(argv)
 
     started = time.time()
@@ -372,6 +394,10 @@ def main(argv: list[str] | None = None) -> int:
 
     prio = load_priorities(args.feeds_dir)
     candidates = select(items, since, args.per_source)
+    covered_urls, covered_titles = load_covered(args.history)
+    already = [c for c in candidates
+               if normalise_url(c["url"]) in covered_urls or normalise_title(c["title"]) in covered_titles]
+    candidates = [c for c in candidates if c not in already]
     for c in candidates:
         score_item(c, prio, now)
     dropped = [c for c in candidates if c["score"] < prio["min_score"]]
@@ -394,6 +420,7 @@ def main(argv: list[str] | None = None) -> int:
             "items_fetched": len(items),
             "candidates": len(candidates),
             "dropped_as_irrelevant": len(dropped),
+            "dropped_already_covered": len(already),
             "by_section": by_section,
         },
         "shortlist": picks,

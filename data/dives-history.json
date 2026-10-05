@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "date": "2026-10-06",
+    "track": "research",
+    "week": 1,
+    "title": "Scroll: What If the Context Window Is Just a View?",
+    "topic_key": "research:scroll-context-as-environment:2608.21690"
+  }
+]

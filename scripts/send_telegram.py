@@ -81,6 +81,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("post", type=Path)
     ap.add_argument("--dry-run", action="store_true", help="print the messages instead of sending")
+    ap.add_argument("--only", choices=["channel", "private"], help="send just one of the two messages (for tests)")
     args = ap.parse_args()
 
     fm = read_post(args.post)
@@ -101,6 +102,8 @@ def main() -> int:
     if private:
         jobs.append((me, clip(f"🔒 Just for you\n{private}\n\n{url}"), "private"))
     for chat_id, text, label in jobs:
+        if args.only and label != args.only:
+            continue
         if not chat_id and not args.dry_run:
             print(f"skipped {label}: chat id not set", file=sys.stderr)
             failures += 1

@@ -34,5 +34,41 @@
     "slot": "architecture",
     "title": "DoorDash GenAI platform",
     "url": "https://www.infoq.com/presentations/doordash-genai-platform-architecture/"
+  },
+  {
+    "date": "2026-10-05",
+    "slot": "top",
+    "title": "Apple tightens Full Disk Access over AI agents",
+    "url": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/"
+  },
+  {
+    "date": "2026-10-05",
+    "slot": "models",
+    "title": "Cloudflare Web Search API in AI Gateway",
+    "url": "https://blog.cloudflare.com/introducing-web-search-api/"
+  },
+  {
+    "date": "2026-10-05",
+    "slot": "agents",
+    "title": "OpenAPPA agent security engine",
+    "url": "https://www.infoq.com/news/2026/10/open-APPA-zero-security-breach/"
+  },
+  {
+    "date": "2026-10-05",
+    "slot": "research",
+    "title": "Do LLM Agents Execute the Plans They Declare?",
+    "url": "https://arxiv.org/abs/2609.38108"
+  },
+  {
+    "date": "2026-10-05",
+    "slot": "people",
+    "title": "Alex Zhang on RLMs (Latent Space)",
+    "url": "https://www.latent.space/p/rlm"
+  },
+  {
+    "date": "2026-10-05",
+    "slot": "architecture",
+    "title": "Databricks REGISTER/UNREGISTER Iceberg APIs",
+    "url": "https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis"
   }
 ]

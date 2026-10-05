@@ -320,6 +320,7 @@ def shortlist(candidates: list[dict], prio: dict) -> dict:
     """One pick per slot (at most domain_cap per website), plus a few runners-up each."""
     cap, n_alt = prio["domain_cap"], prio["alternates_per_slot"]
     taken: set[str] = set()
+    offered: set[str] = set()  # urls already shown as a pick or an alternate in an earlier slot
     per_site: dict[str, int] = {}
     result: dict[str, dict] = {}
     # Strict slots (people, research) pick first, so "top" cannot take their only candidate.
@@ -331,6 +332,8 @@ def shortlist(candidates: list[dict], prio: dict) -> dict:
             key=lambda c: c["score"] + slot_bonus(c, slot),
             reverse=True,
         )
+        if slot.get("require_match"):  # a pick must at least match the slot's sources or keywords
+            ranked = [c for c in ranked if slot_bonus(c, slot) > 0]
         if slot.get("strict"):  # no fallback: only items from the slot's own kinds/sources
             pref = slot.get("prefer", {})
             ranked = [
@@ -346,10 +349,9 @@ def shortlist(candidates: list[dict], prio: dict) -> dict:
             taken.add(pick["url"])
             per_site[site_of(pick)] = per_site.get(site_of(pick), 0) + 1
             entry["pick"] = pick
-            entry["alternates"] = [c for c in ranked if c is not pick][:n_alt]
-            for alt in entry["alternates"]:
-                if alt["kind"] in unverifiable:
-                    alt["verify_note"] = "page cannot be fetched; use only if you can verify it another way, else skip"
+            entry["alternates"] = [c for c in ranked
+                                   if c is not pick and c["kind"] not in unverifiable and c["url"] not in offered][:n_alt]
+            offered.update(a["url"] for a in entry["alternates"])
         result[name] = entry
     return {name: result[name] for name in prio["slots"]}  # keep the order from priorities.yml
 

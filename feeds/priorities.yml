@@ -157,10 +157,12 @@ slots:
   top:
     note: best overall by score
   models:
+    require_match: true    # no model/feature news matched -> pick is empty and the routine searches for it
     prefer:
       sources: [OpenAI, Anthropic, DeepMind, Google AI Blog, Meta AI, Hugging Face Blog]
       keywords: [model, release, launch, pricing, context window, benchmark, open weights]
   agents:
+    require_match: true
     prefer:
       keywords: [agent, agentic, mcp, a2a, tool use, orchestration, sandbox, gateway, guardrail, prompt injection]
   research:

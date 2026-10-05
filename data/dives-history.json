@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "date": "2026-10-08",
+    "track": "interview",
+    "week": 1,
+    "title": "Interview drill: design a multi-tenant RAG platform (AI/Solution Architect, Google-style)",
+    "topic_key": "interview:system-design:Google:AI/Solution Architect:multi-tenant-rag"
+  }
+]

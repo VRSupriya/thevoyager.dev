@@ -25,6 +25,7 @@ import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
@@ -51,6 +52,22 @@ def post_url(path: Path) -> str:
     if "dives" in parts:
         return f"{SITE}/deep-dives/{parts[-2]}/{slug}/"
     raise SystemExit(f"{path}: not under src/content/brief or src/content/dives/<track>")
+
+
+def wait_until_live(url: str, timeout: int) -> bool:
+    """The site rebuilds after the push, so poll until the page answers 200 (or give up)."""
+    deadline = time.time() + timeout
+    while True:
+        try:
+            req = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; TheVoyagerBot/1.0)"})
+            with urlopen(req, timeout=15) as resp:
+                if resp.status == 200:
+                    return True
+        except (HTTPError, URLError, TimeoutError):
+            pass
+        if time.time() >= deadline:
+            return False
+        time.sleep(15)
 
 
 def clip(text: str, room: int = LIMIT) -> str:
@@ -81,6 +98,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("post", type=Path)
     ap.add_argument("--dry-run", action="store_true", help="print the messages instead of sending")
+    ap.add_argument("--no-wait", action="store_true", help="do not wait for the page to go live (tests)")
+    ap.add_argument("--wait-timeout", type=int, default=420, help="seconds to wait for the page (default 420)")
     ap.add_argument("--only", choices=["channel", "private"], help="send just one of the two messages (for tests)")
     args = ap.parse_args()
 
@@ -96,6 +115,12 @@ def main() -> int:
     me = os.environ.get("VOYAGER_TELEGRAM_PRIVATE_CHAT_ID", "")
     if not args.dry_run and not token:
         raise SystemExit("VOYAGER_TELEGRAM_BOT_TOKEN is not set")
+
+    if not args.dry_run and not args.no_wait:
+        if wait_until_live(url, args.wait_timeout):
+            print(f"page is live: {url}")
+        else:
+            print(f"warning: {url} not live after {args.wait_timeout}s; sending anyway", file=sys.stderr)
 
     failures = 0
     jobs = [(channel, clip(f"{public}\n\n{url}"), "channel")]

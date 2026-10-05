@@ -8,10 +8,11 @@ The `telegram:` text goes to the public channel (TELEGRAM_CHANNEL_ID) with a lin
 The `telegram_private:` text (Deep Dives only) goes to the author's own chat
 (TELEGRAM_PRIVATE_CHAT_ID) and is never sent to the channel.
 
-Environment variables (store them as secrets in the routine's environment, never in the repo):
-    TELEGRAM_BOT_TOKEN         from @BotFather
-    TELEGRAM_CHANNEL_ID        e.g. @thevoyager or -100123...  (bot must be a channel admin)
-    TELEGRAM_PRIVATE_CHAT_ID   your own chat id with the bot (send it /start first)
+Environment variables (store them in the routine's environment settings, never in the repo).
+They carry a VOYAGER_ prefix so they never clash with other bots in the same environment:
+    VOYAGER_TELEGRAM_BOT_TOKEN         from @BotFather (the VoyagerCareer bot)
+    VOYAGER_TELEGRAM_CHANNEL_ID        e.g. @thevoyager or -100123...  (bot must be a channel admin)
+    VOYAGER_TELEGRAM_PRIVATE_CHAT_ID   your own chat id with the bot (press Start in the bot first)
 
 Plain text only (no parse_mode), so emoji, underscores and brackets never break a message.
 A failed send prints the error and exits 1; the routine should report it but not undo the post.
@@ -89,11 +90,11 @@ def main() -> int:
     if not public:
         raise SystemExit(f"{args.post}: no `telegram:` text to send")
 
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    channel = os.environ.get("TELEGRAM_CHANNEL_ID", "")
-    me = os.environ.get("TELEGRAM_PRIVATE_CHAT_ID", "")
+    token = os.environ.get("VOYAGER_TELEGRAM_BOT_TOKEN", "")
+    channel = os.environ.get("VOYAGER_TELEGRAM_CHANNEL_ID", "")
+    me = os.environ.get("VOYAGER_TELEGRAM_PRIVATE_CHAT_ID", "")
     if not args.dry_run and not token:
-        raise SystemExit("TELEGRAM_BOT_TOKEN is not set")
+        raise SystemExit("VOYAGER_TELEGRAM_BOT_TOKEN is not set")
 
     failures = 0
     jobs = [(channel, clip(f"{public}\n\n{url}"), "channel")]

@@ -70,5 +70,47 @@
     "slot": "architecture",
     "title": "Databricks REGISTER/UNREGISTER Iceberg APIs",
     "url": "https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis"
+  },
+  {
+    "date": "2026-10-06",
+    "slot": "top",
+    "title": "Cloudflare Containers cross-tenant disk exposure",
+    "url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
+  },
+  {
+    "date": "2026-10-06",
+    "slot": "models",
+    "title": "Aleph Alpha Kolibri",
+    "url": "https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/"
+  },
+  {
+    "date": "2026-10-06",
+    "slot": "agents",
+    "title": "Uber MCP Gateway",
+    "url": "https://www.uber.com/us/en/blog/designing-mcp-gateway/"
+  },
+  {
+    "date": "2026-10-06",
+    "slot": "research",
+    "title": "APDMem agent memory",
+    "url": "https://arxiv.org/abs/2610.02472"
+  },
+  {
+    "date": "2026-10-06",
+    "slot": "people",
+    "title": "Andrew Ng on GLM-5.3 cyber capability",
+    "url": "https://www.deeplearning.ai/the-batch/issue-373"
+  },
+  {
+    "date": "2026-10-06",
+    "slot": "architecture",
+    "title": "Claude in-country inference India on Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-expands-claude-model-availability-to-india-cross-region-inference/"
+  },
+  {
+    "date": "2026-10-06",
+    "slot": "regional",
+    "title": "Dubai Agentic AI for Government Services accelerator",
+    "url": "https://www.dubaifuture.ae/latest-news/dubai-future-foundation-launches-agentic-ai-for-government-services-accelerator/"
   }
 ]

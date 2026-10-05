@@ -34,6 +34,9 @@ from urllib.request import Request, urlopen
 import yaml
 
 SITE = "https://thevoyager.dev"
+# Same emoji as src/consts.ts, so a message never shows a different icon from the site.
+TRACK_EMOJI = {"models-agentic": "🚀", "research": "🔬", "system": "🏗️", "interview": "🎯", "github": "💻",
+               "build": "🛠️", "lab": "🧪", "recap": "🔁", "radar": "🎓"}
 LIMIT = 4096  # Telegram's hard limit per message
 
 
@@ -68,6 +71,15 @@ def wait_until_live(url: str, timeout: int) -> bool:
         if time.time() >= deadline:
             return False
         time.sleep(15)
+
+
+def fix_track_emoji(text: str, path: Path) -> str:
+    """Deep Dives messages start "🔭 <track emoji> <title>": force the right track emoji."""
+    track = path.resolve().parts[-2]
+    emoji = TRACK_EMOJI.get(track)
+    if emoji and text.startswith("🔭"):
+        return re.sub(r"^🔭\s+\S+\s+", f"🔭 {emoji} ", text, count=1)
+    return text
 
 
 def clip(text: str, room: int = LIMIT) -> str:
@@ -107,6 +119,7 @@ def main() -> int:
     url = post_url(args.post)
     public = (fm.get("telegram") or "").strip()
     private = (fm.get("telegram_private") or "").strip()
+    public = fix_track_emoji(public, args.post)
     if not public:
         raise SystemExit(f"{args.post}: no `telegram:` text to send")
 

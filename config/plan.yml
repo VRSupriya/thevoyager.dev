@@ -1,4 +1,4 @@
-start_date: 2026-10-12        # the Monday Deep Dives starts
+start_date: 2026-10-05        # the Monday Deep Dives starts (week 1 = Mon 5 – Sun 11 Oct)
 ramp:
   - weeks: [1, 4]
     days: [Mon, Thu, Sat]

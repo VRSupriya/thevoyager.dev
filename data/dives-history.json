@@ -5,5 +5,12 @@
     "week": 1,
     "title": "ReCAP: compacting agent memory from attention you already paid for",
     "topic_key": "research:recap-persistent-context-graph-memory-compaction"
+  },
+  {
+    "date": "2026-10-07",
+    "track": "system",
+    "week": 1,
+    "title": "Your load balancer is quietly deleting your prefix cache",
+    "topic_key": "system:llm-d-precise-prefix-cache-routing"
   }
 ]

@@ -112,5 +112,41 @@
     "slot": "regional",
     "title": "Falcon-Emirati-7B",
     "url": "https://huggingface.co/blog/tiiuae/falcon-emirati"
+  },
+  {
+    "date": "2026-10-07",
+    "slot": "top",
+    "title": "OpenAI agents on Wikimedia projects",
+    "url": "https://wikimediafoundation.org/news/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/"
+  },
+  {
+    "date": "2026-10-07",
+    "slot": "models",
+    "title": "Mistral Large 4",
+    "url": "https://mistral.ai/news/mistral-large-4/"
+  },
+  {
+    "date": "2026-10-07",
+    "slot": "agents",
+    "title": "MCP Toolbox Java SDK v1.0",
+    "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-mcp-toolbox-java-sdk-v10-agentic-data-access-for-the-enterprise/"
+  },
+  {
+    "date": "2026-10-07",
+    "slot": "research",
+    "title": "Speculative execution for on-device voice agents",
+    "url": "https://huggingface.co/papers/2610.07641"
+  },
+  {
+    "date": "2026-10-07",
+    "slot": "people",
+    "title": "Simon Willison on EmbeddingGemma 2 licensing",
+    "url": "https://simonwillison.net/2026/Oct/6/hn-49983751/"
+  },
+  {
+    "date": "2026-10-07",
+    "slot": "architecture",
+    "title": "Spanner-backed Lakehouse runtime catalog",
+    "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-powered-by-spanner/"
   }
 ]

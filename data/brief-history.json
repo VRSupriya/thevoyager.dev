@@ -148,5 +148,41 @@
     "slot": "architecture",
     "title": "Spanner-backed Lakehouse runtime catalog",
     "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-powered-by-spanner/"
+  },
+  {
+    "date": "2026-10-08",
+    "slot": "top",
+    "title": "OpenAI 722 math manuscripts",
+    "url": "https://github.com/openai/math"
+  },
+  {
+    "date": "2026-10-08",
+    "slot": "models",
+    "title": "Claude Haiku 5.5",
+    "url": "https://www.anthropic.com/claude-haiku-5-5"
+  },
+  {
+    "date": "2026-10-08",
+    "slot": "agents",
+    "title": "Stacklok cloud-native agent harness",
+    "url": "https://www.latent.space/p/stacklok"
+  },
+  {
+    "date": "2026-10-08",
+    "slot": "research",
+    "title": "WebFovea",
+    "url": "https://huggingface.co/papers/2610.03036"
+  },
+  {
+    "date": "2026-10-08",
+    "slot": "people",
+    "title": "Kleppmann CCTI",
+    "url": "http://martin.kleppmann.com/2026/10/07/centre-for-cryptographic-trust-infrastructure.html"
+  },
+  {
+    "date": "2026-10-08",
+    "slot": "architecture",
+    "title": "Grab Counter Service on Aerospike",
+    "url": "https://engineering.grab.com/counter-service-storage-migration"
   }
 ]

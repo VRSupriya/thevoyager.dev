@@ -184,5 +184,41 @@
     "slot": "architecture",
     "title": "Grab Counter Service on Aerospike",
     "url": "https://engineering.grab.com/counter-service-storage-migration"
+  },
+  {
+    "date": "2026-10-09",
+    "slot": "top",
+    "title": "Anthropic 2026 Usage Policy update",
+    "url": "https://www.anthropic.com/news/2026-usage-policy-update"
+  },
+  {
+    "date": "2026-10-09",
+    "slot": "models",
+    "title": "GPT-6.1 Sol Ultrafast on Bedrock",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-sol-ultrafast-amazon/"
+  },
+  {
+    "date": "2026-10-09",
+    "slot": "agents",
+    "title": "Spotify Ads multi-agent patterns",
+    "url": "https://www.infoq.com/presentations/spotify-multi-agent-ai-architecture/"
+  },
+  {
+    "date": "2026-10-09",
+    "slot": "research",
+    "title": "SparseDecoding",
+    "url": "https://huggingface.co/papers/2610.12327"
+  },
+  {
+    "date": "2026-10-09",
+    "slot": "people",
+    "title": "Sam Newman on resilient systems",
+    "url": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam"
+  },
+  {
+    "date": "2026-10-09",
+    "slot": "architecture",
+    "title": "Replit + Databricks Lakebase governed apps",
+    "url": "https://www.databricks.com/blog/how-build-governed-enterprise-apps-databricks-replit-and-lakebase"
   }
 ]

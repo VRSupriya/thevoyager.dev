@@ -19,5 +19,12 @@
     "week": 1,
     "title": "Interview, AI/Solution Architect (Google-style): design an enterprise assistant for 50,000 employees",
     "topic_key": "interview:system-design:google:ai-solution-architect:enterprise-assistant-permissions-aware-rag"
+  },
+  {
+    "date": "2026-10-09",
+    "track": "github",
+    "week": 1,
+    "title": "Google's AX: Kubernetes-style YAML for agents, with Redis where etcd would choke",
+    "topic_key": "github:google-ax-agent-runtime-declarative-tasks"
   }
 ]

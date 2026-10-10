@@ -1,11 +1,12 @@
 # Feed sources for Routine 1. URLs marked "verify" are checked when fetch_feeds.py is first tested.
 # section: core     → candidates for the 5 main slots
-# section: regional → candidates for the separate "Middle East & events" block
+# section: regional → candidates for the separate "Middle East, India & events" block
 
 google_news:
   # https://news.google.com/rss/search?q=<query>&hl=<hl>&gl=<gl>&ceid=<ceid>
   global: {hl: en-US, gl: US, ceid: "US:en"}
   uae:    {hl: en-AE, gl: AE, ceid: "AE:en"}
+  india:  {hl: en-IN, gl: IN, ceid: "IN:en"}
   queries:
     - {section: core, edition: global, q: '"large language model" OR LLM when:1d'}
     - {section: core, edition: global, q: '"AI agents" OR "agentic AI" when:1d'}
@@ -13,9 +14,18 @@ google_news:
     - {section: core, edition: global, q: 'OpenAI OR Anthropic OR "Google DeepMind" OR Gemini when:1d'}
     - {section: core, edition: global, q: '"Vertex AI" OR "Amazon Bedrock" OR "Azure AI" OR Databricks OR Snowflake when:1d'}
     - {section: core, edition: global, q: '"data engineering" OR "system design" OR "distributed systems" when:2d'}
+    # Discovery: coding agents, new open-source releases, new products (beyond the usual labs)
+    - {section: core, edition: global, q: '"Claude Code" OR Codex OR Cursor OR "GitHub Copilot" OR "coding agent" OR "agent harness" when:2d'}
+    - {section: core, edition: global, q: '"open-source" (LLM OR "agent framework" OR SDK OR "inference engine" OR vLLM OR SGLang OR "vector database") (release OR launches OR "v1.0") when:2d'}
+    - {section: core, edition: global, q: '("AI-powered" OR "AI startup") (launches OR unveils OR "generally available") (enterprise OR healthcare OR fintech OR "document processing" OR "voice AI") when:2d'}
     # Middle East AI news
     - {section: regional, edition: uae, q: '"artificial intelligence" (UAE OR Dubai OR "Abu Dhabi" OR Saudi OR Qatar) when:2d'}
     - {section: regional, edition: uae, q: 'G42 OR MBZUAI OR Falcon TII OR Core42 OR HUMAIN OR "Stargate UAE" when:3d'}
+    # Middle East AI products and Arabic AI
+    - {section: regional, edition: uae, q: '(launches OR unveils OR "now available") ("AI-powered" OR "AI agent" OR "Arabic LLM" OR "Arabic AI") (UAE OR Dubai OR "Abu Dhabi" OR Saudi) when:3d'}
+    # India AI news and products
+    - {section: regional, edition: india, q: '"artificial intelligence" (India OR Bengaluru OR Bangalore OR Hyderabad OR Mumbai) (launches OR startup OR enterprise OR deployment) when:2d'}
+    - {section: regional, edition: india, q: '(Sarvam OR Krutrim OR "Indic LLM" OR "Indian languages" OR IndiaAI OR Bhashini) AI when:3d'}
     # Middle East conferences and events
     - {section: regional, edition: uae, q: '("AI conference" OR "AI summit" OR "AI week") (Dubai OR "Abu Dhabi" OR Riyadh OR Doha) when:7d'}
     - {section: regional, edition: uae, q: 'GITEX OR "Dubai AI Week" OR "World Government Summit" OR LEAP Riyadh OR "AI Everything" when:7d'}

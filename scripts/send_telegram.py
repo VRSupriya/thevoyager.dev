@@ -5,7 +5,7 @@
     python3 scripts/send_telegram.py src/content/dives/models-agentic/2026-10-12.md --dry-run
 
 The `telegram:` text goes to the public channel (VOYAGER_TELEGRAM_CHANNEL_ID) with a link to the post.
-The `telegram_private:` text (Deep Dives only) goes to the author's own chat
+The `telegram_private:` text (Deep Dives and the AI Daily Brief) goes to the author's own chat
 (VOYAGER_TELEGRAM_PRIVATE_CHAT_ID) and is never sent to the channel.
 
 Environment variables (store them in the routine's environment settings, never in the repo).

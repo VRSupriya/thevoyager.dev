@@ -426,7 +426,7 @@ def main(argv: list[str] | None = None) -> int:
             "by_section": by_section,
         },
         "shortlist": picks,
-        "regional": regional[:8],
+        "regional": regional[:12],
         "candidates": candidates,
         "dropped_titles": [d["title"] for d in dropped][:40],
         "check_pages": pages,

@@ -16,7 +16,11 @@ const curated = {
 // ☕ AI Daily Brief: src/content/brief/YYYY-MM-DD.md
 const brief = defineCollection({
 	loader: glob({ base: './src/content/brief', pattern: '**/*.{md,mdx}' }),
-	schema: z.object(curated),
+	schema: z.object({
+		...curated,
+		// For the author only: sent privately on Telegram, never shown on the site.
+		telegram_private: z.string().optional(),
+	}),
 });
 
 // 🔭 Deep Dives: src/content/dives/<track>/YYYY-MM-DD.md

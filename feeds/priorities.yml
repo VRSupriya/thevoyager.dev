@@ -94,6 +94,38 @@ boost:                     # +3 points per distinct hit (max 5 hits counted)
     - incident
     - postmortem
     - scaling
+    - coding agent
+    - claude code
+    - codex
+    - cursor
+    - copilot
+    - harness
+    - subagent
+    - skills
+    - open source
+    - open-source
+    - github
+    - vllm
+    - sglang
+    - quantization
+    - speculative decoding
+    - reranker
+    - ocr
+    - document processing
+    - vision language
+    - speech
+    - voice
+    - arabic
+    - hindi
+    - indic
+    - uae
+    - india
+    - generally available
+    - preview
+    - case study
+    - in production
+    - deprecation
+    - breaking change
 
 noise:                     # -8 points per hit: hype, clickbait, and off-topic business news
   points: 8
@@ -160,11 +192,11 @@ slots:
     require_match: true    # no model/feature news matched -> pick is empty and the routine searches for it
     prefer:
       sources: [OpenAI, Anthropic, DeepMind, Google AI Blog, Meta AI, Hugging Face Blog]
-      keywords: [model, release, launch, pricing, context window, benchmark, open weights]
+      keywords: [model, release, launch, pricing, context window, benchmark, open weights, open source, sdk, vllm, quantization, ocr, reranker]
   agents:
     require_match: true
     prefer:
-      keywords: [agent, agentic, mcp, a2a, tool use, orchestration, sandbox, gateway, guardrail, prompt injection]
+      keywords: [agent, agentic, mcp, a2a, tool use, orchestration, sandbox, gateway, guardrail, prompt injection, coding agent, claude code, codex, cursor, copilot, harness, subagent]
   research:
     strict: true           # only from the listed sources; otherwise empty, and the routine searches for a paper
     prefer:
@@ -178,4 +210,4 @@ slots:
   architecture:
     prefer:
       sources: [InfoQ, ByteByteGo, Pragmatic Engineer, Netflix, Uber, Databricks, Google Cloud Blog, AWS, Azure]
-      keywords: [architecture, system design, platform, scaling, reliability, case study, data pipeline]
+      keywords: [architecture, system design, platform, scaling, reliability, case study, data pipeline, inference, observability, evals, security, in production]

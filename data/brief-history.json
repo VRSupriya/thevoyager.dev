@@ -220,5 +220,41 @@
     "slot": "architecture",
     "title": "Replit + Databricks Lakebase governed apps",
     "url": "https://www.databricks.com/blog/how-build-governed-enterprise-apps-databricks-replit-and-lakebase"
+  },
+  {
+    "date": "2026-10-10",
+    "slot": "top",
+    "title": "Anthropic unintended model actions",
+    "url": "https://www.anthropic.com/research/investigating-unintended-model-actions"
+  },
+  {
+    "date": "2026-10-10",
+    "slot": "models",
+    "title": "Gemini 4 Argon",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+  },
+  {
+    "date": "2026-10-10",
+    "slot": "agents",
+    "title": "Netflix ontology-driven observability",
+    "url": "https://www.infoq.com/presentations/netflix-observability-aiops-ontology-scale/"
+  },
+  {
+    "date": "2026-10-10",
+    "slot": "research",
+    "title": "Ai2 impactful GPU scheduling",
+    "url": "https://huggingface.co/blog/allenai/impactful-scheduling"
+  },
+  {
+    "date": "2026-10-10",
+    "slot": "people",
+    "title": "Simon Willison on Deno joining Cloudflare",
+    "url": "https://simonwillison.net/2026/Oct/9/deno-is-joining-cloudflare/"
+  },
+  {
+    "date": "2026-10-10",
+    "slot": "architecture",
+    "title": "Valkey evolution",
+    "url": "https://www.infoq.com/news/2026/10/valkey-evolution/"
   }
 ]

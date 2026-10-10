@@ -26,5 +26,12 @@
     "week": 1,
     "title": "Google's AX: Kubernetes-style YAML for agents, with Redis where etcd would choke",
     "topic_key": "github:google-ax-agent-runtime-declarative-tasks"
+  },
+  {
+    "date": "2026-10-10",
+    "track": "build",
+    "week": 1,
+    "title": "Build: a prefix-aware context broker, or a task runner that can pause mid-thought",
+    "topic_key": "build:prefix-aware-context-broker-simulator-vs-suspendable-task-runner"
   }
 ]

@@ -256,5 +256,47 @@
     "slot": "architecture",
     "title": "Valkey evolution",
     "url": "https://www.infoq.com/news/2026/10/valkey-evolution/"
+  },
+  {
+    "date": "2026-10-11",
+    "slot": "top",
+    "title": "Google Gemini agent coworker agents",
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+  },
+  {
+    "date": "2026-10-11",
+    "slot": "models",
+    "title": "Decision models: OpenAI Decisions API and Cloudflare Clef",
+    "url": "https://letsdatascience.com/news/openai-opens-decisions-api-public-beta-b69a1e40"
+  },
+  {
+    "date": "2026-10-11",
+    "slot": "agents",
+    "title": "Copilot local sandboxing GA",
+    "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5"
+  },
+  {
+    "date": "2026-10-11",
+    "slot": "research",
+    "title": "Evidence-Grounded Behavior Graph for agent oversight",
+    "url": "https://arxiv.org/abs/2610.06406"
+  },
+  {
+    "date": "2026-10-11",
+    "slot": "people",
+    "title": "LangChain model router in the harness",
+    "url": "https://www.langchain.com/blog/how-to-build-a-model-router-in-the-harness"
+  },
+  {
+    "date": "2026-10-11",
+    "slot": "architecture",
+    "title": "Cloudflare Traces open beta",
+    "url": "https://www.infoq.com/news/2026/10/cloudflare-traces-open-beta/"
+  },
+  {
+    "date": "2026-10-11",
+    "slot": "regional",
+    "title": "TII Falcon-ASR",
+    "url": "https://www.zawya.com/en/press-release/companies-news/tii-launches-falcon-emirati-alongside-new-arabic-ai-models-for-speech-and-visual-text-understanding-1523900"
   }
 ]

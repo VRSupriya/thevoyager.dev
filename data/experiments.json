@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "date": "2026-10-11",
+    "title": "One-pass decision models vs generative LLM call for routing/classification",
+    "source_url": "https://huggingface.co/Cloudflare/clef",
+    "hypothesis": "Typed one-pass decision models (OpenAI Decisions, Clef-flash) match a generative call on closed-set tasks within 2 accuracy points at under a third of the cost and latency.",
+    "status": "suggested"
+  }
+]

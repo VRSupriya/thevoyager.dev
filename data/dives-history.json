@@ -33,5 +33,12 @@
     "week": 1,
     "title": "Build: a prefix-aware context broker, or a task runner that can pause mid-thought",
     "topic_key": "build:prefix-aware-context-broker-simulator-vs-suspendable-task-runner"
+  },
+  {
+    "date": "2026-10-11",
+    "track": "lab",
+    "week": 1,
+    "title": "Lab, Step 1 (part 1): build a GPT you can read in one sitting",
+    "topic_key": "lab:step1:part1:char-gpt-from-bigram-nanogpt"
   }
 ]

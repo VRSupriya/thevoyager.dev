@@ -5,5 +5,12 @@
     "source_url": "https://huggingface.co/Cloudflare/clef",
     "hypothesis": "Typed one-pass decision models (OpenAI Decisions, Clef-flash) match a generative call on closed-set tasks within 2 accuracy points at under a third of the cost and latency.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-12",
+    "title": "Audit agents for vulnerable AgentCore SDK versions",
+    "source_url": "https://www.infosecurity-magazine.com/news/aws-agentcore-sdk-flaws-ai/",
+    "hypothesis": "Some agent services still run a pre-1.18.1 bedrock-agentcore SDK with an execution role attached to a Code Interpreter.",
+    "status": "suggested"
   }
 ]

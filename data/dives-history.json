@@ -40,5 +40,12 @@
     "week": 1,
     "title": "Lab, Step 1 (part 1): build a GPT you can read in one sitting",
     "topic_key": "lab:step1:part1:char-gpt-from-bigram-nanogpt"
+  },
+  {
+    "date": "2026-10-12",
+    "track": "models-agentic",
+    "week": 2,
+    "title": "The newest models won't let you force a tool call. Here's what your agent loop does instead",
+    "topic_key": "models-agentic:opus-sonnet-5-5-no-forced-tool-use:agent-loop-tool-calling"
   }
 ]

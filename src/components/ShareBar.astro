@@ -1,0 +1,209 @@
+---
+import { buildShare, type ShareInput } from '../lib/share';
+
+interface Props extends Omit<ShareInput, 'url'> {}
+const input = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const s = buildShare({ ...input, url });
+const enc = encodeURIComponent;
+
+// Plain links: they work even without JavaScript.
+const whatsapp = `https://wa.me/?text=${enc(s.long)}`;
+const x = `https://twitter.com/intent/tweet?text=${enc(s.short)}&url=${enc(url)}`;
+const more = [
+	{ label: 'Email', href: `mailto:?subject=${enc(s.title)}&body=${enc(s.long)}` },
+	{ label: 'Telegram', href: `https://t.me/share/url?url=${enc(url)}&text=${enc(s.title)}` },
+	{ label: 'Bluesky', href: `https://bsky.app/intent/compose?text=${enc(s.shortWithLink)}` },
+	{ label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}` },
+	{ label: 'Reddit', href: `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(s.title)}` },
+];
+---
+
+<section class="share" aria-labelledby="share-heading" data-pagefind-ignore data-share data-title={s.title} data-url={url}>
+	<h2 id="share-heading">Share this post</h2>
+	<div class="row">
+		<a class="btn" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" data-copy data-after="Copied. Paste it into your LinkedIn post.">LinkedIn</a>
+		<a class="btn" href="https://substack.com/" target="_blank" rel="noopener" data-copy data-after="Copied. Paste it into a Substack post.">Substack</a>
+		<a class="btn" href={whatsapp} target="_blank" rel="noopener">WhatsApp</a>
+		<a class="btn" href={x} target="_blank" rel="noopener">X</a>
+		<button class="btn" type="button" data-copy data-after="Text copied.">Copy text</button>
+		<details class="more">
+			<summary class="btn" data-native>More</summary>
+			<div class="menu">
+				{more.map((m) => <a href={m.href} target="_blank" rel="noopener">{m.label}</a>)}
+				<button type="button" data-copy-link>Copy link</button>
+			</div>
+		</details>
+	</div>
+	<p class="status" role="status" aria-live="polite"></p>
+	<details class="preview">
+		<summary>Preview the text</summary>
+		<pre data-text>{s.long}</pre>
+	</details>
+</section>
+
+<script>
+	async function copy(text: string): Promise<boolean> {
+		try {
+			await navigator.clipboard.writeText(text);
+			return true;
+		} catch {
+			const ta = document.createElement('textarea');
+			ta.value = text;
+			ta.style.position = 'fixed';
+			ta.style.opacity = '0';
+			document.body.appendChild(ta);
+			ta.select();
+			let ok = false;
+			try {
+				ok = document.execCommand('copy');
+			} catch {}
+			ta.remove();
+			return ok;
+		}
+	}
+
+	document.querySelectorAll<HTMLElement>('[data-share]').forEach((root) => {
+		const text = root.querySelector('[data-text]')?.textContent ?? '';
+		const status = root.querySelector<HTMLElement>('.status');
+		const say = (msg: string) => {
+			if (status) status.textContent = msg;
+		};
+
+		root.querySelectorAll<HTMLElement>('[data-copy]').forEach((el) => {
+			el.addEventListener('click', async () => {
+				const ok = await copy(text);
+				say(ok ? (el.dataset.after ?? 'Copied.') : 'Could not copy. Open "Preview the text" and copy it by hand.');
+			});
+		});
+
+		root.querySelector('[data-copy-link]')?.addEventListener('click', async () => {
+			const ok = await copy(root.dataset.url ?? '');
+			say(ok ? 'Link copied.' : 'Could not copy the link.');
+		});
+
+		// On phones, "More" opens the system share sheet: every app installed on the device shows up there.
+		const more = root.querySelector<HTMLElement>('[data-native]');
+		if (more && typeof navigator.share === 'function' && matchMedia('(pointer: coarse)').matches) {
+			more.addEventListener('click', async (e) => {
+				e.preventDefault();
+				try {
+					await navigator.share({ title: root.dataset.title, text, url: root.dataset.url });
+				} catch {}
+			});
+		}
+	});
+</script>
+
+<style>
+	.share {
+		max-width: var(--measure);
+		margin: 2.5rem 0 0;
+		padding-top: 1.4rem;
+		border-top: 1px solid var(--border);
+	}
+	h2 {
+		margin: 0 0 0.8rem;
+		font-size: 0.8rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		align-items: center;
+	}
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.5rem;
+		padding: 0 1rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--text);
+		font: inherit;
+		font-size: 0.95rem;
+		text-decoration: none;
+		cursor: pointer;
+		list-style: none;
+	}
+	.btn::-webkit-details-marker {
+		display: none;
+	}
+	.btn:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+	.btn:focus-visible,
+	.menu a:focus-visible,
+	.menu button:focus-visible,
+	.preview summary:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+	.more {
+		position: relative;
+	}
+	.menu {
+		position: absolute;
+		z-index: 5;
+		top: calc(100% + 0.35rem);
+		left: 0;
+		min-width: 11rem;
+		display: grid;
+		padding: 0.35rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: var(--surface);
+		box-shadow: var(--shadow);
+	}
+	.menu a,
+	.menu button {
+		padding: 0.55rem 0.7rem;
+		border: 0;
+		border-radius: 8px;
+		background: none;
+		color: var(--text);
+		font: inherit;
+		font-size: 0.95rem;
+		text-align: left;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.menu a:hover,
+	.menu button:hover {
+		background: var(--accent-soft);
+		color: var(--accent);
+	}
+	.status {
+		min-height: 1.4em;
+		margin: 0.7rem 0 0;
+		font-size: 0.9rem;
+		color: var(--accent);
+	}
+	.preview {
+		margin-top: 0.4rem;
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
+	.preview summary {
+		cursor: pointer;
+		width: fit-content;
+	}
+	.preview pre {
+		margin: 0.6rem 0 0;
+		padding: 0.9rem 1rem;
+		white-space: pre-wrap;
+		word-break: break-word;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: var(--surface);
+		color: var(--text);
+		font: inherit;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+</style>

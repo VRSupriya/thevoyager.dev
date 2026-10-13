@@ -4,6 +4,7 @@ import CuratedBadge from '../components/CuratedBadge.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Mermaid from '../components/Mermaid.astro';
 import Newsletter from '../components/Newsletter.astro';
+import ShareBar from '../components/ShareBar.astro';
 
 interface Props {
 	title: string;
@@ -24,6 +25,12 @@ interface Props {
 	hasMermaid?: boolean;
 	/** Show the newsletter box at the end (your own writing only). */
 	newsletter?: boolean;
+	/** How the share text is built: AI-curated Brief or Deep Dive, or the author's own writing. */
+	shareKind?: 'brief' | 'dive' | 'own';
+	/** Text written for sharing (front matter `share:`, or the older `linkedin:`). */
+	shareWritten?: string;
+	/** The `telegram:` text; used to build points when no share text was written. */
+	shareTelegram?: string;
 }
 
 const {
@@ -41,6 +48,9 @@ const {
 	draft = false,
 	hasMermaid = false,
 	newsletter = false,
+	shareKind = 'own',
+	shareWritten,
+	shareTelegram,
 } = Astro.props;
 ---
 
@@ -80,6 +90,20 @@ const {
 						<li class="tag">#{tag}</li>
 					))}
 				</ul>
+			)
+		}
+
+		{
+			!draft && (
+				<ShareBar
+					title={title}
+					summary={summary}
+					tags={tags}
+					kind={shareKind}
+					date={date}
+					written={shareWritten}
+					telegram={shareTelegram}
+				/>
 			)
 		}
 	</article>

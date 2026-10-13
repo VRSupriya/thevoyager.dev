@@ -7,9 +7,6 @@
 The `telegram:` text goes to the public channel (VOYAGER_TELEGRAM_CHANNEL_ID) with a link to the post.
 The `telegram_private:` text (Deep Dives and the AI Daily Brief) goes to the author's own chat
 (VOYAGER_TELEGRAM_PRIVATE_CHAT_ID) and is never sent to the channel.
-A LinkedIn draft (the `linkedin:` field, or one built from the post when the field is missing) goes to the same
-private chat, with a share link. Nothing is ever posted to LinkedIn automatically: the author reviews, copies and
-posts it by hand, signed in to LinkedIn as themselves.
 
 Environment variables (store them in the routine's environment settings, never in the repo).
 They carry a VOYAGER_ prefix so they never clash with other bots in the same environment:
@@ -101,59 +98,6 @@ def hashtags(tags: list, extra: tuple = ("AI",), limit: int = 4) -> str:
     return " ".join(out[:limit])
 
 
-MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-          "November", "December"]
-LINKEDIN_TAIL = "Full post and sources:"
-
-
-def sentence(text: str, limit: int = 220) -> str:
-    """First sentence of a line, trimmed, so each point stays short."""
-    text = re.sub(r"\s+", " ", text).strip()
-    m = re.match(r"(.+?[.!?])(\s|$)", text)
-    out = m.group(1) if m else text
-    return out if len(out) <= limit else out[: limit - 1].rstrip() + "…"
-
-
-def no_emoji(line: str) -> str:
-    """Drop a leading emoji or symbol (and the space after it); keep words such as "A" or "New"."""
-    return re.sub(r"^[^\w\s\"“'(\[]+\s*", "", line.strip())
-
-
-def split_tags(draft: str) -> tuple[str, str]:
-    """Separate a trailing hashtag line from the rest of a draft."""
-    lines = draft.rstrip().split("\n")
-    if lines and lines[-1].strip() and all(w.startswith("#") for w in lines[-1].split()):
-        return "\n".join(lines[:-1]).rstrip(), lines[-1].strip()
-    return draft.rstrip(), ""
-
-
-def build_linkedin(fm: dict, path: Path, url: str) -> str:
-    """The text to paste into LinkedIn: title, points, then the blog link at the bottom, then hashtags.
-
-    Uses the post's `linkedin:` field when it has one (the link is added for it), otherwise builds a draft from the
-    post. Plain text only: LinkedIn does not render markdown."""
-    written = re.sub(r"\*\*|__", "", (fm.get("linkedin") or "").strip())
-    if written:
-        body, tags = split_tags(written)
-    else:
-        lines = [l.strip() for l in (fm.get("telegram") or "").splitlines() if l.strip()]
-        items = [l for l in lines[1:] if not l.startswith("⏱")]
-        if path.resolve().parts[-2] == "brief":
-            d = fm.get("date")
-            when = f"{d.day} {MONTHS[d.month - 1]} {d.year}" if hasattr(d, "day") else str(d)
-            title = f"AI Daily Brief, {when}"
-            hook = sentence(fm.get("summary", ""), 300)
-            points = ["• " + no_emoji(l) for l in items]
-        else:
-            title = fm.get("title", "")
-            hook = sentence(fm.get("summary", ""), 300)
-            points = ["• " + sentence(no_emoji(l)) for l in items]
-        body = "\n\n".join(filter(None, [title, hook, "\n".join(points)]))
-        tags = hashtags(fm.get("tags"))
-    parts = [body, f"{LINKEDIN_TAIL}\n{url}"] + ([tags] if tags else [])
-    return "\n\n".join(parts)
-
-
 def clip(text: str, room: int = LIMIT) -> str:
     return text if len(text) <= room else text[: room - 1].rstrip() + "…"
 
@@ -184,7 +128,7 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true", help="print the messages instead of sending")
     ap.add_argument("--no-wait", action="store_true", help="do not wait for the page to go live (tests)")
     ap.add_argument("--wait-timeout", type=int, default=420, help="seconds to wait for the page (default 420)")
-    ap.add_argument("--only", choices=["channel", "private", "linkedin"], help="send just one of the messages (for tests)")
+    ap.add_argument("--only", choices=["channel", "private"], help="send just one of the messages (for tests)")
     args = ap.parse_args()
 
     fm = read_post(args.post)
@@ -211,12 +155,6 @@ def main() -> int:
     jobs = [(channel, clip(f"{public}\n\n{url}"), "channel")]
     if private:
         jobs.append((me, clip(f"🔒 Just for you\n{private}\n\n{url}"), "private"))
-    draft = build_linkedin(fm, args.post, url)
-    jobs.append((me, "💼 LinkedIn draft is the next message. Press and hold it, choose Copy, then open LinkedIn "
-                     "and start a post (the blog link in the text shows as a preview card by itself). "
-                     "Review and edit before you post.\n\nOpen LinkedIn: https://www.linkedin.com/feed/",
-                 "linkedin"))
-    jobs.append((me, clip(draft), "linkedin"))
     for chat_id, text, label in jobs:
         if args.only and label != args.only:
             continue
@@ -225,7 +163,7 @@ def main() -> int:
             failures += 1
             continue
         try:
-            send(token, chat_id, text, args.dry_run, preview=(label != "linkedin"))
+            send(token, chat_id, text, args.dry_run, preview=True)
         except SystemExit as e:
             print(f"{label}: {e}", file=sys.stderr)
             failures += 1

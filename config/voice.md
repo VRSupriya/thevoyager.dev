@@ -37,11 +37,12 @@ Write like a **thoughtful senior architect friend** talking to a respected colle
 3. Is any sentence there only to sound smart? Cut it.
 4. Is anything on the "Don't" list? Fix it.
 
-## LinkedIn draft (the optional `linkedin:` front-matter field)
+## Share text (the optional `share:` front-matter field)
 
-Add a `linkedin: |` field to every Deep Dive and every Daily Brief, next to `telegram:`. It is a draft the author
-reviews, edits and posts by hand. It is sent only to the author's private Telegram chat, never to the channel and
-never shown on the site. If the field is missing, a plain draft is built from the post, so write one when you can.
+Add a `share: |` field to every Deep Dive and every Daily Brief, next to `telegram:`. It is the text readers copy
+from the "Share this post" panel on the site (LinkedIn, Substack, WhatsApp, X, email). The old name `linkedin:` still
+works. If the field is missing, a plain version is built from the post, so write one when you can. The Telegram
+script no longer sends it anywhere.
 
 Use exactly this structure, in plain text (LinkedIn does not render markdown: no `**`, no `#` headings, no tables):
 
@@ -62,7 +63,7 @@ Use exactly this structure, in plain text (LinkedIn does not render markdown: no
 ```
 
 - **3 to 5 points** with "•", one line or two each. For the Daily Brief use the 3 items that matter most, not all six.
-- **Do not write the blog link.** The sending script adds "Full post and sources:" and the link at the bottom,
+- **Do not write the blog link.** The site adds "Full post and sources:" and the link at the bottom,
   just above the hashtags. Do not add an AI-disclosure line to the LinkedIn draft (the author decided against it;
   the posts on the site keep their "Curated with AI" label).
 - **Hashtags on the last line**, 3 to 4. Under 1,200 characters in total.

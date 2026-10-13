@@ -28,6 +28,9 @@ const track = getTrack(post.data.track);
 	labelHref={`/deep-dives/${track.slug}/`}
 	extra={[`⏱ ${diveTime(post.data)}`]}
 	curated={post.data.curated_with_ai}
+	shareKind="dive"
+	shareWritten={post.data.share ?? post.data.linkedin}
+	shareTelegram={post.data.telegram}
 	hasMermaid={hasMermaid(post.body)}
 >
 	<Content />

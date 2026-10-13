@@ -14,6 +14,8 @@ interface Props {
 	/** Hide the footer sign-up when the page already shows the newsletter box. */
 	hideFooterNewsletter?: boolean;
 	ogType?: 'website' | 'article';
+	/** Preview image for shared links: a path like /og-default.png. */
+	image?: string;
 }
 
 const {
@@ -22,9 +24,11 @@ const {
 	noindex = false,
 	hideFooterNewsletter = false,
 	ogType = 'website',
+	image = '/og-default.png',
 } = Astro.props;
 const fullTitle = title ? `${title} · ${SITE_NAME}` : SITE_TITLE;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -50,7 +54,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={description} />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image" content={imageURL} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="The Voyager: exploring the frontier, building what's next" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content={imageURL} />
 
 		<Font cssVariable="--font-atkinson" preload />
 

@@ -21,6 +21,9 @@ const { Content } = await render(post);
 	sectionHref="/brief/"
 	minutes={readingMinutes(post.body)}
 	curated={post.data.curated_with_ai}
+	shareKind="brief"
+	shareWritten={post.data.share ?? post.data.linkedin}
+	shareTelegram={post.data.telegram}
 	hasMermaid={hasMermaid(post.body)}
 >
 	<Content />

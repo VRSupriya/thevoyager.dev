@@ -9,7 +9,9 @@ const curated = {
 	date: z.coerce.date(),
 	summary: z.string(),
 	telegram: z.string().optional(),
-	// LinkedIn draft for the author only (sent privately on Telegram; the author reviews and posts it by hand).
+	// Text people copy when they share the post: title, hook, points and hashtags. The site adds the link.
+	share: z.string().optional(),
+	// Older name for `share`; still accepted.
 	linkedin: z.string().optional(),
 	tags: z.array(z.string()).default([]),
 	curated_with_ai: z.boolean().default(false),

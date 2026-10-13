@@ -103,7 +103,7 @@ def hashtags(tags: list, extra: tuple = ("AI",), limit: int = 4) -> str:
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
           "November", "December"]
-LINKEDIN_TAIL = "Curated with AI. Full post and sources:"
+LINKEDIN_TAIL = "Full post and sources:"
 
 
 def sentence(text: str, limit: int = 220) -> str:

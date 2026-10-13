@@ -47,5 +47,12 @@
     "week": 2,
     "title": "The newest models won't let you force a tool call. Here's what your agent loop does instead",
     "topic_key": "models-agentic:opus-sonnet-5-5-no-forced-tool-use:agent-loop-tool-calling"
+  },
+  {
+    "date": "2026-10-13",
+    "track": "research",
+    "week": 2,
+    "title": "Your agent's recovery step helps some runs and wrecks others. A paper shows how to measure that",
+    "topic_key": "research:causal-intervention-router-agent-recovery-paired-counterfactuals"
   }
 ]

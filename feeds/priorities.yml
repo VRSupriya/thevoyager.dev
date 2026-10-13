@@ -126,11 +126,6 @@ boost:                     # +3 points per distinct hit (max 5 hits counted)
     - in production
     - deprecation
     - breaking change
-    - decision model
-    - jev
-    - jevbench
-    - typesafe
-    - system one model
 
 noise:                     # -8 points per hit: hype, clickbait, and off-topic business news
   points: 8

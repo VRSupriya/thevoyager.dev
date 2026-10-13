@@ -18,7 +18,6 @@ google_news:
     - {section: core, edition: global, q: '"Claude Code" OR Codex OR Cursor OR "GitHub Copilot" OR "coding agent" OR "agent harness" when:2d'}
     - {section: core, edition: global, q: '"open-source" (LLM OR "agent framework" OR SDK OR "inference engine" OR vLLM OR SGLang OR "vector database") (release OR launches OR "v1.0") when:2d'}
     - {section: core, edition: global, q: '("AI-powered" OR "AI startup") (launches OR unveils OR "generally available") (enterprise OR healthcare OR fintech OR "document processing" OR "voice AI") when:2d'}
-    - {section: core, edition: global, q: '"decision model" OR Jev OR TypeSafe OR "System One model" OR JevBench when:2d'}
     # Middle East AI news
     - {section: regional, edition: uae, q: '"artificial intelligence" (UAE OR Dubai OR "Abu Dhabi" OR Saudi OR Qatar) when:2d'}
     - {section: regional, edition: uae, q: 'G42 OR MBZUAI OR Falcon TII OR Core42 OR HUMAIN OR "Stargate UAE" when:3d'}
@@ -39,7 +38,6 @@ rss:
   - {section: core, name: Google Research,     url: https://research.google/blog/rss/, verify: true, weight: 2}
   - {section: core, name: Google AI Blog,      url: https://blog.google/technology/ai/rss/, verify: true, weight: 2}
   - {section: core, name: Meta AI,             url: https://ai.meta.com/blog/, type: html, verify: true, weight: 2}
-  - {section: core, name: TypeSafe AI Blog,    url: https://typesafe.ai/blog, type: html, weight: 3}   # Jev / decision models; no RSS
   - {section: core, name: Hugging Face Blog,   url: https://huggingface.co/blog/feed.xml, verify: true, weight: 2}
   # Research
   - {section: core, name: arXiv cs.CL,         url: https://rss.arxiv.org/rss/cs.CL, weight: 1}

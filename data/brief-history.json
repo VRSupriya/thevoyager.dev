@@ -328,5 +328,41 @@
     "slot": "architecture",
     "title": "EventBridge enhanced custom event buses",
     "url": "https://www.infoq.com/news/2026/10/aws-enhanced-eventbridge-buses/"
+  },
+  {
+    "date": "2026-10-13",
+    "slot": "top",
+    "title": "Anthropic Managed Agents flows",
+    "url": "https://www.latent.space/p/claude-dynamic-workflows"
+  },
+  {
+    "date": "2026-10-13",
+    "slot": "models",
+    "title": "Flo Health open-model post-training",
+    "url": "https://www.databricks.com/blog/how-flo-health-built-safer-more-useful-open-models-databricks-ai-runtime"
+  },
+  {
+    "date": "2026-10-13",
+    "slot": "agents",
+    "title": "GitLab 19.4 /goal agents",
+    "url": "https://www.infoq.com/news/2026/10/gitlab-19-4-goal-driven-agents/"
+  },
+  {
+    "date": "2026-10-13",
+    "slot": "research",
+    "title": "SWE-Duel",
+    "url": "https://arxiv.org/abs/2610.12569"
+  },
+  {
+    "date": "2026-10-13",
+    "slot": "people",
+    "title": "Simon Willison web-edit",
+    "url": "https://simonwillison.net/2026/Oct/12/web-edit/"
+  },
+  {
+    "date": "2026-10-13",
+    "slot": "architecture",
+    "title": "Spotify AI quality controls",
+    "url": "https://www.infoq.com/news/2026/10/spotify-ai-quality-controls/"
   }
 ]

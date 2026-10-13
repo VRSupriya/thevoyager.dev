@@ -12,5 +12,12 @@
     "source_url": "https://www.infosecurity-magazine.com/news/aws-agentcore-sdk-flaws-ai/",
     "hypothesis": "Some agent services still run a pre-1.18.1 bedrock-agentcore SDK with an execution role attached to a Code Interpreter.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-13",
+    "title": "Flows vs single agent on a seeded research task",
+    "source_url": "https://www.latent.space/p/claude-dynamic-workflows",
+    "hypothesis": "Claude Managed Agents flows find more of a seeded 20-fact set than a single agent on the same token budget, at a cost multiple smaller than the recall gain.",
+    "status": "suggested"
   }
 ]

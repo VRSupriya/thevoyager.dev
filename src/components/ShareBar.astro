@@ -7,38 +7,42 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
 const s = buildShare({ ...input, url });
 const enc = encodeURIComponent;
 
+// Markdown copy for Notion, docs and READMEs.
+const markdown = s.long
+	.split('\n')
+	.map((l, i) => (i === 0 ? `## ${l}` : l.startsWith('• ') ? `- ${l.slice(2)}` : l))
+	.join('\n')
+	.replace(/(?:Full post and sources:|Read the full post:)\n(\S+)/, '[Read the full post]($1)');
+
 // Plain links: they work even without JavaScript.
-const whatsapp = `https://wa.me/?text=${enc(s.long)}`;
-const x = `https://twitter.com/intent/tweet?text=${enc(s.short)}&url=${enc(url)}`;
-const more = [
-	{ label: 'Email', href: `mailto:?subject=${enc(s.title)}&body=${enc(s.long)}` },
-	{ label: 'Telegram', href: `https://t.me/share/url?url=${enc(url)}&text=${enc(s.title)}` },
-	{ label: 'Bluesky', href: `https://bsky.app/intent/compose?text=${enc(s.shortWithLink)}` },
-	{ label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}` },
-	{ label: 'Reddit', href: `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(s.title)}` },
+const links = [
+	{ label: 'LinkedIn', hint: 'Copies the text, then opens LinkedIn', href: 'https://www.linkedin.com/feed/', copy: 'Copied. Paste it into your LinkedIn post.' },
+	{ label: 'X', hint: 'Opens with a short version', href: `https://twitter.com/intent/tweet?text=${enc(s.short)}&url=${enc(url)}` },
+	{ label: 'Bluesky', hint: 'Opens with a short version', href: `https://bsky.app/intent/compose?text=${enc(s.shortWithLink)}` },
+	{ label: 'Email', hint: 'Opens your mail app', href: `mailto:?subject=${enc(s.title)}&body=${enc(s.long)}` },
 ];
 ---
 
-<section class="share" aria-labelledby="share-heading" data-pagefind-ignore data-share data-title={s.title} data-url={url}>
-	<h2 id="share-heading">Share this post</h2>
-	<div class="row">
-		<a class="btn" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" data-copy data-after="Copied. Paste it into your LinkedIn post.">LinkedIn</a>
-		<a class="btn" href="https://substack.com/" target="_blank" rel="noopener" data-copy data-after="Copied. Paste it into a Substack post.">Substack</a>
-		<a class="btn" href={whatsapp} target="_blank" rel="noopener">WhatsApp</a>
-		<a class="btn" href={x} target="_blank" rel="noopener">X</a>
-		<button class="btn" type="button" data-copy data-after="Text copied.">Copy text</button>
-		<details class="more">
-			<summary class="btn" data-native>More</summary>
-			<div class="menu">
-				{more.map((m) => <a href={m.href} target="_blank" rel="noopener">{m.label}</a>)}
-				<button type="button" data-copy-link>Copy link</button>
-			</div>
-		</details>
-	</div>
-	<p class="status" role="status" aria-live="polite"></p>
-	<details class="preview">
-		<summary>Preview the text</summary>
-		<pre data-text>{s.long}</pre>
+<section class="share" data-pagefind-ignore data-share data-title={s.title} data-url={url}>
+	<details class="pop">
+		<summary class="trigger" aria-label="Share this post">
+			<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 16V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/></svg>
+			Share
+		</summary>
+		<div class="panel" role="group" aria-label="Share options">
+			<pre class="text" data-text tabindex="0">{s.long}</pre>
+			<ul>
+				{links.map((l) => (
+					<li><a href={l.href} target="_blank" rel="noopener" data-copy={l.copy ? '' : undefined} data-after={l.copy}>{l.label}<small>{l.hint}</small></a></li>
+				))}
+				<li><button type="button" data-copy data-after="Text copied.">Copy text<small>Title, points, link and hashtags</small></button></li>
+				<li><button type="button" data-copy-md data-after="Markdown copied.">Copy as Markdown<small>For Notion, docs or a README</small></button></li>
+				<li><button type="button" data-copy-link>Copy link<small>Just the address</small></button></li>
+				<li hidden data-native><button type="button">More apps…<small>Your device's share sheet</small></button></li>
+			</ul>
+			<p class="status" role="status" aria-live="polite"></p>
+			<template data-md>{markdown}</template>
+		</div>
 	</details>
 </section>
 
@@ -65,33 +69,50 @@ const more = [
 
 	document.querySelectorAll<HTMLElement>('[data-share]').forEach((root) => {
 		const text = root.querySelector('[data-text]')?.textContent ?? '';
+		const md = root.querySelector('template[data-md]')?.textContent ?? text;
+		const pop = root.querySelector<HTMLDetailsElement>('.pop')!;
 		const status = root.querySelector<HTMLElement>('.status');
 		const say = (msg: string) => {
 			if (status) status.textContent = msg;
 		};
+		const fail = 'Could not copy. Select the text above and copy it by hand.';
 
 		root.querySelectorAll<HTMLElement>('[data-copy]').forEach((el) => {
 			el.addEventListener('click', async () => {
-				const ok = await copy(text);
-				say(ok ? (el.dataset.after ?? 'Copied.') : 'Could not copy. Open "Preview the text" and copy it by hand.');
+				say((await copy(text)) ? (el.dataset.after ?? 'Copied.') : fail);
 			});
 		});
-
+		root.querySelector<HTMLElement>('[data-copy-md]')?.addEventListener('click', async () => {
+			say((await copy(md)) ? 'Markdown copied.' : fail);
+		});
 		root.querySelector('[data-copy-link]')?.addEventListener('click', async () => {
-			const ok = await copy(root.dataset.url ?? '');
-			say(ok ? 'Link copied.' : 'Could not copy the link.');
+			say((await copy(root.dataset.url ?? '')) ? 'Link copied.' : 'Could not copy the link.');
 		});
 
-		// On phones, "More" opens the system share sheet: every app installed on the device shows up there.
-		const more = root.querySelector<HTMLElement>('[data-native]');
-		if (more && typeof navigator.share === 'function' && matchMedia('(pointer: coarse)').matches) {
-			more.addEventListener('click', async (e) => {
-				e.preventDefault();
+		// On phones, offer the system share sheet: every app installed on the device shows up there.
+		const native = root.querySelector<HTMLElement>('[data-native]');
+		if (native && typeof navigator.share === 'function' && matchMedia('(pointer: coarse)').matches) {
+			native.hidden = false;
+			native.querySelector('button')?.addEventListener('click', async () => {
 				try {
 					await navigator.share({ title: root.dataset.title, text, url: root.dataset.url });
 				} catch {}
 			});
 		}
+
+		document.addEventListener('click', (e) => {
+			if (pop.open && !root.contains(e.target as Node)) pop.open = false;
+		});
+		pop.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && pop.open) {
+				pop.open = false;
+				pop.querySelector('summary')?.focus();
+			}
+		});
+		pop.addEventListener('toggle', () => {
+			if (!pop.open) say('');
+			else root.querySelector('.panel')?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+		});
 	});
 </script>
 
@@ -102,67 +123,81 @@ const more = [
 		padding-top: 1.4rem;
 		border-top: 1px solid var(--border);
 	}
-	h2 {
-		margin: 0 0 0.8rem;
-		font-size: 0.8rem;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--muted);
+	.pop {
+		position: relative;
+		width: fit-content;
 	}
-	.row {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		align-items: center;
-	}
-	.btn {
+	.trigger {
 		display: inline-flex;
 		align-items: center;
+		gap: 0.5rem;
 		min-height: 2.5rem;
-		padding: 0 1rem;
+		padding: 0 1.1rem;
 		border: 1px solid var(--border);
 		border-radius: 999px;
 		background: var(--surface);
 		color: var(--text);
-		font: inherit;
 		font-size: 0.95rem;
-		text-decoration: none;
 		cursor: pointer;
 		list-style: none;
 	}
-	.btn::-webkit-details-marker {
+	.trigger::-webkit-details-marker {
 		display: none;
 	}
-	.btn:hover {
+	.trigger:hover,
+	.pop[open] .trigger {
 		border-color: var(--accent);
 		color: var(--accent);
 	}
-	.btn:focus-visible,
-	.menu a:focus-visible,
-	.menu button:focus-visible,
-	.preview summary:focus-visible {
+	.trigger:focus-visible,
+	.panel a:focus-visible,
+	.panel button:focus-visible,
+	.text:focus-visible {
 		outline: 2px solid var(--accent);
 		outline-offset: 2px;
 	}
-	.more {
-		position: relative;
-	}
-	.menu {
+	.panel {
 		position: absolute;
 		z-index: 5;
-		top: calc(100% + 0.35rem);
+		bottom: calc(100% + 0.5rem);
 		left: 0;
-		min-width: 11rem;
-		display: grid;
-		padding: 0.35rem;
+		width: min(24rem, calc(100vw - 2rem));
+		padding: 0.6rem;
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
 		background: var(--surface);
 		box-shadow: var(--shadow);
 	}
-	.menu a,
-	.menu button {
-		padding: 0.55rem 0.7rem;
+	.text {
+		max-height: 6rem;
+		overflow: auto;
+		margin: 0 0 0.5rem;
+		padding: 0.7rem 0.8rem;
+		white-space: pre-wrap;
+		word-break: break-word;
+		border-radius: 8px;
+		background: var(--bg);
+		color: var(--muted);
+		font: inherit;
+		font-size: 0.8rem;
+		line-height: 1.5;
+	}
+	ul {
+		display: grid;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li[hidden] {
+		display: none;
+	}
+	.panel a,
+	.panel button {
+		display: flex;
+		flex-direction: column;
+		gap: 0.05rem;
+		width: 100%;
+		padding: 0.4rem 0.7rem;
 		border: 0;
 		border-radius: 8px;
 		background: none;
@@ -173,37 +208,29 @@ const more = [
 		text-decoration: none;
 		cursor: pointer;
 	}
-	.menu a:hover,
-	.menu button:hover {
+	.panel small {
+		color: var(--muted);
+		font-size: 0.78rem;
+	}
+	.panel a:hover,
+	.panel button:hover {
 		background: var(--accent-soft);
 		color: var(--accent);
 	}
 	.status {
-		min-height: 1.4em;
-		margin: 0.7rem 0 0;
-		font-size: 0.9rem;
+		min-height: 1.3em;
+		margin: 0.3rem 0.7rem 0.1rem;
+		font-size: 0.85rem;
 		color: var(--accent);
 	}
-	.preview {
-		margin-top: 0.4rem;
-		font-size: 0.9rem;
-		color: var(--muted);
-	}
-	.preview summary {
-		cursor: pointer;
-		width: fit-content;
-	}
-	.preview pre {
-		margin: 0.6rem 0 0;
-		padding: 0.9rem 1rem;
-		white-space: pre-wrap;
-		word-break: break-word;
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		background: var(--surface);
-		color: var(--text);
-		font: inherit;
-		font-size: 0.9rem;
-		line-height: 1.5;
+	@media (max-width: 600px) {
+		.text,
+		.panel small {
+			display: none;
+		}
+		.panel a,
+		.panel button {
+			padding: 0.65rem 0.7rem;
+		}
 	}
 </style>

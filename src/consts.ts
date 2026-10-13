@@ -19,7 +19,7 @@ export const LINKS = {
 };
 
 // Public contact address shown on the Contact page (AdSense reviewers look for one). Leave empty to show links only.
-export const CONTACT_EMAIL = ''; // TODO: add a public address, e.g. hello@thevoyager.dev
+export const CONTACT_EMAIL = 'exp@thevoyager.dev';
 
 // AdSense publisher id, e.g. "ca-pub-1234567890123456". Set PUBLIC_ADSENSE_CLIENT in the Cloudflare Pages build
 // settings once Google gives you the id. While it is empty no Google script is loaded at all.

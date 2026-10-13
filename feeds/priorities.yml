@@ -192,7 +192,7 @@ slots:
     require_match: true    # no model/feature news matched -> pick is empty and the routine searches for it
     prefer:
       sources: [OpenAI, Anthropic, DeepMind, Google AI Blog, Meta AI, Hugging Face Blog]
-      keywords: [model, release, launch, pricing, context window, benchmark, open weights, open source, sdk, vllm, quantization, ocr, reranker]
+      keywords: [model, release, launch, pricing, context window, open weights, open-weight, embedding model, reranker, ocr model, speech model]
   agents:
     require_match: true
     prefer:

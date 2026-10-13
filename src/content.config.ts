@@ -9,6 +9,8 @@ const curated = {
 	date: z.coerce.date(),
 	summary: z.string(),
 	telegram: z.string().optional(),
+	// LinkedIn draft for the author only (sent privately on Telegram; the author reviews and posts it by hand).
+	linkedin: z.string().optional(),
 	tags: z.array(z.string()).default([]),
 	curated_with_ai: z.boolean().default(false),
 };

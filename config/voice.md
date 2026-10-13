@@ -36,3 +36,23 @@ Write like a **thoughtful senior architect friend** talking to a respected colle
 2. Would a busy senior architect learn something in the first two lines?
 3. Is any sentence there only to sound smart? Cut it.
 4. Is anything on the "Don't" list? Fix it.
+
+## LinkedIn draft (the optional `linkedin:` front-matter field)
+
+Add a `linkedin: |` field to every Deep Dive and every Daily Brief, next to `telegram:`. It is a draft the author
+reviews, edits and posts by hand. It is sent only to the author's private Telegram chat, never to the channel and
+never shown on the site. If the field is missing, a plain draft is built from the post, so write one when you can:
+
+- **Plain text only.** LinkedIn does not render markdown: no `**`, no `#` headings, no tables, no code blocks.
+- **Line 1 is the hook** (under ~140 characters). It is all people see before "see more". A concrete fact or a
+  tension, not a title or "Excited to share".
+- **Then 3 to 4 short lines or "•" points** with the one insight, the number or trade-off that matters, and the
+  failure mode or caveat. Short paragraphs, blank lines between them.
+- **End with one honest question or takeaway**, not a summary.
+- **No link in the text.** The share button attaches the link card. No @mentions.
+- **No hype and no made-up experience.** Never write "I tested…", "my team…" or any claim of personal work. Write
+  from the source: "A new paper shows…", "If you run agents in production…".
+- **Say it is AI-curated:** end with "Curated with AI. Sources are linked in the full post."
+- **3 to 4 hashtags** on the last line (for example #AI #Agents #Evals). Under 1,200 characters in total.
+- For the **Daily Brief**, lead with the one thread that connects the day, then the 2 or 3 items that matter most,
+  not all six.

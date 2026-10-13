@@ -7,6 +7,9 @@
 The `telegram:` text goes to the public channel (VOYAGER_TELEGRAM_CHANNEL_ID) with a link to the post.
 The `telegram_private:` text (Deep Dives and the AI Daily Brief) goes to the author's own chat
 (VOYAGER_TELEGRAM_PRIVATE_CHAT_ID) and is never sent to the channel.
+A LinkedIn draft (the `linkedin:` field, or one built from the post when the field is missing) goes to the same
+private chat, with a share link. Nothing is ever posted to LinkedIn automatically: the author reviews, copies and
+posts it by hand, signed in to LinkedIn as themselves.
 
 Environment variables (store them in the routine's environment settings, never in the repo).
 They carry a VOYAGER_ prefix so they never clash with other bots in the same environment:
@@ -82,17 +85,53 @@ def fix_track_emoji(text: str, path: Path) -> str:
     return text
 
 
+ACRONYMS = {"ai": "AI", "llm": "LLM", "llms": "LLMs", "mcp": "MCP", "rag": "RAG", "gpu": "GPU", "api": "API",
+            "sdk": "SDK", "moe": "MoE", "ml": "ML", "a2a": "A2A", "nlp": "NLP", "gitlab": "GitLab",
+            "github": "GitHub", "openai": "OpenAI", "devops": "DevOps"}
+
+
+def hashtags(tags: list, extra: tuple = ("AI",), limit: int = 4) -> str:
+    """#CamelCase hashtags from the post tags, e.g. ai-engineering -> #AIEngineering."""
+    out: list[str] = []
+    for t in list(extra) + list(tags or []):
+        parts = re.split(r"[^A-Za-z0-9]+", str(t))
+        tag = "#" + "".join(ACRONYMS.get(w.lower(), w[:1].upper() + w[1:]) for w in parts if w)
+        if len(tag) > 1 and tag.lower() not in [o.lower() for o in out]:
+            out.append(tag)
+    return " ".join(out[:limit])
+
+
+def build_linkedin(fm: dict, path: Path) -> str:
+    """A plain-text LinkedIn draft built from the post, used when the post has no `linkedin:` field."""
+    lines = [l.strip() for l in (fm.get("telegram") or "").splitlines() if l.strip()]
+    body = lines[1:]  # first line is the heading
+    if "brief" in path.resolve().parts[-2:-1] or path.resolve().parts[-2] == "brief":
+        hook = fm.get("summary") or fm.get("title", "")
+        items = ["• " + re.sub(r"^\S+\s+", "", l) for l in body if not l.startswith("⏱")]
+        text = f"{hook}\n\nThe six items I'd read today:\n" + "\n".join(items)
+    else:
+        title = fm.get("title", "")
+        points = [l for l in body if not l.startswith("⏱")]
+        text = f"{title}\n\n" + "\n\n".join(points or [fm.get("summary", "")])
+    tail = "Curated with AI. Sources are linked in the full post."
+    return f"{text}\n\n{tail}\n\n{hashtags(fm.get('tags'))}".strip()
+
+
+def linkedin_share_url(url: str) -> str:
+    return "https://www.linkedin.com/sharing/share-offsite/?" + urlencode({"url": url})
+
+
 def clip(text: str, room: int = LIMIT) -> str:
     return text if len(text) <= room else text[: room - 1].rstrip() + "…"
 
 
-def send(token: str, chat_id: str, text: str, dry_run: bool) -> None:
+def send(token: str, chat_id: str, text: str, dry_run: bool, preview: bool = True) -> None:
     if dry_run:
         print(f"--- would send to {chat_id or '(chat id not set)'} ({len(text)} chars)\n{text}\n")
         return
     req = Request(
         f"https://api.telegram.org/bot{token}/sendMessage",
-        data=urlencode({"chat_id": chat_id, "text": text, "disable_web_page_preview": "false"}).encode(),
+        data=urlencode({"chat_id": chat_id, "text": text, "disable_web_page_preview": "false" if preview else "true"}).encode(),
     )
     try:
         with urlopen(req, timeout=20) as resp:
@@ -112,7 +151,7 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true", help="print the messages instead of sending")
     ap.add_argument("--no-wait", action="store_true", help="do not wait for the page to go live (tests)")
     ap.add_argument("--wait-timeout", type=int, default=420, help="seconds to wait for the page (default 420)")
-    ap.add_argument("--only", choices=["channel", "private"], help="send just one of the two messages (for tests)")
+    ap.add_argument("--only", choices=["channel", "private", "linkedin"], help="send just one of the messages (for tests)")
     args = ap.parse_args()
 
     fm = read_post(args.post)
@@ -139,6 +178,11 @@ def main() -> int:
     jobs = [(channel, clip(f"{public}\n\n{url}"), "channel")]
     if private:
         jobs.append((me, clip(f"🔒 Just for you\n{private}\n\n{url}"), "private"))
+    draft = (fm.get("linkedin") or "").strip() or build_linkedin(fm, args.post)
+    draft = re.sub(r"\*\*|__", "", draft)  # LinkedIn does not render markdown
+    jobs.append((me, clip(f"💼 LinkedIn draft. Review it, then post it yourself.\n\n{draft}\n\n"
+                          f"Tap to start the post (the link card is added for you), then paste the text above:\n"
+                          f"{linkedin_share_url(url)}"), "linkedin"))
     for chat_id, text, label in jobs:
         if args.only and label != args.only:
             continue
@@ -147,7 +191,7 @@ def main() -> int:
             failures += 1
             continue
         try:
-            send(token, chat_id, text, args.dry_run)
+            send(token, chat_id, text, args.dry_run, preview=(label != "linkedin"))
         except SystemExit as e:
             print(f"{label}: {e}", file=sys.stderr)
             failures += 1

@@ -101,24 +101,57 @@ def hashtags(tags: list, extra: tuple = ("AI",), limit: int = 4) -> str:
     return " ".join(out[:limit])
 
 
-def build_linkedin(fm: dict, path: Path) -> str:
-    """A plain-text LinkedIn draft built from the post, used when the post has no `linkedin:` field."""
-    lines = [l.strip() for l in (fm.get("telegram") or "").splitlines() if l.strip()]
-    body = lines[1:]  # first line is the heading
-    if "brief" in path.resolve().parts[-2:-1] or path.resolve().parts[-2] == "brief":
-        hook = fm.get("summary") or fm.get("title", "")
-        items = ["• " + re.sub(r"^\S+\s+", "", l) for l in body if not l.startswith("⏱")]
-        text = f"{hook}\n\nThe six items I'd read today:\n" + "\n".join(items)
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+          "November", "December"]
+LINKEDIN_TAIL = "Curated with AI. Full post and sources:"
+
+
+def sentence(text: str, limit: int = 220) -> str:
+    """First sentence of a line, trimmed, so each point stays short."""
+    text = re.sub(r"\s+", " ", text).strip()
+    m = re.match(r"(.+?[.!?])(\s|$)", text)
+    out = m.group(1) if m else text
+    return out if len(out) <= limit else out[: limit - 1].rstrip() + "…"
+
+
+def no_emoji(line: str) -> str:
+    """Drop a leading emoji or symbol (and the space after it); keep words such as "A" or "New"."""
+    return re.sub(r"^[^\w\s\"“'(\[]+\s*", "", line.strip())
+
+
+def split_tags(draft: str) -> tuple[str, str]:
+    """Separate a trailing hashtag line from the rest of a draft."""
+    lines = draft.rstrip().split("\n")
+    if lines and lines[-1].strip() and all(w.startswith("#") for w in lines[-1].split()):
+        return "\n".join(lines[:-1]).rstrip(), lines[-1].strip()
+    return draft.rstrip(), ""
+
+
+def build_linkedin(fm: dict, path: Path, url: str) -> str:
+    """The text to paste into LinkedIn: title, points, then the blog link at the bottom, then hashtags.
+
+    Uses the post's `linkedin:` field when it has one (the link is added for it), otherwise builds a draft from the
+    post. Plain text only: LinkedIn does not render markdown."""
+    written = re.sub(r"\*\*|__", "", (fm.get("linkedin") or "").strip())
+    if written:
+        body, tags = split_tags(written)
     else:
-        title = fm.get("title", "")
-        points = [l for l in body if not l.startswith("⏱")]
-        text = f"{title}\n\n" + "\n\n".join(points or [fm.get("summary", "")])
-    tail = "Curated with AI. Sources are linked in the full post."
-    return f"{text}\n\n{tail}\n\n{hashtags(fm.get('tags'))}".strip()
-
-
-def linkedin_share_url(url: str) -> str:
-    return "https://www.linkedin.com/sharing/share-offsite/?" + urlencode({"url": url})
+        lines = [l.strip() for l in (fm.get("telegram") or "").splitlines() if l.strip()]
+        items = [l for l in lines[1:] if not l.startswith("⏱")]
+        if path.resolve().parts[-2] == "brief":
+            d = fm.get("date")
+            when = f"{d.day} {MONTHS[d.month - 1]} {d.year}" if hasattr(d, "day") else str(d)
+            title = f"AI Daily Brief, {when}"
+            hook = sentence(fm.get("summary", ""), 300)
+            points = ["• " + no_emoji(l) for l in items]
+        else:
+            title = fm.get("title", "")
+            hook = sentence(fm.get("summary", ""), 300)
+            points = ["• " + sentence(no_emoji(l)) for l in items]
+        body = "\n\n".join(filter(None, [title, hook, "\n".join(points)]))
+        tags = hashtags(fm.get("tags"))
+    parts = [body, f"{LINKEDIN_TAIL}\n{url}"] + ([tags] if tags else [])
+    return "\n\n".join(parts)
 
 
 def clip(text: str, room: int = LIMIT) -> str:
@@ -178,11 +211,12 @@ def main() -> int:
     jobs = [(channel, clip(f"{public}\n\n{url}"), "channel")]
     if private:
         jobs.append((me, clip(f"🔒 Just for you\n{private}\n\n{url}"), "private"))
-    draft = (fm.get("linkedin") or "").strip() or build_linkedin(fm, args.post)
-    draft = re.sub(r"\*\*|__", "", draft)  # LinkedIn does not render markdown
-    jobs.append((me, clip(f"💼 LinkedIn draft. Review it, then post it yourself.\n\n{draft}\n\n"
-                          f"Tap to start the post (the link card is added for you), then paste the text above:\n"
-                          f"{linkedin_share_url(url)}"), "linkedin"))
+    draft = build_linkedin(fm, args.post, url)
+    jobs.append((me, "💼 LinkedIn draft is the next message. Press and hold it, choose Copy, then open LinkedIn "
+                     "and start a post (the blog link in the text shows as a preview card by itself). "
+                     "Review and edit before you post.\n\nOpen LinkedIn: https://www.linkedin.com/feed/",
+                 "linkedin"))
+    jobs.append((me, clip(draft), "linkedin"))
     for chat_id, text, label in jobs:
         if args.only and label != args.only:
             continue

@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL, LINKS } from '../consts';
+---
+
+<Base title="Contact" description="How to reach the author of The Voyager.">
+	<article class="prose">
+		<p class="eyebrow">Contact</p>
+		<h1>Contact</h1>
+		<p>
+			Corrections, questions, ideas for a Deep Dive, or a problem with the site: I read everything and reply
+			when I can.
+		</p>
+		<ul>
+			{CONTACT_EMAIL && <li>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>}
+			<li>GitHub (open an issue on the site repository): <a href={LINKS.github}>{LINKS.github.replace('https://', '')}</a></li>
+			<li>Newsletter replies on <a href={LINKS.substack}>Substack</a></li>
+			{LINKS.linkedin && <li><a href={LINKS.linkedin}>LinkedIn</a></li>}
+		</ul>
+		<p>
+			Spotted a mistake in a Brief or a Deep Dive? Tell me which post and what is wrong, and I will fix it and
+			note the correction on the post. Details on how the posts are made are on the
+			<a href="/disclosure/">disclosure page</a>.
+		</p>
+	</article>
+</Base>

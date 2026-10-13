@@ -18,6 +18,13 @@ export const LINKS = {
 	linkedin: '', // TODO: add your LinkedIn URL
 };
 
+// Public contact address shown on the Contact page (AdSense reviewers look for one). Leave empty to show links only.
+export const CONTACT_EMAIL = ''; // TODO: add a public address, e.g. hello@thevoyager.dev
+
+// AdSense publisher id, e.g. "ca-pub-1234567890123456". Set PUBLIC_ADSENSE_CLIENT in the Cloudflare Pages build
+// settings once Google gives you the id. While it is empty no Google script is loaded at all.
+export const ADSENSE_CLIENT: string = import.meta.env.PUBLIC_ADSENSE_CLIENT ?? '';
+
 export const NAV = [
 	{ href: '/', label: 'Today' },
 	{ href: '/brief/', label: 'Daily Brief' },

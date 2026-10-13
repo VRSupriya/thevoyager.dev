@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { Font } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from '../consts';
+import { ADSENSE_CLIENT, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from '../consts';
 
 interface Props {
 	/** Page name; becomes "<title> · The Voyager". Leave empty for the full site title. */
@@ -48,6 +48,11 @@ const imageURL = new URL(image, Astro.site);
 		<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
 		<meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
 		<meta name="generator" content={Astro.generator} />
+		{
+			ADSENSE_CLIENT && (
+				<script is:inline async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`} crossorigin="anonymous" />
+			)
+		}
 
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta property="og:type" content={ogType} />

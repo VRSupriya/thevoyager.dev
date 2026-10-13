@@ -55,12 +55,14 @@ const links = [
 						<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill={l.stroke ? 'none' : 'currentColor'} stroke={l.stroke ? 'currentColor' : 'none'} stroke-width="1.7" stroke-linejoin="round"><path d={l.path} /></svg>
 					</a>
 				))}
+				<button class="icon" type="button" data-native aria-label="More apps" title="More apps" hidden>
+					<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><circle cx="5.5" cy="12" r="1.8" /><circle cx="12" cy="12" r="1.8" /><circle cx="18.5" cy="12" r="1.8" /></svg>
+				</button>
 			</div>
 			<ul>
 				<li><button type="button" data-copy data-after="Text copied.">Copy text<small>Title, points, link and hashtags</small></button></li>
 				<li><button type="button" data-copy-md data-after="Markdown copied.">Copy as Markdown<small>For Notion, docs or a README</small></button></li>
 				<li><button type="button" data-copy-link>Copy link<small>Just the address</small></button></li>
-				<li hidden data-native><button type="button">More apps…<small>Your device's share sheet</small></button></li>
 			</ul>
 			<p class="status" role="status" aria-live="polite"></p>
 			<template data-md>{markdown}</template>
@@ -111,11 +113,11 @@ const links = [
 			say((await copy(root.dataset.url ?? '')) ? 'Link copied.' : 'Could not copy the link.');
 		});
 
-		// On phones, offer the system share sheet: every app installed on the device shows up there.
+		// Where the browser supports it, offer the system share sheet: every app installed on the device shows up there.
 		const native = root.querySelector<HTMLElement>('[data-native]');
-		if (native && typeof navigator.share === 'function' && matchMedia('(pointer: coarse)').matches) {
+		if (native && typeof navigator.share === 'function') {
 			native.hidden = false;
-			native.querySelector('button')?.addEventListener('click', async () => {
+			native.addEventListener('click', async () => {
 				try {
 					await navigator.share({ title: root.dataset.title, text, url: root.dataset.url });
 				} catch {}
@@ -209,17 +211,24 @@ const links = [
 		gap: 0.5rem;
 		padding: 0.2rem 0.3rem 0.6rem;
 	}
-	.panel a.icon {
+	.panel .icon {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		flex: none;
 		width: 2.75rem;
 		height: 2.75rem;
 		padding: 0;
 		border: 1px solid var(--border);
 		border-radius: 50%;
+		background: none;
+		color: var(--text);
+		cursor: pointer;
 	}
-	.panel a.icon:hover {
+	.panel .icon[hidden] {
+		display: none;
+	}
+	.panel .icon:hover {
 		border-color: var(--accent);
 	}
 	ul {
@@ -231,8 +240,8 @@ const links = [
 	li[hidden] {
 		display: none;
 	}
-	.panel a,
-	.panel button {
+	.panel li a,
+	.panel li button {
 		display: flex;
 		flex-direction: column;
 		gap: 0.05rem;
@@ -252,8 +261,8 @@ const links = [
 		color: var(--muted);
 		font-size: 0.78rem;
 	}
-	.panel a:hover,
-	.panel button:hover {
+	.panel li a:hover,
+	.panel li button:hover {
 		background: var(--accent-soft);
 		color: var(--accent);
 	}
@@ -268,8 +277,8 @@ const links = [
 		.panel small {
 			display: none;
 		}
-		.panel a,
-		.panel button {
+		.panel li a,
+		.panel li button {
 			padding: 0.65rem 0.7rem;
 		}
 	}

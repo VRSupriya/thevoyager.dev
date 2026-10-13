@@ -15,7 +15,7 @@ export const SUBSTACK_EMBED = 'https://voyager2050.substack.com/embed';
 export const LINKS = {
 	github: 'https://github.com/VRSupriya',
 	substack: SUBSTACK_URL,
-	linkedin: '', // TODO: add your LinkedIn URL
+	linkedin: 'https://www.linkedin.com/in/vsupriya',
 };
 
 // Public contact address shown on the Contact page (AdSense reviewers look for one). Leave empty to show links only.

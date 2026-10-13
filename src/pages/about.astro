@@ -32,11 +32,10 @@ import { LINKS } from '../consts';
 			all mine. If something here saves you an hour or sparks an idea, that's the whole point.
 		</p>
 
-		<!-- TODO: write this section in your own words. -->
 		<h2>Who I am</h2>
-		<p class="todo">
-			A few sentences about you: what you do, what you've built, and what you're working toward as an AI
-			architect.
+		<p>
+			I design and build scalable AI systems, agentic workflows, and intelligent solutions that bridge the gap
+			between research and real-world impact.
 		</p>
 
 		<h2>Find me</h2>
@@ -44,22 +43,8 @@ import { LINKS } from '../consts';
 			<li><a href={LINKS.github}>GitHub: VRSupriya</a></li>
 			<li><a href={LINKS.substack}>Substack: The Voyager newsletter</a></li>
 			<li>
-				{LINKS.linkedin ? <a href={LINKS.linkedin}>LinkedIn</a> : <span class="todo">LinkedIn (link coming soon)</span>}
+				<a href={LINKS.linkedin}>LinkedIn: vsupriya</a>
 			</li>
 		</ul>
 	</article>
 </Base>
-
-<style>
-	.todo {
-		padding: 0.8rem 1rem;
-		border: 1px dashed var(--amber);
-		border-radius: 10px;
-		color: var(--muted);
-		background: var(--amber-soft);
-	}
-	li .todo {
-		display: inline-block;
-		padding: 0.1rem 0.5rem;
-	}
-</style>

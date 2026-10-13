@@ -6,7 +6,7 @@ export async function GET(context) {
 	const posts = await getBriefs();
 	return rss({
 		title: `${SITE_NAME} · AI Daily Brief`,
-		description: 'The AI Daily Brief: what matters in AI, cloud and systems each morning. Curated with AI.',
+		description: 'The AI Daily Brief: what matters in AI, cloud and systems each morning.',
 		site: context.site,
 		items: posts.map((p) => ({
 			title: p.data.title,

@@ -1,5 +1,4 @@
 ---
-import CuratedBadge from './CuratedBadge.astro';
 import FormattedDate from './FormattedDate.astro';
 
 interface Props {
@@ -23,7 +22,6 @@ const { href, title, date, summary, label, curated = false, draft = false } = As
 		</div>
 		<h3><a href={href}>{title}</a></h3>
 		<p>{summary}</p>
-		{curated && <div class="badge"><CuratedBadge /></div>}
 	</article>
 </li>
 
@@ -51,10 +49,5 @@ const { href, title, date, summary, label, curated = false, draft = false } = As
 	.draft {
 		color: var(--amber);
 		font-weight: 700;
-	}
-	.badge {
-		margin-top: 0.7rem;
-		position: relative;
-		z-index: 1;
 	}
 </style>

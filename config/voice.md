@@ -64,8 +64,7 @@ Use exactly this structure, in plain text (LinkedIn does not render markdown: no
 
 - **3 to 5 points** with "•", one line or two each. For the Daily Brief use the 3 items that matter most, not all six.
 - **Do not write the blog link.** The site adds "Full post and sources:" and the link at the bottom,
-  just above the hashtags. Do not add an AI-disclosure line to the LinkedIn draft (the author decided against it;
-  the posts on the site keep their "Curated with AI" label).
+  just above the hashtags. Do not add an AI-disclosure line to the LinkedIn draft (the author decided against it).
 - **Hashtags on the last line**, 3 to 4. Under 1,200 characters in total.
 - **No hype, no @mentions, no made-up experience.** Never write "I tested…" or "my team…". Write from the
   source: "A new paper shows…", "If you run agents in production…".

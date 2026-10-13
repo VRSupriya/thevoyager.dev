@@ -6,7 +6,7 @@ export async function GET(context) {
 	const posts = await getDives();
 	return rss({
 		title: `${SITE_NAME} · Deep Dives`,
-		description: 'Deep Dives: one topic a day, explained properly. Curated with AI.',
+		description: 'Deep Dives: one topic a day, explained properly.',
 		site: context.site,
 		items: posts.map((p) => ({
 			title: `${getTrack(p.data.track).emoji} ${p.data.title}`,

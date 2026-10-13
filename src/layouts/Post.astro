@@ -1,6 +1,5 @@
 ---
 import Base from './Base.astro';
-import CuratedBadge from '../components/CuratedBadge.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Mermaid from '../components/Mermaid.astro';
 import Newsletter from '../components/Newsletter.astro';
@@ -75,7 +74,6 @@ const {
 				{minutes && <span>{minutes} min read</span>}
 				{extra.map((item) => <span>{item}</span>)}
 				{draft && <span class="draft">Draft: not published</span>}
-				{curated && <CuratedBadge />}
 			</div>
 		</header>
 

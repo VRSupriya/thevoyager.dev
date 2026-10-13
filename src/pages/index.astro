@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import CuratedBadge from '../components/CuratedBadge.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Newsletter from '../components/Newsletter.astro';
 import WeekStrip from '../components/WeekStrip.astro';
@@ -41,7 +40,6 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 					<p>{brief.data.summary}</p>
 					<div class="meta">
 						<FormattedDate date={brief.data.date} />
-						{brief.data.curated_with_ai && <CuratedBadge />}
 					</div>
 				</a>
 			) : (
@@ -61,7 +59,6 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 					<p>{topic.data.summary}</p>
 					<div class="meta">
 						<span>⏱ {diveTime(topic.data)}</span>
-						{topic.data.curated_with_ai && <CuratedBadge />}
 					</div>
 				</a>
 			) : (

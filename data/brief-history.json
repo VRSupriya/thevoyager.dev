@@ -364,5 +364,47 @@
     "slot": "architecture",
     "title": "Spotify AI quality controls",
     "url": "https://www.infoq.com/news/2026/10/spotify-ai-quality-controls/"
+  },
+  {
+    "date": "2026-10-14",
+    "slot": "top",
+    "title": "Gemini 4 Argon",
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud/"
+  },
+  {
+    "date": "2026-10-14",
+    "slot": "models",
+    "title": "LFM2.5-24B-A2B",
+    "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b"
+  },
+  {
+    "date": "2026-10-14",
+    "slot": "agents",
+    "title": "Google ADK in five languages",
+    "url": "https://cloud.google.com/blog/topics/developers-practitioners/one-agent-development-kit-five-languages/"
+  },
+  {
+    "date": "2026-10-14",
+    "slot": "research",
+    "title": "Apple Minions distributed GPU cloud",
+    "url": "https://machinelearning.apple.com/research/distributed-gpu-cloud"
+  },
+  {
+    "date": "2026-10-14",
+    "slot": "people",
+    "title": "Geoffrey Huntley pre-commit hooks",
+    "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+  },
+  {
+    "date": "2026-10-14",
+    "slot": "architecture",
+    "title": "Anthropic Scion source control",
+    "url": "https://www.anthropic.com/engineering/redesigning-source-control"
+  },
+  {
+    "date": "2026-10-14",
+    "slot": "regional",
+    "title": "Sarvam Bulbul V4 Flash",
+    "url": "https://www.sarvam.ai/blogs/bulbul-v4-flash"
   }
 ]

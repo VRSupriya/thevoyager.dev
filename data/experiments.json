@@ -19,5 +19,12 @@
     "source_url": "https://www.latent.space/p/claude-dynamic-workflows",
     "hypothesis": "Claude Managed Agents flows find more of a seeded 20-fact set than a single agent on the same token budget, at a cost multiple smaller than the recall gain.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-14",
+    "title": "Gemini 4 Argon vs current model on real agent traces",
+    "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud/",
+    "hypothesis": "On 20 of your own hard agent traces, Argon cuts cost per resolved task by 20%+ at equal pass rate, including at the post-Nov 30 price.",
+    "status": "suggested"
   }
 ]

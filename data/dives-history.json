@@ -54,5 +54,12 @@
     "week": 2,
     "title": "Your agent's recovery step helps some runs and wrecks others. A paper shows how to measure that",
     "topic_key": "research:causal-intervention-router-agent-recovery-paired-counterfactuals"
+  },
+  {
+    "date": "2026-10-14",
+    "track": "system",
+    "week": 2,
+    "title": "An agent that survives a deploy: durable execution, and the history limit nobody mentions",
+    "topic_key": "system:durable-execution-agents-temporal-codex-history-limits"
   }
 ]

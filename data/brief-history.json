@@ -406,5 +406,41 @@
     "slot": "regional",
     "title": "Sarvam Bulbul V4 Flash",
     "url": "https://www.sarvam.ai/blogs/bulbul-v4-flash"
+  },
+  {
+    "date": "2026-10-15",
+    "slot": "top",
+    "title": "Workday Trusted Agent Platform headless",
+    "url": "https://www.prnewswire.com/news-releases/workdays-trusted-agent-platform-now-delivers-headless-access-to-hr-and-finance-letting-customers-build-and-run-lawful-ai-agents-302906696.html"
+  },
+  {
+    "date": "2026-10-15",
+    "slot": "models",
+    "title": "Meta Muse Wonder",
+    "url": "https://research.meta.ai/blog/muse-wonder"
+  },
+  {
+    "date": "2026-10-15",
+    "slot": "agents",
+    "title": "DigitalOcean Agent Learning and Data Services",
+    "url": "https://digitalocean.com/blog/introducing-agent-data-services"
+  },
+  {
+    "date": "2026-10-15",
+    "slot": "research",
+    "title": "Skill LLMs customer support workflow benchmark",
+    "url": "https://arxiv.org/abs/2610.14346"
+  },
+  {
+    "date": "2026-10-15",
+    "slot": "people",
+    "title": "Pragmatic Engineer: Uber's AI infra",
+    "url": "https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside"
+  },
+  {
+    "date": "2026-10-15",
+    "slot": "architecture",
+    "title": "BigQuery generative AI token quotas GA",
+    "url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/"
   }
 ]

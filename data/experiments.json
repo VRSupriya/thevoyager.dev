@@ -26,5 +26,12 @@
     "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud/",
     "hypothesis": "On 20 of your own hard agent traces, Argon cuts cost per resolved task by 20%+ at equal pass rate, including at the post-Nov 30 price.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-15",
+    "title": "BigQuery AI token quota: silent empty rows",
+    "source_url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/",
+    "hypothesis": "With a quota at ~10% of a batch, AI.GENERATE rows past the limit come back empty with a quota error in status, and downstream jobs don't notice unless they check.",
+    "status": "suggested"
   }
 ]

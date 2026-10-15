@@ -61,5 +61,12 @@
     "week": 2,
     "title": "An agent that survives a deploy: durable execution, and the history limit nobody mentions",
     "topic_key": "system:durable-execution-agents-temporal-codex-history-limits"
+  },
+  {
+    "date": "2026-10-15",
+    "track": "interview",
+    "week": 2,
+    "title": "Forward Deployed Engineer, LLM system design: one customer, three latency budgets, one bill",
+    "topic_key": "interview:ml-llm-system-design:openai:forward-deployed-engineer:tiered-inference-flex-batch-cache-evals"
   }
 ]

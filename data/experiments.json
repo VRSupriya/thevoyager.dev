@@ -33,5 +33,12 @@
     "source_url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/",
     "hypothesis": "With a quota at ~10% of a batch, AI.GENERATE rows past the limit come back empty with a quota error in status, and downstream jobs don't notice unless they check.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-16",
+    "title": "Temporal serverless worker cold start on Cloud Run",
+    "source_url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/",
+    "hypothesis": "With min instances 0, p95 backlog-to-start latency after 10 idle minutes is clearly higher than with min 1; adopt for bursty agent queues only if the gap fits your SLA.",
+    "status": "suggested"
   }
 ]

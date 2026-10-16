@@ -442,5 +442,47 @@
     "slot": "architecture",
     "title": "BigQuery generative AI token quotas GA",
     "url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/"
+  },
+  {
+    "date": "2026-10-16",
+    "slot": "top",
+    "title": "Meta Muse Spark Open",
+    "url": "https://huggingface.co/blog/meta-muse-spark-open"
+  },
+  {
+    "date": "2026-10-16",
+    "slot": "models",
+    "title": "IBM Granite Switch 4.1",
+    "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1"
+  },
+  {
+    "date": "2026-10-16",
+    "slot": "agents",
+    "title": "Temporal Serverless Workers on Cloud Run",
+    "url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/"
+  },
+  {
+    "date": "2026-10-16",
+    "slot": "research",
+    "title": "SWE-at-Scale",
+    "url": "https://arxiv.org/abs/2610.21359"
+  },
+  {
+    "date": "2026-10-16",
+    "slot": "people",
+    "title": "LangChain Deep Agents context engineering",
+    "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember"
+  },
+  {
+    "date": "2026-10-16",
+    "slot": "architecture",
+    "title": "VPC Service Controls folder perimeters",
+    "url": "https://cloud.google.com/blog/products/identity-security/introducing-new-scalable-perimeter-options-with-vpc-service-controls/"
+  },
+  {
+    "date": "2026-10-16",
+    "slot": "regional",
+    "title": "NVIDIA Nemotron Indic pretraining",
+    "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining"
   }
 ]

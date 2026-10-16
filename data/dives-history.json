@@ -68,5 +68,12 @@
     "week": 2,
     "title": "Forward Deployed Engineer, LLM system design: one customer, three latency budgets, one bill",
     "topic_key": "interview:ml-llm-system-design:openai:forward-deployed-engineer:tiered-inference-flex-batch-cache-evals"
+  },
+  {
+    "date": "2026-10-16",
+    "track": "github",
+    "week": 2,
+    "title": "Durable Streams: the agent session as an HTTP log you can resume from any offset",
+    "topic_key": "github:durable-streams-resumable-http-streams-agent-sessions"
   }
 ]

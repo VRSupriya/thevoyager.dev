@@ -75,5 +75,12 @@
     "week": 2,
     "title": "Durable Streams: the agent session as an HTTP log you can resume from any offset",
     "topic_key": "github:durable-streams-resumable-http-streams-agent-sessions"
+  },
+  {
+    "date": "2026-10-17",
+    "track": "build",
+    "week": 2,
+    "title": "Build: a fork lab that counts your agent's rescues and harms, or a session log that survives zombie workers",
+    "topic_key": "build:paired-counterfactual-fork-lab-vs-idempotent-fenced-session-log"
   }
 ]

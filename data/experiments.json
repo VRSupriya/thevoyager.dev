@@ -40,5 +40,12 @@
     "source_url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/",
     "hypothesis": "With min instances 0, p95 backlog-to-start latency after 10 idle minutes is clearly higher than with min 1; adopt for bursty agent queues only if the gap fits your SLA.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-17",
+    "title": "Trace-based vs final-message grading of agent runs",
+    "source_url": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons/",
+    "hypothesis": "On 10 runs of an internal agent, grading the tool-call trace disagrees with grading the final message on at least 2.",
+    "status": "suggested"
   }
 ]

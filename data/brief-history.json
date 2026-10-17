@@ -484,5 +484,47 @@
     "slot": "regional",
     "title": "NVIDIA Nemotron Indic pretraining",
     "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining"
+  },
+  {
+    "date": "2026-10-17",
+    "slot": "top",
+    "title": "Perplexity SPACE open-source sandbox",
+    "url": "https://github.com/perplexityai/space"
+  },
+  {
+    "date": "2026-10-17",
+    "slot": "models",
+    "title": "Reflection Beam",
+    "url": "https://huggingface.co/blog/reflection-beam"
+  },
+  {
+    "date": "2026-10-17",
+    "slot": "agents",
+    "title": "Google Cloud agent plugin eval lessons",
+    "url": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons/"
+  },
+  {
+    "date": "2026-10-17",
+    "slot": "research",
+    "title": "Apple MLX distributed inference on Mac Studio",
+    "url": "https://machinelearning.apple.com/research/mlx-distributed-inference"
+  },
+  {
+    "date": "2026-10-17",
+    "slot": "people",
+    "title": "Claude Code team on continuous review",
+    "url": "https://simonwillison.net/2026/Oct/16/code-review/"
+  },
+  {
+    "date": "2026-10-17",
+    "slot": "architecture",
+    "title": "Wiz Runtime Sensor add-on for GKE",
+    "url": "https://cloud.google.com/blog/products/identity-security/wiz-sensor-for-gke-turnkey-threat-detection-for-kubernetes/"
+  },
+  {
+    "date": "2026-10-17",
+    "slot": "regional",
+    "title": "Jais 3 Arabic models",
+    "url": "https://gulfnews.com/uae/uae-launches-jais-3-arabic-native-ai-for-speech-writing-and-agents-1.500711935"
   }
 ]

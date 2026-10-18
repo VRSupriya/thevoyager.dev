@@ -82,5 +82,12 @@
     "week": 2,
     "title": "Build: a fork lab that counts your agent's rescues and harms, or a session log that survives zombie workers",
     "topic_key": "build:paired-counterfactual-fork-lab-vs-idempotent-fenced-session-log"
+  },
+  {
+    "date": "2026-10-18",
+    "track": "lab",
+    "week": 2,
+    "title": "Lab, Step 1 (part 2): the training loop is where small GPTs quietly go wrong",
+    "topic_key": "lab:step1:part2:training-loop-warmup-cosine-adamw-clipping-eval"
   }
 ]

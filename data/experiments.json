@@ -47,5 +47,12 @@
     "source_url": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons/",
     "hypothesis": "On 10 runs of an internal agent, grading the tool-call trace disagrees with grading the final message on at least 2.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-18",
+    "title": "DeepSeek V4.1-Flash-1017 cost per resolved task",
+    "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "hypothesis": "On 20 of your own agent traces, cost per resolved task drops versus your current model at pass rate within 3 points.",
+    "status": "suggested"
   }
 ]

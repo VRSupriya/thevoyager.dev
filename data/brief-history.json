@@ -526,5 +526,53 @@
     "slot": "regional",
     "title": "Jais 3 Arabic models",
     "url": "https://gulfnews.com/uae/uae-launches-jais-3-arabic-native-ai-for-speech-writing-and-agents-1.500711935"
+  },
+  {
+    "date": "2026-10-18",
+    "slot": "top",
+    "title": "DeepSeek V4.1-Flash-1017",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+  },
+  {
+    "date": "2026-10-18",
+    "slot": "models",
+    "title": "DeepSeek flash alias repointed to 1017",
+    "url": "https://api-docs.deepseek.com/news/news1017"
+  },
+  {
+    "date": "2026-10-18",
+    "slot": "agents",
+    "title": "REA MCP server for reverse engineering",
+    "url": "https://github.com/morluto/rea"
+  },
+  {
+    "date": "2026-10-18",
+    "slot": "research",
+    "title": "Google VERID wet-lab agents",
+    "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/"
+  },
+  {
+    "date": "2026-10-18",
+    "slot": "people",
+    "title": "Nathan Lambert: Meta shakes up the frontiers",
+    "url": "https://www.interconnects.ai/p/meta-shakes-up-the-frontiers-open"
+  },
+  {
+    "date": "2026-10-18",
+    "slot": "architecture",
+    "title": "Databricks multi-table transactions GA",
+    "url": "https://www.databricks.com/blog/transactions-are-generally-available-advancing-warehousing-lakehouse"
+  },
+  {
+    "date": "2026-10-18",
+    "slot": "regional",
+    "title": "Mashreq pilots IBM Bob",
+    "url": "https://www.zawya.com/en/press-release/companies-news/mashreq-pilots-ibm-bob-to-advance-agentic-ai-for-integration-engineering-1589075"
+  },
+  {
+    "date": "2026-10-18",
+    "slot": "regional",
+    "title": "Abu Dhabi TAMM Global",
+    "url": "https://www.kucoin.com/news/flash/abu-dhabi-launches-tamm-global-to-license-ai-government-platform"
   }
 ]

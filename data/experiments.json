@@ -54,5 +54,12 @@
     "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
     "hypothesis": "On 20 of your own agent traces, cost per resolved task drops versus your current model at pass rate within 3 points.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-19",
+    "title": "Canary credential and default-deny egress test for agent runs",
+    "source_url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02",
+    "hypothesis": "In 20 staging agent runs, at least one outbound call leaves the allowlist or the planted fake key is used.",
+    "status": "suggested"
   }
 ]

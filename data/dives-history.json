@@ -89,5 +89,12 @@
     "week": 2,
     "title": "Lab, Step 1 (part 2): the training loop is where small GPTs quietly go wrong",
     "topic_key": "lab:step1:part2:training-loop-warmup-cosine-adamw-clipping-eval"
+  },
+  {
+    "date": "2026-10-19",
+    "track": "models-agentic",
+    "week": 3,
+    "title": "The agent that writes its own workflow: when the plan becomes a program",
+    "topic_key": "models-agentic:managed-agents-dynamic-workflows:workflows-vs-agents"
   }
 ]

@@ -290,6 +290,11 @@ def score_item(item: dict, prio: dict, now: datetime) -> None:
     score = item.get("weight", DEFAULT_WEIGHT) * prio["weight_points"]
     score += prio["boost"]["points"] * min(len(good), 5)
     score -= prio["noise"]["points"] * len(bad)
+    news = hits(text, prio.get("news", {}).get("terms", []))
+    score += prio.get("news", {}).get("points", 0) * min(len(news), 2)
+    title = item["title"].lower()
+    stale = [p for p in prio.get("evergreen", {}).get("patterns", []) if re.search(p, title)]
+    score -= prio.get("evergreen", {}).get("points", 0) * min(len(stale), 1)
     if item.get("published"):  # up to +4 for items under a day old
         score += max(0.0, 4 - (now - item["published"]).total_seconds() / 21600)
     if item.get("upvotes"):  # Hugging Face daily papers
@@ -300,8 +305,8 @@ def score_item(item: dict, prio: dict, now: datetime) -> None:
             score += min(int(m.group(1)) / 100, 4)
     item["score"] = round(score, 1)
     item["relevance_hits"] = good[:5]
-    if bad:
-        item["noise_hits"] = bad
+    if bad or stale:
+        item["noise_hits"] = bad + ["evergreen"] * bool(stale)
 
 
 def slot_bonus(item: dict, slot: dict) -> float:
@@ -356,6 +361,149 @@ def shortlist(candidates: list[dict], prio: dict) -> dict:
     return {name: result[name] for name in prio["slots"]}  # keep the order from priorities.yml
 
 
+# ── Trending topics ──────────────────────────────────────────────────────────
+# A topic is "trending" when many different sources write about it, today or across
+# several recent days, whatever the date of the original launch. Topics are names
+# pulled from titles (capitalised words, product-like tokens and pairs of them), so
+# nothing is hard-coded. Daily counts are kept in data/trend-history.json.
+
+TREND_STOP = set("""
+a an and are as at be by can could did do does for from has have how i in into is it its
+new news not now of on or our out over than that the their they this to up us via vs was we
+what when where which who why will with without you your after before more most just only
+ai llm llms ml agent agents agentic model models open source data cloud api apis sdk tool tools
+part one two three first using use used build building built make makes way ways guide intro
+introducing introduces announcing announces launches launched launch release releases released
+review update updates week today year day best top inside meet here every all still really
+generally available preview beta presentation article podcast episode video interview
+january february march april may june july august september october november december
+monday tuesday wednesday thursday friday saturday sunday 2025 2026 2027
+live ai-powered ai-driven ai-first powered
+""".split())
+# Names that appear every single day; they only count as part of a longer name ("Gemini 4 Argon").
+TREND_ALWAYS = set("""
+openai anthropic google microsoft meta amazon aws nvidia apple ibm oracle deepmind
+claude chatgpt gpt gemini copilot llama hugging face huggingface github azure
+india indian uae dubai abu dhabi saudi arabia riyadh qatar doha gcc mena middle east europe
+european china chinese us usa uk america american africa asia global world
+""".split())
+
+
+def generic_words(titles: list[str]) -> set[str]:
+    """Ordinary vocabulary ("platform", "infrastructure"), not names ("DeepSeek", "Muse").
+
+    Only sentence-case titles are informative (Title Case capitalises everything), so a word
+    counts as generic when, inside those titles, it is written in lower case at least as often
+    as capitalised (ignoring the first word)."""
+    lower, upper = {}, {}
+    for title in titles:
+        words = re.findall(r"[A-Za-z][A-Za-z\-]+", title)
+        if len(words) < 4 or sum(w[0].isupper() for w in words) / len(words) > 0.5:
+            continue
+        for w in words[1:]:
+            bucket = lower if w.islower() else upper
+            bucket[w.lower()] = bucket.get(w.lower(), 0) + 1
+    return {w for w, n in lower.items() if n >= upper.get(w, 0)}
+
+
+def story_clusters(window: list[dict], min_sites: int = 3) -> list[dict]:
+    """Groups of items from different sites that share most of their key words: the same
+    story covered by several outlets, which is itself a sign that it matters."""
+    def key_words(title):
+        return {w for w in re.findall(r"[a-z0-9][a-z0-9.\-]*", title.lower()) if len(w) >= 3 and w not in TREND_STOP}
+    words = [key_words(i["title"]) for i in window]
+    parent = list(range(len(window)))
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+    for a in range(len(window)):
+        for b in range(a + 1, len(window)):
+            shared = words[a] & words[b]
+            if len(shared) >= 3 and len(shared) / max(1, min(len(words[a]), len(words[b]))) >= 0.4:
+                parent[find(a)] = find(b)
+    groups: dict[int, list[int]] = {}
+    for i in range(len(window)):
+        groups.setdefault(find(i), []).append(i)
+    out = []
+    for members in groups.values():
+        sites = {site_of(window[i]) for i in members}
+        if len(sites) >= min_sites:
+            items = [window[i] for i in members]
+            out.append({"story": items[0]["title"], "sites": len(sites), "items": items})
+    return sorted(out, key=lambda c: -c["sites"])
+
+
+_GENERIC: set[str] = set()
+
+
+def title_terms(title: str) -> set[str]:
+    words = re.findall(r"[A-Za-z0-9][A-Za-z0-9.+\-]*[A-Za-z0-9+]|[A-Za-z0-9]", title)
+    keep = []
+    for w in words:
+        lw = w.lower()
+        named = (w[0].isupper() and lw not in _GENERIC) or any(c.isdigit() for c in w) and any(c.isalpha() for c in w)
+        keep.append(w if named and lw not in TREND_STOP and len(w) >= 3 or (named and any(c.isdigit() for c in w)) else None)
+    terms = set()
+    for i, w in enumerate(keep):
+        if not w:
+            continue
+        if w.lower() not in TREND_ALWAYS and not w.isdigit():
+            terms.add(w.lower())
+        if i + 1 < len(keep) and keep[i + 1]:
+            pair = f"{w} {keep[i + 1]}".lower()
+            if not all(x in TREND_ALWAYS or x.isdigit() for x in pair.split()):
+                terms.add(pair)
+    return terms
+
+
+def detect_trends(window: list[dict], everything: list[dict], history_file: Path | None,
+                  today: str, query_words: set[str] = frozenset(), top_n: int = 8) -> list[dict]:
+    history = json.loads(history_file.read_text()) if history_file and history_file.exists() else {}
+    _GENERIC.clear()
+    _GENERIC.update(generic_words([i["title"] for i in everything]))
+    now_sources: dict[str, set[str]] = {}
+    for it in window:
+        for term in title_terms(it["title"]):
+            now_sources.setdefault(term, set()).add(site_of(it))
+    past_days = sorted(d for d in history if d < today)[-10:]
+    trends = []
+    for term, srcs in now_sources.items():
+        if any(w in query_words for w in term.split()):
+            continue  # the search query itself put this word in every result
+        days = sum(1 for d in past_days if term in history[d])
+        if len(past_days) >= 7 and days >= 0.9 * len(past_days):
+            continue  # always there, so not a trend
+        if len(srcs) >= 3 or (len(srcs) >= 2 and days >= 3):
+            trends.append({"term": term, "sources_now": len(srcs), "days_seen_before": days,
+                           "strength": len(srcs) * 2 + days})
+    # Drop a single word when a longer name containing it is also trending with the same reach.
+    names = {t["term"]: t for t in trends}
+    trends = [t for t in trends if not any(o != t["term"] and t["term"] in o.split()
+                                           and names[o]["sources_now"] >= t["sources_now"] for o in names)]
+    trends.sort(key=lambda t: -t["strength"])
+    trends = trends[:top_n]
+    for t in trends:
+        def match(it):
+            return t["term"] in title_terms(it["title"])
+        t["items"] = [{"title": i["title"], "url": i["url"], "source": i.get("publisher") or i["source"],
+                       "published": i["published"].isoformat() if isinstance(i["published"], datetime) else i["published"]}
+                      for i in window if match(i)][:5]
+        # Older coverage from the feeds (outside the window) gives the background story.
+        recent = datetime.fromisoformat(today).replace(tzinfo=timezone.utc) - timedelta(days=30)
+        t["background"] = [{"title": i["title"], "url": i["url"], "source": i.get("publisher") or i["source"],
+                            "published": i["published"].isoformat()}
+                           for i in sorted((i for i in everything if i["published"] and i["published"] >= recent),
+                                           key=lambda i: i["published"], reverse=True)
+                           if match(i) and i not in window][:3]
+    if history_file:
+        history[today] = {term: sorted(srcs) for term, srcs in now_sources.items() if len(srcs) >= 1}
+        keep_days = sorted(history)[-21:]
+        history_file.write_text(json.dumps({d: history[d] for d in keep_days}, ensure_ascii=False, separators=(",", ":")))
+    return trends
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 
@@ -377,6 +525,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--workers", type=int, default=12)
     ap.add_argument("--history", type=Path, default=ROOT / "data" / "brief-history.json",
                     help="items already used in the last 14 days are dropped")
+    ap.add_argument("--trend-history", type=Path, default=ROOT / "data" / "trend-history.json",
+                    help="daily topic counts used to spot trends; pass 'none' to skip saving")
     args = ap.parse_args(argv)
 
     started = time.time()
@@ -402,6 +552,30 @@ def main(argv: list[str] | None = None) -> int:
     candidates = [c for c in candidates if c not in already]
     for c in candidates:
         score_item(c, prio, now)
+    history_file = None if str(args.trend_history) == "none" else args.trend_history
+    gn = yaml.safe_load((args.feeds_dir / "sources.yml").read_text()).get("google_news", {})
+    query_words = {w.lower() for q in gn.get("queries", []) for w in re.findall(r"[A-Za-z][A-Za-z\-]+", q["q"])} - {"or", "and", "when"}
+    trends = detect_trends(candidates, items, history_file, now.date().isoformat(), query_words)
+    bonus = prio.get("trend_bonus", 6)
+    for c in candidates:
+        hit = [tr["term"] for tr in trends if tr["term"] in title_terms(c["title"])]
+        if hit:
+            c["score"] = round(c["score"] + bonus, 1)
+            c["trending"] = hit
+    # Only stories that are relevant on their own merits get the coverage bonus.
+    clusters = [cl for cl in story_clusters(candidates)
+                if max(c["score"] for c in cl["items"]) >= prio["min_score"]
+                and any(c.get("relevance_hits") for c in cl["items"])]
+    for cl in clusters:
+        best = max(cl["items"], key=lambda c: c["score"])
+        for c in cl["items"]:
+            c["covered_by_sites"] = cl["sites"]
+        # The whole cluster's weight goes to its best item, so a widely covered story
+        # from small outlets can still reach the shortlist.
+        best["score"] = round(best["score"] + bonus + 2 * min(cl["sites"], 5), 1)
+    clusters_out = [{"story": cl["story"], "sites": cl["sites"],
+                     "items": [{"title": c["title"], "url": c["url"], "source": c["source"]} for c in cl["items"][:6]]}
+                    for cl in clusters[:8]]
     dropped = [c for c in candidates if c["score"] < prio["min_score"]]
     candidates = sorted((c for c in candidates if c["score"] >= prio["min_score"]), key=lambda c: -c["score"])
     picks = shortlist(candidates, prio)
@@ -425,6 +599,8 @@ def main(argv: list[str] | None = None) -> int:
             "dropped_already_covered": len(already),
             "by_section": by_section,
         },
+        "trending": trends,
+        "story_clusters": clusters_out,
         "shortlist": picks,
         "regional": regional[:12],
         "candidates": candidates,

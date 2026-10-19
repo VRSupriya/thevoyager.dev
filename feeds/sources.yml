@@ -12,10 +12,10 @@ google_news:
     - {section: core, edition: global, q: '"AI agents" OR "agentic AI" when:1d'}
     - {section: core, edition: global, q: '"Model Context Protocol" OR "agent2agent" OR LangGraph OR "Agents SDK" OR "Agent SDK" OR CrewAI when:2d'}
     - {section: core, edition: global, q: 'OpenAI OR Anthropic OR "Google DeepMind" OR Gemini when:1d'}
-    - {section: core, edition: global, q: '"Vertex AI" OR "Amazon Bedrock" OR "Azure AI" OR Databricks OR Snowflake when:1d'}
+    - {section: core, edition: global, q: '"Vertex AI" OR "Amazon Bedrock" OR "Azure AI" OR "Databricks AI" OR "Snowflake Cortex" when:1d'}
     - {section: core, edition: global, q: '"data engineering" OR "system design" OR "distributed systems" when:2d'}
     # Discovery: coding agents, new open-source releases, new products (beyond the usual labs)
-    - {section: core, edition: global, q: '"Claude Code" OR Codex OR Cursor OR "GitHub Copilot" OR "coding agent" OR "agent harness" when:2d'}
+    - {section: core, edition: global, q: '"Claude Code" OR "OpenAI Codex" OR "Cursor IDE" OR "GitHub Copilot" OR "coding agent" OR "agent harness" when:2d'}
     - {section: core, edition: global, q: '"open-source" (LLM OR "agent framework" OR SDK OR "inference engine" OR vLLM OR SGLang OR "vector database") (release OR launches OR "v1.0") when:2d'}
     - {section: core, edition: global, q: '("AI-powered" OR "AI startup") (launches OR unveils OR "generally available") (enterprise OR healthcare OR fintech OR "document processing" OR "voice AI") when:2d'}
     # Middle East AI news
@@ -52,8 +52,13 @@ rss:
   - {section: core, name: InfoQ,               url: https://feed.infoq.com/, weight: 2}
   - {section: core, name: ByteByteGo,          url: https://blog.bytebytego.com/feed, weight: 3}
   - {section: core, name: Pragmatic Engineer,  url: https://newsletter.pragmaticengineer.com/feed, weight: 3}
-  - {section: core, name: Netflix Tech Blog,   url: https://netflixtechblog.com/feed, weight: 3}
+  - {section: core, name: Netflix Tech Blog,   url: https://netflixtechblog.com/feed, weight: 1}   # site blocks WebFetch (403), so items can't be verified
   - {section: core, name: Uber Engineering,    url: https://www.uber.com/us/en/blog/engineering/, type: html, weight: 2}
+  - {section: core, name: GitHub Changelog,    url: https://github.blog/changelog/feed/, weight: 2}   # Copilot features, model retirements
+  - {section: core, name: AWS ML Blog,         url: https://aws.amazon.com/blogs/machine-learning/feed/, weight: 1}
+  - {section: core, name: AWS News Blog,       url: https://aws.amazon.com/blogs/aws/feed/, weight: 2}
+  - {section: core, name: Microsoft Foundry Blog, url: https://devblogs.microsoft.com/foundry/feed/, weight: 2}
+  - {section: core, name: NVIDIA Developer Blog, url: https://developer.nvidia.com/blog/feed, weight: 1}
   - {section: core, name: Databricks Blog,     url: https://www.databricks.com/feed, verify: true, weight: 2}
   # Middle East
   - {section: regional, name: MBZUAI News,     url: https://mbzuai.ac.ae/news/, type: html, verify: true, weight: 2}

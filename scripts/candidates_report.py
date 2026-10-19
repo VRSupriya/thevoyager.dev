@@ -65,6 +65,19 @@ def main() -> int:
     out += ["## Editor's notes", ""]
     out += [args.notes.read_text().strip() if args.notes.exists() else "_No notes were written for this run._", ""]
 
+    if d.get("trending"):
+        out += ["## Trending topics (many sources, or several days in a row; launch date doesn't matter)", ""]
+        for tr in d["trending"]:
+            out.append(f"**{tr['term']}**: {tr['sources_now']} sites in this window, seen on {tr['days_seen_before']} of the previous days")
+            out += [f"- [{cell(i['title'], 110)}]({i['url']}) ({i['source']})" for i in tr.get("items", [])]
+            out += [f"- background ({(i.get('published') or '')[:10]}): [{cell(i['title'], 100)}]({i['url']})" for i in tr.get("background", [])]
+            out.append("")
+    if d.get("story_clusters"):
+        out += ["## Same story, several outlets", ""]
+        for cl in d["story_clusters"]:
+            out.append(f"- **{cl['sites']} sites**: {cell(cl['story'], 120)}")
+        out.append("")
+
     out += ["## Shortlist per slot (the script's suggestion before editing)", ""]
     for name, entry in d["shortlist"].items():
         pick = entry.get("pick")
@@ -90,7 +103,8 @@ def main() -> int:
     folder = ROOT / "data" / "candidates"
     folder.mkdir(parents=True, exist_ok=True)
     (folder / f"{args.date}.md").write_text("\n".join(out))
-    cutoff = (date.fromisoformat(args.date) - timedelta(days=KEEP_DAYS)).isoformat()
+    # Measured from today's real date, so a test run with an odd DATE never deletes real logs.
+    cutoff = (min(date.fromisoformat(args.date), date.today()) - timedelta(days=KEEP_DAYS)).isoformat()
     for old in folder.glob("*.md"):
         if old.stem < cutoff:
             old.unlink()

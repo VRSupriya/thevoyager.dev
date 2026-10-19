@@ -7,8 +7,9 @@
 # Items below min_score are dropped, so off-topic stories never reach the routine.
 # Edit the lists freely: one word or phrase per entry, matched case-insensitively.
 
-weight_points: 10          # a weight-3 source starts at 30, weight-1 at 10
-min_score: 12              # below this = dropped as not relevant enough
+weight_points: 5           # a weight-3 source starts at 15, weight-1 at 5 (was 10: source prestige drowned out the news)
+min_score: 9               # below this = dropped as not relevant enough
+trend_bonus: 6             # added when a title names a trending topic (see "trending" in candidates.json)
 domain_cap: 2              # max items from one website among the picks (the final shortlist)
 alternates_per_slot: 3     # runners-up offered next to each pick
 unverifiable_kinds: [youtube]   # WebFetch cannot read YouTube pages, so these are never a pick (alternates only, flagged)
@@ -127,6 +128,53 @@ boost:                     # +3 points per distinct hit (max 5 hits counted)
     - deprecation
     - breaking change
 
+news:                      # +4 points per hit (max 2): signs that something actually happened
+  points: 4
+  terms:
+    - launches
+    - launched
+    - released
+    - releases
+    - now available
+    - generally available
+    - general availability
+    - public preview
+    - open-sources
+    - open-sourced
+    - open sources
+    - announces
+    - introduces
+    - unveils
+    - ships
+    - deprecat
+    - retire
+    - end of life
+    - vulnerability
+    - cve-
+    - breach
+    - advisory
+    - acquires
+
+evergreen:                 # -10 points: tutorials, listicles, SEO pages and market pages, not news (regex on the title)
+  points: 10
+  patterns:
+    - '^ep\d+\b'
+    - '\[20\d\d\]'
+    - '\bhow to\b'
+    - '\b\d+ (steps|tips|ways|tools|best|things)\b'
+    - '\bstep[- ]by[- ]step\b'
+    - '\bguide to\b'
+    - '\bcheat ?sheet\b'
+    - '\broadmap\b'
+    - '\bcourse\b'
+    - '\bebitda\b'
+    - '\bundervalued\b'
+    - '\bprice target\b'
+    - '\bexits stealth\b'
+    - '\braises\b'
+    - '\$[\d.]+ ?(m|mn|million|b|bn|billion)\b.*\bround\b'
+    - '\b(seed|series [a-e]) (round|funding)\b'
+
 noise:                     # -8 points per hit: hype, clickbait, and off-topic business news
   points: 8
   terms:
@@ -181,6 +229,10 @@ noise:                     # -8 points per hit: hype, clickbait, and off-topic b
     - chief technology
     - graduates
     - consumer tech
+    - raises $
+    - exits stealth
+    - seed round
+    - funding round
 
 # One pick per slot, filled in this order, so a niche slot is not starved by "top".
 # strict: true = no fallback to other sources (the slot stays empty if nothing matches)
@@ -209,5 +261,5 @@ slots:
       note: only from feeds/people.yml
   architecture:
     prefer:
-      sources: [InfoQ, ByteByteGo, Pragmatic Engineer, Netflix, Uber, Databricks, Google Cloud Blog, AWS, Azure]
-      keywords: [architecture, system design, platform, scaling, reliability, case study, data pipeline, inference, observability, evals, security, in production]
+      sources: [InfoQ, Pragmatic Engineer, Uber, Databricks, AWS News Blog, Microsoft Foundry]
+      keywords: [architecture, system design, platform, scaling, reliability, case study, data pipeline, inference, observability, evals, security, in production, llm, agent, model serving, gpu]

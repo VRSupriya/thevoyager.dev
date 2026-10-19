@@ -9,6 +9,9 @@
 
 weight_points: 5           # a weight-3 source starts at 15, weight-1 at 5 (was 10: source prestige drowned out the news)
 min_score: 9               # below this = dropped as not relevant enough
+repeat_days: 3              # vendor cap: a company or product featured in the brief this recently...
+repeat_penalty: 8           # ...loses this many points (the routine also limits it to one item, see the prompt)
+repeat_exempt: [mcp, a2a, rag, gpu, llm, api, sdk, code, space, runtime, console, hybrid, reasoning, arabic, studio, mac, sensor, threshold, crossing, latent, open, agent, agents]
 trend_bonus: 6             # added when a title names a trending topic (see "trending" in candidates.json)
 domain_cap: 2              # max items from one website among the picks (the final shortlist)
 alternates_per_slot: 3     # runners-up offered next to each pick

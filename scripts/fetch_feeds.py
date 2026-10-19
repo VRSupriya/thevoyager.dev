@@ -458,6 +458,18 @@ def title_terms(title: str) -> set[str]:
     return terms
 
 
+def recent_brief_names(history_file: Path, days: int) -> set[str]:
+    """Names from the titles the brief used in the last `days` days (today included)."""
+    if not history_file.exists():
+        return set()
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=days - 1)).date().isoformat()
+    names: set[str] = set()
+    for h in json.loads(history_file.read_text() or "[]"):
+        if h.get("date", "") >= cutoff and h.get("title"):
+            names |= {t for t in title_terms(h["title"]) if " " not in t}
+    return names
+
+
 def detect_trends(window: list[dict], everything: list[dict], history_file: Path | None,
                   today: str, query_words: set[str] = frozenset(), top_n: int = 8) -> list[dict]:
     history = json.loads(history_file.read_text()) if history_file and history_file.exists() else {}
@@ -578,6 +590,16 @@ def main(argv: list[str] | None = None) -> int:
                     for cl in clusters[:8]]
     dropped = [c for c in candidates if c["score"] < prio["min_score"]]
     candidates = sorted((c for c in candidates if c["score"] >= prio["min_score"]), key=lambda c: -c["score"])
+    # Vendor cap: companies and products the brief featured in the last few days are pushed
+    # down (after the relevance cut, so they stay visible), so one vendor can't fill the
+    # brief day after day. Protocols and common words are exempt.
+    recent_names = recent_brief_names(args.history, prio.get("repeat_days", 3)) - set(prio.get("repeat_exempt", []))
+    for c in candidates:
+        repeat = sorted(title_terms(c["title"]) & recent_names)
+        if repeat:
+            c["score"] = round(c["score"] - prio.get("repeat_penalty", 8), 1)
+            c["recently_featured"] = repeat
+    candidates.sort(key=lambda c: -c["score"])
     picks = shortlist(candidates, prio)
     regional = [c for c in candidates if c["section"] == "regional"]
     for c in candidates + dropped:

@@ -61,5 +61,12 @@
     "source_url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02",
     "hypothesis": "In 20 staging agent runs, at least one outbound call leaves the allowlist or the planted fake key is used.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-20",
+    "title": "Pi Durable replay-safe write keys under SIGKILL",
+    "source_url": "https://github.com/earendil-works/pi/tree/main/packages/durable",
+    "hypothesis": "Default tool never duplicates a write; a replay-safe tool with a call-id key and target lookup keeps duplicates at zero over 20 kills.",
+    "status": "suggested"
   }
 ]

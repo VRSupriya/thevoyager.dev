@@ -604,5 +604,41 @@
     "slot": "architecture",
     "title": "OpenCode Console breach",
     "url": "https://xenospectrum.com/en/opencode-console-breach-api-key-management/"
+  },
+  {
+    "date": "2026-10-20",
+    "slot": "top",
+    "title": "GitHub Copilot model retirements and model policy API",
+    "url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026"
+  },
+  {
+    "date": "2026-10-20",
+    "slot": "agents",
+    "title": "Pi Durable resumable agent harness",
+    "url": "https://github.com/earendil-works/pi/tree/main/packages/durable"
+  },
+  {
+    "date": "2026-10-20",
+    "slot": "research",
+    "title": "AuditKIT evaluation library",
+    "url": "https://arxiv.org/abs/2610.22511"
+  },
+  {
+    "date": "2026-10-20",
+    "slot": "people",
+    "title": "Simon Willison: My obituary for programming",
+    "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
+  },
+  {
+    "date": "2026-10-20",
+    "slot": "architecture",
+    "title": "AWS vLLM bi-directional KV transfer",
+    "url": "https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/"
+  },
+  {
+    "date": "2026-10-20",
+    "slot": "regional",
+    "title": "Birla AI Labs Yug forecasting model",
+    "url": "https://huggingface.co/birlaailabs/yug"
   }
 ]

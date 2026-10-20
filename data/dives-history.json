@@ -96,5 +96,12 @@
     "week": 3,
     "title": "The agent that writes its own workflow: when the plan becomes a program",
     "topic_key": "models-agentic:managed-agents-dynamic-workflows:workflows-vs-agents"
+  },
+  {
+    "date": "2026-10-20",
+    "track": "research",
+    "week": 3,
+    "title": "Skill routing collapse: your agent has 1,000 skills installed and loads half of nothing",
+    "topic_key": "research:skill-routing-collapse-implicit-routing-preselection"
   }
 ]

@@ -27,12 +27,13 @@ export const ADSENSE_CLIENT: string = import.meta.env.PUBLIC_ADSENSE_CLIENT ?? '
 
 export const NAV = [
 	{ href: '/', label: 'Today' },
-	{ href: '/brief/', label: 'Daily Brief' },
-	{ href: '/deep-dives/', label: 'Deep Dives' },
+	{ href: '/brief/', label: 'Brief' },
+	{ href: '/deep-dives/', label: 'Deep Dives', short: 'Dives' },
 	{ href: '/writing/', label: 'Writing' },
-	{ href: '/projects/', label: 'Projects' },
-	{ href: '/about/', label: 'About' },
-];
+	// On phones these two move under "More" (G2).
+	{ href: '/projects/', label: 'Projects', more: true },
+	{ href: '/about/', label: 'About', more: true },
+] as { href: string; label: string; short?: string; more?: boolean }[];
 
 // Deep Dives tracks, in tab order. `day` is the weekday the track runs (0 = Sunday).
 export const TRACKS = [

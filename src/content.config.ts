@@ -15,6 +15,8 @@ const curated = {
 	linkedin: z.string().optional(),
 	tags: z.array(z.string()).default([]),
 	curated_with_ai: z.boolean().default(false),
+	// Ids of related Deep Dives, e.g. "system/2026-10-14" (C8). Shown as "Go deeper" / "Related".
+	related: z.array(z.string()).default([]),
 };
 
 // ☕ AI Daily Brief: src/content/brief/YYYY-MM-DD.md
@@ -37,6 +39,11 @@ const dives = defineCollection({
 		phase: z.string(),
 		time_minutes: z.number().int(),
 		read_minutes: z.number().int().optional(),
+		// Three short points shown under the title and on the home card (C5).
+		takeaways: z.array(z.string()).default([]),
+		// A series the post belongs to, e.g. "Lab · Step 1", and its part number (P3).
+		series: z.string().optional(),
+		part: z.number().int().optional(),
 		// For the author only: sent privately on Telegram, never shown on the site.
 		telegram_private: z.string().optional(),
 	}),

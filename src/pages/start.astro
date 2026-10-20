@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import TrackIcon from '../components/TrackIcon.astro';
+import { TRACKS } from '../consts';
+import { getDives } from '../lib/posts';
+
+const dives = await getDives();
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const tracks = TRACKS.filter((t) => t.day !== null).sort((a, b) => ((a.day! + 6) % 7) - ((b.day! + 6) % 7));
+const blurbs: Record<string, string> = {
+	'models-agentic': 'What changed in models and agent tooling this week, and what it means for systems you run.',
+	research: 'One paper or result, read closely: what it claims, how it was measured, and whether it holds.',
+	system: 'A production architecture, end to end: requirements, trade-offs and the number to remember.',
+	interview: 'A senior or architect-level interview question, with a strong answer and what interviewers look for.',
+	github: 'An open-source project worth knowing, read from the code rather than the README.',
+	build: 'A weekend build: two suggestions with a plan, plus room for your own idea.',
+	lab: 'A step-by-step path toward building and changing LLM architectures yourself.',
+};
+const count = (slug: string) => dives.filter((d) => d.data.track === slug).length;
+---
+
+<Base title="Start here" description="New to The Voyager? What is here, who it is for, and where to begin.">
+	<article class="prose">
+		<p class="eyebrow">Start here</p>
+		<h1>Start here</h1>
+		<p class="lede">
+			The Voyager is for engineers and architects who build with AI and want to keep up without reading everything.
+			There are two things to read, and you can use either one on its own.
+		</p>
+
+		<h2>1. The Daily Brief, about 5 minutes</h2>
+		<p>
+			Each morning, up to six stories: the top story, models, agents, research, someone worth following and an architecture pattern.
+			Every story links to its source and ends with what it means for you. Open <a href="/brief/">today's brief</a>, or read the
+			"In 30 seconds" list at the top if you only have a minute.
+		</p>
+
+		<h2>2. One Deep Dive a day, 10 to 15 minutes</h2>
+		<p>
+			A single topic, explained properly, with a hands-on part you can do when you have time. Each day of the week has its own track:
+		</p>
+		<ul class="track-list">
+			{
+				tracks.map((t) => (
+					<li data-track={t.slug}>
+						<a href={`/deep-dives/${t.slug}/`}>
+							<span class="tl-icon"><TrackIcon track={t.slug} size={18} /></span>
+							<span>
+								<strong>{t.label}</strong> <span class="tl-day">· {days[t.day!]}s · {count(t.slug)} so far</span>
+								<span class="tl-text">{blurbs[t.slug]}</span>
+							</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<h2>Where to begin</h2>
+		<ul>
+			<li><strong>Short on time:</strong> read the Daily Brief, and the takeaways box at the top of one Deep Dive.</li>
+			<li><strong>Preparing for a senior or architect role:</strong> start with <a href="/deep-dives/system/">System</a> and <a href="/deep-dives/interview/">Interview</a>.</li>
+			<li><strong>Want to build:</strong> pick a <a href="/deep-dives/build/">Build</a> for the weekend, or follow the <a href="/deep-dives/lab/">Lab</a> from step 1.</li>
+		</ul>
+
+		<h2>Get it by email or feed</h2>
+		<p>
+			The newsletter carries only the author's own writing; sign up at the bottom of any page. For the brief and the Deep Dives, use RSS:
+			<a href="/brief/rss.xml">Daily Brief</a> · <a href="/deep-dives/rss.xml">Deep Dives</a> · <a href="/writing/rss.xml">Writing</a>.
+		</p>
+		<p>
+			The brief and the Deep Dives are researched and drafted with AI and checked against their sources. <a href="/disclosure/#ai">How we use AI →</a>
+		</p>
+	</article>
+</Base>
+
+<style>
+	.lede {
+		font-size: 1.12rem;
+		color: var(--muted);
+	}
+	.track-list {
+		list-style: none;
+		padding: 0;
+		display: grid;
+		gap: 0.5rem;
+	}
+	.track-list a {
+		display: flex;
+		gap: 0.8rem;
+		padding: 0.75rem 0.9rem;
+		border: 1px solid var(--border);
+		border-left: 3px solid var(--track);
+		border-radius: var(--radius);
+		background: var(--surface);
+		color: var(--text);
+		text-decoration: none;
+		line-height: 1.4;
+	}
+	.track-list a:hover {
+		border-color: var(--track);
+	}
+	.tl-icon {
+		color: var(--track);
+		padding-top: 0.15rem;
+	}
+	.tl-day {
+		color: var(--muted);
+		font-size: 0.88rem;
+	}
+	.tl-text {
+		display: block;
+		color: var(--muted);
+		font-size: 0.93rem;
+	}
+</style>

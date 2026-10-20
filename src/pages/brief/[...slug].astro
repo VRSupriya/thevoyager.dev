@@ -1,7 +1,8 @@
 ---
 import { render } from 'astro:content';
 import Post from '../../layouts/Post.astro';
-import { type Brief, hasMermaid, getBriefs, readingMinutes } from '../../lib/posts';
+import { briefStories } from '../../lib/brief';
+import { type Brief, briefUrl, diveLink, getBriefs, getDives, neighbours, readingMinutes, relatedDives } from '../../lib/posts';
 
 export async function getStaticPaths() {
 	const posts = await getBriefs();
@@ -9,7 +10,14 @@ export async function getStaticPaths() {
 }
 
 const post = Astro.props as Brief;
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter: fm } = await render(post);
+const briefs = await getBriefs();
+const dives = await getDives();
+const stories = briefStories(post.body, post.data.telegram);
+const { newer, older } = neighbours(briefs, post);
+const shortDate = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+// B6 · "Go deeper": dives the brief names, else ones that share its topics.
+const related = relatedDives(post, dives, 2).map((d) => diveLink(d));
 ---
 
 <Post
@@ -17,14 +25,85 @@ const { Content } = await render(post);
 	date={post.data.date}
 	summary={post.data.summary}
 	tags={post.data.tags}
-	section="☕ Daily Brief"
+	section="Daily Brief"
 	sectionHref="/brief/"
+	extra={[`${stories.length} ${stories.length === 1 ? 'story' : 'stories'}`]}
 	minutes={readingMinutes(post.body)}
-	curated={post.data.curated_with_ai}
 	shareKind="brief"
 	shareWritten={post.data.share ?? post.data.linkedin}
 	shareTelegram={post.data.telegram}
-	hasMermaid={hasMermaid(post.body)}
+	hasMermaid={fm.hasMermaid}
+	interactive={fm.interactive}
+	related={related}
+	relatedHeading="Go deeper"
+	prev={older && { href: briefUrl(older), title: older.data.title, label: `Brief · ${shortDate(older.data.date)}` }}
+	next={newer && { href: briefUrl(newer), title: newer.data.title, label: `Brief · ${shortDate(newer.data.date)}` }}
+	image={`/og/brief/${post.id}.png`}
+	aiNote
+	noindex
 >
+	{
+		stories.length > 0 && (
+			<nav slot="lead" class="in30" aria-labelledby="in30-heading">
+				<p class="eyebrow" id="in30-heading">In 30 seconds</p>
+				<ol>
+					{stories.map((s) => (
+						<li class={`slot-${s.key}`}>
+							<a href={`#${s.anchor}`}>
+								<span class="in30-label">{s.label}</span>
+								<span class="in30-line">{s.line}</span>
+							</a>
+						</li>
+					))}
+				</ol>
+			</nav>
+		)
+	}
 	<Content />
 </Post>
+
+<style>
+	.in30 {
+		margin: 0 0 2rem;
+		padding: 1rem 1.2rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: var(--surface);
+	}
+	.in30 ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.15rem;
+	}
+	.in30 a {
+		display: grid;
+		grid-template-columns: 7.5rem 1fr;
+		gap: 0.75rem;
+		padding: 0.4rem 0.5rem;
+		margin: 0 -0.5rem;
+		border-radius: 8px;
+		text-decoration: none;
+		color: var(--text);
+		line-height: 1.4;
+	}
+	.in30 a:hover {
+		background: var(--surface-2);
+	}
+	.in30-label {
+		font-family: var(--font-head);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--slot, var(--accent));
+		padding-top: 0.15rem;
+	}
+	@media (max-width: 520px) {
+		.in30 a {
+			grid-template-columns: 1fr;
+			gap: 0.1rem;
+		}
+	}
+</style>

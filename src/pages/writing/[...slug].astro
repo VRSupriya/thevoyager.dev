@@ -17,11 +17,12 @@ const { Content } = await render(post);
 	date={post.data.date}
 	summary={post.data.summary}
 	tags={post.data.tags}
-	section="✍️ Writing"
+	section="Writing"
 	sectionHref="/writing/"
 	minutes={readingMinutes(post.body)}
 	draft={post.data.draft}
 	hasMermaid={hasMermaid(post.body)}
+	image={`/og/writing/${post.id}.png`}
 	newsletter
 >
 	<Content />

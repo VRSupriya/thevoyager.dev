@@ -1,47 +1,70 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import PostCard from '../../../components/PostCard.astro';
+import DiveCard from '../../../components/DiveCard.astro';
+import TrackIcon from '../../../components/TrackIcon.astro';
 import TrackTabs from '../../../components/TrackTabs.astro';
 import { TRACKS } from '../../../consts';
-import { getDives, diveUrl } from '../../../lib/posts';
+import { getDives } from '../../../lib/posts';
 
 export function getStaticPaths() {
 	return TRACKS.map((track) => ({ params: { track: track.slug }, props: { track } }));
 }
 
 const { track } = Astro.props;
-const posts = await getDives(track.slug);
+const all = await getDives();
+const posts = all.filter((p) => p.data.track === track.slug);
+const counts: Record<string, number> = {};
+for (const p of all) counts[p.data.track] = (counts[p.data.track] ?? 0) + 1;
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const when =
 	track.day !== null
-		? `${days[track.day]}s`
+		? `Every ${days[track.day]}`
 		: track.slug === 'recap'
 			? 'Every sixth week'
 			: 'Review-week Sundays';
 ---
 
-<Base title={`${track.label} · Deep Dives`} description={`🔭 Deep Dives, ${track.label} track.`}>
-	<header class="page-head">
-		<p class="eyebrow"><a href="/deep-dives/">🔭 Deep Dives</a> · {when}</p>
-		<h1>{track.emoji} {track.label}</h1>
-	</header>
-	<TrackTabs current={track.slug} />
-	{
-		posts.length ? (
-			<ul class="post-list">
-				{posts.map((p) => (
-					<PostCard href={diveUrl(p)} title={p.data.title} date={p.data.date} summary={p.data.summary} curated={p.data.curated_with_ai} />
-				))}
-			</ul>
-		) : (
-			<p class="empty">Nothing in this track yet.</p>
-		)
-	}
+<Base title={`${track.label} · Deep Dives`} description={`Deep Dives, ${track.label} track.`}>
+	<div data-track={track.slug}>
+		<header class="page-head">
+			<p class="eyebrow"><a href="/deep-dives/">Deep Dives</a> · {when}</p>
+			<h1 class="track-h1"><span class="track-badge"><TrackIcon track={track.slug} size={22} /></span>{track.label}</h1>
+		</header>
+		<TrackTabs current={track.slug} counts={counts} total={all.length} />
+		{
+			posts.length ? (
+				<ul class="card-grid">
+					{posts.map((p) => (
+						<li>
+							<DiveCard post={p} headingLevel="h2" />
+						</li>
+					))}
+				</ul>
+			) : (
+				<p class="empty">Nothing in this track yet.</p>
+			)
+		}
+	</div>
 </Base>
 
 <style>
 	.eyebrow a {
 		color: inherit;
 		text-decoration: none;
+	}
+	.track-h1 {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+	}
+	.track-badge {
+		display: inline-grid;
+		place-items: center;
+		width: 2.6rem;
+		height: 2.6rem;
+		border-radius: 12px;
+		background: var(--track-soft);
+		color: var(--track);
+		flex: none;
 	}
 </style>

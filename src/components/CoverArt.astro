@@ -1,0 +1,29 @@
+---
+// V1 · the post's cover art in its track colour. Decorative.
+import { coverSvg } from '../lib/cover';
+
+interface Props {
+	seed: string;
+	width?: number;
+	height?: number;
+	class?: string;
+}
+const { seed, width = 720, height = 200, class: cls } = Astro.props;
+const svg = coverSvg(seed, width, height, { ink: 'var(--track)', soft: 'var(--muted)' });
+---
+
+<div class:list={['cover', cls]} set:html={svg} />
+
+<style>
+	.cover {
+		border-radius: var(--radius);
+		background: var(--track-soft);
+		overflow: hidden;
+		line-height: 0;
+	}
+	.cover :global(svg) {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+</style>

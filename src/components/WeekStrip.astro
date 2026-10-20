@@ -2,6 +2,7 @@
 // "This week": Monday to Sunday as waypoints, each with that day's Deep Dives track and
 // links to whatever was published. Worked out at build time in the site's time zone.
 import { TRACKS } from '../consts';
+import TrackIcon from './TrackIcon.astro';
 import { type Brief, type Dive, briefUrl, dayKey, diveUrl } from '../lib/posts';
 
 interface Props {
@@ -44,14 +45,14 @@ const days = Array.from({ length: 7 }, (_, i) => {
 				<span class="wd">{day.weekday}</span>
 				<span class="num">{day.date}</span>
 				{day.track && (
-					<span class="track" title={day.track.label}>
-						{day.track.emoji}
+					<span class="track" title={day.track.label} data-track={day.track.slug}>
+						<TrackIcon track={day.track.slug} size={16} />
 						<span class="sr-only">{day.track.label}</span>
 					</span>
 				)}
 				<span class="links">
-					{day.topic && <a href={diveUrl(day.topic)} title={day.topic.data.title}>🔭<span class="sr-only">Deep dive</span></a>}
-					{day.brief && <a href={briefUrl(day.brief)} title={day.brief.data.title}>☕<span class="sr-only">Daily brief</span></a>}
+					{day.topic && <a href={diveUrl(day.topic)} title={day.topic.data.title} data-track={day.topic.data.track}>Dive<span class="sr-only">: {day.topic.data.title}</span></a>}
+					{day.brief && <a href={briefUrl(day.brief)} title={day.brief.data.title}>Brief<span class="sr-only">: {day.brief.data.title}</span></a>}
 					{!day.done && <span class="none">{day.state === 'upcoming' ? '·' : '–'}</span>}
 				</span>
 			</li>
@@ -124,14 +125,23 @@ const days = Array.from({ length: 7 }, (_, i) => {
 		font-weight: 700;
 		color: var(--text);
 	}
+	.track {
+		color: var(--track);
+		display: inline-flex;
+		margin: 0.15rem 0;
+	}
 	.links {
 		display: flex;
-		gap: 0.15rem;
+		flex-direction: column;
+		gap: 0.1rem;
+		font-size: 0.72rem;
+		font-weight: 700;
 		min-height: 1.5rem;
 		align-items: center;
 	}
 	.links a {
 		text-decoration: none;
+		color: var(--track, var(--accent));
 		padding: 0.05rem 0.1rem;
 		border-radius: 6px;
 	}

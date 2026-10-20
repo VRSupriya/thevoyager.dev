@@ -1,10 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
+import DiveCard from '../components/DiveCard.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Newsletter from '../components/Newsletter.astro';
 import WeekStrip from '../components/WeekStrip.astro';
-import { SITE_DESCRIPTION, SITE_TAGLINE, getTrack } from '../consts';
-import { briefUrl, dayKey, diveTime, getBriefs, getDives, getWriting, diveUrl, todayKey, writingUrl } from '../lib/posts';
+import { SITE_TAGLINE } from '../consts';
+import { briefStories } from '../lib/brief';
+import { briefUrl, dayKey, getBriefs, getDives, getWriting, todayKey, writingUrl } from '../lib/posts';
 
 const today = todayKey();
 const briefs = await getBriefs();
@@ -15,7 +17,8 @@ const writing = (await getWriting()).filter((p) => !p.data.draft).slice(0, 3);
 const brief = briefs.find((p) => dayKey(p.data.date) === today) ?? briefs[0];
 const topic = dives.find((p) => dayKey(p.data.date) === today) ?? dives[0];
 const isToday = (p?: { data: { date: Date } }) => !!p && dayKey(p.data.date) === today;
-const topicTrack = topic && getTrack(topic.data.track);
+const stories = brief ? briefStories(brief.body, brief.data.telegram) : [];
+const recent = dives.filter((d) => d !== topic).slice(0, 4);
 const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 	weekday: 'long',
 	day: 'numeric',
@@ -25,67 +28,88 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 ---
 
 <Base hideFooterNewsletter>
-	<section class="hero">
+	<section class="intro">
 		<p class="eyebrow">{todayLabel}</p>
 		<h1>{SITE_TAGLINE}</h1>
-		<p class="lede">{SITE_DESCRIPTION}</p>
+		<p class="lede">
+			A daily AI brief and one deep dive a day, written for senior engineers and architects. <a href="/start/">New here? Start here →</a>
+		</p>
 	</section>
 
 	<section class="today" aria-label="Today">
 		{
 			brief ? (
-				<a class="card today-card" href={briefUrl(brief)}>
-					<p class="eyebrow">☕ {isToday(brief) ? "Today's brief" : 'Latest brief'}</p>
-					<h3>{brief.data.title}</h3>
-					<p>{brief.data.summary}</p>
-					<div class="meta">
-						<FormattedDate date={brief.data.date} />
-					</div>
-				</a>
+				<article class="card brief-card">
+					<p class="kicker">{isToday(brief) ? "Today's brief" : 'Latest brief'} · <FormattedDate date={brief.data.date} /></p>
+					<h2 class="bc-title"><a href={briefUrl(brief)}>{brief.data.title}</a></h2>
+					{stories.length > 0 && (
+						<ol class="bc-stories">
+							{stories.map((s) => (
+								<li class={`slot-${s.key}`}>
+									<a href={`${briefUrl(brief)}#${s.anchor}`}>
+										<span class="bc-label">{s.label}</span>
+										<span class="bc-line">{s.line}</span>
+										{s.source && <span class="bc-src">{s.source}</span>}
+									</a>
+								</li>
+							))}
+						</ol>
+					)}
+					<a class="bc-more" href={briefUrl(brief)}>Read the brief →</a>
+				</article>
 			) : (
-				<div class="card today-card placeholder">
-					<p class="eyebrow">☕ Daily Brief</p>
+				<div class="card placeholder">
+					<p class="kicker">Daily Brief</p>
 					<p>The first brief lands soon.</p>
 				</div>
 			)
 		}
 		{
-			topic && topicTrack ? (
-				<a class="card today-card" href={diveUrl(topic)}>
-					<p class="eyebrow">
-						🔭 {isToday(topic) ? "Today's deep dive" : 'Latest deep dive'} · {topicTrack.emoji} {topicTrack.label}
-					</p>
-					<h3>{topic.data.title}</h3>
-					<p>{topic.data.summary}</p>
-					<div class="meta">
-						<span>⏱ {diveTime(topic.data)}</span>
-					</div>
-				</a>
+			topic ? (
+				<DiveCard post={topic} kicker={isToday(topic) ? "Today's deep dive" : 'Latest deep dive'} showTakeaways showCover headingLevel="h2" />
 			) : (
-				<div class="card today-card placeholder">
-					<p class="eyebrow">🔭 Deep Dives</p>
+				<div class="card placeholder">
+					<p class="kicker">Deep Dives</p>
 					<p>The first deep dive lands soon.</p>
 				</div>
 			)
 		}
 	</section>
 
-	<section class="week-wrap" aria-labelledby="week-heading">
+	<section class="block" aria-labelledby="week-heading">
 		<div class="section-head">
 			<h2 id="week-heading">This week</h2>
-			<a href="/deep-dives/">Deep Dives →</a>
+			<a href="/brief/">All briefs →</a>
 		</div>
 		<WeekStrip today={today} briefs={briefs} dives={dives} />
 	</section>
 
 	{
-		writing.length > 0 && (
-			<section class="writing" aria-labelledby="writing-heading">
+		recent.length > 0 && (
+			<section class="block" aria-labelledby="recent-heading">
 				<div class="section-head">
-					<h2 id="writing-heading">Latest writing</h2>
+					<h2 id="recent-heading">Recent deep dives</h2>
+					<a href="/deep-dives/">All deep dives →</a>
+				</div>
+				<ul class="card-grid wide">
+					{recent.map((p) => (
+						<li>
+							<DiveCard post={p} />
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+
+	{
+		writing.length > 0 && (
+			<section class="block" aria-labelledby="writing-heading">
+				<div class="section-head">
+					<h2 id="writing-heading">From the author</h2>
 					<a href="/writing/">All writing →</a>
 				</div>
-				<ul class="post-list">
+				<ul class="post-list wide">
 					{writing.map((p) => (
 						<li>
 							<a class="card" href={writingUrl(p)}>
@@ -104,84 +128,118 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 </Base>
 
 <style>
-	.hero {
-		position: relative;
+	.intro,
+	.today,
+	.block {
 		max-width: var(--measure);
-		margin: 0 auto 2.2rem;
-		padding: 2.2rem 0 0.5rem;
-		isolation: isolate;
+		margin: 0 auto;
 	}
-	/* A faint, static field of stars behind the tagline. */
-	.hero::before {
-		content: '';
-		position: absolute;
-		inset: -1rem -1.1rem 0;
-		z-index: -1;
-		background-image:
-			radial-gradient(1px 1px at 12% 22%, var(--star) 50%, transparent 51%),
-			radial-gradient(1.5px 1.5px at 78% 14%, var(--star) 50%, transparent 51%),
-			radial-gradient(1px 1px at 64% 58%, var(--star) 50%, transparent 51%),
-			radial-gradient(1px 1px at 33% 76%, var(--star) 50%, transparent 51%),
-			radial-gradient(1.5px 1.5px at 90% 70%, var(--star) 50%, transparent 51%),
-			radial-gradient(1px 1px at 48% 8%, var(--star) 50%, transparent 51%),
-			radial-gradient(1px 1px at 5% 60%, var(--star) 50%, transparent 51%),
-			radial-gradient(1px 1px at 22% 44%, var(--star) 50%, transparent 51%);
-		mask-image: linear-gradient(to bottom, #000 60%, transparent);
+	@media (min-width: 900px) {
+		.intro,
+		.today,
+		.block,
+		.wide {
+			max-width: 60rem;
+		}
+		.today {
+			grid-template-columns: 1.1fr 1fr;
+		}
 	}
-	.hero h1 {
-		font-size: clamp(2rem, 7vw, 3.1rem);
-		line-height: 1.12;
+	.intro {
+		padding: 1rem 0 0.4rem;
+		margin-bottom: 1.6rem;
+	}
+	.intro h1 {
+		font-size: clamp(1.7rem, 5vw, 2.4rem);
+		line-height: 1.15;
 		letter-spacing: -0.02em;
-		margin: 0 0 1rem;
+		margin: 0 0 0.6rem;
 	}
 	.lede {
-		font-size: 1.12rem;
+		font-size: 1.05rem;
 		color: var(--muted);
 		margin: 0;
 	}
 	.today {
-		max-width: var(--measure);
-		margin: 0 auto;
 		display: grid;
 		gap: 0.9rem;
 	}
-	@media (min-width: 900px) {
-		.hero,
-		.today,
-		.week-wrap,
-		.writing {
-			max-width: 60rem;
-		}
-		.today {
-			grid-template-columns: 1fr 1fr;
-		}
+	.kicker {
+		margin: 0 0 0.3rem;
+		font-family: var(--font-head);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--accent);
 	}
-	.today-card {
+	.brief-card {
 		display: flex;
 		flex-direction: column;
-		gap: 0.2rem;
+		border-top: 3px solid var(--accent);
 	}
-	.today-card h3 {
-		font-size: 1.25rem;
+	.bc-title {
+		font-size: 1.3rem;
+		line-height: 1.25;
+		margin: 0.1rem 0 0.8rem;
 	}
-	.today-card .meta {
+	.bc-title a {
+		color: var(--text);
+		text-decoration: none;
+	}
+	.bc-title a:hover {
+		color: var(--accent);
+	}
+	.bc-stories {
+		list-style: none;
+		margin: 0 0 0.8rem;
+		padding: 0;
+		display: grid;
+	}
+	.bc-stories a {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 0 0.6rem;
+		padding: 0.5rem 0;
+		border-top: 1px solid var(--border);
+		text-decoration: none;
+		color: var(--text);
+		line-height: 1.35;
+	}
+	.bc-stories a:hover .bc-line {
+		color: var(--accent);
+	}
+	.bc-label {
+		grid-column: 1 / -1;
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--slot, var(--accent));
+	}
+	.bc-src {
+		font-size: 0.78rem;
+		color: var(--muted);
+		align-self: end;
+	}
+	.bc-more {
 		margin-top: auto;
-		padding-top: 0.8rem;
+		font-weight: 700;
+		font-size: 0.95rem;
 	}
 	.placeholder {
 		color: var(--muted);
 		border-style: dashed;
 		box-shadow: none;
 	}
-	.week-wrap,
-	.writing {
-		max-width: var(--measure);
-		margin: 2.8rem auto 0;
+	.block {
+		margin-top: 2.8rem;
 	}
 	.section-head {
 		display: flex;
 		justify-content: space-between;
 		align-items: baseline;
+		gap: 1rem;
 		margin-bottom: 0.9rem;
 	}
 	.section-head h2 {
@@ -191,7 +249,8 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 	.section-head a {
 		font-size: 0.9rem;
 	}
-	.writing .post-list {
+	.block .card-grid,
+	.block .post-list {
 		max-width: none;
 	}
 </style>

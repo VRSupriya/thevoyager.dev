@@ -17,13 +17,32 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
 			<ul>
 				{
 					NAV.map((item) => (
-						<li>
+						<li class:list={{ 'more-item': item.more }}>
 							<a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
-								{item.label}
+								{item.short ? (
+									<>
+										<span class="long">{item.label}</span>
+										<span class="short">{item.short}</span>
+									</>
+								) : (
+									item.label
+								)}
 							</a>
 						</li>
 					))
 				}
+				<li class="more">
+					<details>
+						<summary aria-label="More pages">More</summary>
+						<ul class="more-menu">
+							{NAV.filter((i) => i.more).map((item) => (
+								<li>
+									<a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+								</li>
+							))}
+						</ul>
+					</details>
+				</li>
 			</ul>
 		</nav>
 		<div class="actions">
@@ -131,5 +150,58 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
 	.icon-btn:hover {
 		color: var(--text);
 		background: var(--surface-2);
+	}
+	.short,
+	.more {
+		display: none;
+	}
+	@media (max-width: 699px) {
+		.long,
+		.more-item {
+			display: none;
+		}
+		.short {
+			display: inline;
+		}
+		.more {
+			display: block;
+			position: relative;
+		}
+	}
+	nav ul {
+		overflow: visible;
+	}
+	.more summary {
+		list-style: none;
+		cursor: pointer;
+		padding: 0.3rem 0.7rem;
+		border-radius: 8px;
+		color: var(--muted);
+		font-size: 0.95rem;
+		line-height: 1.7;
+	}
+	.more summary::-webkit-details-marker {
+		display: none;
+	}
+	.more summary::after {
+		content: ' ▾';
+		font-size: 0.75em;
+	}
+	.more-menu {
+		position: absolute;
+		right: 0;
+		top: calc(100% + 4px);
+		min-width: 10rem;
+		display: grid !important;
+		gap: 0;
+		padding: 0.4rem !important;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		box-shadow: 0 8px 24px light-dark(rgba(20, 25, 40, 0.12), rgba(0, 0, 0, 0.5));
+		z-index: 30;
+	}
+	.more-menu a {
+		padding: 0.6rem 0.8rem;
 	}
 </style>

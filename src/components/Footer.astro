@@ -1,6 +1,6 @@
 ---
 import { LINKS, SITE_NAME } from '../consts';
-import SubstackFrame from './SubstackFrame.astro';
+import SignupForm from './SignupForm.astro';
 
 interface Props {
 	showNewsletter?: boolean;
@@ -17,20 +17,22 @@ const year = new Date().getFullYear();
 					<p>
 						<strong>The weekly note.</strong> My own writing, once a week. Never the daily AI digests.
 					</p>
-					<SubstackFrame />
+					<SignupForm id="footer-email" />
 				</div>
 			)
 		}
 		<div class="bottom">
 			<p>© {year} {SITE_NAME}</p>
-			<ul>
-				<li><a href={LINKS.github}>GitHub</a></li>
-				<li><a href={LINKS.substack}>Substack</a></li>
-				<li><a href="/brief/rss.xml">RSS</a></li>
-				<li><a href="/contact/">Contact</a></li>
-				<li><a href="/privacy/">Privacy</a></li>
-				<li><a href="/disclosure/">Disclosure</a></li>
-			</ul>
+			<nav aria-label="Footer">
+				<a href="/start/">Start here</a>
+				<a href={LINKS.github}>GitHub</a>
+				{LINKS.linkedin && <a href={LINKS.linkedin}>LinkedIn</a>}
+				<a href={LINKS.substack}>Substack</a>
+				<a href="/brief/rss.xml">RSS</a>
+				<a href="/contact/">Contact</a>
+				<a href="/privacy/">Privacy</a>
+				<a href="/disclosure/">Disclosure</a>
+			</nav>
 		</div>
 	</div>
 </footer>
@@ -58,9 +60,10 @@ const year = new Date().getFullYear();
 	}
 	@media (min-width: 800px) {
 		.signup {
-			grid-template-columns: 1fr auto;
+			grid-template-columns: 1fr minmax(0, 28rem);
 		}
-		.bottom {
+	}
+	.bottom {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -69,13 +72,10 @@ const year = new Date().getFullYear();
 	.bottom p {
 		margin: 0;
 	}
-	ul {
+	nav {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.4rem 1.1rem;
-		list-style: none;
-		margin: 0;
-		padding: 0;
 	}
 	a {
 		color: var(--muted);

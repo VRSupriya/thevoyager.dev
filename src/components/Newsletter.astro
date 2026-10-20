@@ -1,27 +1,23 @@
 ---
-import { SUBSTACK_URL } from '../consts';
-import SubstackFrame from './SubstackFrame.astro';
+import SignupForm from './SignupForm.astro';
 
 interface Props {
 	heading?: string;
 	text?: string;
+	id?: string;
 }
 const {
-	heading = 'Get the weekly note',
-	text = 'Once a week, in my own words: what I learned, what I built, and the best of the blog. No daily AI digests in your inbox.',
+	heading = 'The weekly note',
+	text = 'Once a week, in my own words: what I learned, what I built, and the best of the blog. Never the daily AI digests.',
+	id = 'newsletter',
 } = Astro.props;
 ---
 
-<section class="newsletter" aria-labelledby="newsletter-heading">
-	<div class="copy">
-		<p class="eyebrow">Newsletter</p>
-		<h2 id="newsletter-heading">{heading}</h2>
-		<p>{text}</p>
-	</div>
-	<SubstackFrame />
-	<p class="fallback">
-		Form not loading? <a href={SUBSTACK_URL}>Subscribe on Substack</a>.
-	</p>
+<section class="newsletter" aria-labelledby={`${id}-heading`}>
+	<p class="eyebrow">Newsletter</p>
+	<h2 id={`${id}-heading`}>{heading}</h2>
+	<p class="lede">{text}</p>
+	<SignupForm id={`${id}-email`} />
 </section>
 
 <style>
@@ -31,21 +27,14 @@ const {
 		padding: 1.4rem;
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
-		background:
-			radial-gradient(circle at 92% 8%, var(--accent-soft), transparent 45%),
-			var(--surface);
+		background: var(--surface);
 	}
 	h2 {
 		margin: 0 0 0.4rem;
 		font-size: 1.3rem;
 	}
-	.copy p:not(.eyebrow) {
+	.lede {
 		color: var(--muted);
 		margin: 0 0 1rem;
-	}
-	.fallback {
-		margin: 0.6rem 0 0;
-		font-size: 0.8rem;
-		color: var(--muted);
 	}
 </style>

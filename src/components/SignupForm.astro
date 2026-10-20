@@ -1,0 +1,63 @@
+---
+// G4 · native newsletter sign-up. Posts straight to Substack (opens its confirmation page in a new tab),
+// so it works without any script and matches both themes. The link below is the fallback.
+import { SUBSTACK_URL } from '../consts';
+
+interface Props {
+	id: string;
+	compact?: boolean;
+}
+const { id, compact = false } = Astro.props;
+---
+
+<form class:list={['signup-form', { compact }]} action={`${SUBSTACK_URL}/api/v1/free?nojs=true`} method="post" target="_blank">
+	<label for={id}>Email address</label>
+	<div class="row">
+		<input id={id} type="email" name="email" required autocomplete="email" placeholder="you@company.com" />
+		<input type="hidden" name="source" value="thevoyager.dev" />
+		<button class="btn" type="submit">Subscribe</button>
+	</div>
+	<p class="fine">Free, via Substack. Unsubscribe anytime. <a href={SUBSTACK_URL}>Or subscribe on Substack</a>.</p>
+</form>
+
+<style>
+	.signup-form {
+		display: grid;
+		gap: 0.45rem;
+	}
+	label {
+		font-size: 0.88rem;
+		font-weight: 700;
+	}
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+	}
+	input[type='email'] {
+		flex: 1 1 14rem;
+		min-height: 46px;
+		padding: 0 0.9rem;
+		border-radius: 10px;
+		border: 1px solid var(--border);
+		background: var(--bg);
+		color: var(--text);
+		font: inherit;
+		font-size: 1rem;
+	}
+	input[type='email']:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
+	}
+	.btn {
+		min-height: 46px;
+	}
+	.fine {
+		margin: 0;
+		font-size: 0.8rem;
+		color: var(--muted);
+	}
+	.fine a {
+		color: var(--muted);
+	}
+</style>

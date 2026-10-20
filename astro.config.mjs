@@ -3,15 +3,34 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
+import remarkVoyager from './src/plugins/remark-voyager.mjs';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://thevoyager.dev',
 	integrations: [
 		mdx(),
-		sitemap({ filter: (page) => !page.endsWith('/search/') }),
+		// Daily Brief posts are noindex (D2), so they stay out of the sitemap; the Brief archive page stays in.
+		sitemap({ filter: (page) => !page.endsWith('/search/') && !/\/brief\/[^/]+\/$/.test(new URL(page).pathname) }),
 	],
+	markdown: {
+		remarkPlugins: [remarkVoyager],
+		shikiConfig: {
+			themes: { light: 'github-light', dark: 'github-dark' },
+			defaultColor: false,
+		},
+	},
 	fonts: [
+		{
+			// Headings, dates and numbers (D3): no slashed zeros, tabular figures.
+			provider: fontProviders.google(),
+			name: 'Inter Tight',
+			cssVariable: '--font-heading',
+			weights: [600, 700, 800],
+			styles: ['normal'],
+			subsets: ['latin'],
+			fallbacks: ['system-ui', 'sans-serif'],
+		},
 		{
 			provider: fontProviders.local(),
 			name: 'Atkinson',

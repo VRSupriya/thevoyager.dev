@@ -1,5 +1,6 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
-import { TIME_ZONE } from '../consts';
+import { TIME_ZONE, getTrack as trackOf } from '../consts';
+import { GENERIC_TAGS } from './brief';
 
 export type Brief = CollectionEntry<'brief'>;
 export type Dive = CollectionEntry<'dives'>;
@@ -66,3 +67,64 @@ export function readingMinutes(body = '') {
 
 // True when the post has a ```mermaid code block, so the diagram script is only loaded there.
 export const hasMermaid = (body = '') => /^\s*(```|~~~)\s*mermaid\b/m.test(body);
+
+// ---- Links between posts (P3, P4, P5, B6, B8) ----
+
+
+export interface PostLinkData {
+	href: string;
+	title: string;
+	label?: string;
+	track?: string;
+}
+
+export const diveLink = (p: Dive, label?: string): PostLinkData => ({
+	href: diveUrl(p),
+	title: p.data.title,
+	label: label ?? trackOf(p.data.track).label,
+	track: p.data.track,
+});
+
+const topicTags = (tags: string[]) => tags.filter((t) => !GENERIC_TAGS.has(t.toLowerCase()));
+
+/** Deep Dives related to a post: the ids it lists first, then the best tag overlap. */
+export function relatedDives(
+	post: { id?: string; data: { related?: string[]; tags?: string[] } },
+	dives: Dive[],
+	count = 2,
+) {
+	const picked: Dive[] = [];
+	for (const id of post.data.related ?? []) {
+		const d = dives.find((x) => x.id === id);
+		if (d && d.id !== post.id && !picked.includes(d)) picked.push(d);
+	}
+	if (picked.length < count) {
+		const mine = new Set(topicTags(post.data.tags ?? []));
+		if (mine.size) {
+			const scored = dives
+				.filter((d) => d.id !== post.id && !picked.includes(d))
+				.map((d) => ({ d, n: topicTags(d.data.tags).filter((t) => mine.has(t)).length }))
+				.filter((x) => x.n > 0)
+				.sort((a, b) => b.n - a.n || b.d.data.date.valueOf() - a.d.data.date.valueOf());
+			for (const x of scored) {
+				if (picked.length >= count) break;
+				picked.push(x.d);
+			}
+		}
+	}
+	return picked.slice(0, count);
+}
+
+/** Older and newer neighbours in a newest-first list. */
+export function neighbours<T extends { id: string }>(list: T[], item: T) {
+	const i = list.findIndex((x) => x.id === item.id);
+	return { newer: i > 0 ? list[i - 1] : undefined, older: i >= 0 && i < list.length - 1 ? list[i + 1] : undefined };
+}
+
+/** Parts of a series in reading order. */
+export function seriesParts(dives: Dive[], series?: string) {
+	if (!series) return [];
+	return dives
+		.filter((d) => d.data.series === series)
+		.sort((a, b) => (a.data.part ?? 0) - (b.data.part ?? 0) || a.data.date.valueOf() - b.data.date.valueOf());
+}

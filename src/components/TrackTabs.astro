@@ -1,19 +1,33 @@
 ---
 import { TRACKS } from '../consts';
+import TrackIcon from './TrackIcon.astro';
 
 interface Props {
 	current?: string;
+	/** Number of posts per track slug, shown after each name. */
+	counts?: Record<string, number>;
+	total?: number;
 }
-const { current } = Astro.props;
+const { current, counts = {}, total } = Astro.props;
+// Hide tracks that have nothing yet (recap, radar) unless one is open.
+const shown = TRACKS.filter((t) => (counts[t.slug] ?? 0) > 0 || t.slug === current || t.day !== null);
 ---
 
 <nav class="tabs" aria-label="Deep Dives tracks">
-	<a href="/deep-dives/" aria-current={!current ? 'page' : undefined}>All</a>
+	<a href="/deep-dives/" aria-current={!current ? 'page' : undefined}>All{total !== undefined && <span class="count">{total}</span>}</a>
 	{
-		TRACKS.map((t) => (
-			<a href={`/deep-dives/${t.slug}/`} aria-current={current === t.slug ? 'page' : undefined}>
-				{t.emoji} {t.label}
+		shown.map((t) => (
+			<a href={`/deep-dives/${t.slug}/`} aria-current={current === t.slug ? 'page' : undefined} data-track={t.slug} class="track-tab">
+				<TrackIcon track={t.slug} />
+				{t.label}
+				{counts[t.slug] !== undefined && <span class="count">{counts[t.slug]}</span>}
 			</a>
 		))
 	}
 </nav>
+
+<style>
+	.track-tab :global(svg) {
+		color: var(--track);
+	}
+</style>

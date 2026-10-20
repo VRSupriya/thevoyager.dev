@@ -4,6 +4,16 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Mermaid from '../components/Mermaid.astro';
 import Newsletter from '../components/Newsletter.astro';
 import ShareBar from '../components/ShareBar.astro';
+import TrackIcon from '../components/TrackIcon.astro';
+import CoverArt from '../components/CoverArt.astro';
+
+export interface PostLink {
+	href: string;
+	title: string;
+	/** Small line above the title, e.g. "Previous brief" or the track name. */
+	label?: string;
+	track?: string;
+}
 
 interface Props {
 	title: string;
@@ -16,19 +26,36 @@ interface Props {
 	/** Optional extra label, e.g. the Deep Dives track. */
 	label?: string;
 	labelHref?: string;
-	/** Extra meta items, e.g. "⏱ 45 min" or "Week 3". */
+	/** Deep Dives track slug: sets the colour scope, the icon and the cover art. */
+	track?: string;
+	/** Seed for the cover art (Deep Dives only). */
+	cover?: string;
+	/** Extra meta items, e.g. "10 min read · 35 min hands-on". */
 	extra?: string[];
 	minutes?: number;
-	curated?: boolean;
 	draft?: boolean;
 	hasMermaid?: boolean;
+	interactive?: boolean;
+	/** "Key takeaways" box under the title (P1). */
+	takeaways?: string[];
+	/** h2 headings for the table of contents (P2). Shown when there are 4 or more. */
+	headings?: { depth: number; slug: string; text: string }[];
+	/** Series name and its parts (P3). */
+	series?: { name: string; parts: (PostLink & { current?: boolean })[] };
+	prev?: PostLink;
+	next?: PostLink;
+	related?: PostLink[];
+	relatedHeading?: string;
+	/** D1 · one line at the end of AI-drafted posts. */
+	aiNote?: boolean;
+	/** D2 · keep out of search engines but follow links. */
+	noindex?: boolean;
+	/** Share image path, e.g. /og/dives/system/2026-10-14.png */
+	image?: string;
 	/** Show the newsletter box at the end (your own writing only). */
 	newsletter?: boolean;
-	/** How the share text is built: AI-curated Brief or Deep Dive, or the author's own writing. */
 	shareKind?: 'brief' | 'dive' | 'own';
-	/** Text written for sharing (front matter `share:`, or the older `linkedin:`). */
 	shareWritten?: string;
-	/** The `telegram:` text; used to build points when no share text was written. */
 	shareTelegram?: string;
 }
 
@@ -41,86 +68,308 @@ const {
 	sectionHref,
 	label,
 	labelHref,
+	track,
+	cover,
 	extra = [],
 	minutes,
-	curated = false,
 	draft = false,
 	hasMermaid = false,
+	interactive = false,
+	takeaways = [],
+	headings = [],
+	series,
+	prev,
+	next,
+	related = [],
+	relatedHeading = 'Related',
+	aiNote = false,
+	noindex = false,
+	image,
 	newsletter = false,
 	shareKind = 'own',
 	shareWritten,
 	shareTelegram,
 } = Astro.props;
+
+const toc = headings.filter((h) => h.depth === 2);
+const showToc = toc.length >= 4;
+const hasLead = Astro.slots.has('lead');
 ---
 
-<Base
-	title={title}
-	description={summary}
-	hideFooterNewsletter={newsletter}
-	ogType="article"
->
-	<article class="post prose" data-pagefind-body data-pagefind-filter={`section:${section}`}>
-		<header class="post-head">
-			<p class="eyebrow">
-				<a href={sectionHref} data-pagefind-ignore>{section}</a>
-				{label && labelHref && <span aria-hidden="true"> / </span>}
-				{label && labelHref && <a href={labelHref}>{label}</a>}
-			</p>
-			<h1>{title}</h1>
-			<p class="summary">{summary}</p>
-			<div class="meta">
-				<FormattedDate date={date} />
-				{minutes && <span>{minutes} min read</span>}
-				{extra.map((item) => <span>{item}</span>)}
-				{draft && <span class="draft">Draft: not published</span>}
+<Base title={title} description={summary} hideFooterNewsletter={newsletter} ogType="article" noindex={noindex} image={image}>
+	<div class="progress" aria-hidden="true"></div>
+	<div class:list={['post-grid', { 'has-toc': showToc }]} data-track={track}>
+		<article class="post prose" data-pagefind-body data-pagefind-filter={`section:${section}`}>
+			<header class="post-head">
+				<p class="eyebrow crumbs">
+					<a href={sectionHref} data-pagefind-ignore>{section}</a>
+					{
+						label && labelHref && (
+							<>
+								<span aria-hidden="true">/</span>
+								<a class="chip track-chip" href={labelHref}>
+									{track && <TrackIcon track={track} />}
+									{label}
+								</a>
+							</>
+						)
+					}
+				</p>
+				{series && <p class="series-label">{series.name}{series.parts.length > 1 && ` · part ${series.parts.findIndex((p) => p.current) + 1} of ${series.parts.length}`}</p>}
+				<h1>{title}</h1>
+				<p class="summary">{summary}</p>
+				<div class="meta">
+					<FormattedDate date={date} />
+					{minutes && <span>{minutes} min read</span>}
+					{extra.map((item) => <span>{item}</span>)}
+					{draft && <span class="draft">Draft: not published</span>}
+				</div>
+				{cover && <CoverArt seed={cover} class="post-cover" />}
+			</header>
+
+			{
+				takeaways.length > 0 && (
+					<aside class="callout callout-takeaways" aria-label="Key takeaways">
+						<p class="callout-title">Key takeaways</p>
+						<ul>
+							{takeaways.map((t) => (
+								<li>{t}</li>
+							))}
+						</ul>
+					</aside>
+				)
+			}
+
+			{hasLead && <slot name="lead" />}
+
+			{
+				showToc && (
+					<details class="toc toc-inline" data-pagefind-ignore>
+						<summary>On this page</summary>
+						<ol>
+							{toc.map((h) => (
+								<li>
+									<a href={`#${h.slug}`}>{h.text}</a>
+								</li>
+							))}
+						</ol>
+					</details>
+				)
+			}
+
+			<div class="content">
+				<slot />
 			</div>
-		</header>
 
-		<div class="content">
-			<slot />
-		</div>
+			{
+				aiNote && (
+					<p class="ai-note" data-pagefind-ignore>
+						Researched and drafted with AI, checked against the linked sources. <a href="/disclosure/#ai">How we use AI →</a>
+					</p>
+				)
+			}
+
+			{
+				series && series.parts.length > 1 && (
+					<nav class="series-box" aria-label={`Series: ${series.name}`} data-pagefind-ignore>
+						<p class="eyebrow">{series.name}</p>
+						<ol>
+							{series.parts.map((p) => (
+								<li>{p.current ? <span aria-current="page">{p.title}</span> : <a href={p.href}>{p.title}</a>}</li>
+							))}
+						</ol>
+					</nav>
+				)
+			}
+
+			{
+				tags.length > 0 && (
+					<ul class="tags post-tags" aria-label="Tags">
+						{tags.map((tag) => (
+							<li class="tag">#{tag}</li>
+						))}
+					</ul>
+				)
+			}
+
+			{
+				!draft && (
+					<ShareBar
+						title={title}
+						summary={summary}
+						tags={tags}
+						kind={shareKind}
+						date={date}
+						written={shareWritten}
+						telegram={shareTelegram}
+					/>
+				)
+			}
+
+			{
+				related.length > 0 && (
+					<section class="related" aria-labelledby="related-heading" data-pagefind-ignore>
+						<h2 id="related-heading">{relatedHeading}</h2>
+						<ul>
+							{related.map((r) => (
+								<li data-track={r.track}>
+									<a class="card related-card" href={r.href}>
+										{r.label && (
+											<span class="eyebrow">
+												{r.track && <TrackIcon track={r.track} size={12} />} {r.label}
+											</span>
+										)}
+										<span class="related-title">{r.title}</span>
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				)
+			}
+
+			{
+				(prev || next) && (
+					<nav class="prev-next" aria-label="More posts" data-pagefind-ignore>
+						{prev ? (
+							<a class="pn prev" href={prev.href} rel="prev">
+								<span class="eyebrow">← {prev.label ?? 'Previous'}</span>
+								<span>{prev.title}</span>
+							</a>
+						) : (
+							<span />
+						)}
+						{next && (
+							<a class="pn next" href={next.href} rel="next">
+								<span class="eyebrow">{next.label ?? 'Next'} →</span>
+								<span>{next.title}</span>
+							</a>
+						)}
+					</nav>
+				)
+			}
+		</article>
 
 		{
-			tags.length > 0 && (
-				<ul class="tags post-tags" aria-label="Tags">
-					{tags.map((tag) => (
-						<li class="tag">#{tag}</li>
-					))}
-				</ul>
+			showToc && (
+				<nav class="toc toc-side" aria-label="On this page" data-pagefind-ignore>
+					<p class="eyebrow">On this page</p>
+					<ol>
+						{toc.map((h) => (
+							<li>
+								<a href={`#${h.slug}`}>{h.text}</a>
+							</li>
+						))}
+					</ol>
+				</nav>
 			)
 		}
-
-		{
-			!draft && (
-				<ShareBar
-					title={title}
-					summary={summary}
-					tags={tags}
-					kind={shareKind}
-					date={date}
-					written={shareWritten}
-					telegram={shareTelegram}
-				/>
-			)
-		}
-	</article>
+	</div>
 
 	{newsletter && <Newsletter />}
 	{hasMermaid && <Mermaid />}
 </Base>
 
+<script>
+	// Progress bar and copy buttons; the widget script only acts on pages that have widgets.
+	import '../scripts/post';
+	import '../scripts/widgets';
+</script>
+
 <style>
-	.post-head {
-		padding-bottom: 1.4rem;
-		margin-bottom: 2rem;
-		border-bottom: 1px solid var(--border);
+	.post-grid.has-toc {
+		position: relative;
 	}
-	.eyebrow a {
+	@media (min-width: 1180px) {
+		.post-grid.has-toc {
+			display: grid;
+			grid-template-columns: 1fr minmax(0, var(--measure)) 1fr;
+			gap: 2.5rem;
+		}
+		.post-grid.has-toc .post {
+			grid-column: 2;
+			margin: 0;
+			max-width: none;
+		}
+		.toc-inline {
+			display: none;
+		}
+	}
+	.toc-side {
+		display: none;
+	}
+	@media (min-width: 1180px) {
+		.toc-side {
+			display: block;
+			grid-column: 3;
+			align-self: start;
+			position: sticky;
+			top: 5rem;
+			max-width: 16rem;
+			font-size: 0.88rem;
+			padding-left: 1rem;
+			border-left: 2px solid var(--track-soft);
+		}
+	}
+	.toc ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.35rem;
+	}
+	.toc a {
 		color: var(--muted);
 		text-decoration: none;
 	}
-	.eyebrow a:hover {
+	.toc a:hover {
+		color: var(--track);
+	}
+	.toc-inline {
+		margin: 0 0 1.8rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 0.7rem 1rem;
+		background: var(--surface);
+	}
+	.toc-inline summary {
+		cursor: pointer;
+		font-family: var(--font-head);
+		font-weight: 700;
+		font-size: 0.9rem;
+	}
+	.toc-inline[open] summary {
+		margin-bottom: 0.6rem;
+	}
+	.post-head {
+		padding-bottom: 1.4rem;
+		margin-bottom: 1.6rem;
+		border-bottom: 1px solid var(--border);
+	}
+	.crumbs {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.crumbs > a:first-child {
+		color: var(--muted);
+		text-decoration: none;
+	}
+	.crumbs > a:first-child:hover {
 		color: var(--accent);
+	}
+	.track-chip {
+		color: var(--track);
+		background: var(--track-soft);
+		border-color: transparent;
+		text-decoration: none;
+	}
+	.series-label {
+		margin: 0 0 0.3rem;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--track);
 	}
 	h1 {
 		margin-bottom: 0.6rem;
@@ -129,6 +378,9 @@ const {
 		font-size: 1.15rem;
 		color: var(--muted);
 		margin-bottom: 1rem;
+	}
+	.post-head :global(.post-cover) {
+		margin-top: 1.4rem;
 	}
 	.draft {
 		color: var(--amber);
@@ -140,7 +392,92 @@ const {
 	.content :global(li) {
 		margin-bottom: 0.35em;
 	}
+	.ai-note {
+		margin: 2.5rem 0 0;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
+		font-size: 0.88rem;
+		color: var(--muted);
+	}
+	.series-box {
+		margin-top: 2rem;
+		padding: 1rem 1.2rem;
+		border-radius: var(--radius);
+		background: var(--track-soft);
+	}
+	.series-box ol {
+		margin: 0;
+		padding-left: 1.3rem;
+	}
+	.series-box [aria-current] {
+		font-weight: 700;
+	}
 	.post-tags {
+		margin-top: 2rem;
+	}
+	.related {
 		margin-top: 2.5rem;
+	}
+	.related h2 {
+		font-size: 1.15rem;
+		margin: 0 0 0.8rem;
+	}
+	.related ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.6rem;
+	}
+	@media (min-width: 640px) {
+		.related ul {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	.related-card {
+		height: 100%;
+		border-left: 3px solid var(--track);
+		padding: 0.8rem 1rem;
+	}
+	.related-card .eyebrow {
+		display: flex;
+		gap: 0.35rem;
+		align-items: center;
+		color: var(--track);
+		margin-bottom: 0.25rem;
+	}
+	.related-title {
+		font-weight: 700;
+		line-height: 1.35;
+	}
+	.prev-next {
+		margin-top: 2rem;
+		display: grid;
+		gap: 0.7rem;
+	}
+	@media (min-width: 640px) {
+		.prev-next {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	.pn {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		padding: 0.8rem 1rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		text-decoration: none;
+		color: var(--text);
+		line-height: 1.35;
+	}
+	.pn:hover {
+		border-color: var(--accent);
+	}
+	.pn .eyebrow {
+		margin: 0;
+	}
+	.pn.next {
+		text-align: right;
 	}
 </style>

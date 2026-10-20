@@ -88,6 +88,23 @@ def main() -> int:
                        + (" ✅" if a["url"] in used else ""))
         out.append("")
 
+    rt = d.get("rising_topics") or {}
+    if rt.get("most_discussed_this_week"):
+        ready = "week-over-week comparison ready" if rt.get("comparison_ready") else \
+            f"history: {rt.get('days_of_history')} day(s); week-over-week comparison needs about two weeks"
+        out += [f"## 📈 Concepts people are writing about ({ready})", "",
+                "| Status | Concept | Sites today | Sites, last 7 days | Sites, 7 days before | Example today |",
+                "|---|---|---|---|---|---|"]
+        shown = {r["concept"] for r in rt["most_discussed_this_week"]}
+        for r in rt.get("rising", []) + [r for r in rt["most_discussed_this_week"] if r["status"] not in ("new", "rising")]:
+            ex = r["examples_today"][0] if r.get("examples_today") else None
+            prev = "" if r.get("sites_week_before") is None else r["sites_week_before"]
+            out.append(f"| {r['status']} | {r['concept']} | {r['sites_today']} | {r['sites_this_week']} | {prev} | "
+                       + (f"[{cell(ex['title'], 70)}]({ex['url']})" if ex else "") + " |")
+        if rt.get("cooling"):
+            out.append(f"\nCooling: {', '.join(rt['cooling'])}")
+        out.append("")
+
     nc = d.get("newcomers") or {}
     if nc:
         out += ["## 🆕 Newcomers (new models, repos, tools, releases; ✅ = used, 📌 = the brief named it before)", ""]

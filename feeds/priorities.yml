@@ -327,3 +327,52 @@ coverage:
   hours: 48                   # TLDR and The Rundown publish on US time, after the morning run
   per_source: 12
   sources: ["swyx / Latent Space", "TLDR AI", "The Rundown AI", "Last Week in AI", "Hacker News", "r/LocalLLaMA"]
+
+# 📈 Rising topics: architecture ideas (not product names) that more and more sites write about.
+# Each run counts how many different sites mention each concept in the last 24 hours (title or summary)
+# and stores it in data/concept-history.json. A concept is "rising" when its site count over the last
+# 7 days is at least `min_week` and at least `growth` times the 7 days before (or new: before = 0).
+# Edit freely: key = the label shown to readers, value = phrases (case-insensitive, whole words).
+rising:
+  window_hours: 24
+  min_week: 5
+  growth: 1.5
+  new_min_week: 4
+  top_n: 10
+  concepts:
+    context engineering: [context engineering, context window management, context rot, context compression]
+    agent memory: [agent memory, long-term memory, memory layer, episodic memory, persistent memory]
+    evals & LLM-as-judge: [evals, llm-as-a-judge, llm as a judge, llm-as-judge, eval harness, evaluation framework]
+    observability & tracing: [llm observability, agent observability, opentelemetry, tracing, traces]
+    prompt injection: [prompt injection, indirect injection, jailbreak, jailbreaks]
+    MCP security: [mcp security, mcp vulnerability, mcp server vulnerability, tool poisoning, malicious mcp]
+    agent identity & permissions: [agent identity, non-human identity, agent authentication, agent permissions, least privilege]
+    sandboxing: [sandbox, sandboxing, sandboxed, microvm, firecracker]
+    computer & browser agents: [computer use, browser agent, browser agents, browser automation, computer-use]
+    durable execution: [durable execution, durable agents, workflow engine, temporal workflows, temporal.io]
+    multi-agent systems: [multi-agent, multi agent, multiagent, agent swarm, agent orchestration]
+    agent protocols (MCP/A2A): [model context protocol, mcp server, mcp servers, a2a, agent2agent, agent-to-agent]
+    agent skills: [agent skills, skills marketplace, skill files]
+    agent harnesses: [agent harness, harness engineering, coding harness]
+    coding agents: [coding agent, coding agents, ai coding, vibe coding, agentic coding, ai-written code]
+    spec-driven development: [spec-driven, spec driven development, specification-driven]
+    RAG & retrieval: [rag, retrieval-augmented, retrieval augmented, graphrag, agentic rag, hybrid search, reranker, rerankers]
+    knowledge graphs: [knowledge graph, knowledge graphs, graph database]
+    small & on-device models: [small language model, small language models, slm, slms, on-device, edge ai]
+    reasoning & test-time compute: [reasoning model, reasoning models, test-time compute, test-time scaling, thinking budget]
+    RL post-training: [reinforcement learning, rlvr, grpo, rlhf, post-training, reward model]
+    distillation & synthetic data: [distillation, distilled, synthetic data]
+    inference optimisation: [speculative decoding, kv cache, kv-cache, prefix caching, disaggregated, quantization, quantized, fp8, fp4]
+    inference cost & routing: [inference cost, token cost, model routing, llm router, ai gateway, llm gateway, cost per token]
+    mixture of experts: [mixture of experts, moe]
+    diffusion LLMs: [diffusion llm, diffusion language model, dllm]
+    long context: [long context, 1m context, million-token, million token context]
+    guardrails & AI safety: [guardrails, guardrail, ai safety, red teaming, red-teaming]
+    AI governance & regulation: [ai act, ai regulation, ai governance, iso 42001, nist ai, ai policy, ai law]
+    sovereign AI & data residency: [sovereign ai, sovereign cloud, data residency, data sovereignty]
+    AI compute & data centres: [gpu shortage, gpu capacity, data center, data centre, datacenter, compute capacity, gigawatt]
+    voice agents: [voice agent, voice agents, voice ai, speech-to-speech, realtime voice]
+    world models & robotics: [world model, world models, embodied ai, humanoid, robotics foundation model]
+    agentic commerce & payments: [agentic commerce, agent payments, agentic payments]
+    open-weight models: [open-weight, open weights, open-source model, open source model]
+    enterprise agent adoption: [agents in production, enterprise agents, agentic ai adoption, ai adoption, digital workers]

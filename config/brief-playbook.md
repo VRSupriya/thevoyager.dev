@@ -61,7 +61,7 @@ Never skip, whatever happens:
 3. `scripts/check_brief.py` with 0 errors, the history update, the commit and push, and Telegram.
 
 If the run is getting long, cut in this order (and say so in the final report):
-1. 📅 "What moved" (Sundays), then shorten the rest of 📅 to "The five that mattered".
+1. 📅 "What moved" (Sundays), then shorten the rest of 📅 to "The five that mattered" and "📈 Rising topics".
 2. ⚡ down to 6 items (never below 5).
 3. Step 2b searches down to the two most important (labs outside the US; security and regulation).
 4. The editor's notes down to the picks, the rejected new models and the coverage check.
@@ -96,7 +96,7 @@ DATE=$(TZ=Asia/Dubai date +%F); DOW=$(TZ=Asia/Dubai date +%a); HOUR=$(date -u +%
 pip install -q -r scripts/requirements.txt
 python3 scripts/fetch_feeds.py --since 72h --out /tmp/candidates.json
 ```
-This also updates `data/trend-history.json` and `data/newcomers-seen.json` (committed in step 9).
+This also updates `data/trend-history.json`, `data/newcomers-seen.json` and `data/concept-history.json` (committed in step 9).
 If it fails completely, continue with WebSearch alone and say so in the report.
 
 `/tmp/candidates.json` contains:
@@ -112,6 +112,10 @@ If it fails completely, continue with WebSearch alone and say so in the report.
   "already_in_brief" (a hint; confirm in `data/brief-history.json`) and "first_listed".
 - **quick_pool**: relevant items that did not win a slot, grouped by category, for ⚡.
 - **trending**: names many sites write about now, or that keep coming back day after day.
+- **rising_topics**: architecture ideas (not names), such as context engineering, agent memory, evals or MCP security,
+  with how many different sites mentioned each today and over the last 7 days, and a status: "new" or "rising"
+  (clearly growing week over week), "steady" or "cooling". "comparison_ready" is false until about two weeks of
+  daily counts exist (`data/concept-history.json`); until then use "most_discussed_this_week" only.
 - **story_clusters**: one story covered by three or more outlets (a sign it matters).
 - **deadlines_found**: retirement dates published by OpenRouter (confirm on the provider's own page).
 - **regional**: the best Middle East and India candidates.
@@ -276,6 +280,9 @@ and the wider GCC/MENA; plus India). Never counts toward the six items; stays sh
 - "The five that mattered": the 5 most useful main items of the last 7 briefs (`data/brief-history.json`), one line
   each with a link to that day's brief (`https://thevoyager.dev/brief/<date>/`) and why it still matters.
 - "Threads": 2–3 short lines on what the week adds up to (patterns across items, not a repeat of them).
+- "📈 Rising topics": 2–3 concepts from "rising_topics" with status "new" or "rising" (or, while "comparison_ready" is
+  false, the most-discussed ones, labelled "most discussed this week"). One line each: what people are saying about it
+  and why it matters for architects, linking one representative primary item (verified). Leave out if nothing qualifies.
 - "What moved": open the "weekly_pages" (OpenRouter rankings for real usage, Artificial Analysis leaderboard) and
   note 1–3 verified changes (a model climbing in real usage, a new leader in a category). Leave out if nothing changed.
 - "Decisions to revisit": 1–2 lines on architecture or buying decisions the week should make readers reconsider.
@@ -375,7 +382,7 @@ Every claim must come from a source verified in this run; label hypotheses as hy
   - each of the 6 slots and 🌍: the pick and one line on why; the 1–2 strongest runners-up and why they lost
     (too old, weaker evidence, already covered, wrong slot, same story, vendor cap, site cap, off-topic);
   - the top 5 new models in each newcomers list and the top first_seen names: main, ⚡, or why not;
-  - the top trending topics and story clusters: used where, or why not;
+  - the top trending topics, story clusters and rising concepts: used where, or why not;
   - the coverage check (step 6): each story and where it went, or why not;
   - any vendor-cap exception and why; which check_pages were opened; what the step 2b searches found (with links);
   - any item in "dropped_titles" that looked like a false negative.
@@ -389,7 +396,7 @@ Every claim must come from a source verified in this run; label hypotheses as hy
   `data/experiments.json` (keep the latest 60; never change the status of earlier entries).
 - Commit and push:
   ```
-  git add src/content/brief/DATE.md data/brief-history.json data/experiments.json data/candidates/ data/trend-history.json data/newcomers-seen.json data/deadlines.json
+  git add src/content/brief/DATE.md data/brief-history.json data/experiments.json data/candidates/ data/trend-history.json data/newcomers-seen.json data/deadlines.json data/concept-history.json
   git commit -m "brief: DATE"
   git push origin main   # if rejected: git pull --rebase origin main, then push once more
   ```

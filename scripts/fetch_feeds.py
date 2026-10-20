@@ -792,6 +792,70 @@ def quick_pool(candidates: list[dict], picks: dict, cfg: dict) -> dict:
     return out
 
 
+# ── Rising topics (concepts, not names) ──────────────────────────────────────
+
+
+def concept_patterns(cfg: dict) -> dict[str, re.Pattern]:
+    out = {}
+    for label, phrases in (cfg.get("concepts") or {}).items():
+        alts = "|".join(re.escape(p.lower()) for p in phrases)
+        out[label] = re.compile(rf"(?<![a-z0-9])(?:{alts})(?![a-z0-9])", re.I)
+    return out
+
+
+def rising_topics(items: list[dict], cfg: dict, history_file: Path | None, now: datetime, write: bool) -> dict:
+    """Count, per concept, how many different sites mentioned it in the last `window_hours`, store the
+    daily counts, and compare the last 7 days with the 7 before. Needs about two weeks of daily runs
+    before "rising" means much; until then it still reports the most-discussed concepts."""
+    pats = concept_patterns(cfg)
+    since = now - timedelta(hours=cfg.get("window_hours", 24))
+    today = now.date().isoformat()
+    sites: dict[str, set[str]] = {}
+    examples: dict[str, list[dict]] = {}
+    for it in items:
+        if not it.get("published") or it["published"] < since:
+            continue
+        text = f"{it['title']} {it.get('summary', '')}"
+        for label, pat in pats.items():
+            if pat.search(text):
+                sites.setdefault(label, set()).add(site_of(it))
+                ex = examples.setdefault(label, [])
+                if len(ex) < 3 and all(e["url"] != it["url"] for e in ex):
+                    ex.append({"title": it["title"], "url": it["url"], "source": it.get("publisher") or it["source"]})
+    history = json.loads(history_file.read_text()) if history_file and history_file.exists() else {}
+    history[today] = {label: len(s) for label, s in sorted(sites.items())}
+    if history_file and write:
+        keep = sorted(history)[-60:]
+        history_file.write_text(json.dumps({d: history[d] for d in keep}, ensure_ascii=False, indent=0))
+
+    days = sorted(d for d in history if d <= today)
+    this_week = [d for d in days if d > (now - timedelta(days=7)).date().isoformat()]
+    last_week = [d for d in days if (now - timedelta(days=14)).date().isoformat() < d <= (now - timedelta(days=7)).date().isoformat()]
+    rows = []
+    for label in pats:
+        cur = sum(history[d].get(label, 0) for d in this_week)
+        prev = sum(history[d].get(label, 0) for d in last_week)
+        if cur == 0:
+            continue
+        status = "steady"
+        if last_week:
+            if prev == 0 and cur >= cfg.get("new_min_week", 4):
+                status = "new"
+            elif prev and cur >= cfg.get("min_week", 5) and cur >= cfg.get("growth", 1.5) * prev:
+                status = "rising"
+            elif prev and cur <= prev / cfg.get("growth", 1.5):
+                status = "cooling"
+        rows.append({"concept": label, "sites_this_week": cur, "sites_week_before": prev if last_week else None,
+                     "sites_today": history[today].get(label, 0), "status": status, "examples_today": examples.get(label, [])})
+    order = {"new": 0, "rising": 1, "steady": 2, "cooling": 3}
+    rising = sorted((r for r in rows if r["status"] in ("new", "rising")),
+                    key=lambda r: (order[r["status"]], -r["sites_this_week"]))
+    top = sorted(rows, key=lambda r: -r["sites_this_week"])[: cfg.get("top_n", 10)]
+    return {"days_of_history": len(days), "comparison_ready": len(last_week) >= 5,
+            "rising": rising[: cfg.get("top_n", 10)], "most_discussed_this_week": top,
+            "cooling": [r["concept"] for r in rows if r["status"] == "cooling"]}
+
+
 def openrouter_deadlines(items: list[dict], now: datetime) -> list[dict]:
     out = []
     for it in items:
@@ -871,6 +935,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="items already used in the last 14 days are dropped")
     ap.add_argument("--trend-history", type=Path, default=ROOT / "data" / "trend-history.json",
                     help="daily topic counts used to spot trends; pass 'none' to skip saving")
+    ap.add_argument("--concept-history", type=Path, default=ROOT / "data" / "concept-history.json",
+                    help="daily site counts per concept for rising topics; pass 'none' to skip saving")
     ap.add_argument("--newcomers-seen", type=Path, default=ROOT / "data" / "newcomers-seen.json",
                     help="first date each newcomer was listed; pass 'none' to skip saving")
     args = ap.parse_args(argv)
@@ -944,6 +1010,9 @@ def main(argv: list[str] | None = None) -> int:
                                 write_seen=seen_file is not None)
     newcomers["first_seen"] = first_seen_names(candidates, trend_hist_before, now.date().isoformat(), query_words)
     deadlines_found = openrouter_deadlines([d for d in discovery if d.get("expiration_date")], now)
+    concept_file = None if str(args.concept_history) == "none" else args.concept_history
+    rising = rising_topics(items, prio.get("rising", {}), concept_file or args.concept_history, now,
+                           write=concept_file is not None)
     cov = prio.get("coverage", {})
     cov_since = now - timedelta(hours=cov.get("hours", 48))
     coverage_pool = [{"title": i["title"], "url": i["url"], "source": i["source"], "summary": i.get("summary", "")[:200],
@@ -977,6 +1046,7 @@ def main(argv: list[str] | None = None) -> int:
             "by_section": by_section,
         },
         "trending": trends,
+        "rising_topics": rising,
         "story_clusters": clusters_out,
         "shortlist": picks,
         "newcomers": newcomers,

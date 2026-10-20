@@ -8,6 +8,13 @@ file for the routine to rank. Each item gets a score (source weight + audience r
 one pick per slot, at most two from the same website, is prepared. A source that fails is listed under "failed" and skipped;
 it never stops the run.
 
+It also prepares:
+- "newcomers": new models (Hugging Face, OpenRouter), trending repos, Show HN tools, Product Hunt
+  products and library releases (feeds/sources.yml: discovery), plus names that appear in the
+  news for the first time ("first_seen"), for the 🆕 New on the radar group.
+- "quick_pool": good items that did not win a slot, grouped for ⚡ Also worth knowing.
+- "deadlines_found": retirement dates published by OpenRouter, for the ⏰ calendar.
+
     pip install -r scripts/requirements.txt
     python3 scripts/fetch_feeds.py --since 36h --out /tmp/candidates.json
 """
@@ -39,7 +46,7 @@ DEFAULT_WEIGHT = 2
 
 
 def load_sources(feeds_dir: Path) -> tuple[list[dict], list[dict]]:
-    """Return (feeds to fetch, pages the agent should check by hand)."""
+    """Return (feeds to fetch, pages the agent should check by hand). Discovery feeds have kind "discovery"."""
     sources = yaml.safe_load((feeds_dir / "sources.yml").read_text())
     people = yaml.safe_load((feeds_dir / "people.yml").read_text())
     youtube = yaml.safe_load((feeds_dir / "youtube.yml").read_text())
@@ -67,6 +74,7 @@ def load_sources(feeds_dir: Path) -> tuple[list[dict], list[dict]]:
             "section": s.get("section", "core"),
             "kind": "source",
             "weight": s.get("weight", DEFAULT_WEIGHT),
+            "require_ai": s.get("require_ai", False),
         }
         # Pages without a feed: the agent opens them with WebFetch instead.
         (pages if entry["type"] == "html" else feeds).append(entry)
@@ -83,16 +91,23 @@ def load_sources(feeds_dir: Path) -> tuple[list[dict], list[dict]]:
 
     for c in youtube.get("channels", []):
         if c.get("tier") == "news":
+            # YouTube's RSS feeds have returned 404 since mid-October 2026, so the channel's
+            # videos page is read first and the RSS feed is only a fallback.
             feeds.append(
                 {
                     "name": f"YouTube: {c['title']}",
-                    "url": f"https://www.youtube.com/feeds/videos.xml?channel_id={c['id']}",
-                    "type": "rss",
+                    "url": f"https://www.youtube.com/channel/{c['id']}/videos",
+                    "rss_url": f"https://www.youtube.com/feeds/videos.xml?channel_id={c['id']}",
+                    "type": "youtube",
                     "section": "core",
                     "kind": "youtube",
                     "weight": c.get("weight", DEFAULT_WEIGHT),
                 }
             )
+
+    for d in sources.get("discovery", []):
+        feeds.append({"name": d["name"], "url": d["url"], "type": d.get("type", "rss"), "section": "discovery",
+                      "kind": "discovery", "new_kind": d["kind"], "package": d.get("package"), "weight": 1})
     return feeds, pages
 
 
@@ -127,6 +142,9 @@ def parse_iso(value: str | None) -> datetime | None:
     return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
 
 
+STABLE_MINOR = re.compile(r"^\d+\.\d+(\.0)?$")  # 1.4 or 1.4.0: a minor/major release, not a patch or pre-release
+
+
 def parse_rss(body: bytes, src: dict) -> list[dict]:
     parsed = feedparser.parse(body)
     if not parsed.entries and (parsed.bozo or not parsed.version):
@@ -134,6 +152,10 @@ def parse_rss(body: bytes, src: dict) -> list[dict]:
     items = []
     for e in parsed.entries:
         title = clean_text(e.get("title"))
+        if src.get("package"):  # PyPI release feed: the title is just the version
+            if not STABLE_MINOR.match(title):
+                continue
+            title = f"{src['package']} {title}"
         publisher = None
         if src["kind"] == "news":
             # Google News titles end with " - Publisher".
@@ -180,6 +202,47 @@ def parse_json(body: bytes, src: dict) -> list[dict]:
                     "arxiv": f"https://arxiv.org/abs/{pid}" if pid else None,
                 }
             )
+    elif "huggingface.co/api/models" in src["url"]:
+        for m in data:
+            mid = m.get("id") or m.get("modelId")
+            items.append(
+                {
+                    "title": mid,
+                    "url": f"https://huggingface.co/{mid}",
+                    "published": parse_iso(m.get("createdAt")),
+                    "summary": f"{m.get('pipeline_tag') or 'model'}; {m.get('likes', 0)} likes, "
+                               f"{m.get('downloads', 0)} downloads (30 days) on Hugging Face",
+                    "likes": m.get("likes", 0),
+                    "hf_id": (mid or "").lower(),
+                }
+            )
+    elif "openrouter.ai/api/v1/models" in src["url"]:
+        seen = set()
+        for m in data.get("data", []):
+            mid = (m.get("id") or "").split(":")[0]  # "x:free" is the same model as "x"
+            if not mid or mid in seen:
+                continue
+            seen.add(mid)
+            price = m.get("pricing") or {}
+            def per_m(v):
+                try:
+                    return f"${float(v) * 1e6:.2f}"
+                except (TypeError, ValueError):
+                    return "?"
+            created = m.get("created")
+            items.append(
+                {
+                    "title": re.sub(r"\s*\(free\)$", "", m.get("name") or mid),
+                    "url": f"https://openrouter.ai/{mid}",
+                    "published": datetime.fromtimestamp(created, timezone.utc) if created else None,
+                    "summary": clean_text(m.get("description"))[:250]
+                               + f" | context {m.get('context_length') or '?'} tokens; {per_m(price.get('prompt'))}/M input, "
+                               f"{per_m(price.get('completion'))}/M output (OpenRouter)",
+                    "hf_id": (m.get("hugging_face_id") or "").lower(),
+                    "expiration_date": m.get("expiration_date"),
+                    "model_id": mid,
+                }
+            )
     else:
         raise ValueError("no JSON parser for this source")
     return items
@@ -195,12 +258,82 @@ def fetch_source(src: dict, timeout: int) -> list[dict]:
         item.update(source=src["name"], section=src["section"], kind=src["kind"], weight=src.get("weight", DEFAULT_WEIGHT))
         if src.get("x"):
             item["x"] = src["x"]
-    return [i for i in items if i.get("title") and i.get("url")]
+        if src.get("new_kind"):
+            item["new_kind"] = src["new_kind"]
+    items = [i for i in items if i.get("title") and i.get("url")]
+    if src.get("require_ai"):  # broad news source: only items about AI
+        items = [i for i in items if AI_MENTION.search(f"{i['title']} {i.get('summary', '')}")]
+    return items
+
+
+AI_MENTION = re.compile(r"\b(AI|A\.I\.|GenAI|LLMs?|GPT|agents?|agentic|artificial intelligence|machine learning|"
+                        r"generative|copilot|chatbot|model)\b", re.I)
 
 
 def _fetch_and_parse(src: dict, timeout: int) -> list[dict]:
+    if src["type"] == "youtube":
+        try:
+            items = parse_youtube_page(fetch(src["url"], timeout))
+            if items:
+                return items
+        except Exception:
+            pass
+        return parse_rss(fetch(src["rss_url"], timeout), src)
     body = fetch(src["url"], timeout)
     return parse_json(body, src) if src["type"] == "json" else parse_rss(body, src)
+
+
+AGO = re.compile(r"(\d+)\s*(seconds?|s|minutes?|mins?|m|hours?|h|days?|d|weeks?|w|months?|mo|years?|y)\b\s*ago", re.I)
+AGO_UNITS = {"s": 1, "m": 60, "min": 60, "h": 3600, "d": 86400, "w": 604800, "mo": 2592000, "y": 31536000}
+
+
+def ago_to_datetime(text: str | None) -> datetime | None:
+    """'7h ago', '1d ago', '3 weeks ago', 'Streamed 2 days ago' -> an approximate UTC time."""
+    m = AGO.search(text or "")
+    if not m:
+        return None
+    unit = m.group(2).lower()
+    key = "mo" if unit.startswith("mo") else "min" if unit.startswith("min") else unit[0]
+    return datetime.now(timezone.utc) - timedelta(seconds=int(m.group(1)) * AGO_UNITS[key])
+
+
+def parse_youtube_page(body: bytes) -> list[dict]:
+    """Videos from a channel's /videos page (the ytInitialData JSON embedded in the HTML)."""
+    m = re.search(rb"var ytInitialData = (\{.*?\});</script>", body, re.S)
+    if not m:
+        return []
+    data = json.loads(m.group(1))
+    items: list[dict] = []
+
+    def walk(o):
+        if isinstance(o, dict):
+            if "lockupViewModel" in o:
+                lock = o["lockupViewModel"]
+                meta = lock.get("metadata", {}).get("lockupMetadataViewModel", {})
+                parts = [p.get("text", {}).get("content", "")
+                         for row in meta.get("metadata", {}).get("contentMetadataViewModel", {}).get("metadataRows", [])
+                         for p in row.get("metadataParts", [])]
+                vid, title = lock.get("contentId"), meta.get("title", {}).get("content")
+                if vid and title:
+                    items.append({"title": clean_text(title), "url": f"https://www.youtube.com/watch?v={vid}",
+                                  "published": next((ago_to_datetime(p) for p in parts if AGO.search(p or "")), None),
+                                  "summary": f"{parts[0]} views" if parts else ""})
+                return
+            if "videoRenderer" in o:  # older page layout
+                v = o["videoRenderer"]
+                title = "".join(r.get("text", "") for r in v.get("title", {}).get("runs", []))
+                items.append({"title": clean_text(title), "url": f"https://www.youtube.com/watch?v={v.get('videoId')}",
+                              "published": ago_to_datetime(v.get("publishedTimeText", {}).get("simpleText")),
+                              "summary": ""})
+                return
+            for val in o.values():
+                walk(val)
+        elif isinstance(o, list):
+            for val in o:
+                walk(val)
+
+    walk(data)
+    return items[:15]
 
 
 # ── Filtering and de-duplication ─────────────────────────────────────────────
@@ -379,6 +512,9 @@ generally available preview beta presentation article podcast episode video inte
 january february march april may june july august september october november december
 monday tuesday wednesday thursday friday saturday sunday 2025 2026 2027
 live ai-powered ai-driven ai-first powered
+ipo series round funding valuation stake shares bank banks center centre studio concept module group
+company companies startup startups government ministry minister partnership deal report reports
+ceo cto founder president chairman executive
 """.split())
 # Names that appear every single day; they only count as part of a longer name ("Gemini 4 Argon").
 TREND_ALWAYS = set("""
@@ -386,7 +522,12 @@ openai anthropic google microsoft meta amazon aws nvidia apple ibm oracle deepmi
 claude chatgpt gpt gemini copilot llama hugging face huggingface github azure
 india indian uae dubai abu dhabi saudi arabia riyadh qatar doha gcc mena middle east europe
 european china chinese us usa uk america american africa asia global world
+france french germany german japan japanese korea korean singapore canada brazil britain british
+paris london berlin tokyo seoul beijing shanghai bengaluru bangalore mumbai delhi hyderabad
+pro mini max ultra lite plus turbo nano flash air edge fast instant thinking reasoning beta preview
 """.split())
+# Product suffixes ("Pro", "Flash", "Mini") and places are not names on their own: they only count
+# as part of a longer name ("Gemini 3.8 Flash", "MiniMax M3.1 Flash").
 
 
 def generic_words(titles: list[str]) -> set[str]:
@@ -465,9 +606,200 @@ def recent_brief_names(history_file: Path, days: int) -> set[str]:
     cutoff = (datetime.now(timezone.utc) - timedelta(days=days - 1)).date().isoformat()
     names: set[str] = set()
     for h in json.loads(history_file.read_text() or "[]"):
-        if h.get("date", "") >= cutoff and h.get("title"):
+        # Quick hits (⚡) do not count: the vendor cap is about the six main items.
+        if h.get("date", "") >= cutoff and h.get("title") and h.get("slot") != "quick":
             names |= {t for t in title_terms(h["title"]) if " " not in t}
     return names
+
+
+# ── Newcomers and first-seen names ───────────────────────────────────────────
+
+
+def squash(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", (text or "").lower())
+
+
+def covered_keys(history_file: Path) -> list[str]:
+    """Everything the brief has mentioned in its history (main items and quick hits), squashed for matching."""
+    if not history_file.exists():
+        return []
+    return [squash(f"{h.get('title', '')} {h.get('url', '')}") for h in json.loads(history_file.read_text() or "[]")]
+
+
+SIZE_TOKEN = re.compile(r"^(\d+(\.\d+)?[bmk]|a\d+(\.\d+)?b|\d+x\d+b)$")  # 27b, 501b, a23b: sizes, not versions
+
+
+def mentioned_before(item: dict, covered: list[str]) -> bool:
+    """True when the brief already named this model or project: the maker and the product name (and its
+    version, when it has one, so "DeepSeek V4.2" is new after "DeepSeek V4.1") appear in one history entry."""
+    full = item.get("hf_id") or item.get("model_id") or item["title"]
+    owner, _, name = full.rpartition("/")
+    if ": " in name:  # OpenRouter display names: "MiniMax: MiniMax M3.1 Flash"
+        owner, name = name.split(": ", 1)
+    tokens = [t for t in re.split(r"[^a-z0-9.]+", name.lower()) if t]
+    if not tokens:
+        return False
+    first = squash(tokens[0])
+    version = next((squash(t) for t in tokens[1:] if re.search(r"[a-z]", t) and re.search(r"\d", t)
+                    and not SIZE_TOKEN.match(t)), "")
+    owner_core = squash(re.split(r"[-_ ]", owner.lower())[0]) if owner else ""
+    key = squash(name)
+    for c in covered:
+        if len(key) >= 8 and key[:24] in c:
+            return True
+        if first and len(first) >= 3 and first in c and (not owner_core or owner_core in c) and (not version or version in c):
+            return True
+    return False
+
+
+def newcomer_key(item: dict) -> str:
+    """'deepseek-ai/DeepSeek-V4.1-Flash-1017' and 'DeepSeek: DeepSeek V4.1 Flash' -> the part after the owner."""
+    name = item.get("hf_id") or item.get("model_id") or item["title"]
+    name = name.split("/")[-1].split(": ")[-1]
+    return squash(name)
+
+
+def build_newcomers(items: list[dict], cfg: dict, history_file: Path, seen_file: Path | None,
+                    now: datetime, write_seen: bool) -> dict:
+    """New models, repos, tools, products and releases that the brief has not covered yet."""
+    ai_terms = cfg.get("ai_terms", [])
+    skip = [re.compile(p, re.I) for p in cfg.get("skip_patterns", [])]
+    max_age = {"model": cfg.get("model_max_age_days", 14), "model_api": cfg.get("model_max_age_days", 14),
+               "release": cfg.get("release_max_age_days", 7)}
+    other_age = cfg.get("other_max_age_days", 3)
+    covered = covered_keys(history_file)
+    seen = json.loads(seen_file.read_text()) if seen_file and seen_file.exists() else {}
+    today = now.date().isoformat()
+
+    by_kind: dict[str, list[dict]] = {}
+    merged: dict[str, dict] = {}
+    for it in items:
+        kind = it.get("new_kind", "tool")
+        text = f"{it['title']} {it.get('summary', '')}"
+        if any(p.search(text) for p in skip):
+            continue
+        if kind in ("repo", "tool", "product") and not hits(text.lower(), ai_terms):
+            continue
+        if it["source"].startswith("Hugging Face") and (it.get("likes") or 0) < cfg.get("hf_min_likes", 60):
+            continue  # tiny personal uploads
+        published = it.get("published")
+        age_limit = max_age.get(kind, other_age)
+        if kind in ("model", "model_api", "release", "tool", "product"):
+            if not published or published < now - timedelta(days=age_limit):
+                continue
+        key = newcomer_key(it)
+        if kind == "release":
+            key = squash(it["title"].rsplit(" ", 1)[0])  # one entry per package: the newest release
+            if key in merged and (merged[key]["published"] or "") >= published.isoformat():
+                continue
+            if key in merged:
+                by_kind[kind].remove(merged.pop(key))
+        if len(key) < 3:
+            continue
+        # One entry per model even when Hugging Face and OpenRouter both list it.
+        if key in merged:
+            merged[key].setdefault("also_on", []).append({"source": it["source"], "url": it["url"],
+                                                          "summary": it.get("summary", "")})
+            continue
+        entry = {
+            "kind": kind, "name": it["title"], "url": it["url"], "source": it["source"],
+            "published": published.isoformat() if published else None,
+            "summary": it.get("summary", ""),
+            "first_listed": seen.get(key, today),
+            "already_in_brief": (squash(it["title"]) in " ".join(covered)) if kind == "release" else mentioned_before(it, covered),
+        }
+        if it.get("likes") is not None:
+            entry["likes"] = it["likes"]
+        merged[key] = entry
+        by_kind.setdefault(kind, []).append(entry)
+
+    for key, entry in merged.items():
+        seen.setdefault(key, entry["first_listed"])
+    if seen_file and write_seen:
+        cutoff = (now - timedelta(days=45)).date().isoformat()
+        seen_file.write_text(json.dumps({k: v for k, v in sorted(seen.items()) if v >= cutoff}, indent=0))
+
+    out = {}
+    per_kind = cfg.get("per_kind", 10)
+    for kind, entries in by_kind.items():
+        # Not yet in the brief first; then listed for the first time today; then the most liked
+        # (models, on several platforms counts too) or the newest.
+        def rank(e):
+            newest = -datetime.fromisoformat(e["published"]).timestamp() if e["published"] else 0
+            popularity = -((e.get("likes") or 0) + 200 * len(e.get("also_on", [])))
+            return (e["already_in_brief"], e["first_listed"] < today, popularity if kind == "model" else newest)
+        # For "model_api" (OpenRouter) there are no likes, so newest first.
+        entries.sort(key=rank)
+        out[kind] = entries[:per_kind]
+    return out
+
+
+def first_seen_names(window: list[dict], history: dict, today: str, query_words: set[str], top_n: int = 12) -> list[dict]:
+    """Names that appear in the news today and on none of the previous days (up to 21): new players,
+    new products, new models. Single words count only when they contain a digit ("M3.1") or appear
+    on two or more sites; pairs ("Neural Concept") need just one site with a relevant item."""
+    past = set()
+    for d, terms in history.items():
+        if d < today:
+            past |= set(terms)
+    found: dict[str, dict] = {}
+    for it in window:
+        if it["section"] not in ("core", "regional") or it["kind"] == "youtube":
+            continue  # talk titles are mostly speaker names, not new players
+        for term in title_terms(it["title"]):
+            if term in past or any(w in query_words or w in TREND_STOP for w in term.split()):
+                continue
+            f = found.setdefault(term, {"term": term, "sites": set(), "items": [], "best": 0.0})
+            f["sites"].add(site_of(it))
+            f["best"] = max(f["best"], it.get("score", 0))
+            if len(f["items"]) < 3:
+                f["items"].append({"title": it["title"], "url": it["url"], "source": it.get("publisher") or it["source"]})
+    out = []
+    for term, f in found.items():
+        multi = " " in term
+        digits = any(c.isdigit() for c in term)
+        if not multi and sum(c.isalpha() for c in term) < 2:
+            continue  # "32b", "262k": sizes and context lengths, not names
+        if (multi or digits) and (len(f["sites"]) >= 2 or f["best"] >= 15) or len(f["sites"]) >= 3:
+            out.append({"term": term, "sites": len(f["sites"]), "items": f["items"], "best_score": f["best"]})
+    # Prefer the longest name when a shorter one is part of it with the same reach.
+    names = {o["term"]: o for o in out}
+    out = [o for o in out if not any(x != o["term"] and o["term"] in x and names[x]["sites"] >= o["sites"] for x in names)]
+    out.sort(key=lambda o: (-o["sites"], -o["best_score"]))
+    return out[:top_n]
+
+
+def quick_pool(candidates: list[dict], picks: dict, cfg: dict) -> dict:
+    """⚡ Also worth knowing: relevant core items that did not win a slot, by category."""
+    taken = {e["pick"]["url"] for e in picks.values() if e.get("pick")}
+    used: set[str] = set()
+    out: dict[str, dict] = {}
+    for name, cat in cfg.get("categories", {}).items():
+        rows = []
+        for c in candidates:
+            if c["section"] != "core" or c["url"] in taken or c["url"] in used or c["kind"] == "youtube":
+                continue
+            if c["score"] < cfg.get("min_score", 9) or not AI_MENTION.search(f"{c['title']} {c.get('summary', '')}"):
+                continue
+            if hits(f"{c['title']} {c.get('summary', '')}".lower(), cat.get("keywords", [])):
+                rows.append(c)
+                used.add(c["url"])
+            if len(rows) >= cfg.get("per_category", 6):
+                break
+        out[name] = {"label": cat.get("label", name),
+                     "items": [{"title": r["title"], "url": r["url"], "source": r.get("publisher") or r["source"],
+                                "score": r["score"], "published": r["published"]} for r in rows]}
+    return out
+
+
+def openrouter_deadlines(items: list[dict], now: datetime) -> list[dict]:
+    out = []
+    for it in items:
+        exp = it.get("expiration_date")
+        if exp and str(exp) >= now.date().isoformat():
+            out.append({"date": str(exp)[:10], "what": f"{it['title']} leaves OpenRouter", "url": it["url"],
+                        "source": "OpenRouter models API (check the provider's own page)"})
+    return sorted(out, key=lambda d: d["date"])[:15]
 
 
 def detect_trends(window: list[dict], everything: list[dict], history_file: Path | None,
@@ -539,6 +871,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="items already used in the last 14 days are dropped")
     ap.add_argument("--trend-history", type=Path, default=ROOT / "data" / "trend-history.json",
                     help="daily topic counts used to spot trends; pass 'none' to skip saving")
+    ap.add_argument("--newcomers-seen", type=Path, default=ROOT / "data" / "newcomers-seen.json",
+                    help="first date each newcomer was listed; pass 'none' to skip saving")
     args = ap.parse_args(argv)
 
     started = time.time()
@@ -557,6 +891,8 @@ def main(argv: list[str] | None = None) -> int:
                 failed.append({"source": src["name"], "url": src["url"], "error": f"{type(exc).__name__}: {exc}"[:200]})
 
     prio = load_priorities(args.feeds_dir)
+    discovery = [i for i in items if i["section"] == "discovery"]
+    items = [i for i in items if i["section"] != "discovery"]
     candidates = select(items, since, args.per_source)
     covered_urls, covered_titles = load_covered(args.history)
     already = [c for c in candidates
@@ -565,6 +901,7 @@ def main(argv: list[str] | None = None) -> int:
     for c in candidates:
         score_item(c, prio, now)
     history_file = None if str(args.trend_history) == "none" else args.trend_history
+    trend_hist_before = json.loads(args.trend_history.read_text()) if args.trend_history.exists() else {}
     gn = yaml.safe_load((args.feeds_dir / "sources.yml").read_text()).get("google_news", {})
     query_words = {w.lower() for q in gn.get("queries", []) for w in re.findall(r"[A-Za-z][A-Za-z\-]+", q["q"])} - {"or", "and", "when"}
     trends = detect_trends(candidates, items, history_file, now.date().isoformat(), query_words)
@@ -602,8 +939,14 @@ def main(argv: list[str] | None = None) -> int:
     candidates.sort(key=lambda c: -c["score"])
     picks = shortlist(candidates, prio)
     regional = [c for c in candidates if c["section"] == "regional"]
+    seen_file = None if str(args.newcomers_seen) == "none" else args.newcomers_seen
+    newcomers = build_newcomers(discovery, prio.get("newcomers", {}), args.history, seen_file, now,
+                                write_seen=seen_file is not None)
+    newcomers["first_seen"] = first_seen_names(candidates, trend_hist_before, now.date().isoformat(), query_words)
+    deadlines_found = openrouter_deadlines([d for d in discovery if d.get("expiration_date")], now)
     for c in candidates + dropped:
         c["published"] = c["published"].isoformat() if c["published"] else None
+    quick = quick_pool(candidates, picks, prio.get("quick_hits", {}))
 
     by_section: dict[str, int] = {}
     for c in candidates:
@@ -616,6 +959,7 @@ def main(argv: list[str] | None = None) -> int:
             "sources": len(feeds),
             "sources_failed": len(failed),
             "items_fetched": len(items),
+            "discovery_items": len(discovery),
             "candidates": len(candidates),
             "dropped_as_irrelevant": len(dropped),
             "dropped_already_covered": len(already),
@@ -624,10 +968,15 @@ def main(argv: list[str] | None = None) -> int:
         "trending": trends,
         "story_clusters": clusters_out,
         "shortlist": picks,
+        "newcomers": newcomers,
+        "quick_pool": quick,
+        "deadlines_found": deadlines_found,
         "regional": regional[:12],
         "candidates": candidates,
         "dropped_titles": [d["title"] for d in dropped][:40],
         "check_pages": pages,
+        "deadline_pages": yaml.safe_load((args.feeds_dir / "sources.yml").read_text()).get("deadline_pages", []),
+        "weekly_pages": yaml.safe_load((args.feeds_dir / "sources.yml").read_text()).get("weekly_pages", []),
         "failed": sorted(failed, key=lambda f: f["source"]),
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)

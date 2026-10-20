@@ -1,6 +1,9 @@
 # Feed sources for Routine 1. URLs marked "verify" are checked when fetch_feeds.py is first tested.
-# section: core     → candidates for the 5 main slots
+# section: core     → candidates for the 6 main slots and the ⚡ quick hits
 # section: regional → candidates for the separate "Middle East, India & events" block
+# require_ai: true  → a broad source (general tech/startup news): keep only items that mention AI
+# discovery:        → structured lists of NEW things (models, repos, tools, releases), see the end of this file
+# deadline_pages:   → official deprecation / compliance pages, opened by hand on Mondays
 
 google_news:
   # https://news.google.com/rss/search?q=<query>&hl=<hl>&gl=<gl>&ceid=<ceid>
@@ -39,12 +42,30 @@ rss:
   - {section: core, name: Google AI Blog,      url: https://blog.google/technology/ai/rss/, verify: true, weight: 2}
   - {section: core, name: Meta AI,             url: https://ai.meta.com/blog/, type: html, verify: true, weight: 2}
   - {section: core, name: Hugging Face Blog,   url: https://huggingface.co/blog/feed.xml, verify: true, weight: 2}
+  - {section: core, name: Anthropic Engineering, url: https://www.anthropic.com/engineering, type: html, weight: 3}
+  - {section: core, name: Mistral AI News,     url: https://mistral.ai/news/, type: html, weight: 2}
+  - {section: core, name: Microsoft Research,  url: https://www.microsoft.com/en-us/research/feed/, weight: 1}
+  - {section: core, name: Apple Machine Learning, url: https://machinelearning.apple.com/rss.xml, weight: 2}
+  - {section: core, name: Qwen Blog,           url: https://qwenlm.github.io/blog/index.xml, weight: 2}
   # Research
   - {section: core, name: arXiv cs.CL,         url: https://rss.arxiv.org/rss/cs.CL, weight: 1}
   - {section: core, name: arXiv cs.LG,         url: https://rss.arxiv.org/rss/cs.LG, weight: 1}
   - {section: core, name: HF Daily Papers,     url: https://huggingface.co/api/daily_papers, type: json, verify: true, weight: 2}
   # Community
   - {section: core, name: Hacker News,         url: "https://hn.algolia.com/api/v1/search?tags=front_page", type: json, weight: 1}
+  - {section: core, name: r/LocalLLaMA,        url: "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day", weight: 1}
+  # Newsletters that summarise X, Reddit and Discord (there is no X API): mainly a cross-check for what the feeds missed
+  - {section: core, name: AINews (smol.ai),    url: https://news.smol.ai/rss.xml, weight: 1}
+  - {section: core, name: TLDR AI,             url: https://tldr.tech/api/rss/ai, weight: 1}
+  - {section: core, name: Last Week in AI,     url: https://lastweekin.ai/feed, weight: 1}
+  # Security of AI systems
+  - {section: core, name: OWASP GenAI Security, url: https://genai.owasp.org/feed/, weight: 2}
+  - {section: core, name: Trail of Bits,       url: https://blog.trailofbits.com/index.xml, require_ai: true, weight: 1}
+  # Governance and regulation
+  - {section: core, name: EU AI Act Newsletter, url: https://artificialintelligenceact.substack.com/feed, weight: 2}
+  # Enterprise platforms and applications
+  - {section: core, name: Salesforce News,     url: https://www.salesforce.com/news/feed/, require_ai: true, weight: 1}
+  - {section: core, name: Snowflake Blog,      url: https://www.snowflake.com/feed/, require_ai: true, weight: 1}
   # Cloud & systems
   - {section: core, name: AWS What's New,      url: https://aws.amazon.com/about-aws/whats-new/recent/feed/, weight: 1}
   - {section: core, name: Google Cloud Blog,   url: https://cloudblog.withgoogle.com/rss/, verify: true, weight: 2}
@@ -62,3 +83,53 @@ rss:
   - {section: core, name: Databricks Blog,     url: https://www.databricks.com/feed, verify: true, weight: 2}
   # Middle East
   - {section: regional, name: MBZUAI News,     url: https://mbzuai.ac.ae/news/, type: html, verify: true, weight: 2}
+  - {section: regional, name: The National (tech), url: "https://www.thenationalnews.com/arc/outboundfeeds/rss/category/future/technology/?outputType=xml", require_ai: true, weight: 2}
+  - {section: regional, name: G42 News,        url: https://www.g42.ai/resources/news, type: html, weight: 2}
+  - {section: regional, name: TII News,        url: https://www.tii.ae/news, type: html, weight: 2}
+  # India
+  - {section: regional, name: Analytics India Magazine, url: https://analyticsindiamag.com/feed/, require_ai: true, weight: 2}
+  - {section: regional, name: ET Artificial Intelligence, url: https://economictimes.indiatimes.com/tech/artificial-intelligence/rssfeeds/119215726.cms, weight: 2}
+  - {section: regional, name: Inc42,           url: https://inc42.com/feed/, require_ai: true, weight: 1}
+  - {section: regional, name: YourStory,       url: https://yourstory.com/feed, require_ai: true, weight: 1}
+  - {section: regional, name: BusinessLine Info-tech, url: https://www.thehindubusinessline.com/info-tech/feeder/default.rss, require_ai: true, weight: 1}
+
+# New things before anyone writes about them. These never compete for slots directly: they go to
+# "newcomers" in candidates.json, for 🆕 New on the radar (and for 🚀 when one is big enough).
+# kind: model (open weights) | model_api (hosted) | repo | tool | product | release.  Only AI-related items are kept (see priorities.yml: newcomers).
+# GitHub's own API and pages are blocked inside routine sessions, so GitHub trending comes from an RSS mirror.
+discovery:
+  - {name: Hugging Face trending models, kind: model,   url: "https://huggingface.co/api/models?sort=trendingScore&limit=80", type: json}
+  - {name: OpenRouter models,            kind: model_api, url: https://openrouter.ai/api/v1/models, type: json}
+  - {name: GitHub trending (all),        kind: repo,    url: https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml}
+  - {name: GitHub trending (Python),     kind: repo,    url: https://mshibanami.github.io/GitHubTrendingRSS/daily/python.xml}
+  - {name: Show HN,                      kind: tool,    url: "https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&numericFilters=points%3E40&hitsPerPage=50", type: json}
+  - {name: Product Hunt AI,              kind: product, url: "https://www.producthunt.com/feed?category=artificial-intelligence"}
+  # Minor and major releases (x.y.0) of the libraries most production stacks depend on: breaking changes live here
+  - {name: PyPI vllm,             kind: release, package: vllm,             url: https://pypi.org/rss/project/vllm/releases.xml}
+  - {name: PyPI sglang,           kind: release, package: sglang,           url: https://pypi.org/rss/project/sglang/releases.xml}
+  - {name: PyPI transformers,     kind: release, package: transformers,     url: https://pypi.org/rss/project/transformers/releases.xml}
+  - {name: PyPI langgraph,        kind: release, package: langgraph,        url: https://pypi.org/rss/project/langgraph/releases.xml}
+  - {name: PyPI openai-agents,    kind: release, package: openai-agents,    url: https://pypi.org/rss/project/openai-agents/releases.xml}
+  - {name: PyPI claude-agent-sdk, kind: release, package: claude-agent-sdk, url: https://pypi.org/rss/project/claude-agent-sdk/releases.xml}
+  - {name: PyPI google-adk,       kind: release, package: google-adk,       url: https://pypi.org/rss/project/google-adk/releases.xml}
+  - {name: PyPI mcp,              kind: release, package: mcp (Python SDK),  url: https://pypi.org/rss/project/mcp/releases.xml}
+  - {name: PyPI pydantic-ai,      kind: release, package: pydantic-ai,      url: https://pypi.org/rss/project/pydantic-ai/releases.xml}
+  - {name: PyPI crewai,           kind: release, package: crewai,           url: https://pypi.org/rss/project/crewai/releases.xml}
+  - {name: PyPI litellm,          kind: release, package: litellm,          url: https://pypi.org/rss/project/litellm/releases.xml}
+  - {name: PyPI llama-index-core, kind: release, package: llama-index-core, url: https://pypi.org/rss/project/llama-index-core/releases.xml}
+
+# Official pages that announce retirements and compliance dates. Opened with WebFetch on Mondays
+# (for the ⏰ calendar) and whenever an item mentions a retirement. Results go to data/deadlines.json.
+deadline_pages:
+  - {name: Anthropic model deprecations,    url: https://docs.claude.com/en/docs/about-claude/model-deprecations}
+  - {name: OpenAI deprecations,             url: https://platform.openai.com/docs/deprecations}
+  - {name: Gemini API deprecations,         url: https://ai.google.dev/gemini-api/docs/deprecations}
+  - {name: Vertex AI model versions,        url: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions}
+  - {name: Amazon Bedrock model lifecycle,  url: https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html}
+  - {name: Azure OpenAI model retirements,  url: https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements}
+  - {name: EU AI Act implementation timeline, url: https://artificialintelligenceact.eu/implementation-timeline/}
+
+# Leaderboards and usage rankings: opened on Sundays for 📅 Week in review (what moved, what people really use)
+weekly_pages:
+  - {name: OpenRouter rankings (real usage), url: https://openrouter.ai/rankings}
+  - {name: Artificial Analysis leaderboard,  url: https://artificialanalysis.ai/leaderboards/models}

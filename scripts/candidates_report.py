@@ -88,6 +88,45 @@ def main() -> int:
                        + (" ✅" if a["url"] in used else ""))
         out.append("")
 
+    nc = d.get("newcomers") or {}
+    if nc:
+        out += ["## 🆕 Newcomers (new models, repos, tools, releases; ✅ = used, 📌 = the brief named it before)", ""]
+        labels = {"model_api": "New hosted models (OpenRouter)", "model": "New open-weight models (Hugging Face)",
+                  "repo": "Trending repos", "tool": "Show HN", "product": "Product Hunt (AI)", "release": "Library releases"}
+        for kind, label in labels.items():
+            rows = nc.get(kind) or []
+            if not rows:
+                continue
+            out.append(f"**{label}**")
+            for e in rows:
+                mark = " ✅" if e["url"] in used else " 📌" if e.get("already_in_brief") else ""
+                extra = f", {e['likes']} likes" if e.get("likes") else ""
+                also = f", also on {', '.join(a['source'] for a in e['also_on'])}" if e.get("also_on") else ""
+                out.append(f"- [{cell(e['name'], 90)}]({e['url']}) ({(e.get('published') or '')[:10]}{extra}{also}, "
+                           f"first listed {e.get('first_listed')}){mark}")
+            out.append("")
+        if nc.get("first_seen"):
+            out.append("**Names in the news for the first time** (not seen in the previous 3 weeks)")
+            for f in nc["first_seen"]:
+                first = f["items"][0] if f.get("items") else None
+                out.append(f"- **{f['term']}**: {f['sites']} site(s)" + (f"; e.g. [{cell(first['title'], 90)}]({first['url']})" if first else ""))
+            out.append("")
+
+    qp = d.get("quick_pool") or {}
+    if any(v.get("items") for v in qp.values()):
+        out += ["## ⚡ Quick-hits pool (relevant items that did not win a slot)", ""]
+        for v in qp.values():
+            if not v.get("items"):
+                continue
+            out.append(f"**{v['label']}**")
+            out += [f"- [{cell(i['title'], 100)}]({i['url']}) ({i['source']}, {i['score']})" + (" ✅" if i["url"] in used else "")
+                    for i in v["items"]]
+            out.append("")
+
+    if d.get("deadlines_found"):
+        out += ["## ⏰ Retirement dates seen on OpenRouter (confirm on the provider's page)", ""]
+        out += [f"- {x['date']}: [{cell(x['what'], 90)}]({x['url']})" for x in d["deadlines_found"]] + [""]
+
     head = ["| | Score | Title | Source | Published (UTC) | Matched terms |", "|---|---|---|---|---|---|"]
     core = [x for x in d["candidates"] if x["section"] == "core"]
     out += [f"## Ranked pool: top {min(POOL_ROWS, len(core))} of {len(core)} core candidates", "", *head]

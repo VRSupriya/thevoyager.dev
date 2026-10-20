@@ -1,24 +1,34 @@
 #!/usr/bin/env python3
 """Check an AI Daily Brief post before it is committed.
 
-    python3 scripts/check_brief.py src/content/brief/2026-10-13.md
+    python3 scripts/check_brief.py src/content/brief/2026-10-13.md [--candidates /tmp/candidates.json]
 
 Errors (exit 1) are rule breaks the routine must fix before committing.
 Warnings (exit 0) are style signals worth a second look.
+
+Layout: the six main sections, then "## ⚡ Also worth knowing" (always), "## ⏰ Deadlines & deprecations"
+(Mondays; other days only when a new deadline was found), "## 📅 Week in review" (Sundays), then the
+closing line and the optional "## 🌍" regional block.
 """
 from __future__ import annotations
 
+import argparse
+import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
 
 import yaml
 
 SLOTS = ["🔥", "🚀", "🤖", "🔬", "✍️", "🏗️"]
+EXTRAS = ["⚡", "⏰", "📅"]     # after the six slots, in this order; ⚡ always, ⏰ on Mondays, 📅 on Sundays
+QUICK_MIN, QUICK_MAX = 5, 15    # ⚡ bullets: hard limits (aim for 8-12)
+QUICK_WORDS_WARN = 400
 QUIET = "Quiet day"
 DOMAIN_CAP = 2
-TELEGRAM_MAX = 650          # whole public preview
+TELEGRAM_MAX = 760          # whole public preview (six slot lines, ⚡ and 🌍)
 TELEGRAM_LINE_MAX = 90      # one slot line, emoji included
 PRIVATE_MAX = 700
 WORDS_WARN = 950            # main body, without the regional block
@@ -49,11 +59,17 @@ def closing_of(body: str) -> str:
     return lines[-1].strip() if lines else ""
 
 
+def bullets(section: str) -> list[str]:
+    return [l.strip() for l in section.splitlines() if l.strip().startswith("- ")]
+
+
 def main() -> int:
-    if len(sys.argv) != 2:
-        print(__doc__)
-        return 2
-    path = Path(sys.argv[1])
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("post", type=Path)
+    ap.add_argument("--candidates", type=Path, default=Path("/tmp/candidates.json"),
+                    help="used to warn when 🚀 says 'Quiet day' while new models were found")
+    args = ap.parse_args()
+    path = args.post
     fm, body = split_post(path.read_text())
     errors: list[str] = []
     warnings: list[str] = []
@@ -63,10 +79,70 @@ def main() -> int:
             errors.append(f"front matter: `{key}` is missing")
 
     main_part = body.split("## 🌍")[0]
-    sections = re.split(r"^## ", main_part, flags=re.M)[1:]
-    found = [s.split()[0] if s.split() else "" for s in sections]
-    if found != SLOTS:
-        errors.append(f"main sections must be exactly {' '.join(SLOTS)} in order; found {' '.join(found) or 'none'}")
+    all_sections = re.split(r"^## ", main_part, flags=re.M)[1:]
+    found = [s.split()[0] if s.split() else "" for s in all_sections]
+    sections = all_sections[:len(SLOTS)]
+    extras = dict(zip(found[len(SLOTS):], all_sections[len(SLOTS):]))
+    if found[:len(SLOTS)] != SLOTS:
+        errors.append(f"main sections must start with {' '.join(SLOTS)} in order; found {' '.join(found) or 'none'}")
+    tail = found[len(SLOTS):]
+    if tail != [e for e in EXTRAS if e in tail] or any(t not in EXTRAS for t in tail):
+        errors.append(f"after the six items only {' '.join(EXTRAS)} may follow, in that order; found {' '.join(tail) or 'none'}")
+    try:
+        weekday = date.fromisoformat(str(fm.get("date"))).weekday()
+    except ValueError:
+        weekday = -1
+
+    main_urls = set(re.findall(r"\]\((https?://[^)\s]+)\)", "".join(sections)))
+
+    # ⚡ Also worth knowing: always there, 5-15 one-line items, each with a link, none repeating a main item.
+    quick = extras.get("⚡")
+    if quick is None:
+        errors.append("missing '## ⚡ Also worth knowing' after the six items")
+    else:
+        items = bullets(quick)
+        if not QUICK_MIN <= len(items) <= QUICK_MAX:
+            errors.append(f"⚡ has {len(items)} items (need {QUICK_MIN}-{QUICK_MAX}, aim for 8-12)")
+        elif not 8 <= len(items) <= 12:
+            warnings.append(f"⚡ has {len(items)} items (aim for 8-12)")
+        for b in items:
+            links = re.findall(r"\]\((https?://[^)\s]+)\)", b)
+            if not links:
+                errors.append(f"⚡ item has no link: {b[:60]}")
+            for u in links:
+                if u in main_urls:
+                    errors.append(f"⚡ item repeats a main item's source: {u}")
+            if len(b.split()) > 45:
+                warnings.append(f"⚡ item is {len(b.split())} words (keep it to one line): {b[:50]}…")
+        if "🆕" not in quick:
+            warnings.append("⚡ has no '🆕 New on the radar' group (fine only if nothing new and credible turned up)")
+        if len(quick.split()) > QUICK_WORDS_WARN:
+            warnings.append(f"⚡ is {len(quick.split())} words (aim for under {QUICK_WORDS_WARN})")
+
+    # ⏰ Deadlines & deprecations: required on Mondays; each line starts with a bold ISO date.
+    deadlines = extras.get("⏰")
+    if weekday == 0 and deadlines is None:
+        errors.append("Monday brief needs '## ⏰ Deadlines & deprecations' (the 30-60 day calendar)")
+    if deadlines is not None:
+        for b in bullets(deadlines):
+            m = re.match(r"- \*\*(\d{4}-\d{2}-\d{2})\*\*", b)
+            if not m:
+                errors.append(f"⏰ line must start with a bold date like **2026-11-01**: {b[:60]}")
+            elif not re.search(r"\]\(https?://", b):
+                errors.append(f"⏰ line has no link to the official page: {b[:60]}")
+            elif m.group(1) < str(fm.get("date")):
+                warnings.append(f"⏰ date {m.group(1)} is already in the past")
+
+    if weekday == 6 and "📅" not in extras:
+        errors.append("Sunday brief needs '## 📅 Week in review'")
+
+    # 🚀 "Quiet day" while new models sit unused in candidates.json is almost always a miss.
+    if len(sections) > 1 and QUIET in sections[1] and args.candidates.exists():
+        nc = json.loads(args.candidates.read_text()).get("newcomers", {})
+        fresh = [e["name"] for k in ("model_api", "model") for e in nc.get(k, []) if not e.get("already_in_brief")]
+        if fresh:
+            warnings.append("🚀 says 'Quiet day' but candidates.json lists new models not yet covered: "
+                            + ", ".join(fresh[:5]) + ". Use one, or say in the editor's notes why each was rejected.")
 
     sites: dict[str, int] = {}
     for sec in sections:
@@ -101,7 +177,7 @@ def main() -> int:
     if len(private) > PRIVATE_MAX:
         errors.append(f"telegram_private is {len(private)} chars (max {PRIVATE_MAX})")
 
-    words = len(main_part.split())
+    words = len("".join(sections).split())
     if words > WORDS_WARN:
         warnings.append(f"main body is {words} words (aim for under {WORDS_WARN})")
     tests = len(re.findall(r"\b(pilot|compare|measure|benchmark it|try it|run it|to test)\b", main_part, re.I))

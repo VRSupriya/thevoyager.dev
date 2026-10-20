@@ -21,22 +21,24 @@ channels:
   - {id: UCj8shE7aIn4Yawwbo2FceCQ, title: "Aleksa Gordić - The AI Epiphany", tier: news, topic: research, weight: 2}
   - {id: UCLKPca3kwwd-B59HNr-_lvA, title: AI Engineer,          tier: news, topic: ai-engineering, weight: 3}
   - {id: UCcIXc5mJsHVYTZR1maL5l9w, title: DeepLearningAI,       tier: news, topic: ai-engineering, weight: 2}
-  - {id: UCawZsQWqfGSbCI5yjkdVkTA, title: Matthew Berman,       tier: news, topic: ai-news, weight: 1}
-  - {id: UC-PQKtrPhk3JXyjUleBLgQQ, title: AI Edge,              tier: news, topic: ai-news, weight: 1}
-  - {id: UCvKRFNawVcuz4b9ihUTApCg, title: David Shapiro,        tier: news, topic: ai-news, weight: 1}
   - {id: UCSHZKyawb77ixDdsGog4iWA, title: Lex Fridman,          tier: news, topic: podcast, note: "AI/tech episodes only", weight: 1}
   - {id: UCWvn6k4aeceyYKjAleML9VA, title: "AI Stories Podcast - Neil Leiser", tier: news, topic: podcast, weight: 1}
   - {id: UCfzlCWGWYyIQ0aLC5w48gBQ, title: sentdex,              tier: news, topic: ai-engineering, weight: 1}
-  - {id: UCWN3xxRkmTPmbKwht9FuE5A, title: Siraj Raval,          tier: news, topic: ai-news, weight: 1}
 
   # ── News: AI agents ──────────────────────────────────────────────
-  - {id: UC3KK7ENB_ierAXvrxVNnbZQ, title: Ben AI,               tier: news, topic: agents, weight: 1}
-  - {id: UCui4jxDaMb53Gdh-AZUTPAg, title: Liam Ottley,          tier: news, topic: agents, note: "business-leaning; use only for architecture-relevant content", weight: 1}
 
   # ── News: software, system architecture, data engineering ────────
   - {id: UCsBjURrPoezykLs9EqgamOA, title: Fireship,             tier: news, topic: software, weight: 2}
   - {id: UCzCsyvyrq38R6TnztEzOmgg, title: ByteMonk,             tier: news, topic: architecture, weight: 2}
   - {id: UCmLGJ3VYBcfRaWbP6JLJcpA, title: Seattle Data Guy,     tier: news, topic: data-engineering, weight: 2}
+
+  # Added 2026-10-20 (replacing hype-leaning news channels: Matthew Berman, AI Edge, David Shapiro,
+  # Siraj Raval, Ben AI, Liam Ottley)
+  - {id: UCNJ1Ymd5yFuUPtn21xtRbbw, title: AI Explained,         tier: news, topic: ai-news, weight: 3}
+  - {id: UCZa18YV7qayTh-MRIrBhDpA, title: Dwarkesh Patel,       tier: news, topic: podcast, weight: 2}
+  - {id: UCxBcwypKK-W3GHd_RZ9FZrQ, title: Latent Space,         tier: news, topic: ai-engineering, weight: 3}
+  - {id: UCSI7h9hydQ40K5MJHnCrQvw, title: No Priors,            tier: news, topic: podcast, weight: 2}
+  - {id: UCoPTBQlwUm0m7gSbBW9wN6A, title: Cognitive Revolution, tier: news, topic: podcast, weight: 2}
 
   # ── Learning: LLM / ML from scratch (good for the Sunday lab) ────
   - {id: UCtAcpQcYerN8xxZJYTfWBMw, title: Umar Jamil,           tier: learning, topic: llm-from-scratch}

@@ -1,4 +1,4 @@
-# People worth following (list kept as agreed on 2026-10-01).
+# People worth following (list agreed on 2026-10-01, extended on 2026-10-20).
 # rss: blog/newsletter feed (URLs marked verify are checked when fetch_feeds.py is first tested)
 # x:   handle, used only for WebSearch (no X API)
 
@@ -20,3 +20,15 @@ people:
   - {name: Gergely Orosz,    x: GergelyOrosz,  rss: https://newsletter.pragmaticengineer.com/feed, weight: 3}
   - {name: Alex Xu,          x: alexxubyte,    rss: https://blog.bytebytego.com/feed, weight: 3}
   - {name: Martin Kleppmann, x: martinkl,      rss: "https://feeds.feedburner.com/martinkl?format=xml", weight: 3}
+  # Added 2026-10-20
+  - {name: Ethan Mollick,    x: emollick,      rss: https://www.oneusefulthing.org/feed, weight: 2}
+  - {name: Jack Clark (Import AI), x: jackclarkSF, rss: https://importai.substack.com/feed, weight: 2}
+  - {name: Jeremy Howard / Answer.AI, x: jeremyphoward, rss: https://www.answer.ai/index.xml, weight: 2}
+  - {name: Philipp Schmid,   x: _philschmid,   rss: https://www.philschmid.de/rss, weight: 2}
+  - {name: Johann Rehberger (Embrace The Red), x: wunderwuzzi23, rss: https://embracethered.com/blog/index.xml, note: "AI agent security, prompt injection", weight: 3}
+  - {name: Jim Fan,          x: DrJimFan,      weight: 2}
+  - {name: Shreya Shankar,   x: sh_reya,       weight: 2}
+  - {name: Jerry Liu,        x: jerryjliu0,    weight: 1}
+  # Regional voices (X only, for WebSearch)
+  - {name: Pratyush Kumar (Sarvam AI), x: pratykumar, weight: 2}
+  - {name: Omar Sultan Al Olama (UAE Minister of State for AI), x: OmarSAlOlama, weight: 2}

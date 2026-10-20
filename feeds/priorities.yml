@@ -130,6 +130,24 @@ boost:                     # +3 points per distinct hit (max 5 hits counted)
     - in production
     - deprecation
     - breaking change
+    - retirement
+    - end of support
+    - ai act
+    - regulation
+    - nist
+    - iso 42001
+    - dpdp
+    - sovereign
+    - jailbreak
+    - data exfiltration
+    - supply chain
+    - agentforce
+    - servicenow
+    - workday
+    - sap
+    - salesforce
+    - foundry
+    - agentcore
 
 news:                      # +4 points per hit (max 2): signs that something actually happened
   points: 4
@@ -266,3 +284,39 @@ slots:
     prefer:
       sources: [InfoQ, Pragmatic Engineer, Uber, Databricks, AWS News Blog, Microsoft Foundry]
       keywords: [architecture, system design, platform, scaling, reliability, case study, data pipeline, inference, observability, evals, security, in production, llm, agent, model serving, gpu]
+
+# ⚡ Also worth knowing: good candidates that did not win a slot, grouped for the quick-hits list.
+# An item goes to the first category whose keywords it matches; at most `per_category` each.
+quick_hits:
+  per_category: 6
+  min_score: 9
+  categories:
+    security_governance:
+      label: "🛡️ Security & governance"
+      keywords: [vulnerability, cve, prompt injection, jailbreak, exfiltration, breach, advisory, supply chain, malicious, red team,
+                 ai act, regulation, regulator, nist, iso 42001, dpdp, compliance, governance, ai policy, sovereign, copyright, audit]
+    deadlines:
+      label: "⏰ Deprecations & deadlines"
+      keywords: [deprecat, retire, retirement, end of life, end of support, sunset, shut down, shutdown, breaking change, migration deadline, will be removed]
+    models_tools:
+      label: "🧰 Models & tools"
+      keywords: [model, open weights, open-weight, release, sdk, api, open source, open-source, library, framework, cli, agent, mcp, inference, coding]
+    platforms_enterprise:
+      label: "🏢 Platforms & enterprise"
+      keywords: [bedrock, vertex, azure, foundry, agentcore, databricks, snowflake, salesforce, agentforce, servicenow, workday, sap, oracle,
+                 enterprise, generally available, customer, in production, case study, adoption, platform]
+    research:
+      label: "🔬 Research"
+      keywords: [paper, arxiv, benchmark, we propose, preprint, study]
+
+# 🆕 Newcomers (feeds/sources.yml: discovery). Only AI-related, recent, not-yet-covered things are kept.
+newcomers:
+  model_max_age_days: 14        # a model (open or hosted) counts as new for this long after it first appeared
+  release_max_age_days: 7
+  other_max_age_days: 3         # Show HN, Product Hunt
+  hf_min_likes: 60              # Hugging Face: skip tiny personal uploads
+  per_kind: 10                  # at most this many per kind in candidates.json
+  ai_terms: [ai, llm, llms, gpt, agent, agents, agentic, mcp, rag, model, models, inference, embedding, embeddings, transformer,
+             diffusion, claude, openai, anthropic, gemini, llama, qwen, deepseek, mistral, ml, neural, vlm, ocr, speech, tts,
+             copilot, codex, cursor, prompt, vector, fine-tune, fine-tuning, lora, eval, evals, gguf, vllm, ollama]
+  skip_patterns: ['uncensored', 'abliterated', '\bgguf\b', '-gguf', 'quantized', '\blora\b', '\bmerge\b', 'nsfw']

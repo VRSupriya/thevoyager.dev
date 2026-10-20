@@ -43,3 +43,6 @@ RSS: `/brief/rss.xml`, `/deep-dives/rss.xml`, `/writing/rss.xml`. Search: `/sear
 | `feeds/sources.yml`, `people.yml`, `youtube.yml` | What the Daily Brief routine reads each morning |
 | `scripts/fetch_feeds.py` | Fetches all feeds in parallel → `candidates.json` (`pip install -r scripts/requirements.txt`, then `python3 scripts/fetch_feeds.py --since 36h --out /tmp/candidates.json`) |
 | `data/brief-history.json` | Stories already covered, so the brief never repeats one |
+| `data/newcomers-seen.json` | First day each new model, repo, tool or release was listed (for 🆕 New on the radar) |
+| `data/deadlines.json` | Verified model retirements and compliance dates (for the ⏰ calendar, refreshed on Mondays) |
+| `scripts/check_brief.py` | Format and rule check for a brief: six main items, ⚡ quick hits, ⏰ on Mondays, 📅 on Sundays |

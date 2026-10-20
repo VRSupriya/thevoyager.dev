@@ -36,7 +36,7 @@ export async function ogPng({ seed, colour, kicker, title, footer = 'thevoyager.
 			h('img', { position: 'absolute', right: 0, top: 0, width: 560, height: 630, opacity: 0.9 }, undefined),
 			h(
 				'div',
-				{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '72px 80px', width: 860, height: 630 },
+				{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '72px 80px', width: 860, height: 630, boxSizing: 'border-box' },
 				[
 					h('div', { display: 'flex', flexDirection: 'column' }, [
 						h('div', { width: 84, height: 6, borderRadius: 3, background: ink, marginBottom: 28 }),

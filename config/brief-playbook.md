@@ -177,7 +177,7 @@ Pick exactly one item per slot, in this order:
 2. **🚀 Models & features**: a new model or model family (including open-weight and specialised models: coding,
    embeddings, rerankers, OCR/VLM, speech, small models), or a new feature/API of a model or model platform
    (pricing, rate limits, context, tool use, structured output, modes). Nothing else. Start from
-   `newcomers.model_api` and `newcomers.model` as well as the shortlist. "Quiet day" is allowed here only when
+   `newcomers.model_api` and `newcomers.model` as well as the shortlist. Leaving this slot out is allowed only when
    every new model in those lists that the brief hasn't covered was checked and rejected, with the reasons in
    the editor's notes.
 3. **🤖 AI agents**: agent frameworks and SDKs, MCP / A2A and other agent protocols, agent products and platforms,
@@ -196,7 +196,7 @@ Pick exactly one item per slot, in this order:
 **Where items come from:** start from the shortlist. Use the pick unless it is clearly wrong, already covered,
 too old, or fails verification; then take an alternate or a better item from newcomers, trending, story_clusters,
 the quick_pool or your own step 2b searches. If a slot's pick is null (usually research or people), search for a
-recent paper or a post by someone in `feeds/people.yml`; if nothing good exists, write the quiet-day line.
+recent paper or a post by someone in `feeds/people.yml`; if nothing good exists, leave the slot out (step 7, "No empty slots").
 
 **Freshness (new to readers, not just new):**
 - 🔥 must be an event from the last 72 hours.
@@ -276,7 +276,7 @@ and the wider GCC/MENA; plus India). Never counts toward the six items; stays sh
 - Format: `- **YYYY-MM-DD** — <what retires or takes effect, who is affected, the one thing to do>. [Source](<official url>)`.
   A deadline that is also a main or ⚡ item today may appear here too.
 
-**5e. 📅 Week in review (Sundays, required; at most ~250 words).**
+**5e. 📅 Week in review (Sundays, required; at most ~200 words).**
 - "The five that mattered": the 5 most useful main items of the last 7 briefs (`data/brief-history.json`), one line
   each with a link to that day's brief (`https://thevoyager.dev/brief/<date>/`) and why it still matters.
 - "Threads": 2–3 short lines on what the week adds up to (patterns across items, not a repeat of them).
@@ -302,7 +302,7 @@ Each one must be in the brief (main, ⚡ or 🌍) or have a one-line reason in t
 
 ```
 ---
-title: "AI Daily Brief — DATE"
+title: "<headline: the day's one or two biggest stories in plain words, under 80 characters>"
 date: DATE
 summary: "<one sentence: the day in a nutshell>"
 telegram: |
@@ -357,6 +357,30 @@ curated_with_ai: true
 ```
 
 - Omit ⏰ and 📅 on days they don't apply, and the whole 🌍 section if there is nothing real for it.
+- **Title (C1):** the title is a headline, not "AI Daily Brief — DATE": name the top story, and a second one if it
+  fits, the way you'd say it to a colleague ("Copilot retires six models, and vLLM stops recomputing long chats").
+  Under 80 characters, no emoji, no date (the site shows the date). The Telegram first line keeps "☕ AI Daily Brief — DATE".
+- **Length (C2):** each main item is at most two short paragraphs and about 130 words, plus its source line. Say the
+  one thing that happened, then what it means. Detail that doesn't change the reader's decision goes.
+- **No empty slots (C3):** when a main slot has nothing worth reading, leave its section out of the post and its line
+  out of the Telegram preview, and put the reasons in the editor's notes. Never publish a "Quiet day" section.
+  Fewer, better items beat a full grid.
+- **Extras stay short (C4):** ⏰ at most 5 items; 📅 Week in review (Sundays) at most ~200 words. 🌍 at most 4
+  news items plus events.
+- **Sources (C9):** link only pages you opened in this run. End each main item with its links on one line,
+  separated by " · ". The first is `[Source](<url>)` for the primary source; label any others with what they are
+  (`[Policy API docs](<url>)`, `[The paper](<url>)`), never a second "Source". The site turns these into chips that
+  show the website, so a news outlet is visible as a news outlet.
+- **Try this:** the line starts with `**Try this:**` as its own paragraph inside the item, so the site can show it
+  as a box. At most two per brief (as in step 4).
+- **Numbers:** when the top story turns on two or three hard numbers, you may add them as a stats block right
+  after its first paragraph (one per line, value then label, both from the source):
+  ```` ```stats ````
+  `3.3x | faster first token on long chats (vLLM's own benchmark)`
+  ```` ``` ````
+- **Related Deep Dives (C8):** if a main item builds on a Deep Dive already on the site (`src/content/dives/`), add
+  its id to front matter `related: ["system/2026-10-14"]` (at most 2). The site shows them as "Go deeper". Never
+  link a dive you haven't checked exists.
 - If `config/voice.md` or `src/content.config.ts` defines further front-matter fields (for example `share`),
   fill them as those files describe.
 - Telegram preview: each line under 85 characters, plain words a busy reader gets at a glance on a phone (no
@@ -375,7 +399,7 @@ Every claim must come from a source verified in this run; label hypotheses as hy
 ### Step 8: quality gate and candidate log (do not skip)
 - Run `python3 scripts/check_brief.py src/content/brief/DATE.md --candidates /tmp/candidates.json`.
   Fix every ERROR and rerun until 0 errors (at most 3 rounds; list any that remain in the final report).
-  Fix warnings unless you have a clear reason not to; a "Quiet day" warning needs a fix or the reasons in the editor's notes.
+  Fix warnings unless you have a clear reason not to; a missing-slot warning needs a fix or the reasons in the editor's notes.
 - Re-read the post once as the reader would, against the "Quick self-check" in `config/voice.md`, and tighten
   anything that reads like an audit or a press release.
 - Write `/tmp/editor-notes.md` (plain markdown, short):
@@ -419,4 +443,4 @@ Include the check_brief.py result, anything cut under section 3, and any rule yo
 - Use the primary source whenever one exists; if only a news outlet has it, say who reported it. Never link a
   news.google.com redirect: find the publisher's own URL.
 - Never invent numbers, benchmarks, prices, availability or dates. Treat vendor benchmarks as the vendor's claims.
-- If a main slot truly has nothing worthwhile, write "Quiet day — nothing worth your time here." instead of padding.
+- If a main slot truly has nothing worthwhile, leave it out (see "No empty slots" in step 7) instead of padding.

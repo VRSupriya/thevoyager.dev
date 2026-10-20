@@ -6,7 +6,7 @@
 Errors (exit 1) are rule breaks the routine must fix before committing.
 Warnings (exit 0) are style signals worth a second look.
 
-Layout: the six main sections, then "## ⚡ Also worth knowing" (always), "## ⏰ Deadlines & deprecations"
+Layout: the main sections (🔥 always, then any of the other five, in order; an empty slot is left out), then "## ⚡ Also worth knowing" (always), "## ⏰ Deadlines & deprecations"
 (Mondays; other days only when a new deadline was found), "## 📅 Week in review" (Sundays), then the
 closing line and the optional "## 🌍" regional block.
 """
@@ -67,7 +67,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("post", type=Path)
     ap.add_argument("--candidates", type=Path, default=Path("/tmp/candidates.json"),
-                    help="used to warn when 🚀 says 'Quiet day' while new models were found")
+                    help="used to warn when 🚀 is left out while new models were found")
     args = ap.parse_args()
     path = args.post
     fm, body = split_post(path.read_text())
@@ -78,16 +78,43 @@ def main() -> int:
         if not fm.get(key):
             errors.append(f"front matter: `{key}` is missing")
 
+    # C1: the title is a headline, not "AI Daily Brief — DATE".
+    title = str(fm.get("title") or "")
+    if re.match(r"\s*AI Daily Brief", title, re.I):
+        errors.append("title must be a headline naming the top story, not 'AI Daily Brief — DATE'")
+    elif len(title) > 90:
+        errors.append(f"title is {len(title)} characters (keep it under 80)")
+    elif len(title) > 80:
+        warnings.append(f"title is {len(title)} characters (aim for under 80)")
+
     main_part = body.split("## 🌍")[0]
     all_sections = re.split(r"^## ", main_part, flags=re.M)[1:]
     found = [s.split()[0] if s.split() else "" for s in all_sections]
-    sections = all_sections[:len(SLOTS)]
-    extras = dict(zip(found[len(SLOTS):], all_sections[len(SLOTS):]))
-    if found[:len(SLOTS)] != SLOTS:
-        errors.append(f"main sections must start with {' '.join(SLOTS)} in order; found {' '.join(found) or 'none'}")
-    tail = found[len(SLOTS):]
+    n_main = 0
+    while n_main < len(found) and found[n_main] in SLOTS:
+        n_main += 1
+    sections = all_sections[:n_main]
+    extras = dict(zip(found[n_main:], all_sections[n_main:]))
+    main_found = found[:n_main]
+    if not main_found or main_found[0] != "🔥" or main_found != [x for x in SLOTS if x in main_found]:
+        errors.append(f"main sections must start with 🔥 and keep the order {' '.join(SLOTS)}; found {' '.join(found) or 'none'}")
+    elif len(main_found) < 3:
+        warnings.append(f"only {len(main_found)} main items; check the slots you left out really had nothing")
+    # C3: no empty "Quiet day" sections on the site.
+    for sec in sections:
+        if QUIET.lower() in sec.lower():
+            errors.append(f"section '{sec.splitlines()[0][:40]}' says 'Quiet day': leave the slot out instead")
+    for line in (fm.get("telegram") or "").splitlines():
+        if QUIET.lower() in line.lower():
+            errors.append("telegram preview has a 'Quiet day' line: leave that slot's line out")
+    # C2: each main item stays short.
+    for sec in sections:
+        body_words = len(re.sub(r"\[[^\]]*\]\([^)]*\)", "", "\n".join(sec.splitlines()[1:])).split())
+        if body_words > 160:
+            warnings.append(f"section '{sec.splitlines()[0][:40]}' is {body_words} words (aim for about 130)")
+    tail = found[n_main:]
     if tail != [e for e in EXTRAS if e in tail] or any(t not in EXTRAS for t in tail):
-        errors.append(f"after the six items only {' '.join(EXTRAS)} may follow, in that order; found {' '.join(tail) or 'none'}")
+        errors.append(f"after the main items only {' '.join(EXTRAS)} may follow, in that order; found {' '.join(tail) or 'none'}")
     try:
         weekday = date.fromisoformat(str(fm.get("date"))).weekday()
     except ValueError:
@@ -133,22 +160,26 @@ def main() -> int:
             elif m.group(1) < str(fm.get("date")):
                 warnings.append(f"⏰ date {m.group(1)} is already in the past")
 
+    if deadlines is not None and len(bullets(deadlines)) > 5:
+        warnings.append(f"⏰ has {len(bullets(deadlines))} items (keep it to 5)")
+    if "📅" in extras and len(extras["📅"].split()) > 220:
+        warnings.append(f"📅 Week in review is {len(extras['📅'].split())} words (aim for about 200)")
     if weekday == 6 and "📅" not in extras:
         errors.append("Sunday brief needs '## 📅 Week in review'")
 
-    # 🚀 "Quiet day" while new models sit unused in candidates.json is almost always a miss.
-    if len(sections) > 1 and QUIET in sections[1] and args.candidates.exists():
+    # 🚀 left out while new models sit unused in candidates.json is almost always a miss.
+    if "🚀" not in main_found and args.candidates.exists():
         nc = json.loads(args.candidates.read_text()).get("newcomers", {})
         fresh = [e["name"] for k in ("model_api", "model") for e in nc.get(k, []) if not e.get("already_in_brief")]
         if fresh:
-            warnings.append("🚀 says 'Quiet day' but candidates.json lists new models not yet covered: "
+            warnings.append("🚀 is left out but candidates.json lists new models not yet covered: "
                             + ", ".join(fresh[:5]) + ". Use one, or say in the editor's notes why each was rejected.")
 
     sites: dict[str, int] = {}
     for sec in sections:
         head = sec.splitlines()[0][:60]
         links = re.findall(r"\[Source\]\((https?://[^)\s]+)\)", sec)
-        if not links and QUIET not in sec:
+        if not links:
             errors.append(f"section '{head}' has no [Source](...) link")
         for u in {site(u) for u in links}:
             sites[u] = sites.get(u, 0) + 1
@@ -157,7 +188,7 @@ def main() -> int:
             warnings.append(f"section '{head}' stacks {hedges} caveats (one honest caveat is enough)")
     for s, n in sites.items():
         if n > DOMAIN_CAP:
-            errors.append(f"{n} of the 6 items come from {s} (max {DOMAIN_CAP})")
+            errors.append(f"{n} of the main items come from {s} (max {DOMAIN_CAP})")
 
     for pat in PROCESS_LEAKS:
         for m in re.finditer(pat, body):

@@ -944,6 +944,17 @@ def main(argv: list[str] | None = None) -> int:
                                 write_seen=seen_file is not None)
     newcomers["first_seen"] = first_seen_names(candidates, trend_hist_before, now.date().isoformat(), query_words)
     deadlines_found = openrouter_deadlines([d for d in discovery if d.get("expiration_date")], now)
+    cov = prio.get("coverage", {})
+    cov_since = now - timedelta(hours=cov.get("hours", 48))
+    coverage_pool = [{"title": i["title"], "url": i["url"], "source": i["source"], "summary": i.get("summary", "")[:200],
+                      "published": i["published"].isoformat()}
+                     for i in sorted(items, key=lambda i: i["published"] or cov_since, reverse=True)
+                     if i["source"] in cov.get("sources", []) and i["published"] and i["published"] >= cov_since
+                     and (i["source"] != "Hacker News" or AI_MENTION.search(f"{i['title']} {i.get('summary', '')}"))]
+    per_cov: dict[str, int] = {}
+    coverage_pool = [c for c in coverage_pool
+                     if per_cov.setdefault(c["source"], 0) < cov.get("per_source", 12)
+                     and not per_cov.__setitem__(c["source"], per_cov[c["source"]] + 1)]
     for c in candidates + dropped:
         c["published"] = c["published"].isoformat() if c["published"] else None
     quick = quick_pool(candidates, picks, prio.get("quick_hits", {}))
@@ -970,6 +981,7 @@ def main(argv: list[str] | None = None) -> int:
         "shortlist": picks,
         "newcomers": newcomers,
         "quick_pool": quick,
+        "coverage_pool": coverage_pool,
         "deadlines_found": deadlines_found,
         "regional": regional[:12],
         "candidates": candidates,

@@ -45,4 +45,5 @@ RSS: `/brief/rss.xml`, `/deep-dives/rss.xml`, `/writing/rss.xml`. Search: `/sear
 | `data/brief-history.json` | Stories already covered, so the brief never repeats one |
 | `data/newcomers-seen.json` | First day each new model, repo, tool or release was listed (for 🆕 New on the radar) |
 | `data/deadlines.json` | Verified model retirements and compliance dates (for the ⏰ calendar, refreshed on Mondays) |
+| `config/brief-playbook.md` | The Daily Brief routine's full instructions (the scheduled task just points here) |
 | `scripts/check_brief.py` | Format and rule check for a brief: six main items, ⚡ quick hits, ⏰ on Mondays, 📅 on Sundays |

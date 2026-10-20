@@ -55,7 +55,8 @@ rss:
   - {section: core, name: Hacker News,         url: "https://hn.algolia.com/api/v1/search?tags=front_page", type: json, weight: 1}
   - {section: core, name: r/LocalLLaMA,        url: "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day", weight: 1}
   # Newsletters that summarise X, Reddit and Discord (there is no X API): mainly a cross-check for what the feeds missed
-  - {section: core, name: AINews (smol.ai),    url: https://news.smol.ai/rss.xml, weight: 1}
+  # AINews itself now ships in the Latent Space feed (people.yml: swyx / Latent Space); news.smol.ai/rss.xml stopped on 2026-09-09
+  - {section: core, name: The Rundown AI,      url: https://www.therundown.ai/feed, weight: 1}
   - {section: core, name: TLDR AI,             url: https://tldr.tech/api/rss/ai, weight: 1}
   - {section: core, name: Last Week in AI,     url: https://lastweekin.ai/feed, weight: 1}
   # Security of AI systems

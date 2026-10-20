@@ -311,7 +311,7 @@ quick_hits:
 
 # 🆕 Newcomers (feeds/sources.yml: discovery). Only AI-related, recent, not-yet-covered things are kept.
 newcomers:
-  model_max_age_days: 14        # a model (open or hosted) counts as new for this long after it first appeared
+  model_max_age_days: 10        # a model (open or hosted) counts as new for this long (matches the brief's 10-day freshness rule)
   release_max_age_days: 7
   other_max_age_days: 3         # Show HN, Product Hunt
   hf_min_likes: 60              # Hugging Face: skip tiny personal uploads
@@ -320,3 +320,10 @@ newcomers:
              diffusion, claude, openai, anthropic, gemini, llama, qwen, deepseek, mistral, ml, neural, vlm, ocr, speech, tts,
              copilot, codex, cursor, prompt, vector, fine-tune, fine-tuning, lora, eval, evals, gguf, vllm, ollama]
   skip_patterns: ['uncensored', 'abliterated', '\bgguf\b', '-gguf', 'quantized', '\blora\b', '\bmerge\b', 'nsfw']
+
+# Step 6 coverage check: every item from these sources in the last `hours`, unfiltered by score,
+# so the editor can confirm the brief didn't miss what the rest of the AI world covered.
+coverage:
+  hours: 48                   # TLDR and The Rundown publish on US time, after the morning run
+  per_source: 12
+  sources: ["swyx / Latent Space", "TLDR AI", "The Rundown AI", "Last Week in AI", "Hacker News", "r/LocalLLaMA"]

@@ -103,5 +103,12 @@
     "week": 3,
     "title": "Skill routing collapse: your agent has 1,000 skills installed and loads half of nothing",
     "topic_key": "research:skill-routing-collapse-implicit-routing-preselection"
+  },
+  {
+    "date": "2026-10-21",
+    "track": "system",
+    "week": 3,
+    "title": "One MCP URL for a hundred engineers: what a tool gateway actually buys you",
+    "topic_key": "system:mcp-gateway-eon-agentcore-cedar-identity-federation"
   }
 ]

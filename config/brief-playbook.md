@@ -416,11 +416,18 @@ Every claim must come from a source verified in this run; label hypotheses as hy
 - Append the 6 main items and any regional items `{date, slot, title, url}` to `data/brief-history.json`, and each ⚡
   item as `{date, slot: "quick", title, url}`; remove entries older than 30 days. Start each history title with the
   company or product name (e.g. "DeepSeek search and fetch APIs") so the vendor cap and the newcomer check can find it.
+- **Deep Dive queue:** if today's brief includes a paper or a GitHub repo that deserves a full Deep Dive, append it to
+  `data/dive-queue.json` as `{date, kind: "paper" | "repo", title, url, why}` (at most 2 a day; skip anything
+  already in the queue or in `data/dives-history.json`). It deserves one when it passes at least one test: from a
+  major lab with code or weights released; covered by two or more of AINews, TLDR AI, The Rundown, Last Week in AI
+  or the Hacker News front page; or it changes how AI systems are built. For a repo, it must also have real
+  architecture to study (not a list, prompt pack or thin wrapper). `why` names the test it passed. The Deep Dives
+  routine reads this file on Tuesdays (papers) and Fridays (repos).
 - If the private layer proposes an experiment, append `{date, title, source_url, hypothesis, status: "suggested"}` to
   `data/experiments.json` (keep the latest 60; never change the status of earlier entries).
 - Commit and push:
   ```
-  git add src/content/brief/DATE.md data/brief-history.json data/experiments.json data/candidates/ data/trend-history.json data/newcomers-seen.json data/deadlines.json data/concept-history.json
+  git add src/content/brief/DATE.md data/brief-history.json data/experiments.json data/dive-queue.json data/candidates/ data/trend-history.json data/newcomers-seen.json data/deadlines.json data/concept-history.json
   git commit -m "brief: DATE"
   git push origin main   # if rejected: git pull --rebase origin main, then push once more
   ```

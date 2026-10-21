@@ -47,7 +47,7 @@ const todayLabel = new Date(`${today}T00:00:00Z`).toLocaleDateString('en-GB', {
 							{stories.map((s) => (
 								<li class={`slot-${s.key}`}>
 									<a href={`${briefUrl(brief)}#${s.anchor}`}>
-										<span class="bc-label">{s.label}</span>
+										<span class="bc-label">{s.label}<span class="sr-only">: </span></span>
 										<span class="bc-line">{s.line}</span>
 										{s.source && <span class="bc-src">{s.source}</span>}
 									</a>

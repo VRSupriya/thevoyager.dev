@@ -32,25 +32,31 @@ opinions with reasons, vary phrasing, avoid AI clichés.
    - Weekdays (Mon–Fri): publish only in the early run (HOUR < 5). If HOUR >= 5, stop.
    - Weekends (Sat, Sun): publish only in the late run (HOUR >= 5). If HOUR < 5, stop.
    If a post dated DATE already exists anywhere under src/content/dives/, stop.
-2. Read config/plan.yml, config/progress.yml and data/dives-history.json.
+2. Read config/plan.yml, config/progress.yml, config/curriculum.yml, data/dives-history.json and
+   data/dive-queue.json.
    Compute WEEK = number of weeks since start_date (week 1 = the first week). If DATE is before start_date, stop.
-   PHASE = the phase in plan.yml for the current month of the plan.
-   If WEEK is a review week (WEEK % review_week_every == 0):
+   PHASE = the phase in plan.yml whose `weeks` range contains WEEK.
+   THEME = this week's entry in config/curriculum.yml (its `theme`, `objectives` and `use_case`), and MODULE = the
+   module it belongs to. A week with `review: true`, or a week not listed (the spare weeks), is a review week.
+   If WEEK is a review week (WEEK % review_week_every == 0, or the curriculum marks it as review):
    - Saturday: write a Recap post to src/content/dives/recap/DATE.md (see "Recap").
    - Sunday: write the Learning Radar post to src/content/dives/radar/DATE.md (see "Learning Radar").
    - Every other day: stop without committing.
    If DAY is not in the ramp days for WEEK, or its track is in skipped_tracks, stop without committing.
 3. **Choose the track for DAY:** Mon=models-agentic, Tue=research, Wed=system, Thu=interview, Fri=github,
-   Sat=build, Sun=lab. Use dives-history so you NEVER repeat a topic, and so difficulty rises with PHASE. Connect
-   topics across the week where natural (Saturday's build uses that week's topics).
+   Sat=build, Sun=lab. The topic comes from the curriculum, not from your own choice: see "The weekly cycle" below.
+   Use dives-history so you NEVER repeat a topic or a source you already covered.
 4. **Research** the topic with WebSearch/WebFetch. Use primary sources (papers, official docs, engineering blogs,
    release notes) and open each one with WebFetch before relying on it; never write from search snippets alone.
    Never invent numbers, benchmarks, repo stats, prices, or interview questions attributed to a company. Treat
    vendor benchmarks as claims and say what would need checking. Use the same number everywhere in the post: the
-   summary, the takeaways, the body and any table or chart must agree.
+   summary, the takeaways, the body and any table or chart must agree. Follow "How it's done now" below on every
+   post.
 5. **Write src/content/dives/<track>/DATE.md** (format below, then the body by track).
-6. Append `{date, track, week, title, topic_key}` to data/dives-history.json.
-7. `git add` the new/changed files; `git commit -m "dives(<track>): DATE"`; `git push origin main` (if rejected:
+6. Append `{date, track, week, title, topic_key}` to data/dives-history.json. If you used an item from
+   data/dive-queue.json, set its `used` to DATE. Remove queue items older than 21 days.
+7. `git add` the new/changed files (only: the post, data/dives-history.json, data/dive-queue.json, and
+   config/progress.yml when the build step changes it); `git commit -m "dives(<track>): DATE"`; `git push origin main` (if rejected:
    `git pull --rebase origin main`, then push once more).
 8. **Telegram** (only after the push in step 7 succeeded, and only if you wrote a post in this run):
    `python3 scripts/send_telegram.py src/content/dives/<track>/DATE.md`
@@ -102,7 +108,8 @@ curated_with_ai: true
 
 ## Length and shape (C6)
 
-- Weekday posts: a 7–12 minute read (about 1,400–2,400 words) plus the hands-on part. Build and lab: the
+- Weekday posts: a 7–12 minute read (about 1,400–2,400 words) plus the hands-on part. Wednesday is the exception:
+  about 2,800 words (see its word budgets). Build and lab: the
   "5-minute version" is short; the depth goes into "Do it".
 - Every section earns its place: if a paragraph doesn't change a decision or teach a mechanism, cut it.
 - Code: keep each code block under ~40 lines and runnable. For anything longer, show the important part and say
@@ -141,69 +148,198 @@ Callout boxes, as a quote that starts with a tag (use sparingly, at most three p
 `> [!TIP]`, `> [!WARNING]`, `> [!NOTE]`, `> [!TRY] Try it`, `> [!WATCH] Watch out for`, and
 `> [!REVEAL] Show the answer` (a box the reader opens, for model answers and solutions).
 
+## The weekly cycle
+
+Every track except the Lab serves the week's THEME, in this order, so the week builds like a course: learn the
+concept, see the frontier, apply it, defend it, read real code, build it.
+
+| Day | Track | Role |
+|---|---|---|
+| Mon | models-agentic | Part A: this week's news. Part B: the THEME as a building block |
+| Tue | research | A paper on the THEME (or a landmark paper; see the research rule) |
+| Wed | system | An end-to-end enterprise design of the week's `use_case`, with the THEME as the deep-dive lens |
+| Thu | interview | A question on the THEME |
+| Fri | github | The GitHub rule: trending first, then the THEME |
+| Sat | build | Two builds that use the THEME |
+| Sun | lab | The research ladder (its own sequence, not the THEME) |
+
+Every themed post serves at least one of the week's `objectives`; name it to yourself before you write. Link the
+week's earlier posts where they help (`related:` and in the text). In MODULE M10, Tuesday uses a well-known study,
+survey or postmortem instead of a paper, and Saturday produces an artefact (an ADR, a roadmap, a business case)
+instead of code. In MODULE M9 (capstones), Monday revisits the building blocks the capstone needs and Thursday is a
+full mock interview round on the capstone.
+
+## How it's done now (every post)
+
+The curriculum fixes the subject; the content must be current. For every post, research and include:
+- **The current standard approach** and the tools teams use today, and what changed from the older way ("in 2023
+  most teams did X; most now do Y because…"). Say which approach to use today when the newest one is still unproven.
+- **Latest developments** on the theme from the last 6 months: releases, papers, standards, shifts in practice,
+  checked on the primary source.
+- **Enterprise adoption** (required on Wednesday, wherever it fits elsewhere): named organisations and what they
+  built, from their engineering blogs, talks, postmortems or published case studies, with how far they got (pilot,
+  production, scale) and what they reported. Analyst and vendor surveys count only as context, labelled as such.
+  If no named, documented example exists, say so and use a cloud provider's published reference architecture,
+  labelled as such. Never write "a large bank did…" without a source.
+- **Dates:** prefer sources from the last 12 months; give every number and claim its date ("as of March 2027");
+  label older material as older.
+
+Never narrate your own process ("I couldn't find", "a search didn't turn up", "when I opened it"). If something
+isn't public or a page doesn't confirm a detail, say that plainly ("the docs don't say", "no code is out yet").
+
 ## Body by track
 
-Structure for every post: open with a concrete hook (1–3 short paragraphs), then the body for the track. Long
+**Structure for every post:** open with a concrete hook (1–3 short paragraphs), then the body for the track. Long
 tracks (build, lab) MUST start with a "## The 5-minute version" section (what it is, the key insight, why a senior
 architect should care, a diagram where it helps), followed by "## Do it" with the full hands-on part, so the post is
 useful even to readers who never do the exercise.
 
-- **models-agentic:** Part A "This week's big model/feature change" (what changed, how it works, architectural
-  implications, when to use it, what to verify before trusting vendor claims). Part B "Agentic pattern of the
-  week" (problem, pattern, diagram, trade-offs, failure modes, when NOT to use it, a 10-minute try-it). Pick
-  patterns from the curriculum below, in order.
-- **research:** one important paper from the last ~3 months: the problem, the core idea in plain words, why it
-  works, results (verified; a ```chart of the key table where it helps), architectural implication, the one
-  figure/equation worth understanding, links to paper and code. End with a ```quiz.
-- **system:** one AI-era system architecture topic + a real company case study: context, requirements,
-  architecture (diagram), key trade-offs, numbers to remember (a ```calc when readers would want to plug in their
-  own numbers), and "how to explain it to a CTO in 3 sentences".
-- **interview:** follow the 6-week rotation (system design → ML/LLM system design → customer/solution scenario →
-  project deep-dive → behavioural → coding). Rotate the company focus (Google, OpenAI, Anthropic, Meta, Microsoft,
-  AWS) AND the role, one per post in this order: AI/Solution Architect → Forward Deployed Engineer → Senior AI/ML
-  Engineer → Principal/Staff Architect. Name the role in the title or opener. Structure: the question; "## Pause:
-  answer out loud for 10 minutes first" with a ```timer; framework; model answer (in a `> [!REVEAL]` box); what top
-  candidates add at this level; one tip; a ```quiz. If you call a question "reported", cite the public source;
-  otherwise label it "in the style of".
-  ROTATION STATE (never restart the counters): take it from data/dives-history.json. Let N = the number of earlier
-  entries with track "interview". Then use question type = type number (N mod 6), in the order above; company =
-  (N mod 6), in the order Google, OpenAI, Anthropic, Meta, Microsoft, AWS; role = (N mod 4), in the order above.
-  Company and role move on with every interview post. Record them in topic_key as
-  "interview:<type>:<company>:<role>:<topic>".
-- **github:** one repo worth studying (trending or important for AI architecture): what it does, how its
-  architecture works, what to learn from its design, and a concrete 45-minute hands-on exercise with exact steps
-  (a ```terminal replay of the first commands helps).
-- **build:** the weekend build (3 h), using this week's topics. If config/progress.yml has a non-empty
-  build_request, make it "Option A" with a full spec and add ONE shorter alternative as "Option B"; then set
-  build_request back to "". Otherwise give TWO project options ("Option A", "Option B"). Each option: goal, why
-  it's worth building, requirements, architecture (diagram), stack (lean on Python/PySpark where it fits),
-  step-by-step milestones, stretch goals. Then a "## Build your own" box: a short fill-in template readers can copy
-  to scope their own 3-hour project (goal, which of this week's ideas it uses, inputs/outputs, must-have vs
-  nice-to-have, 3 milestones, how you'll know it works). Record Option A's title as current_build in
-  config/progress.yml.
-- **lab:** the research ladder, step = research_step in config/progress.yml (1 GPT from scratch → 2 modern
-  components → 3 efficiency → 4 beyond transformers → 5 ablation lab → 6 own hypothesis). Present it as a public
-  series ("Step N: …", with `series: "Lab · Step N"` and `part`). Give the classic paper for that step, a concrete
-  90-minute coding task (Colab-friendly), what to observe (a ```curve of healthy versus broken runs helps), and how
-  you know the step is complete. Continue within the same step across weeks (part 1, part 2, …). NEVER change
-  research_step yourself: it only moves when the author marks the step done. End with a "## Try this" section: one
-  concrete thing for any reader to build or test this week.
+### Monday: models-agentic
 
-**Agentic curriculum order:** agent loop & tool calling; workflows vs agents; MCP; A2A; context engineering;
-memory; planning & reflection; multi-agent coordination; guardrails & prompt injection; human-in-the-loop; agent
-evals; tracing; cost/latency; durable execution; sandboxing & computer use; agent identity/auth; enterprise agent
-platforms; then continue with the newest patterns.
+- **Part A "This week's big model/feature change":** the most important model release or platform change of the
+  last 7 days for people who build AI systems: what changed, how it works, architectural implications, when to use
+  it, what to verify before trusting vendor claims. Prefer a model release when one matters. Rotate vendors: a
+  vendor that had Part A in either of the last 3 Mondays (check dives-history) needs a clearly bigger story than the
+  alternatives, and you say why in your report. Look across OpenAI, Anthropic, Google, Meta, Microsoft, AWS,
+  Mistral, DeepSeek, Qwen and other open-weight labs. Part A never changes the week's THEME.
+- **Part B "Building block of the week":** the THEME, taught properly: the problem it solves, how it works (the
+  mechanism, with a diagram), the main variants and their trade-offs, numbers worth knowing, how it's done now
+  (see above), failure modes, when NOT to use it, and a 10-minute try-it. End with a quiz. Part B is the
+  foundation the rest of the week builds on, so it carries the most depth.
+- In MODULE M9, Part B is "What this capstone needs": a short refresher of the building blocks it combines, with
+  links to the posts that taught them.
 
-**Recap** (review-week Saturdays, track: recap): the best of the last 5 weeks from dives-history, with links to each
-post, grouped by theme, plus what's worth revisiting and why. No new material.
+### Tuesday: research
 
-**Learning Radar** (review-week Sundays, track: radar): read config/learning-radar.yml. Check each provider's site
-(WebFetch) and WebSearch for what is new, updated, trending in AI/architect job posts, or being retired since the
-last radar post (find it in dives-history). Write:
+Pick the paper in this order, and say in your report which rule you used:
+1. **Landmark paper, whatever the theme:** an item in data/dive-queue.json with kind "paper" and no `used` date, or
+   a paper from the last 3 weeks that passes at least one test: from a major lab with code or weights released;
+   covered by two or more of AINews, TLDR AI, The Rundown, Last Week in AI, Hacker News front page; or one that
+   changes how systems are built. Say which test it passed in the post's opener ("this week's most-discussed
+   paper").
+2. **A recent paper on the THEME** (last ~6 months).
+3. **The classic paper on the THEME**, labelled as such in the title or opener ("Classic paper, 2020").
+
+Body: the problem, the core idea in plain words, why it works, results (verified on the paper itself, never only a
+blog summary; a ```chart of the key table where it helps), the architectural implication, the one figure or
+equation worth understanding, how it's being used in practice now (if at all), links to paper and code. End with a
+```quiz. In MODULE M10, use a well-known study, survey or postmortem instead.
+
+### Wednesday: system (solution architecture, end to end)
+
+Take the week's `use_case` from business problem to delivery plan, the way a senior AI architect and senior
+solution architect would present it at a design review. Cover the whole path briefly; spend the depth on the
+THEME (the lens). About 2,800 words (13–15 minute read) plus a 30-minute exercise; time_minutes 45. Word budgets
+are maximums.
+
+1. **The business case (200 words):** organisation type, the problem, the users, the KPI that defines success (a
+   number), the constraints (budget, regulation, residency, existing systems, team skills), and the stakeholders
+   who must sign off and what each needs to see.
+2. **Do we need AI here? (100 words):** the simplest option that could work (rules, search, classic ML, a better
+   process) and why it falls short, or why it doesn't.
+3. **Requirements (200 words):** functional requirements, then a non-functional table: latency, throughput,
+   availability, RPO/RTO, security and privacy, regulation (name the specific rules: EU AI Act risk class, GDPR,
+   UAE/KSA residency, India DPDP, sector rules), cost ceiling. State assumptions as assumptions.
+4. **High-level design (400 words):** a C4 container diagram (```mermaid) covering AI engineering (models, RAG,
+   agents, evals), data engineering (ingestion, pipelines, stores, lineage, quality), platform and deployment
+   (cloud, serving, CI/CD, LLMOps) and security and governance (identity, data access, PII, prompt injection,
+   audit). Then the current state: what exists today and how the new system fits beside or replaces it.
+5. **Deep dive on the THEME (700 words):** low-level design of the component the THEME is about: API contracts,
+   data model or schema, a sequence diagram, scaling, failure handling and observability.
+6. **Key decisions (400 words):** 3–4 short ADRs (decision, options, why this one, what would change it). Always
+   include one build-vs-buy or managed-vs-self-hosted decision, and the lock-in and exit plan.
+7. **How we know it works (250 words):** the offline eval set, online metrics, human review, and the go-live
+   threshold.
+8. **Sizing, cost and value (250 words):** capacity and monthly cost as a ```calc, using list prices from official
+   pricing pages with the date checked; cost per transaction against value per transaction.
+9. **From design to delivery (300 words):** proof of concept → pilot → production, team and roles, the top 3 risks
+   with mitigations, the operating model (SLOs, on-call, cost monitoring), and how users are brought on board.
+10. **How others built it:** a named organisation's real architecture for this or a close use case (engineering
+    blog, talk or postmortem) with actual detail. If none exists, a cloud provider's published reference
+    architecture, labelled as such. Then one short table mapping the main components to AWS, Azure and Google Cloud.
+11. **Explain it in 3 sentences** to the CTO, and in one more sentence to the business owner.
+12. **Exercise (30 min):** a short, deliberately flawed design for the same use case. Readers find the problems,
+    then compare with the answer in a `> [!REVEAL]` box.
+13. **Template:** end with one reusable artefact in a copyable block, rotating week to week: solution design
+    outline, ADR, non-functional requirements table, risk register, cost model. Check dives-history for last
+    week's.
+
+Record topic_key as "system:<use case>:<theme>".
+
+### Thursday: interview
+
+A question on the THEME, preferably on this week's `use_case` or a recent one, so readers practise defending what
+they learned. Follow the 6-week rotation of question types (system design → ML/LLM system design →
+customer/solution scenario → project deep-dive → behavioural → coding), applied to the THEME: a behavioural
+question asks about the THEME in real life ("tell me about a time a retrieval system failed in production"); a
+coding question implements a small piece of it ("write a chunker that respects headings"). Rotate the company
+focus (Google, OpenAI, Anthropic, Meta, Microsoft, AWS) AND the role, one per post in this order: AI/Solution
+Architect → Forward Deployed Engineer → Senior AI/ML Engineer → Principal/Staff Architect. Name the role in the
+title or opener. Structure: the question; "## Pause: answer out loud for 10 minutes first" with a ```timer;
+framework; model answer (in a `> [!REVEAL]` box); what top candidates add at this level; one tip; a ```quiz. If you
+call a question "reported", cite the public source; otherwise label it "in the style of".
+ROTATION STATE (never restart the counters): take it from data/dives-history.json. Let N = the number of earlier
+entries with track "interview". Then use question type = type number (N mod 6), in the order above; company =
+(N mod 6), in the order Google, OpenAI, Anthropic, Meta, Microsoft, AWS; role = (N mod 4), in the order above.
+Record them in topic_key as "interview:<type>:<company>:<role>:<topic>". In MODULE M9, Thursday is a full mock
+round on the capstone.
+
+### Friday: github
+
+Pick the repo in this order, and say in your report which rule you used:
+1. **Trending, whatever the theme:** the top repos on GitHub Trending (daily, then weekly) and any item in
+   data/dive-queue.json with kind "repo" and no `used` date.
+2. **A trending repo that fits the THEME.**
+3. **An established repo on the THEME:** the way production teams implement it (a mature library or system, not a
+   weekend project).
+
+A repo qualifies under rule 1 or 2 only if it passes all four checks: it has real architecture to study (not a list
+of links, a prompt collection or a thin API wrapper); it's relevant to people who design AI systems; it comes from
+a credible team or shows real adoption (not just a star spike); and it has recent commits and a licence. Never
+pick a repo already covered in dives-history.
+
+Body: what it does, how its architecture works (read the code and design docs, not just the README), what to learn
+from its design, what the docs leave out, when to use it and when not, and a concrete 45-minute hands-on exercise
+with exact steps (a ```terminal replay of the first commands helps).
+
+### Saturday: build
+
+The weekend build (3 h) uses the THEME (not Friday's repo, unless it fits the theme). If config/progress.yml has a
+non-empty build_request, make it "Option A" with a full spec and add ONE shorter alternative as "Option B"; then
+set build_request back to "". Otherwise give TWO project options ("Option A", "Option B"). Each option: goal, why
+it's worth building, requirements, architecture (diagram), stack (lean on Python/PySpark where it fits),
+step-by-step milestones, stretch goals. Then a "## Build your own" box: a short fill-in template readers can copy
+to scope their own 3-hour project (goal, which of this week's ideas it uses, inputs/outputs, must-have vs
+nice-to-have, 3 milestones, how you'll know it works). Record Option A's title as current_build in
+config/progress.yml. In MODULE M10, the build is an artefact (an ADR, a roadmap, a business case) with a template
+and a worked example.
+
+### Sunday: lab
+
+The research ladder, step = research_step in config/progress.yml (1 GPT from scratch → 2 modern components → 3
+efficiency → 4 beyond transformers → 5 ablation lab → 6 own hypothesis). Present it as a public series ("Step N:
+…", with `series: "Lab · Step N"` and `part`). Give the classic paper for that step, a concrete 90-minute coding
+task (Colab-friendly), what to observe (a ```curve of healthy versus broken runs helps), and how you know the step
+is complete. Continue within the same step across weeks (part 1, part 2, …). NEVER change research_step yourself:
+it only moves when the author marks the step done. End with a "## Try this" section: one concrete thing for any
+reader to build or test this week.
+
+### Review weeks
+
+**Recap** (Saturday, track: recap): the module that just ended. List its weeks with links to every post, grouped by
+theme; a "You can now…" checklist built from the module's objectives; a ```quiz of 6–8 questions across the
+module; what's worth revisiting and why. Then "Next module": its name, its themes, and what changed in the field
+during this module that the next one should account for (proposals only; never edit the curriculum). No new
+material.
+
+**Learning Radar** (Sunday, track: radar): read config/learning-radar.yml. Check each provider's site (WebFetch)
+and WebSearch for what is new, updated, trending in AI/architect job posts, or being retired since the last radar
+post (find it in dives-history). Write:
 - "Certifications: what's moving": at most 3 items (new / updated / retiring), each with provider, why it matters
   for an AI/Solution Architect, cost and format if stated on the official page, and a link.
 - "Courses worth your time": at most 3 new or notable courses (free first), each with provider, length, level, why
-  it fits now, and a link. For Udemy, include only courses with a high rating and a recent update; say so.
+  it fits now, and a link. Prefer ones that match the next module. For Udemy, include only courses with a high
+  rating and a recent update; say so.
 - "Our pick this cycle": exactly ONE certification or course any senior architect could do next, with honest
   context (certifications weigh more for cloud-provider and enterprise roles than at frontier labs, where projects
   and writing matter more).
@@ -212,7 +348,9 @@ Verify every name, price and date on the provider's own page; leave out anything
 ## Private layer
 
 `telegram_private`: author only, never on the site; 2–4 short lines.
-- Every post: one line on how today's topic fits the author's current PHASE.
+- Every post: one line on how today's topic fits the author's current PHASE and MODULE.
+- Wednesday: one line on which senior skill the post practised (business framing, trade-off defence, cost
+  ownership, risk, delivery planning, stakeholder management).
 - Sunday (lab): the three weekly-wins questions (What did I learn? What did I build? What am I curious about next?)
   and a nudge to turn the answers into a short Writing post every week or two.
 - Saturday (build): a 4-bullet outline for writing up the build afterwards.

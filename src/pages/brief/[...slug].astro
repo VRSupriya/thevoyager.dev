@@ -50,7 +50,7 @@ const related = relatedDives(post, dives, 2).map((d) => diveLink(d));
 					{stories.map((s) => (
 						<li class={`slot-${s.key}`}>
 							<a href={`#${s.anchor}`}>
-								<span class="in30-label">{s.label}</span>
+								<span class="in30-label">{s.label}<span class="sr-only">: </span></span>
 								<span class="in30-line">{s.line}</span>
 							</a>
 						</li>

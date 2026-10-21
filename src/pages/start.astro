@@ -8,14 +8,14 @@ const dives = await getDives();
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const tracks = TRACKS.filter((t) => t.day !== null).sort((a, b) => ((a.day! + 6) % 7) - ((b.day! + 6) % 7));
 const blurbs: Record<string, string> = {
-	'models-agentic': 'What changed in models and agent tooling this week, and what it means for systems you run.',
-	research: 'One paper or result, read closely: what it claims, how it was measured, and whether it holds.',
-	system: 'A production architecture, end to end: requirements, trade-offs and the number to remember.',
-	interview: 'A senior or architect-level interview question, with a strong answer and what interviewers look for.',
-	github: 'An open-source project worth knowing, read from the code rather than the README.',
-	build: 'A weekend build: two suggestions with a plan, plus room for your own idea.',
+	'models-agentic': "The week's big model or platform news, then the week's theme taught as a building block.",
+	research: "A paper on the week's theme, read closely, or the paper everyone is discussing that week.",
+	system: "An enterprise use case designed end to end, from business case to delivery plan.",
+	interview: "A senior or architect-level interview question on the theme, with a strong answer.",
+	github: "The trending repo worth reading, or one that implements the theme, read from the code.",
+	build: "A weekend build on the theme: two suggestions with a plan, plus room for your own idea.",
 	lab: 'A step-by-step path toward building and changing LLM architectures yourself.',
-};
+}
 const count = (slug: string) => dives.filter((d) => d.data.track === slug).length;
 ---
 
@@ -37,7 +37,8 @@ const count = (slug: string) => dives.filter((d) => d.data.track === slug).lengt
 
 		<h2>2. One Deep Dive a day, 10 to 15 minutes</h2>
 		<p>
-			A single topic, explained properly, with a hands-on part you can do when you have time. Each day of the week has its own track:
+			A single topic, explained properly, with a hands-on part you can do when you have time. The posts follow a
+			<a href="/deep-dives/curriculum/">64-week curriculum</a>: each week has one theme, and each day of the week looks at it from a different side:
 		</p>
 		<ul class="track-list">
 			{

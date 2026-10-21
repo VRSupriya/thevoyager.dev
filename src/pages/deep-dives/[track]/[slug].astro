@@ -2,6 +2,7 @@
 import { render } from 'astro:content';
 import Post from '../../../layouts/Post.astro';
 import { getTrack } from '../../../consts';
+import { loadCurriculum } from '../../../lib/curriculum';
 import { type Dive, diveLink, diveTime, diveUrl, getDives, neighbours, relatedDives, seriesParts, slugOf } from '../../../lib/posts';
 
 export async function getStaticPaths() {
@@ -19,6 +20,10 @@ const all = await getDives();
 const inTrack = all.filter((d) => d.data.track === post.data.track);
 const { newer, older } = neighbours(inTrack, post);
 const parts = seriesParts(all, post.data.series);
+const { modules } = loadCurriculum();
+const cw = modules.flatMap((m) => m.weeks).find((w) => w.week === post.data.week);
+const courseTheme = cw?.theme ?? (cw?.review ? 'Review week' : undefined);
+const courseLink = courseTheme && post.data.track !== 'lab' ? { label: `Week ${post.data.week} · ${courseTheme}`, href: '/deep-dives/curriculum/' } : undefined;
 const related = relatedDives(post, all, 2).filter((d) => !parts.includes(d)).map((d) => diveLink(d));
 ---
 
@@ -34,6 +39,7 @@ const related = relatedDives(post, all, 2).filter((d) => !parts.includes(d)).map
 	track={track.slug}
 	cover={post.id}
 	extra={[diveTime(post.data)]}
+	courseLink={courseLink}
 	takeaways={post.data.takeaways}
 	headings={headings}
 	series={parts.length > 1 ? {

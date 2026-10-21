@@ -32,6 +32,8 @@ interface Props {
 	cover?: string;
 	/** Extra meta items, e.g. "10 min read · 35 min hands-on". */
 	extra?: string[];
+	/** Where the post sits in the curriculum, e.g. "Week 4 · Retrieval and RAG design". */
+	courseLink?: { label: string; href: string };
 	minutes?: number;
 	draft?: boolean;
 	hasMermaid?: boolean;
@@ -71,6 +73,7 @@ const {
 	track,
 	cover,
 	extra = [],
+	courseLink,
 	minutes,
 	draft = false,
 	hasMermaid = false,
@@ -122,6 +125,7 @@ const hasLead = Astro.slots.has('lead');
 					<FormattedDate date={date} />
 					{minutes && <span>{minutes} min read</span>}
 					{extra.map((item) => <span>{item}</span>)}
+					{courseLink && <a class="course-link" href={courseLink.href}>{courseLink.label}</a>}
 					{draft && <span class="draft">Draft: not published</span>}
 				</div>
 				{cover && <CoverArt seed={cover} class="post-cover" />}
@@ -381,6 +385,14 @@ const hasLead = Astro.slots.has('lead');
 	}
 	.post-head :global(.post-cover) {
 		margin-top: 1.4rem;
+	}
+	.course-link {
+		color: var(--track);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.course-link:hover {
+		text-decoration: underline;
 	}
 	.draft {
 		color: var(--amber);

@@ -640,5 +640,83 @@
     "slot": "regional",
     "title": "Birla AI Labs Yug forecasting model",
     "url": "https://huggingface.co/birlaailabs/yug"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "top",
+    "title": "DeepSeek DeepInfer inference engine",
+    "url": "https://github.com/deepseek-ai/DeepInfer"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "models",
+    "title": "Mistral Voxtral 3 voice agent stack",
+    "url": "https://mistral.ai/news/voxtral-3"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "agents",
+    "title": "Eon MCP gateway on Amazon Bedrock AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/how-eon-built-multi-cloud-investigation-with-an-mcp-gateway-on-amazon-bedrock-agentcore/"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "research",
+    "title": "The Window Is in the Reasoning (prompt injection)",
+    "url": "https://arxiv.org/abs/2610.24048"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "people",
+    "title": "Hamel Husain: decision models for evals",
+    "url": "https://hamel.dev/blog/posts/decision-model-evals/"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "architecture",
+    "title": "llm-d 1.0 distributed inference",
+    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference/"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "quick",
+    "title": "Tencent Hy-Memory-30B-A3B",
+    "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "quick",
+    "title": "Inception Mercury 3",
+    "url": "https://openrouter.ai/inception/mercury-3/api"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "quick",
+    "title": "vLLM 0.32.0",
+    "url": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "quick",
+    "title": "Google TorchTPU open source",
+    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/torchtpu-is-now-open-source-run-native-pytorch-on-tpus/"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "quick",
+    "title": "AWS TorchNeuron public beta",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-native-pytorch-support-trainium"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "quick",
+    "title": "Databricks Agent Memory",
+    "url": "https://www.databricks.com/blog/introducing-agent-memory-databricks"
+  },
+  {
+    "date": "2026-10-21",
+    "slot": "quick",
+    "title": "AWS Well-Architected Agent",
+    "url": "https://www.infoq.com/news/2026/10/aws-well-architected-agent/"
   }
 ]

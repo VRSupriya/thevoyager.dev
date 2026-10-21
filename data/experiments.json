@@ -68,5 +68,12 @@
     "source_url": "https://github.com/earendil-works/pi/tree/main/packages/durable",
     "hypothesis": "Default tool never duplicates a write; a replay-safe tool with a call-id key and target lookup keeps duplicates at zero over 20 kills.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-21",
+    "title": "Prompt-injection run-to-run disagreement with reasoning on/off",
+    "source_url": "https://arxiv.org/abs/2610.24048",
+    "hypothesis": "Single-run injection tests are unstable for reasoning agents; multi-run gating changes pass/fail for more than 10% of cases.",
+    "status": "suggested"
   }
 ]

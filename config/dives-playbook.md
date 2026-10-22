@@ -27,11 +27,10 @@ opinions with reasons, vary phrasing, avoid AI clichés.
 0. **Setup:** work in the blog repo VRSupriya/thevoyager.dev on branch main. If the current directory is not that
    repo, clone https://github.com/VRSupriya/thevoyager.dev and cd into it. Then run:
    `git checkout main && git pull origin main`
-1. **Check the run slot.** This routine fires twice a day (03:19 and 06:19 UTC = 07:19 and 10:19 Dubai):
+1. **Date and duplicate check.** This routine fires once a day, at 03:19 UTC (07:19 Dubai), every day of the week:
    `DATE=$(TZ=Asia/Dubai date +%F); DAY=$(TZ=Asia/Dubai date +%a); HOUR=$(date -u +%H)`
-   - Weekdays (Mon–Fri): publish only in the early run (HOUR < 5). If HOUR >= 5, stop.
-   - Weekends (Sat, Sun): publish only in the late run (HOUR >= 5). If HOUR < 5, stop.
-   If a post dated DATE already exists anywhere under src/content/dives/, stop.
+   If a post dated DATE already exists anywhere under src/content/dives/, stop. Otherwise continue, on weekdays and
+   weekends alike (the later steps still decide whether today has a post at all).
 2. Read config/plan.yml, config/progress.yml, config/curriculum.yml, data/dives-history.json and
    data/dive-queue.json.
    Compute WEEK = number of weeks since start_date (week 1 = the first week). If DATE is before start_date, stop.

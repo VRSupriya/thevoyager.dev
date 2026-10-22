@@ -87,14 +87,13 @@ Work in the blog repo VRSupriya/thevoyager.dev on branch main. If the current di
 repo, clone https://github.com/VRSupriya/thevoyager.dev and cd into it. Then run:
 `git checkout main && git pull origin main`
 
-### Step 1: run slot
-The routine fires twice a day (02:45 and 05:45 UTC = 06:45 and 09:45 Dubai):
+### Step 1: date and duplicate check
+The routine fires once a day, at 02:45 UTC (06:45 Dubai), every day of the week:
 ```
 DATE=$(TZ=Asia/Dubai date +%F); DOW=$(TZ=Asia/Dubai date +%a); HOUR=$(date -u +%H)
 ```
-- Weekdays (Mon–Fri): publish only in the early run (HOUR < 5). If HOUR >= 5, stop.
-- Weekends (Sat, Sun): publish only in the late run (HOUR >= 5). If HOUR < 5, stop.
 - If `src/content/brief/DATE.md` already exists, stop without doing anything.
+- Otherwise publish, on weekdays and weekends alike (a manual re-run later in the day is fine too).
 
 ### Step 2: collect candidates
 ```

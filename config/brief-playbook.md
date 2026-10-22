@@ -73,6 +73,11 @@ say NOT CONFIRMED if the page doesn't state it". Good candidates: the check_page
 newcomer model pages, Monday's deadline pages. Keep the editorial decisions and the writing yourself.
 A sub-agent's summary counts as verification only when it reports what the page itself says.
 
+**Do independent things in the same turn.** Every turn re-reads the whole context, so ten one-call
+turns cost far more than one turn with ten calls. Run independent tool calls together: the step 2b
+searches, opening the chosen sources, starting the sub-agents, reading the step 3 files. This changes
+only how the work is grouped, never what is checked.
+
 ---
 
 ## 4. Steps
@@ -98,6 +103,20 @@ python3 scripts/fetch_feeds.py --since 72h --out /tmp/candidates.json
 ```
 This also updates `data/trend-history.json`, `data/newcomers-seen.json` and `data/concept-history.json` (committed in step 9).
 If it fails completely, continue with WebSearch alone and say so in the report.
+
+**Read it through the digest, never the raw file.** `/tmp/candidates.json` is about 100k tokens, and
+whatever you read stays in context and is re-read at every later step of the run. Instead run:
+```
+python3 scripts/candidates_digest.py
+```
+It prints every section below and every candidate (ranked, one line each with an id like `i42`), in
+about a quarter of the size. Read all of it, to the last line (in slices if the output is long): the ranked
+list at the end is where false negatives and late-breaking items hide. Nothing is left out; only detail moves behind a lookup:
+- `python3 scripts/candidates_digest.py --item i42`: the full record (URL, summary, all fields).
+- `python3 scripts/candidates_digest.py --search <text>`: every item mentioning a name or topic.
+- `python3 scripts/candidates_digest.py --section <name>`: one section as full JSON.
+Hand sub-agents the URLs they need, not the file. Scripts that take `--candidates /tmp/candidates.json`
+(such as `check_brief.py`) read the raw file themselves; that costs nothing.
 
 `/tmp/candidates.json` contains:
 - **shortlist**: one "pick" and up to 3 "alternates" per slot (top, models, agents, research, people, architecture).

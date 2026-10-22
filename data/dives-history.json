@@ -110,5 +110,12 @@
     "week": 3,
     "title": "One MCP URL for a hundred engineers: what a tool gateway actually buys you",
     "topic_key": "system:mcp-gateway-eon-agentcore-cedar-identity-federation"
+  },
+  {
+    "date": "2026-10-22",
+    "track": "interview",
+    "week": 3,
+    "title": "Senior AI/ML Engineer, customer scenario: 140 tools, one agent, and a customer asking for more autonomy",
+    "topic_key": "interview:customer-solution-scenario:anthropic:senior-ai-ml-engineer:tool-catalogue-bloat-workflow-vs-agent-tool-search"
   }
 ]

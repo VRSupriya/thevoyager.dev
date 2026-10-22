@@ -718,5 +718,83 @@
     "slot": "quick",
     "title": "AWS Well-Architected Agent",
     "url": "https://www.infoq.com/news/2026/10/aws-well-architected-agent/"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "top",
+    "title": "Google Cloud brings OpenAI GPT-6 models",
+    "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers/"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "models",
+    "title": "ElevenLabs Eleven Realtime",
+    "url": "https://elevenlabs.io/blog/realtime"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "agents",
+    "title": "Walmart Agent Gateway for shopping agents",
+    "url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "research",
+    "title": "Harness Scaling for agentic RL",
+    "url": "https://huggingface.co/papers/2610.29458"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "people",
+    "title": "Latent Space: Claude Mods",
+    "url": "https://www.latent.space/p/claude-mods"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "architecture",
+    "title": "Vercel durable-harness",
+    "url": "https://vercel.com/blog/making-every-harness-durable"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "quick",
+    "title": "MiniMax M3.1 Flash",
+    "url": "https://www.minimax.io/blog/minimax-m31f"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "quick",
+    "title": "RecursiveSI Flint",
+    "url": "https://huggingface.co/RecursiveSI/flint"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "quick",
+    "title": "IBM Granite Speech 5.0 2B",
+    "url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "quick",
+    "title": "KiviDB",
+    "url": "https://github.com/kividbio/kividb"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "quick",
+    "title": "Mouse-1 decision model",
+    "url": "https://www.producthunt.com/products/mouse-1"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "quick",
+    "title": "Ramp Laminar",
+    "url": "https://builders.ramp.com/post/building-laminar"
+  },
+  {
+    "date": "2026-10-22",
+    "slot": "quick",
+    "title": "Apple Ray agent infrastructure talk",
+    "url": "https://www.infoq.com/presentations/scale-llm-agents-production-ray/"
   }
 ]

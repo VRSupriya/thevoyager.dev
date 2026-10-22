@@ -75,5 +75,12 @@
     "source_url": "https://arxiv.org/abs/2610.24048",
     "hypothesis": "Single-run injection tests are unstable for reasoning agents; multi-run gating changes pass/fail for more than 10% of cases.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-22",
+    "title": "Crash-resume of long coding-agent sessions with durable-harness",
+    "source_url": "https://vercel.com/blog/making-every-harness-durable",
+    "hypothesis": "Wrapping a coding agent with durable-harness resumes over 95% of mid-turn crashes without duplicated side effects.",
+    "status": "suggested"
   }
 ]

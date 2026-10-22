@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "date": "2026-10-31",
+    "what": "DeepSeek starts billing server-side Search and Fetch calls ($0.75 per 1,000 calls each) from 16:00 UTC",
+    "who": "Teams using DeepSeek Search/Fetch via DeepSeek Harness, Claude Code or Codex",
+    "url": "https://api-docs.deepseek.com/news/news261017",
+    "added": "2026-10-22"
+  }
+]

@@ -117,5 +117,12 @@
     "week": 3,
     "title": "Senior AI/ML Engineer, customer scenario: 140 tools, one agent, and a customer asking for more autonomy",
     "topic_key": "interview:customer-solution-scenario:anthropic:senior-ai-ml-engineer:tool-catalogue-bloat-workflow-vs-agent-tool-search"
+  },
+  {
+    "date": "2026-10-23",
+    "track": "github",
+    "week": 3,
+    "title": "context-mode: keep tool output out of the context window, and make the model's memory survive compaction",
+    "topic_key": "github:mksglu-context-mode-sandboxed-tool-output-fts5-session-snapshots"
   }
 ]

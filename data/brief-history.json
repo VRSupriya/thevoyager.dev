@@ -796,5 +796,77 @@
     "slot": "quick",
     "title": "Apple Ray agent infrastructure talk",
     "url": "https://www.infoq.com/presentations/scale-llm-agents-production-ray/"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "top",
+    "title": "LiteLLM 1.107.0 supply-chain compromise",
+    "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "agents",
+    "title": "Agentic AI Foundation Agent Skills, Open Responses, OpenEnv, OpenSandbox",
+    "url": "https://www.linuxfoundation.org/press/agentic-ai-foundation-announces-four-new-projects-agent-skills-open-responses-openenv-and-opensandbox"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "research",
+    "title": "RAG Compositionality (lasagna)",
+    "url": "https://huggingface.co/papers/2610.29722"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "people",
+    "title": "Simon Willison: PHP security release",
+    "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "architecture",
+    "title": "NVIDIA OpenShell agent runtime",
+    "url": "https://github.com/NVIDIA/OpenShell"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "regional",
+    "title": "Chariot-1-ASR Realtime",
+    "url": "https://chariot.in/"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "quick",
+    "title": "Anthropic Claude Duet",
+    "url": "https://claude.com/resources/articles/claude-duet"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "quick",
+    "title": "Omnara open-source agent platform",
+    "url": "https://github.com/omnara-ai/omnara"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "quick",
+    "title": "Harbor Docker Sandboxes",
+    "url": "https://www.infoq.com/news/2026/10/ai-agents-harbor-docker/"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "quick",
+    "title": "GitHub Copilot usage metrics customizations",
+    "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "quick",
+    "title": "Google Agent Compute Engine",
+    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive/"
+  },
+  {
+    "date": "2026-10-23",
+    "slot": "quick",
+    "title": "Jellyfish AI productivity study",
+    "url": "https://www.infoq.com/news/2026/10/jellyfish-ai-productivity/"
   }
 ]

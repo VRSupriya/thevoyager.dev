@@ -82,5 +82,12 @@
     "source_url": "https://vercel.com/blog/making-every-harness-durable",
     "hypothesis": "Wrapping a coding agent with durable-harness resumes over 95% of mid-turn crashes without duplicated side effects.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-23",
+    "title": "Scan gateway/proxy logs for tokens in response bodies",
+    "source_url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026",
+    "hypothesis": "Gateways that log response bodies retain readable GitHub, cloud or provider tokens; redaction removes them.",
+    "status": "suggested"
   }
 ]

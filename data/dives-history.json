@@ -124,5 +124,12 @@
     "week": 3,
     "title": "context-mode: keep tool output out of the context window, and make the model's memory survive compaction",
     "topic_key": "github:mksglu-context-mode-sandboxed-tool-output-fts5-session-snapshots"
+  },
+  {
+    "date": "2026-10-24",
+    "track": "build",
+    "week": 3,
+    "title": "Build: a tool gateway that says no, or a skill router you can measure",
+    "topic_key": "build:mcp-style-deny-by-default-gateway-vs-skill-preselection-recall-harness"
   }
 ]

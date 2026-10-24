@@ -868,5 +868,107 @@
     "slot": "quick",
     "title": "Jellyfish AI productivity study",
     "url": "https://www.infoq.com/news/2026/10/jellyfish-ai-productivity/"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "top",
+    "title": "Node.js Brotli decoder CVE-2026-111497",
+    "url": "https://nodejs.org/en/blog/release/v24.22.1"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "models",
+    "title": "Moonshot Kimi K3.1 Pro",
+    "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "agents",
+    "title": "LangChain Deep Agents large tool results",
+    "url": "https://www.langchain.com/blog/context-engineering-starts-with-retrieval"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "research",
+    "title": "SWE-Verifier",
+    "url": "https://arxiv.org/abs/2610.30284"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "people",
+    "title": "Latent Space: Modal Erik Bernhardsson",
+    "url": "https://latent.space/p/modal-d/"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "architecture",
+    "title": "Databricks declarative pipelines for agents",
+    "url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "regional",
+    "title": "Humain Nvidia 84MW",
+    "url": "https://www.thenationalnews.com/future/technology/2026/10/22/saudi-arabias-humain-expands-nvidia-deal-with-84mw-ai-computing-plan/"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "regional",
+    "title": "G42 Greece AI factory",
+    "url": "https://www.thenationalnews.com/business/2026/10/23/uaes-g42-signs-pacts-to-explore-ai-infrastructure-in-greece/"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "IQuest-Q1",
+    "url": "https://huggingface.co/papers/2610.30949"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "Block Dessa",
+    "url": "https://block.xyz/dessa"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "Mistral Timestral-209M",
+    "url": "https://huggingface.co/mistralai/Timestral-209M"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "Cloudflare security-audit-skill",
+    "url": "https://github.com/cloudflare/security-audit-skill"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "NVIDIA Nemotron 3.5 Bolt E4B",
+    "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "Cloudflare Workers profiling",
+    "url": "https://www.infoq.com/news/2026/10/cloudflare-cpu-memory-profiling/"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "AWS AgentCore Gateway fallback",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-gateway-invokemodel-fallback/"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "Google agent governance",
+    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance/"
+  },
+  {
+    "date": "2026-10-24",
+    "slot": "quick",
+    "title": "Banks blocking third-party agents",
+    "url": "https://fstech.co.uk/fst/Citi_BofA_Block_AI_Agents.php"
   }
 ]

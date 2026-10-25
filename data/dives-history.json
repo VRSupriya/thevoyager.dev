@@ -131,5 +131,12 @@
     "week": 3,
     "title": "Build: a tool gateway that says no, or a skill router you can measure",
     "topic_key": "build:mcp-style-deny-by-default-gateway-vs-skill-preselection-recall-harness"
+  },
+  {
+    "date": "2026-10-25",
+    "track": "lab",
+    "week": 3,
+    "title": "Lab, Step 1 (part 3): scale your tiny GPT without fooling yourself",
+    "topic_key": "lab:step1:part3:bpe-tokeniser-model-sizes-6nd-compute-scaling-laws"
   }
 ]

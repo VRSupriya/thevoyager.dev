@@ -89,5 +89,12 @@
     "source_url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026",
     "hypothesis": "Gateways that log response bodies retain readable GitHub, cloud or provider tokens; redaction removes them.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-25",
+    "title": "Audit third-party service principals for role-write permissions",
+    "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+    "hypothesis": "At least one multi-tenant third-party app in our tenants can add credentials or assign roles; least-privilege review removes that path.",
+    "status": "suggested"
   }
 ]

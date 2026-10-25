@@ -156,5 +156,27 @@
 "small & on-device models": 4,
 "sovereign AI & data residency": 1,
 "world models & robotics": 1
+},
+"2026-10-25": {
+"RAG & retrieval": 2,
+"RL post-training": 2,
+"agent memory": 1,
+"agent protocols (MCP/A2A)": 1,
+"coding agents": 3,
+"distillation & synthetic data": 3,
+"evals & LLM-as-judge": 1,
+"guardrails & AI safety": 6,
+"inference optimisation": 2,
+"knowledge graphs": 1,
+"mixture of experts": 2,
+"multi-agent systems": 1,
+"observability & tracing": 1,
+"open-weight models": 3,
+"prompt injection": 2,
+"reasoning & test-time compute": 2,
+"sandboxing": 2,
+"small & on-device models": 1,
+"sovereign AI & data residency": 1,
+"voice agents": 1
 }
 }

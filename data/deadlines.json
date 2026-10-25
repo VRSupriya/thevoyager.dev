@@ -5,5 +5,12 @@
     "who": "Teams using DeepSeek Search/Fetch via DeepSeek Harness, Claude Code or Codex",
     "url": "https://api-docs.deepseek.com/news/news261017",
     "added": "2026-10-22"
+  },
+  {
+    "date": "2026-11-16",
+    "what": "Legacy GitHub app in Microsoft Teams retired (renamed 'GitHub (deprecated)')",
+    "who": "Teams using GitHub notifications or Copilot in Teams",
+    "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+    "added": "2026-10-25"
   }
 ]

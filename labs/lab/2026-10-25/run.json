@@ -1,0 +1,224 @@
+{
+ "lab": "labs/lab/2026-10-25",
+ "ran_at": "2026-10-26T10:39:45+00:00",
+ "seconds": 96.0,
+ "passed": true,
+ "gates": [
+  {
+   "metric": "init_val_loss",
+   "op": "between",
+   "value": [
+    4.0,
+    4.4
+   ],
+   "label": "starting loss near ln(65) = 4.17",
+   "observed": 4.181,
+   "passed": true
+  },
+  {
+   "metric": "val_loss",
+   "op": "<=",
+   "value": 1.95,
+   "label": "val loss after 2,000 steps",
+   "observed": 1.8427,
+   "passed": true
+  },
+  {
+   "metric": "train_val_gap",
+   "op": "<=",
+   "value": 0.25,
+   "label": "val minus train loss (overfitting check)",
+   "observed": 0.1408,
+   "passed": true
+  }
+ ],
+ "metrics": {
+  "params": 816128,
+  "vocab": 65,
+  "ln_vocab": 4.1744,
+  "init_val_loss": 4.181,
+  "train_loss": 1.7019,
+  "val_loss": 1.8427,
+  "train_val_gap": 0.1408,
+  "clipped_steps": 1948,
+  "seconds": 91.3
+ },
+ "config": {
+  "n_layer": 4,
+  "n_head": 4,
+  "n_embd": 128,
+  "block_size": 64,
+  "batch": 12,
+  "iters": 2000,
+  "lr": 0.001,
+  "warmup": 100,
+  "clip": 1.0,
+  "eval_every": 250,
+  "eval_iters": 50,
+  "seed": 1337,
+  "threads": 4,
+  "breakage": null
+ },
+ "curve": [
+  [
+   0,
+   4.1798,
+   4.181
+  ],
+  [
+   250,
+   2.4255,
+   2.4342
+  ],
+  [
+   500,
+   2.2252,
+   2.2584
+  ],
+  [
+   750,
+   2.0648,
+   2.1205
+  ],
+  [
+   1000,
+   1.9508,
+   2.0207
+  ],
+  [
+   1250,
+   1.839,
+   1.9503
+  ],
+  [
+   1500,
+   1.7815,
+   1.919
+  ],
+  [
+   1750,
+   1.7207,
+   1.8785
+  ],
+  [
+   2000,
+   1.7019,
+   1.8427
+  ]
+ ],
+ "experiments": [
+  {
+   "name": "no_mask",
+   "label": "remove the causal mask",
+   "args": [
+    "--break",
+    "no_mask"
+   ],
+   "exit_code": 0,
+   "seconds": 95.1,
+   "metrics": {
+    "params": 816128,
+    "vocab": 65,
+    "ln_vocab": 4.1744,
+    "init_val_loss": 4.1581,
+    "train_loss": 0.0368,
+    "val_loss": 0.0374,
+    "train_val_gap": 0.0006,
+    "clipped_steps": 146,
+    "seconds": 90.9
+   }
+  },
+  {
+   "name": "no_scale",
+   "label": "drop the 1/sqrt(d_head) scale",
+   "args": [
+    "--break",
+    "no_scale"
+   ],
+   "exit_code": 0,
+   "seconds": 93.4,
+   "metrics": {
+    "params": 816128,
+    "vocab": 65,
+    "ln_vocab": 4.1744,
+    "init_val_loss": 4.1817,
+    "train_loss": 1.6568,
+    "val_loss": 1.8141,
+    "train_val_gap": 0.1573,
+    "clipped_steps": 1993,
+    "seconds": 89.4
+   }
+  },
+  {
+   "name": "no_resid",
+   "label": "remove the residual connections",
+   "args": [
+    "--break",
+    "no_resid"
+   ],
+   "exit_code": 0,
+   "seconds": 103.2,
+   "metrics": {
+    "params": 816128,
+    "vocab": 65,
+    "ln_vocab": 4.1744,
+    "init_val_loss": 4.207,
+    "train_loss": 3.3046,
+    "val_loss": 3.35,
+    "train_val_gap": 0.0454,
+    "clipped_steps": 31,
+    "seconds": 98.7
+   }
+  },
+  {
+   "name": "high_lr",
+   "label": "learning rate 2e-2 (20x)",
+   "args": [
+    "--break",
+    "high_lr"
+   ],
+   "exit_code": 0,
+   "seconds": 129.7,
+   "metrics": {
+    "params": 816128,
+    "vocab": 65,
+    "ln_vocab": 4.1744,
+    "init_val_loss": 4.181,
+    "train_loss": 1.7514,
+    "val_loss": 1.8953,
+    "train_val_gap": 0.1439,
+    "clipped_steps": 33,
+    "seconds": 125.7
+   }
+  },
+  {
+   "name": "no_warmup",
+   "label": "no learning-rate warmup",
+   "args": [
+    "--break",
+    "no_warmup"
+   ],
+   "exit_code": 0,
+   "seconds": 91.1,
+   "metrics": {
+    "params": 816128,
+    "vocab": 65,
+    "ln_vocab": 4.1744,
+    "init_val_loss": 4.181,
+    "train_loss": 1.7192,
+    "val_loss": 1.8541,
+    "train_val_gap": 0.1349,
+    "clipped_steps": 1871,
+    "seconds": 86.7
+   }
+  }
+ ],
+ "environment": {
+  "python": "3.13.17",
+  "torch": "2.14.1+cpu",
+  "platform": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
+  "threads": 4,
+  "cpu_count": 4,
+  "runner_python": "3.13.17"
+ }
+}

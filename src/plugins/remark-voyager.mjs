@@ -254,7 +254,10 @@ export default function remarkVoyager() {
 				}
 				if (WIDGET_KINDS.includes(lang)) {
 					widgets.add(lang);
-					return { type: 'html', value: renderWidget(lang, node.value) };
+					// The data may sit inside the block or on the fence line itself (```chart {"title": ...}),
+					// where Markdown stores it as the code block's meta string, not its value.
+					const src = node.value?.trim() ? node.value : (node.meta ?? '');
+					return { type: 'html', value: renderWidget(lang, src) };
 				}
 				hasCode = true;
 				return null;

@@ -50,5 +50,8 @@ RSS: `/brief/rss.xml`, `/deep-dives/rss.xml`, `/writing/rss.xml`. Search: `/sear
 | `data/deadlines.json` | Verified model retirements and compliance dates (for the ⏰ calendar, refreshed on Mondays) |
 | `config/brief-playbook.md` | The Daily Brief routine's full instructions (the scheduled task just points here) |
 | `scripts/check_brief.py` | Format and rule check for a brief: six main items, ⚡ quick hits, ⏰ on Mondays, 📅 on Sundays |
-| `config/dives-playbook.md` | The Deep Dives routine's full instructions, including the fixed 14-section outline for Wednesday system posts |
+| `config/dives-playbook.md` | The Deep Dives routine's full instructions, including the fixed 16-section outline for Wednesday system posts |
+| `labs/<track>/<date>/` | Runnable hands-on for Build and Lab posts: `run.py`, pinned requirements, pass gates (`expected.json`) and the routine's recorded run (`run.json`, `output.txt`). How to run and submit: `labs/README.md` |
+| `scripts/run_lab.py` | Runs a lab in a cached virtualenv, checks its gates; `--record --experiments` saves the evidence the post quotes |
+| `scripts/submit_lab.py` | `submit`: check your own run against the gates and save it to `labs/submissions/`; `review`: what the Sunday routine reads |
 | `scripts/check_dive.py` | Format and rule check for a Deep Dive: front matter, takeaways, visuals, widget JSON; for system posts every required section, both diagrams, the components table, ADRs, cost calculator and minimum length |

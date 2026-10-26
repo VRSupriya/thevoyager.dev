@@ -1,0 +1,18 @@
+{
+  "title": "Lab, Step 1: a small GPT you can read in one sitting (parts 1-3)",
+  "post": "lab/2026-10-25",
+  "command": ["run.py"],
+  "timeout_minutes": 15,
+  "gates": [
+    {"metric": "init_val_loss", "op": "between", "value": [4.0, 4.4], "label": "starting loss near ln(65) = 4.17"},
+    {"metric": "val_loss", "op": "<=", "value": 1.95, "label": "val loss after 2,000 steps"},
+    {"metric": "train_val_gap", "op": "<=", "value": 0.25, "label": "val minus train loss (overfitting check)"}
+  ],
+  "experiments": [
+    {"name": "no_mask", "args": ["--break", "no_mask"], "label": "remove the causal mask"},
+    {"name": "no_scale", "args": ["--break", "no_scale"], "label": "drop the 1/sqrt(d_head) scale"},
+    {"name": "no_resid", "args": ["--break", "no_resid"], "label": "remove the residual connections"},
+    {"name": "high_lr", "args": ["--break", "high_lr"], "label": "learning rate 2e-2 (20x)"},
+    {"name": "no_warmup", "args": ["--break", "no_warmup"], "label": "no learning-rate warmup"}
+  ]
+}

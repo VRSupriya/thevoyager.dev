@@ -52,13 +52,19 @@ opinions with reasons, vary phrasing, avoid AI clichés.
    summary, the takeaways, the body and any table or chart must agree. Follow "How it's done now" below on every
    post.
 5. **Write src/content/dives/<track>/DATE.md** (format below, then the body by track).
+5a. **Build and Lab: write and run the hands-on first** (see "Runnable hands-on" below). Write
+   `labs/<track>/DATE/run.py`, `requirements.txt` and `expected.json`, then run
+   `python3 scripts/run_lab.py labs/<track>/DATE --record --experiments`. It installs the pinned requirements, runs the
+   lab with a timeout, checks the gates and saves `output.txt` and `run.json`. If a gate fails, fix the code or the
+   gate's reasoning and rerun (at most 3 rounds); if it still fails, shrink the exercise until it passes. Write the
+   post's "Expected results" table and any ```curve from `run.json`, never from memory.
 5b. **Check the post:** `python3 scripts/check_dive.py src/content/dives/<track>/DATE.md`. Fix every ERROR and
    rerun until 0 errors (at most 3 rounds; list any that remain in your final report). Fix warnings unless you
    have a clear reason not to, and give the reason in the report.
 6. Append `{date, track, week, title, topic_key}` to data/dives-history.json. If you used an item from
    data/dive-queue.json, set its `used` to DATE. Remove queue items older than 21 days.
-7. `git add` the new/changed files (only: the post, data/dives-history.json, data/dive-queue.json, and
-   config/progress.yml when the build step changes it); `git commit -m "dives(<track>): DATE"`; `git push origin main` (if rejected:
+7. `git add` the new/changed files (only: the post, data/dives-history.json, data/dive-queue.json,
+   `labs/<track>/DATE/` for build and lab posts, and config/progress.yml when the build step changes it); `git commit -m "dives(<track>): DATE"`; `git push origin main` (if rejected:
    `git pull --rebase origin main`, then push once more).
 8. **Telegram** (only after the push in step 7 succeeded, and only if you wrote a post in this run):
    `python3 scripts/send_telegram.py src/content/dives/<track>/DATE.md`
@@ -111,7 +117,7 @@ curated_with_ai: true
 ## Length and shape (C6)
 
 - Weekday posts: a 7–12 minute read (about 1,400–2,400 words) plus the hands-on part. Wednesday is the exception:
-  about 3,200–4,000 words, with every required section complete (see its word guides). Build and lab: the
+  about 3,500–4,300 words, with every required section complete (see its word guides). Build and lab: the
   "5-minute version" is short; the depth goes into "Do it".
 - Every section earns its place: if a paragraph doesn't change a decision or teach a mechanism, cut it.
 - Code: keep each code block under ~40 lines and runnable. For anything longer, show the important part and say
@@ -186,8 +192,69 @@ The curriculum fixes the subject; the content must be current. For every post, r
 - **Dates:** prefer sources from the last 12 months; give every number and claim its date ("as of March 2027");
   label older material as older.
 
+## Required on every post (senior depth)
+
+The 26 October audit scored Deep Dives 3.3/5 for this audience. The weakest parts were security and threat models
+(2.2/5), justified alternatives (2.8/5) and production numbers (3.2/5), and 3 of 9 hands-on posts ran as written.
+So every post except the Lab, recaps and the radar carries these blocks, with these exact `##` headings
+(`scripts/check_dive.py` checks them; the Wednesday outline below has its own names for alternatives and numbers):
+
+- **`## Threat model and failure modes`**: at least 3 concrete items. Attack paths (prompt injection through tool
+  results, retrieved chunks or skills; token passthrough and confused deputies; supply chain), permissions and
+  identity (whose credentials, what least privilege looks like), data exposure (PII, logs, caches shared between
+  tenants), and how the design fails (timeouts, partial failure, retries, runaway cost) and which way it fails safe.
+- **`## Alternatives and when to switch`**: a table of 2–3 real options (managed and open source where both exist),
+  with a "When to switch" column naming the condition that flips the choice (scale, cost, residency, team, lock-in).
+- **`## Numbers`**: the numbers a reader would reuse in a design review: limits, latencies, prices, sizes. Each has
+  its source link and date ("list price on 26 October 2026"), or says "our run" when it comes from this post's lab.
+- **`## Evidence`**, last before the closing line: a table `| Source | Type | Date | What we checked |`, where Type is
+  primary, secondary or our run, and "What we checked" says what was verified (read the code, ran the script, read
+  §5.6 of the paper, quoted the docs).
+- **Link this week's Monday post** (Tuesday to Saturday) in the text or in `related:`.
+- **Claims that something is missing** ("the docs don't say", "no code yet") only after searching the whole source
+  (appendices, model cards, release notes, the arXiv Comments field, the repository itself), and dated ("as of 26
+  October, the repository is empty"). Six of the audit's 13 errors were missing-claims that were false.
+
 Never narrate your own process ("I couldn't find", "a search didn't turn up", "when I opened it"). If something
 isn't public or a page doesn't confirm a detail, say that plainly ("the docs don't say", "no code is out yet").
+
+## Runnable hands-on (Build and Lab, and any post whose exercise is code)
+
+A hands-on part is evidence only if it runs. Every Build Option A and every Lab post ships a lab folder:
+
+```
+labs/<track>/DATE/
+  run.py            the whole exercise in one file; runs on a laptop CPU in under 10 minutes; downloads its own data;
+                    accepts --results FILE and writes {"metrics": {...}, "config": {...}, "curve": [...]} there
+  requirements.txt  pinned versions (torch comes from PyTorch's CPU index automatically)
+  expected.json     {"title", "post": "<track>/DATE", "command": ["run.py"], "timeout_minutes": 15,
+                     "gates": [{"metric", "op": "<=|>=|<|>|==|between", "value", "label"}],
+                     "experiments": [{"name", "args": [...], "label"}]}
+  output.txt, run.json   written by scripts/run_lab.py --record: the routine's own run, gate results, environment
+```
+
+Rules:
+- **Gates are the success criterion.** At least one gate a reader can check (a loss, an accuracy, a latency, a count),
+  set from the routine's own run with some headroom for other machines. The post shows them in `## Expected results`
+  (`| Check | Gate | Our run |`), copied from `run.json`, and Lab posts end with `## Step complete when`, which
+  restates the gates in words.
+- **Measure, don't illustrate.** Breakage curves, "healthy vs broken" comparisons and ablations come from
+  `experiments` in `run.json`. If a breakage doesn't show at this size, say so; that is a finding (in Step 1, removing
+  warmup didn't hurt and clipping fired on almost every step).
+- **Link the folder** in the post: https://github.com/VRSupriya/thevoyager.dev/tree/main/labs/<track>/DATE
+- Keep code blocks in the post short (the key 20–40 lines); the folder holds the whole program.
+
+## Lab submissions
+
+Readers (the author first) submit their own runs with `python3 scripts/submit_lab.py submit labs/<track>/<date>
+--results results.json --notes "…"`, which checks the gates and saves `labs/submissions/<date>/<track>-<date>/`. On
+**Sundays, before writing the Lab post**, run `python3 scripts/submit_lab.py review --since <date of the previous lab
+post>` and use what it prints:
+- In `telegram_private`: one or two lines on the author's latest submission: gates passed or missed, the clearest
+  difference from the reference run, an answer to the question in their notes. If every gate of the current step's
+  latest lab passed, suggest moving `research_step` on (never change it yourself).
+- In the public post: never mention the author's results or progress. You may use a submission's finding as a general
+  observation only if you reproduced it in your own run ("on a 4-core CPU, removing warmup made no difference").
 
 ## Body by track
 
@@ -222,6 +289,12 @@ Pick the paper in this order, and say in your report which rule you used:
 2. **A recent paper on the THEME** (last ~6 months).
 3. **The classic paper on the THEME**, labelled as such in the title or opener ("Classic paper, 2020").
 
+Read the whole paper on arXiv (HTML or PDF), including limitations, appendices and the Comments field, and open
+its code repository if one is linked (clone it: is there code, is it runnable, what's the licence?). Never take
+numbers from a blog summary when the paper is online. Add `## What the paper claims vs what we checked`: a table
+`| Claim | Paper says | We checked | Reproducible? |` for the 3–5 load-bearing results (Reproducible: yes / code
+but no data / no code / not tried), noting sample sizes, baselines and anything that would need checking.
+
 Body: the problem, the core idea in plain words, why it works, results (verified on the paper itself, never only a
 blog summary; a ```chart of the key table where it helps), the architectural implication, the one figure or
 equation worth understanding, how it's being used in practice now (if at all), links to paper and code. End with a
@@ -231,14 +304,14 @@ equation worth understanding, how it's being used in practice now (if at all), l
 
 Take the week's `use_case` from business problem to delivery plan, the way a senior AI architect and senior
 solution architect would present it at a design review. Cover the whole path; spend the most depth on the THEME
-(the lens). About 3,200–4,000 words (a 15–19 minute read) plus a 30-minute exercise; time_minutes 50.
+(the lens). About 3,500–4,300 words (a 16–20 minute read) plus a 30-minute exercise; time_minutes 50.
 
 **Completeness beats length.** The word guides below are targets, not caps: never leave out required content to
 stay under them. A section may run about 20% over its guide when the detail changes a decision. Cut only
 repetition and filler, never a requirement, a component, an option or a number.
 
-**Fixed headings.** Use these `##` headings exactly, in this order (the text after a colon is yours to fill in).
-`scripts/check_dive.py` looks for them:
+**Fixed headings.** Use these 16 `##` headings exactly, in this order (the text after a colon is yours to fill in).
+`scripts/check_dive.py` looks for them. Sections 5 and 10 are this track's "alternatives" and "numbers" blocks:
 
 1. **`## The business case` (~220 words):** organisation type, the problem, the users, the KPI that defines success
    (a number), the constraints (budget, regulation, residency, existing systems, team skills), and the stakeholders
@@ -267,27 +340,30 @@ repetition and filler, never a requirement, a component, an option or a number.
    Monday's Part B post when it exists. Then the low-level design of the component the THEME is about: API
    contracts, data model or schema, a sequence diagram (```mermaid with `sequenceDiagram`), scaling, failure
    handling and observability.
-7. **`## Key decisions` (~450 words):** 3–4 ADRs, each under its own `### ADR <n>: <decision>` heading (decision,
+7. **`## Threat model and failure modes` (~300 words):** the attack paths, permissions and failure modes of this
+   design specifically (see "Required on every post"), each with its mitigation and where it lives in the diagram.
+8. **`## Key decisions` (~450 words):** 3–4 ADRs, each under its own `### ADR <n>: <decision>` heading (decision,
    options, why this one, what would change it). Always include one build-vs-buy or managed-vs-self-hosted
    decision, with the lock-in and exit plan. The ADRs cover the big decisions in depth; the components table
    covers the rest.
-8. **`## How we know it works` (~250 words):** the offline eval set, online metrics, human review, and the go-live
+9. **`## How we know it works` (~250 words):** the offline eval set, online metrics, human review, and the go-live
    threshold.
-9. **`## Sizing, cost and value` (~250 words):** capacity and monthly cost as a ```calc, using list prices from
+10. **`## Sizing, cost and value` (~250 words):** capacity and monthly cost as a ```calc, using list prices from
    official pricing pages with the date checked; cost per transaction against value per transaction.
-10. **`## From design to delivery` (~300 words):** proof of concept → pilot → production, team and roles, the top 3
+11. **`## From design to delivery` (~300 words):** proof of concept → pilot → production, team and roles, the top 3
     risks with mitigations, the operating model (SLOs, on-call, cost monitoring), and how users are brought on board.
-11. **`## How others built it` (~250 words):** a named organisation's real architecture for this or a close use case
+12. **`## How others built it` (~250 words):** a named organisation's real architecture for this or a close use case
     (engineering blog, talk or postmortem) with actual detail and a link. If none exists, a cloud provider's
     published reference architecture, labelled as such. (The cloud mapping now lives in the components table.)
-12. **`## Explain it in 3 sentences`:** 3 sentences to the CTO, and one more sentence to the business owner.
-13. **`## Exercise: find the flaws` (~200 words, 30 min):** a short, deliberately flawed design for the same use
+13. **`## Explain it in 3 sentences`:** 3 sentences to the CTO, and one more sentence to the business owner.
+14. **`## Exercise: find the flaws` (~200 words, 30 min):** a short, deliberately flawed design for the same use
     case. Readers find the problems, then compare with the answer in a `> [!REVEAL]` box.
-14. **`## Template: <artefact name>` (~150 words):** one reusable artefact in a copyable fenced block, rotating week
+15. **`## Template: <artefact name>` (~150 words):** one reusable artefact in a copyable fenced block, rotating week
     to week: solution design outline, ADR, non-functional requirements table, risk register, cost model,
     components-and-alternatives table. Check dives-history for last week's.
+16. **`## Evidence`**: the evidence table (see "Required on every post").
 
-The hook (1–3 short paragraphs) comes before the first heading; the closing line comes after the template.
+The hook (1–3 short paragraphs) comes before the first heading; the closing line comes after the evidence table.
 
 Record topic_key as "system:<use case>:<theme>".
 
@@ -301,7 +377,9 @@ coding question implements a small piece of it ("write a chunker that respects h
 focus (Google, OpenAI, Anthropic, Meta, Microsoft, AWS) AND the role, one per post in this order: AI/Solution
 Architect → Forward Deployed Engineer → Senior AI/ML Engineer → Principal/Staff Architect. Name the role in the
 title or opener. Structure: the question; "## Pause: answer out loud for 10 minutes first" with a ```timer;
-framework; model answer (in a `> [!REVEAL]` box); what top candidates add at this level; one tip; a ```quiz. If you
+framework; model answer (in a `> [!REVEAL]` box, with a **Security and failure modes:** part and an
+**Alternatives:** part, because those are the follow-ups a senior panel asks); what top candidates add at this level;
+one tip; a ```quiz; then `## Evidence`. If you
 call a question "reported", cite the public source; otherwise label it "in the style of".
 ROTATION STATE (never restart the counters): take it from data/dives-history.json. Let N = the number of earlier
 entries with track "interview". Then use question type = type number (N mod 6), in the order above; company =
@@ -323,9 +401,16 @@ of links, a prompt collection or a thin API wrapper); it's relevant to people wh
 a credible team or shows real adoption (not just a star spike); and it has recent commits and a licence. Never
 pick a repo already covered in dives-history.
 
-Body: what it does, how its architecture works (read the code and design docs, not just the README), what to learn
-from its design, what the docs leave out, when to use it and when not, and a concrete 45-minute hands-on exercise
-with exact steps (a ```terminal replay of the first commands helps).
+**Read the code, not just the README.** Clone it (`GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 <url> /tmp/repo`; the
+GitHub API and web pages may be blocked, git clone works). Every architecture claim cites the code as `path/file.ext:line`
+(at least 3). Add `## Docs vs code`: where the README or docs disagree with the code (a size cap the code ignores,
+a feature the docs omit), or which claims you confirmed in the code. In the threat model, check: authentication and
+authorisation, persistence and durability (fsync, replicas), secrets and hard-coded resources, fail-open paths, network
+exposure (CORS, open ports) and licence. Report repo freshness (last commit date) and adoption only from a source.
+
+Body: what it does, how its architecture works (from the code), what to learn from its design, when to use it and
+when not, and a concrete 45-minute hands-on exercise with exact steps (a ```terminal replay of the first commands
+helps).
 
 ### Saturday: build
 
@@ -333,7 +418,9 @@ The weekend build (3 h) uses the THEME (not Friday's repo, unless it fits the th
 non-empty build_request, make it "Option A" with a full spec and add ONE shorter alternative as "Option B"; then
 set build_request back to "". Otherwise give TWO project options ("Option A", "Option B"). Each option: goal, why
 it's worth building, requirements, architecture (diagram), stack (lean on Python/PySpark where it fits),
-step-by-step milestones, stretch goals. Then a "## Build your own" box: a short fill-in template readers can copy
+step-by-step milestones, stretch goals. Option A ships as a runnable lab folder (`labs/build/DATE/`, see "Runnable hands-on")
+with its `## Expected results`; its post starts with `## The 5-minute version` and then `## Do it`. Option B can stay a
+spec. Then a "## Build your own" box: a short fill-in template readers can copy
 to scope their own 3-hour project (goal, which of this week's ideas it uses, inputs/outputs, must-have vs
 nice-to-have, 3 milestones, how you'll know it works). Record Option A's title as current_build in
 config/progress.yml. In MODULE M11, the build is an artefact (an ADR, a roadmap, a business case) with a template
@@ -344,8 +431,11 @@ and a worked example.
 The research ladder, step = research_step in config/progress.yml (1 GPT from scratch → 2 modern components → 3
 efficiency → 4 beyond transformers → 5 ablation lab → 6 own hypothesis). Present it as a public series ("Step N:
 …", with `series: "Lab · Step N"` and `part`). Give the classic paper for that step, a concrete 90-minute coding
-task (Colab-friendly), what to observe (a ```curve of healthy versus broken runs helps), and how you know the step
-is complete. Continue within the same step across weeks (part 1, part 2, …). NEVER change research_step yourself:
+task as a runnable lab folder (`labs/lab/DATE/`, see "Runnable hands-on": CPU-friendly, Colab works too), what to
+observe (a ```curve of measured healthy versus broken runs from `run.json`), `## Expected results`, and
+`## Step complete when` (the gates in words). Read the latest submissions first (see "Lab submissions"). Step 1 has
+a consolidated reference lab, `labs/lab/2026-10-25/`: its next part should build on it rather than repeat it, and
+readers who pass its gates are ready for Step 2. Continue within the same step across weeks (part 1, part 2, …). NEVER change research_step yourself:
 it only moves when the author marks the step done. End with a "## Try this" section: one concrete thing for any
 reader to build or test this week.
 

@@ -9,9 +9,15 @@ Warnings (exit 0) are signals worth a second look.
 
 Every track: front matter, three takeaways, at least one visual, valid widget JSON, related ids that exist,
 no emoji in headings, no narration of the writer's own process.
-Wednesday system posts also get the full structure check from config/dives-playbook.md: the 14 fixed
+Wednesday system posts also get the full structure check from config/dives-playbook.md: the 16 fixed
 headings in order, both diagrams, the requirements and components tables, 3-4 ADRs, the cost calculator,
 the exercise answer, the template, and a length that leaves nothing out.
+
+From 2026-10-27 every post also gets the senior-depth checks for its track (config/dives-playbook.md,
+"Required on every post"): a threat model and failure modes, alternatives and when to switch, sourced and
+dated numbers, an evidence table, a link to the week's Monday post; GitHub posts cite the code (file:line) and
+compare docs with code; research posts tabulate claims against checks; build and lab posts ship a runnable
+lab folder (labs/<track>/<date>/) whose recorded run passed its gates, with the measured numbers in the post.
 """
 from __future__ import annotations
 
@@ -20,6 +26,8 @@ import json
 import re
 import sys
 from pathlib import Path
+
+from datetime import date, timedelta
 
 import yaml
 
@@ -44,6 +52,7 @@ SYSTEM_SECTIONS = [
     ("High-level design", 400),
     ("Components and alternatives", 300),
     ("Deep dive:", 800),
+    ("Threat model and failure modes", 300),
     ("Key decisions", 450),
     ("How we know it works", 250),
     ("Sizing, cost and value", 250),
@@ -52,9 +61,10 @@ SYSTEM_SECTIONS = [
     ("Explain it in 3 sentences", 0),
     ("Exercise: find the flaws", 200),
     ("Template:", 150),
+    ("Evidence", 0),
 ]
 SYSTEM_MIN_WORDS = 2600      # below this, something required is almost certainly missing
-SYSTEM_MAX_WORDS = 4600      # a soft ceiling (warning only): completeness beats length
+SYSTEM_MAX_WORDS = 5000      # a soft ceiling (warning only): completeness beats length
 SECTION_THIN = 0.4           # warn when a section has under 40% of its word guide
 MIN_COMPONENTS = 6
 
@@ -188,7 +198,7 @@ def check_system(fm: dict, body: str, errors: list[str], warnings: list[str]) ->
     if words < SYSTEM_MIN_WORDS:
         errors.append(f"post is {words} words; a complete system design needs at least {SYSTEM_MIN_WORDS}")
     elif words > SYSTEM_MAX_WORDS:
-        warnings.append(f"post is {words} words (guide 3,200–4,000): cut repetition, never required content")
+        warnings.append(f"post is {words} words (guide 3,500–4,300): cut repetition, never required content")
     for prefix, guide in SYSTEM_SECTIONS:
         if prefix in found and guide and prose_words(found[prefix]) < SECTION_THIN * guide:
             warnings.append(f"## {prefix} is {prose_words(found[prefix])} words (guide ~{guide}): check nothing is missing")
@@ -263,6 +273,141 @@ def check_system(fm: dict, body: str, errors: list[str], warnings: list[str]) ->
         warnings.append(f"{callouts} callout boxes (at most 3, not counting REVEAL)")
 
 
+DEPTH_FROM = "2026-10-27"
+REPO_URL = "https://github.com/VRSupriya/thevoyager.dev"
+# Which senior-depth blocks each track needs. System posts get theirs from the 16-section outline.
+TRACK_RULES = {
+    "models-agentic": {"threat", "alternatives", "numbers", "evidence"},
+    "research": {"threat", "alternatives", "evidence", "claims_table", "quiz", "monday"},
+    "system": {"monday"},
+    "interview": {"evidence", "quiz", "timer", "reveal", "answer_labels", "monday"},
+    "github": {"threat", "alternatives", "numbers", "evidence", "docs_vs_code", "code_refs", "monday"},
+    "build": {"threat", "alternatives", "evidence", "five_min", "do_it", "lab_folder", "monday"},
+    "lab": {"evidence", "five_min", "do_it", "lab_folder", "step_complete", "quiz"},
+}
+CODE_REF = re.compile(r"`[\w./@-]+\.[A-Za-z0-9]+:\d+(?:[-–]\d+)?`")
+YEAR_OR_MONTH = re.compile(r"\b20\d\d\b|\b(January|February|March|April|May|June|July|August|September|October|November|December)\b")
+
+
+def find_section(body: str, prefix: str) -> str | None:
+    for h, text in sections(body):
+        if h.lower().startswith(prefix.lower()):
+            return text
+    return None
+
+
+def list_lines(text: str) -> list[str]:
+    return [l for l in text.splitlines() if re.match(r"\s*([-*]|\d+\.)\s+\S", l)]
+
+
+def check_depth(path: Path, fm: dict, body: str, errors: list[str], warnings: list[str]) -> None:
+    track = fm.get("track")
+    rules = TRACK_RULES.get(track, set())
+    if not rules:
+        return
+    day = str(fm.get("date"))
+    code = blocks(body)
+
+    if "threat" in rules:
+        sec = find_section(body, "Threat model and failure modes")
+        if sec is None:
+            errors.append("missing section: ## Threat model and failure modes (attack paths, permissions, failure modes and what fails safe)")
+        elif prose_words(sec) < 80 or (len(list_lines(sec)) < 3 and not tables(sec)):
+            errors.append("## Threat model and failure modes is too thin: at least 3 concrete threats or failure modes, about 80+ words")
+    if "alternatives" in rules:
+        sec = find_section(body, "Alternatives and when to switch")
+        if sec is None:
+            errors.append("missing section: ## Alternatives and when to switch (a table of 2-3 real options and the condition that flips the choice)")
+        else:
+            tb = max(tables(sec), key=len, default=[])
+            if len(tb) < 3 or "when" not in " ".join(tb[0]).lower():
+                errors.append("## Alternatives and when to switch needs a table with at least 2 options and a 'When to switch' column")
+    if "numbers" in rules:
+        sec = find_section(body, "Numbers")
+        if sec is None:
+            errors.append("missing section: ## Numbers (each number with its source and date, or 'our run')")
+        else:
+            rows = [r for r in (list_lines(sec) + [" | ".join(r) for tb in tables(sec) for r in tb[1:]]) if re.search(r"\d", r)]
+            unsourced = [r for r in rows if not (re.search(r"\]\(https?://", r) or "our run" in r.lower() or YEAR_OR_MONTH.search(r))]
+            if len(rows) < 2:
+                errors.append("## Numbers needs at least 2 numbers a reader can reuse")
+            for r in unsourced[:3]:
+                errors.append(f"## Numbers: give a source link and date (or 'our run') for: {r.strip()[:70]}")
+    if "evidence" in rules:
+        sec = find_section(body, "Evidence")
+        tb = max(tables(sec), key=len, default=[]) if sec else []
+        if not tb:
+            errors.append("missing ## Evidence table: | Source | Type | Date | What we checked | (Type: primary, secondary or our run)")
+        else:
+            head = " ".join(tb[0]).lower()
+            for col in ("source", "type", "date", "checked"):
+                if col not in head:
+                    errors.append(f"## Evidence table: no `{col}` column")
+            ti = next((i for i, c in enumerate(tb[0]) if "type" in c.lower()), None)
+            for r in tb[1:]:
+                if ti is not None and ti < len(r) and not re.search(r"primary|secondary|our run", r[ti], re.I):
+                    errors.append(f"## Evidence: type must be primary, secondary or our run, not '{r[ti][:30]}'")
+            if len(tb) < 3:
+                errors.append("## Evidence lists fewer than 2 sources")
+    if "claims_table" in rules:
+        sec = find_section(body, "What the paper claims")
+        tb = max(tables(sec), key=len, default=[]) if sec else []
+        head = " ".join(tb[0]).lower() if tb else ""
+        if not tb or not all(c in head for c in ("claim", "checked", "reproduc")):
+            errors.append("missing ## What the paper claims vs what we checked: a table with Claim | Paper says | We checked | Reproducible? columns")
+    if "docs_vs_code" in rules and find_section(body, "Docs vs code") is None:
+        errors.append("missing section: ## Docs vs code (where the README and the code disagree, or 'they agree on X, Y, Z')")
+    if "code_refs" in rules and len(set(CODE_REF.findall(body))) < 3:
+        errors.append(f"GitHub posts cite the code: {len(set(CODE_REF.findall(body)))} `path/file.ext:line` references found, need at least 3")
+    if "quiz" in rules and not any(l == "quiz" for l, _ in code):
+        errors.append("no ```quiz self-check (required on this track)")
+    if "timer" in rules and not any(l == "timer" for l, _ in code):
+        errors.append("no ```timer under the pause heading (interview posts)")
+    if "reveal" in rules and "[!REVEAL]" not in body:
+        errors.append("no `> [!REVEAL]` model answer (interview posts)")
+    if "answer_labels" in rules:
+        for label in ("**Security and failure modes:**", "**Alternatives:**"):
+            if label not in body:
+                errors.append(f"the model answer needs a {label} part")
+    if "five_min" in rules and find_section(body, "The 5-minute version") is None:
+        errors.append("missing section: ## The 5-minute version")
+    if "do_it" in rules and find_section(body, "Do it") is None:
+        errors.append("missing section: ## Do it")
+    if "step_complete" in rules and find_section(body, "Step complete when") is None:
+        errors.append("missing section: ## Step complete when (the measurable gate, from expected.json)")
+    if "lab_folder" in rules:
+        lab = ROOT / "labs" / track / day
+        for f in ("run.py", "requirements.txt", "expected.json", "run.json", "output.txt"):
+            if not (lab / f).exists():
+                errors.append(f"lab folder: labs/{track}/{day}/{f} is missing (write the lab, then run scripts/run_lab.py labs/{track}/{day} --record --experiments)")
+        run = json.loads((lab / "run.json").read_text()) if (lab / "run.json").exists() else None
+        if run is not None and not run.get("passed"):
+            errors.append(f"labs/{track}/{day}/run.json: the recorded run missed a gate; fix the lab before publishing")
+        sec = find_section(body, "Expected results")
+        if sec is None or not tables(sec):
+            errors.append("missing ## Expected results table (the gates and the routine's measured numbers from run.json)")
+        elif run:
+            for g in run.get("gates", []):
+                obs = g.get("observed")
+                shown = {str(obs), f"{obs:.2f}" if isinstance(obs, float) else str(obs), f"{obs:.3f}" if isinstance(obs, float) else str(obs)}
+                if not any(s in sec for s in shown):
+                    errors.append(f"## Expected results doesn't show the measured {g['metric']} ({obs}) from run.json")
+        if f"labs/{track}/{day}" not in body:
+            errors.append(f"link the runnable lab: {REPO_URL}/tree/main/labs/{track}/{day}")
+        if any(l == "curve" for l, _ in code) and not (run and (run.get("curve") or run.get("experiments"))):
+            errors.append("a ```curve must plot measured runs (run.json curve or experiments), not illustrative shapes")
+    if "monday" in rules:
+        try:
+            d = date.fromisoformat(day)
+            monday = d - timedelta(days=d.weekday())
+            mid = f"models-agentic/{monday.isoformat()}"
+            if d.weekday() > 0 and (DIVES / f"{mid}.md").exists():
+                if mid not in body and mid not in " ".join(fm.get("related") or []):
+                    errors.append(f"link this week's Monday post ({mid}) in the text or in related:")
+        except ValueError:
+            pass
+
+
 def check(path: Path) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -273,6 +418,8 @@ def check(path: Path) -> tuple[list[str], list[str]]:
     check_common(path, fm, body, errors, warnings)
     if fm.get("track") == "system":
         check_system(fm, body, errors, warnings)
+    if str(fm.get("date")) >= DEPTH_FROM:
+        check_depth(path, fm, body, errors, warnings)
     return errors, warnings
 
 

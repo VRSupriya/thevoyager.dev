@@ -138,5 +138,12 @@
     "week": 3,
     "title": "Lab, Step 1 (part 3): scale your tiny GPT without fooling yourself",
     "topic_key": "lab:step1:part3:bpe-tokeniser-model-sizes-6nd-compute-scaling-laws"
+  },
+  {
+    "date": "2026-10-26",
+    "track": "models-agentic",
+    "week": 4,
+    "title": "Your citations code may 400 this week. Plus: how to design retrieval you can defend",
+    "topic_key": "models-agentic:claude-api-2026-10-21-citations-breaking-change-google-cloud-anthropic-managed:retrieval-rag-design"
   }
 ]

@@ -1054,5 +1054,71 @@
     "slot": "quick",
     "title": "RIFT KV cache compression for draft models",
     "url": "https://arxiv.org/abs/2610.31098"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "top",
+    "title": "PingCAP TiDB Cloud breach",
+    "url": "https://www.pingcap.com/trust-hub/security/security-update-october-2026/"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "models",
+    "title": "Anthropic Claude API 2026-10-21 removes sampling parameters",
+    "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "agents",
+    "title": "Bayer Crop Science agentic decision engine on AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "research",
+    "title": "CNN vs GPT-6 Astra and Fable 5.1 on skin lesions",
+    "url": "https://lynchlab.net/llm-skin-cancer"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "regional",
+    "title": "Chariot-1-ASR Realtime",
+    "url": "https://analyticsindiamag.com/ai-news/chariot-launches-speech-recognition-model-for-10-indian-languages"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "quick",
+    "title": "Nanbeige4.3-33B",
+    "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "quick",
+    "title": "Carbon-X DNA chat model",
+    "url": "https://huggingface.co/HuggingFaceBio/Carbon-X"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "quick",
+    "title": "Google ML Drift",
+    "url": "https://www.infoq.com/news/2026/10/google-ml-drift/"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "quick",
+    "title": "GitHub Copilot usage metrics by client",
+    "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "quick",
+    "title": "GitHub Apps enterprise installations GA",
+    "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available"
+  },
+  {
+    "date": "2026-10-26",
+    "slot": "quick",
+    "title": "LangChain company harness",
+    "url": "https://www.langchain.com/blog/components-building-company-harness"
   }
 ]

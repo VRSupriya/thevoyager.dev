@@ -96,5 +96,12 @@
     "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
     "hypothesis": "At least one multi-tenant third-party app in our tenants can add credentials or assign roles; least-privilege review removes that path.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-26",
+    "title": "Claude API 2026-10-21: effect of removing temperature/top_p/top_k",
+    "source_url": "https://platform.claude.com/docs/en/api/migration-2026-10-21",
+    "hypothesis": "Some calls rely on non-default sampling values for consistency; removing them drops pass rate by more than 2 points.",
+    "status": "suggested"
   }
 ]

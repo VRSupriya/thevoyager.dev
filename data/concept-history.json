@@ -178,5 +178,26 @@
 "small & on-device models": 1,
 "sovereign AI & data residency": 1,
 "voice agents": 1
+},
+"2026-10-26": {
+"AI compute & data centres": 1,
+"AI governance & regulation": 1,
+"RAG & retrieval": 1,
+"RL post-training": 1,
+"agent harnesses": 1,
+"coding agents": 4,
+"computer & browser agents": 1,
+"context engineering": 1,
+"distillation & synthetic data": 1,
+"enterprise agent adoption": 1,
+"evals & LLM-as-judge": 1,
+"guardrails & AI safety": 2,
+"multi-agent systems": 2,
+"open-weight models": 4,
+"prompt injection": 3,
+"sandboxing": 3,
+"small & on-device models": 2,
+"sovereign AI & data residency": 2,
+"voice agents": 3
 }
 }

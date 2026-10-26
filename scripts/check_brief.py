@@ -9,6 +9,13 @@ Warnings (exit 0) are style signals worth a second look.
 Layout: the main sections (🔥 always, then any of the other five, in order; an empty slot is left out), then "## ⚡ Also worth knowing" (always), "## ⏰ Deadlines & deprecations"
 (Mondays; other days only when a new deadline was found), "## 📅 Week in review" (Sundays), then the
 closing line and the optional "## 🌍" regional block.
+
+From 2026-10-27 every brief also needs its claims ledger, data/claims/DATE.json, written by the
+independent verifier (config/brief-playbook.md, step 8a). The ledger lets this script enforce in code
+what used to be prose rules: every main item checked against its source (two claims or more), quoted
+evidence for every "it doesn't say / there's no code" claim, 🔥 within 72 hours, older items dated in
+the text, one item per vendor (and none from the previous two briefs' vendors), no story repeated
+within 14 days, and the advisory fields on security items. See LEDGER_FORMAT below.
 """
 from __future__ import annotations
 
@@ -22,6 +29,37 @@ from urllib.parse import urlparse
 
 import yaml
 
+ROOT = Path(__file__).resolve().parent.parent
+LEDGER_FROM = "2026-10-27"   # briefs from this date on must have data/claims/DATE.json
+SLOT_KEYS = {"🔥": "top", "🚀": "models", "🤖": "agents", "🔬": "research", "✍️": "people", "🏗️": "architecture"}
+VERDICTS_OK = {"VERIFIED", "CORRECTED"}       # CORRECTED = the post was changed to match the source
+VERDICTS_ALL = VERDICTS_OK | {"REMOVED"}        # REMOVED = the claim was cut from the post
+CLAIM_KINDS = {"number", "version", "date", "status", "price", "licence", "attribution", "absence", "remediation", "other"}
+STATUSES = {"GA", "Preview", "Beta", "Announced", "Open-source release", "Research", "Vendor benchmark",
+            "Advisory", "Incident", "Case study", "Policy", "Commentary"}
+LEDGER_FORMAT = """{
+  "date": "YYYY-MM-DD",
+  "items": [{"slot": "top|models|agents|research|people|architecture", "vendor": "PingCAP or - for a protocol/paper",
+             "event_date": "YYYY-MM-DD", "status": "GA|Preview|Beta|Announced|Open-source release|Research|Vendor benchmark|Advisory|Incident|Case study|Policy|Commentary",
+             "freshness_exception": null, "vendor_cap_exception": null,
+             "claims": [{"kind": "number|version|date|status|price|licence|attribution|absence|remediation|other",
+                         "claim": "...", "url": "...", "quote": "exact words from the page", "verdict": "VERIFIED|CORRECTED|REMOVED"}]}],
+  "quick": [{"name": "...", "url": "...", "event_date": "YYYY-MM-DD", "quote": "...", "verdict": "VERIFIED|CORRECTED|REMOVED"}]
+}"""
+# Claims that something is missing were the most error-prone kind in the 2026-10-26 audit (6 of 13 errors).
+ABSENCE = re.compile(
+    r"\b(?:doesn'?t|does not|didn'?t|did not|isn'?t|is not|aren'?t|hasn'?t|has not|won'?t)\s+(?:yet\s+)?"
+    r"(?:sa(?:y|ys|id)|stat|list|mention|includ|giv|gave|nam|publish|releas|ship|offer|commit|support|disclos|show|tie|cover|provid|document)\w*"
+    r"|\bno (?:code|weights|pricing|prices?|licen[cs]e|benchmarks?|numbers|scores|dates?|release notes|paper|repo)\b"
+    r"|\bnot (?:yet )?(?:public|released|stated|disclosed|documented|available|open)\b"
+    r"|\b(?:the )?only (?:fix|way|option|mitigation)\b", re.I)
+SECURITY_ITEM = re.compile(r"\bCVE-\d{4}-\d+|\bcompromis(?:e|ed)\b|\bmalicious (?:package|version|release|wheel)s?\b"
+                           r"|\bsupply[- ]chain (?:attack|compromise)\b|\bbreach(?:ed)?\b", re.I)
+ADVISORY_FIELDS = ["Affected", "Fixed in", "Severity", "Stopgap", "If compromised"]
+MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December"
+DATED = re.compile(rf"\b\d{{1,2}} (?:{MONTHS})\b|\b(?:{MONTHS}) \d{{1,2}}\b|\b\d{{4}}-\d{{2}}-\d{{2}}\b"
+                   r"|\b(?:yesterday|last week|this week)\b", re.I)
+
 SLOTS = ["🔥", "🚀", "🤖", "🔬", "✍️", "🏗️"]
 EXTRAS = ["⚡", "⏰", "📅"]     # after the six slots, in this order; ⚡ always, ⏰ on Mondays, 📅 on Sundays
 QUICK_MIN, QUICK_MAX = 5, 15    # ⚡ bullets: hard limits (aim for 8-12)
@@ -34,7 +72,9 @@ PRIVATE_MAX = 700
 WORDS_WARN = 950            # main body, without the regional block
 # The writer must never narrate its own tools or browsing.
 PROCESS_LEAKS = [r"\bI couldn'?t\b", r"\bI could (read|open|find|see)\b", r"\bI was unable\b",
-                 r"\bexcerpt I\b", r"\bWebFetch\b", r"\bWebSearch\b", r"\bsearch snippets?\b"]
+                 r"\bexcerpt I\b", r"\bWebFetch\b", r"\bWebSearch\b", r"\bsearch snippets?\b",
+                 r"\breaches me\b", r"\bVendor note\b", r"\bI (checked|searched|opened)\b", r"\bdidn'?t turn up\b",
+                 r"\bwhen (preparing|writing) this\b", r"\bthe editor'?s notes\b"]
 # From config/voice.md: words that make a post read like a bot.
 AI_TELLS = ["delve", "tapestry", "game-changer", "game changer", "revolutionize", "revolutionise",
             "seamless", "in today's fast-paced", "it's important to note", "let's dive in",
@@ -59,6 +99,127 @@ def closing_of(body: str) -> str:
     return lines[-1].strip() if lines else ""
 
 
+def norm_url(url: str) -> str:
+    u = urlparse(url.strip())
+    return f"{u.netloc.lower().removeprefix('www.')}{u.path.rstrip('/')}"
+
+
+def section_slot(sec: str) -> str | None:
+    head = sec.split()[0] if sec.split() else ""
+    for emoji, key in SLOT_KEYS.items():
+        if head.startswith(emoji.rstrip("\ufe0f")):
+            return key
+    return None
+
+
+def load_history(day: str) -> list[dict]:
+    f = ROOT / "data" / "brief-history.json"
+    if not f.exists():
+        return []
+    return [e for e in json.loads(f.read_text()) if e.get("date", "") < day]
+
+
+def check_ledger(day: str, sections: list[str], quick_items: list[str], body: str,
+                 ledger_path: Path, errors: list[str], warnings: list[str]) -> None:
+    """The claims ledger written by the independent verifier, and the rules it makes checkable."""
+    if not ledger_path.exists():
+        errors.append(f"no claims ledger at {ledger_path} (step 8a: the independent verifier writes it). Format:\n{LEDGER_FORMAT}")
+        return
+    try:
+        led = json.loads(ledger_path.read_text())
+    except json.JSONDecodeError as exc:
+        errors.append(f"claims ledger is not valid JSON: {exc}")
+        return
+    if str(led.get("date")) != day:
+        errors.append(f"claims ledger date {led.get('date')} does not match the brief ({day})")
+    items = {i.get("slot"): i for i in led.get("items", [])}
+    today = date.fromisoformat(day)
+    history = load_history(day)
+    recent_dates = sorted({e["date"] for e in history if e.get("slot") not in ("quick", "regional")})[-2:]
+    recent_titles = [e["title"].lower() for e in history if e["date"] in recent_dates and e.get("slot") not in ("quick", "regional")]
+    vendors: dict[str, str] = {}
+
+    for sec in sections:
+        slot = section_slot(sec)
+        head = sec.splitlines()[0][:50]
+        item = items.get(slot)
+        if not item:
+            errors.append(f"ledger has no entry for slot '{slot}' ({head})")
+            continue
+        sec_urls = {norm_url(u) for u in re.findall(r"\]\((https?://[^)\s]+)\)", sec)}
+        claims = item.get("claims", [])
+        ok = [c for c in claims if c.get("verdict") in VERDICTS_OK]
+        if len(ok) < 2:
+            errors.append(f"{head}: ledger has {len(ok)} verified claims (need at least 2 per main item)")
+        for c in claims:
+            v = c.get("verdict")
+            if v not in VERDICTS_ALL:
+                errors.append(f"{head}: claim '{str(c.get('claim'))[:60]}' is {v}; fix the post (CORRECTED) or cut it (REMOVED)")
+            if c.get("kind") not in CLAIM_KINDS:
+                errors.append(f"{head}: claim kind '{c.get('kind')}' is not one of {sorted(CLAIM_KINDS)}")
+            if v in VERDICTS_OK:
+                if len(str(c.get("quote") or "")) < 12:
+                    errors.append(f"{head}: claim '{str(c.get('claim'))[:60]}' has no quote from the source")
+                if norm_url(str(c.get("url") or "")) not in sec_urls:
+                    errors.append(f"{head}: claim source {c.get('url')} is not linked in this item")
+        # Absence claims need a quoted search of the source, or must go.
+        text = "\n".join(sec.splitlines()[1:])
+        absences = [m.group(0) for m in ABSENCE.finditer(text)]
+        n_abs = sum(1 for c in ok if c.get("kind") == "absence")
+        if absences and n_abs < len(set(a.lower() for a in absences)):
+            errors.append(f"{head}: {len(set(absences))} 'missing/only' claim(s) ({', '.join(sorted(set(absences))[:3])}) but "
+                          f"{n_abs} verified absence entries; quote the section you searched for each, or cut the claim")
+        # Status and freshness.
+        if item.get("status") not in STATUSES:
+            errors.append(f"{head}: ledger status '{item.get('status')}' is not one of {sorted(STATUSES)}")
+        try:
+            age = (today - date.fromisoformat(str(item.get("event_date")))).days
+        except ValueError:
+            errors.append(f"{head}: ledger event_date '{item.get('event_date')}' is not YYYY-MM-DD")
+            age = None
+        if age is not None:
+            exc = item.get("freshness_exception")
+            if slot == "top" and age > 3 and not exc:
+                errors.append(f"{head}: the top story happened {age} days ago (🔥 must be within 72 hours)")
+            elif age > 10 and not exc:
+                errors.append(f"{head}: the event is {age} days old (limit 10, unless freshness_exception names the new development)")
+            if age > 3 and not DATED.search(text):
+                errors.append(f"{head}: the event is {age} days old; say when it happened in the text")
+        # One item per vendor, and none of the previous two briefs' vendors without a stated reason.
+        vendor = str(item.get("vendor") or "-").strip()
+        if vendor not in ("-", ""):
+            key = vendor.lower()
+            if key in vendors and not item.get("vendor_cap_exception"):
+                errors.append(f"{head}: {vendor} is already the vendor of '{vendors[key]}' (one main item per vendor)")
+            vendors.setdefault(key, head)
+            if any(t.startswith(key) or f" {key} " in f" {t} " for t in recent_titles) and not item.get("vendor_cap_exception"):
+                errors.append(f"{head}: {vendor} was a main item in one of the previous two briefs ({', '.join(recent_dates)}); "
+                              "pick another item or give vendor_cap_exception (major release or must-act security issue)")
+        # Security items carry the advisory fields.
+        if item.get("status") in ("Advisory", "Incident") or SECURITY_ITEM.search(text):
+            missing = [f for f in ADVISORY_FIELDS if f"**{f}:**" not in text]
+            if missing:
+                errors.append(f"{head}: security item is missing advisory fields: {', '.join('**' + m + ':**' for m in missing)}")
+            if not any(c.get("kind") == "remediation" and c.get("verdict") in VERDICTS_OK for c in claims):
+                errors.append(f"{head}: security item needs a verified remediation claim in the ledger")
+
+    # ⚡: one verified fact per line.
+    quick_led = {norm_url(str(q.get("url") or "")): q for q in led.get("quick", [])}
+    for b in quick_items:
+        urls = re.findall(r"\]\((https?://[^)\s]+)\)", b)
+        q = next((quick_led.get(norm_url(u)) for u in urls if norm_url(u) in quick_led), None)
+        if not q or q.get("verdict") not in VERDICTS_OK or len(str(q.get("quote") or "")) < 12:
+            errors.append(f"⚡ item not verified in the ledger: {b[:60]}")
+
+    # No story repeats within 14 days (any section).
+    cutoff = (today.toordinal() - 14)
+    seen = {norm_url(e["url"]): e for e in history if date.fromisoformat(e["date"]).toordinal() >= cutoff}
+    for u in re.findall(r"\]\((https?://[^)\s]+)\)", body):
+        e = seen.get(norm_url(u))
+        if e and "thevoyager.dev" not in u:
+            errors.append(f"{u} was already covered on {e['date']} ({e['title'][:50]}); drop it unless there is a new development with its own source")
+
+
 def bullets(section: str) -> list[str]:
     return [l.strip() for l in section.splitlines() if l.strip().startswith("- ")]
 
@@ -68,6 +229,8 @@ def main() -> int:
     ap.add_argument("post", type=Path)
     ap.add_argument("--candidates", type=Path, default=Path("/tmp/candidates.json"),
                     help="used to warn when 🚀 is left out while new models were found")
+    ap.add_argument("--claims", type=Path, default=None,
+                    help="claims ledger (default: data/claims/DATE.json; required from %s)" % LEDGER_FROM)
     args = ap.parse_args()
     path = args.post
     fm, body = split_post(path.read_text())
@@ -214,6 +377,11 @@ def main() -> int:
     tests = len(re.findall(r"\b(pilot|compare|measure|benchmark it|try it|run it|to test)\b", main_part, re.I))
     if tests > 3:
         warnings.append(f"{tests} 'go and test this' phrases; keep the try-this line to at most 2 items")
+
+    day = str(fm.get("date"))
+    if day >= LEDGER_FROM:
+        check_ledger(day, sections, bullets(quick) if quick else [], main_part,
+                     args.claims or ROOT / "data" / "claims" / f"{day}.json", errors, warnings)
 
     # The closing line must not echo the last 5 briefs.
     close = closing_of(body)

@@ -14,6 +14,8 @@ It also prepares:
   news for the first time ("first_seen"), for the 🆕 New on the radar group.
 - "quick_pool": good items that did not win a slot, grouped for ⚡ Also worth knowing.
 - "deadlines_found": retirement dates published by OpenRouter, for the ⏰ calendar.
+- "security_watch": every security incident or advisory in the window that touches AI tools or watched
+  packages, whatever its score (feeds/priorities.yml: security_watch), plus OSV advisories (sources.yml: osv).
 
     pip install -r scripts/requirements.txt
     python3 scripts/fetch_feeds.py --since 36h --out /tmp/candidates.json
@@ -912,6 +914,85 @@ def detect_trends(window: list[dict], everything: list[dict], history_file: Path
     return trends
 
 
+# ── Security watch ───────────────────────────────────────────────────────────
+# Security incidents must never be lost to the relevance score: a supply-chain compromise reported by one
+# low-weight outlet can score below the cut (LiteLLM 1.107.0 did on 2026-10-22). This list ignores the score.
+
+OSV_QUERY = "https://api.osv.dev/v1/query"
+
+
+def fetch_osv_package(ecosystem: str, name: str, since: datetime, timeout: int) -> list[dict]:
+    body = json.dumps({"package": {"name": name, "ecosystem": ecosystem}}).encode()
+    req = Request(OSV_QUERY, data=body, headers={"User-Agent": USER_AGENT, "Content-Type": "application/json"})
+    with urlopen(req, timeout=timeout) as resp:
+        vulns = json.loads(resp.read()).get("vulns", [])
+    out = []
+    for v in vulns:
+        when = parse_iso(v.get("published")) or parse_iso(v.get("modified"))
+        updated = parse_iso(v.get("modified"))
+        if not when or max(when, updated or when) < since:
+            continue
+        ids = [v["id"], *v.get("aliases", [])]
+        cve = next((i for i in ids if i.startswith("CVE-")), None)
+        out.append({
+            "title": f"{name} ({ecosystem}): {clean_text(v.get('summary') or v.get('details') or v['id'])[:160]}",
+            "url": f"https://osv.dev/vulnerability/{v['id']}",
+            "published": when.isoformat(),
+            "modified": updated.isoformat() if updated else None,
+            "id": v["id"], "cve": cve, "package": name, "ecosystem": ecosystem,
+            "malicious": v["id"].startswith("MAL-"),
+            "source": "OSV", "status": "advisory",
+        })
+    return out
+
+
+def fetch_osv(cfg: dict, now: datetime, timeout: int, workers: int) -> tuple[list[dict], list[dict]]:
+    """Advisories for watched packages published or updated in the last cfg['days'] days. Returns (items, failed)."""
+    since = now - timedelta(days=cfg.get("days", 3))
+    jobs = [(eco, name) for eco, names in (cfg.get("packages") or {}).items() for name in names]
+    items, failed = [], []
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(fetch_osv_package, eco, name, since, timeout): (eco, name) for eco, name in jobs}
+        for fut in as_completed(futures):
+            eco, name = futures[fut]
+            try:
+                items.extend(fut.result())
+            except Exception as exc:
+                failed.append({"source": f"OSV {eco}/{name}", "url": OSV_QUERY, "error": f"{type(exc).__name__}: {exc}"[:200]})
+    items.sort(key=lambda i: (i["malicious"], i["published"]), reverse=True)  # malicious first, then newest
+    return items, failed
+
+
+def security_watch(window: list[dict], scores: dict[str, tuple[float, str]], osv_items: list[dict],
+                   cfg: dict, package_names: set[str]) -> list[dict]:
+    """Incidents and advisories in the window, with their score and whether the score cut kept them."""
+    patterns = [re.compile(p, re.I) for p in cfg.get("patterns", [])]
+    pkg = re.compile(r"\b(" + "|".join(re.escape(n) for n in sorted(package_names, key=len, reverse=True)) + r")\b", re.I) \
+        if package_names else None
+    seen: set[str] = set()
+    out = []
+    def when(i):
+        v = i["published"]
+        return parse_iso(v) if isinstance(v, str) else (v or datetime.min.replace(tzinfo=timezone.utc))
+    for it in sorted(window, key=when, reverse=True):
+        if any(it["source"].startswith(s) for s in cfg.get("skip_sources", [])):
+            continue
+        text = f"{it['title']} {it.get('summary', '')}"
+        if not any(p.search(text) for p in patterns):
+            continue
+        if not (AI_MENTION.search(text) or (pkg and pkg.search(text)) or re.search(r"\bMCP\b|\bPyPI\b|\bnpm\b", text)):
+            continue
+        key = normalise_title(it["title"])
+        if key in seen:
+            continue
+        seen.add(key)
+        score, status = scores.get(it["url"], (None, "not scored"))
+        out.append({"title": it["title"], "url": it["url"], "source": it.get("publisher") or it["source"],
+                    "published": when(it).isoformat(),
+                    "score": score, "status": status})
+    return (osv_items + out)[: cfg.get("max_items", 25) + len(osv_items)]
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 
@@ -956,9 +1037,15 @@ def main(argv: list[str] | None = None) -> int:
             except Exception as exc:  # one bad source never stops the run
                 failed.append({"source": src["name"], "url": src["url"], "error": f"{type(exc).__name__}: {exc}"[:200]})
 
+    sources_cfg = yaml.safe_load((args.feeds_dir / "sources.yml").read_text())
+    osv_items, osv_failed = fetch_osv(sources_cfg.get("osv") or {}, now, args.timeout, args.workers) \
+        if sources_cfg.get("osv") else ([], [])
+    failed.extend(osv_failed)
+
     prio = load_priorities(args.feeds_dir)
     discovery = [i for i in items if i["section"] == "discovery"]
     items = [i for i in items if i["section"] != "discovery"]
+    window = [i for i in items if i["published"] and i["published"] >= since]  # for the security watch (dates still datetimes)
     candidates = select(items, since, args.per_source)
     covered_urls, covered_titles = load_covered(args.history)
     already = [c for c in candidates
@@ -1027,6 +1114,11 @@ def main(argv: list[str] | None = None) -> int:
     for c in candidates + dropped:
         c["published"] = c["published"].isoformat() if c["published"] else None
     quick = quick_pool(candidates, picks, prio.get("quick_hits", {}))
+    scores = {c["url"]: (c["score"], "candidate") for c in candidates}
+    scores.update({d["url"]: (d["score"], "dropped by score") for d in dropped})
+    scores.update({a["url"]: (None, "already in brief") for a in already})
+    watched = {n for names in ((sources_cfg.get("osv") or {}).get("packages") or {}).values() for n in names}
+    sec_watch = security_watch(window, scores, osv_items, prio.get("security_watch", {}), watched)
 
     by_section: dict[str, int] = {}
     for c in candidates:
@@ -1053,6 +1145,7 @@ def main(argv: list[str] | None = None) -> int:
         "quick_pool": quick,
         "coverage_pool": coverage_pool,
         "deadlines_found": deadlines_found,
+        "security_watch": sec_watch,
         "regional": regional[:12],
         "candidates": candidates,
         "dropped_titles": [d["title"] for d in dropped][:40],

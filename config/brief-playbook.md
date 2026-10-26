@@ -56,8 +56,9 @@ is good, one honest caveat where it isn't.
 ## 3. What matters most when time or context runs short
 
 Never skip, whatever happens:
-1. Verification of everything published (see "Verification rules" at the end).
-2. The coverage check (step 6).
+1. Verification of everything published (see "Verification rules" at the end), including the independent
+   verifier and its claims ledger (step 8a).
+2. The security scout (step 2b) and the coverage check (step 6).
 3. `scripts/check_brief.py` with 0 errors, the history update, the commit and push, and Telegram.
 
 If the run is getting long, cut in this order (and say so in the final report):
@@ -136,6 +137,10 @@ Hand sub-agents the URLs they need, not the file. Scripts that take `--candidate
   daily counts exist (`data/concept-history.json`); until then use "most_discussed_this_week" only.
 - **story_clusters**: one story covered by three or more outlets (a sign it matters).
 - **deadlines_found**: retirement dates published by OpenRouter (confirm on the provider's own page).
+- **security_watch**: every security incident or advisory in the window that touches AI tools, agents or
+  the packages AI stacks run on, **whatever its score** (items the score cut dropped are marked "dropped by score"),
+  plus OSV advisories for watched packages (MAL- ids are malicious package versions: the most urgent kind).
+  The security scout reviews every line (step 2b).
 - **regional**: the best Middle East and India candidates.
 - **dropped_titles**: items the keyword scoring judged irrelevant; skim for false negatives.
 - **check_pages**: sites without a feed; open every one (sub-agents are fine) and look for posts inside the window.
@@ -162,6 +167,30 @@ before you pick: signals, not picks. A trend made of hype, funding or consumer s
 
 ### Step 2b: discovery pass (do not skip)
 The feeds are a starting point, not the market.
+
+**Start the security scout first** (one sub-agent, `model: "sonnet"`, in the background, so it works while you do the
+rest of this step). It exists because the score cut and the per-source caps lose real incidents: the LiteLLM 1.107.0
+compromise sat in the filtered-out titles on 22 October and ran a day late. Give it this task, with the
+`security_watch` lines from the digest pasted in:
+
+> You are the security scout for a daily AI engineering brief read by senior AI architects. Window: the last 72 hours.
+> 1. Review every line of the security_watch list below. For each item that affects AI systems in production (AI
+>    frameworks, SDKs, inference servers, agent tools, MCP servers, AI gateways, model providers, or a widely used
+>    package they depend on), open the advisory or the vendor's own post.
+> 2. Then run these searches and open what they find: malicious or compromised PyPI/npm packages used by AI stacks;
+>    CVEs in vLLM, SGLang, LiteLLM, LangChain/LangGraph, Ollama, MLflow, Ray, MCP SDKs and servers, and coding agents
+>    (Claude Code, Codex, Cursor, Copilot); prompt-injection or data-exfiltration incidents in shipped agent products;
+>    outages at major AI providers; and safety or alignment reports from labs and institutes (alignment.openai.com,
+>    anthropic.com/research, alignment.anthropic.com, aisi.gov.uk) about agents behaving unexpectedly in real deployments.
+> 3. Return at most 8 items, most consequential first. For each: what happened, the primary URL (advisory, vendor post,
+>    OSV entry), event date, affected products and versions, fixed versions (including major dependants such as
+>    Envoy/Istio/Bun when the advisory names them), severity as the advisory states it, stopgaps, how to detect exposure,
+>    and what to do if compromise is suspected. Quote the advisory for each field; write "not stated" when it isn't.
+>    Mark items already in data/brief-history.json in the last 14 days unless there is a new development.
+> Never write from search snippets. Say NOT CONFIRMED for anything the primary page doesn't state.
+
+Use its report for 🔥, 🛡️ in ⚡, and the coverage check. An incident it returns that the brief leaves out needs a
+one-line reason in the editor's notes.
 - **Newcomers first.** For the top 5 not-yet-covered entries in `newcomers.model_api` and the top 5 in
   `newcomers.model`, and the top first_seen names, decide: main item, ⚡ item, or skip (with a reason).
   Open the model card, provider page, repo or release notes before using one. A new model from a known lab,
@@ -176,6 +205,13 @@ The feeds are a starting point, not the market.
   - AI-powered products launching in the UAE/GCC and India;
   - notable X posts by the handles in `feeds/people.yml`;
   - for the top 2–3 trending topics, the newest concrete development.
+- **Before rejecting a candidate as "no primary source found"**, search the vendor's own docs and release-notes
+  domain for it (`site:platform.claude.com`, `site:developers.openai.com`, `site:cloud.google.com`, …). The Claude API
+  2026-10-21 change was rejected on 23 October as "no primary found" while its migration guide was live; it ran on the 26th.
+- **openai.com** article pages return 403 to WebFetch, but its RSS feed loads. For an OpenAI story, use, in order:
+  developers.openai.com or platform.openai.com docs, alignment.openai.com, the RSS item's own text (quote it), then one
+  reputable outlet that quotes OpenAI directly, labelled as such ("OpenAI told The Verge…"). Don't drop a consequential
+  OpenAI story only because openai.com won't load.
 - Keep a newcomer only with real evidence (a primary page, repo, model card, paper or documented customer use).
   Popularity alone is not proof. If nothing credible turned up, say nothing; never invent a "new entrant".
 - Note what each search found (used or not) for the editor's notes.
@@ -251,6 +287,14 @@ recent paper or a post by someone in `feeds/people.yml`; if nothing good exists,
   and isn't public, say so plainly ("no code is out yet").
 - "Try this" line in at most 2 of the 6 items (the two most testable): one cheap way to try it, with the baseline
   and the one metric. Other items end on the architectural point. Other test ideas go to the private layer.
+- **Security incidents and advisories** (any main item about a CVE, a compromise, a breach or a malicious package)
+  end with one advisory line before the source line, every field filled from the advisory itself:
+  `**Affected:** … · **Fixed in:** … · **Severity:** … · **Stopgap:** … · **If compromised:** …`
+  Name fixed versions in major dependants when the advisory does (the Brotli brief left out Envoy, Istio and Bun).
+  Write "not stated in the advisory" for a field it doesn't cover; never leave a field out and never write "the only fix"
+  unless the advisory says so. `check_brief.py` fails a security item without these fields.
+- If an item happened more than 3 days ago, say when in the text ("announced on 9 October"). `check_brief.py` checks it
+  against the event date in the claims ledger.
 
 ### Step 5: the other sections
 
@@ -262,7 +306,8 @@ in this order, leaving out empty groups:
   its status (open weights, API, preview/beta, GA), the one fact that makes it notable, and ends with a one-word
   verdict: Try or Watch. Don't list things you'd call Ignore.
 - **🛡️ Security & governance**: vulnerabilities, incidents, outages and advisories in AI tools, agents and providers;
-  regulation, standards and licence changes with concrete dates or obligations.
+  regulation, standards and licence changes with concrete dates or obligations. A security line names the fixed version
+  or the one thing to do now.
 - **🧰 Models & tools**: model updates, SDK and framework releases worth acting on, open-source projects.
 - **🏢 Platforms & enterprise**: managed AI services, enterprise AI platforms and applications, real adoption with named customers.
 - **🔬 Research**: papers worth a look that didn't get the research slot.
@@ -415,7 +460,42 @@ confidential; under 700 characters; plain text; no career, goals or progress tal
 Every claim must come from a source verified in this run; label hypotheses as hypotheses.
 
 ### Step 8: quality gate and candidate log (do not skip)
-- Run `python3 scripts/check_brief.py src/content/brief/DATE.md --candidates /tmp/candidates.json`.
+
+**8a. Independent verifier (do not skip).** The writer is the worst person to check their own claims: the 26 October
+audit found 13 wrong claims in 44 posts, and 6 of them said something was missing ("no code", "doesn't list", "the only
+fix") when the source said otherwise. Start one fresh sub-agent (`model: "sonnet"`) that did not see your research.
+Give it only the draft file's text, today's date and this task:
+
+> You are the independent fact-checker for today's AI Daily Brief (DATE). You did not write it. For every main item
+> (🔥 🚀 🤖 🔬 ✍️ 🏗️) open its linked sources with WebFetch and check at least its 2–4 most load-bearing claims: every
+> number, version, price, date and licence; the release status (GA, preview, beta, announced, research claim, vendor
+> benchmark, advisory, incident); attributions ("X says"); and EVERY claim that something is missing, unstated or the
+> only option ("doesn't say", "no code", "isn't public", "the only fix"). For an absence claim, search the whole page,
+> including appendices, model cards, release notes, linked repos and the arXiv Comments field, and quote what you
+> searched. For security items also check affected versions, fixed versions, severity, stopgaps and the compromise step
+> against the advisory. For each ⚡ line, check its one key fact. Never judge from memory: many products are newer than
+> your training data. Write data/claims/DATE.json in exactly this format (it is machine-checked):
+> {"date": "DATE", "items": [{"slot": "top|models|agents|research|people|architecture", "vendor": "company or product
+> name, or - for a protocol or a paper", "event_date": "YYYY-MM-DD (from the source)", "status": "GA|Preview|Beta|
+> Announced|Open-source release|Research|Vendor benchmark|Advisory|Incident|Case study|Policy|Commentary",
+> "freshness_exception": null, "vendor_cap_exception": null, "claims": [{"kind": "number|version|date|status|price|
+> licence|attribution|absence|remediation|other", "claim": "the brief's words", "url": "the linked URL you checked",
+> "quote": "exact words from the page", "verdict": "VERIFIED|INCORRECT|PARTLY|NOT IN SOURCE|UNVERIFIABLE",
+> "fix": "for anything not VERIFIED: what the source supports instead"}]}], "quick": [{"name": "…", "url": "…",
+> "event_date": "YYYY-MM-DD", "quote": "…", "verdict": "…"}]}
+> Then reply with only the list of claims that are not VERIFIED, each with its fix.
+
+Then fix the post for every claim that isn't VERIFIED (or cut the claim), and update its ledger entry yourself: set
+`verdict` to `CORRECTED` (the post now matches the quote) or `REMOVED` (the claim is gone). Add `freshness_exception` or
+`vendor_cap_exception` only where step 4 allows one, with the reason in a few words. Never mark a claim VERIFIED that the
+verifier didn't verify. List what changed in the editor's notes.
+
+**8b. Checks.**
+- Run `python3 scripts/check_brief.py src/content/brief/DATE.md --candidates /tmp/candidates.json`. It reads the
+  ledger and fails on: a main item with fewer than 2 verified claims, a claim not VERIFIED/CORRECTED/REMOVED, a missing
+  quote, an absence claim without a verified absence entry, 🔥 older than 72 hours, an item older than 3 days that
+  doesn't say when, two main items from one vendor or a vendor from either of the previous two briefs (unless the
+  exception is set), a story already covered in the last 14 days, and a security item without the advisory fields.
   Fix every ERROR and rerun until 0 errors (at most 3 rounds; list any that remain in the final report).
   Fix warnings unless you have a clear reason not to; a missing-slot warning needs a fix or the reasons in the editor's notes.
 - Re-read the post once as the reader would, against the "Quick self-check" in `config/voice.md`, and tighten
@@ -445,7 +525,7 @@ Every claim must come from a source verified in this run; label hypotheses as hy
   `data/experiments.json` (keep the latest 60; never change the status of earlier entries).
 - Commit and push:
   ```
-  git add src/content/brief/DATE.md data/brief-history.json data/experiments.json data/dive-queue.json data/candidates/ data/trend-history.json data/newcomers-seen.json data/deadlines.json data/concept-history.json
+  git add src/content/brief/DATE.md data/claims/DATE.json data/brief-history.json data/experiments.json data/dive-queue.json data/candidates/ data/trend-history.json data/newcomers-seen.json data/deadlines.json data/concept-history.json
   git commit -m "brief: DATE"
   git push origin main   # if rejected: git pull --rebase origin main, then push once more
   ```
@@ -468,4 +548,10 @@ Include the check_brief.py result, anything cut under section 3, and any rule yo
 - Use the primary source whenever one exists; if only a news outlet has it, say who reported it. Never link a
   news.google.com redirect: find the publisher's own URL.
 - Never invent numbers, benchmarks, prices, availability or dates. Treat vendor benchmarks as the vendor's claims.
+  Copy numbers exactly as the source states them (the 7 October brief turned 52B active parameters into 49B).
+- **Claims that something is missing** ("doesn't say", "no code yet", "isn't open", "the only fix") are only as good as
+  the search behind them. Search the whole source first (appendices, model card, release notes, linked repo, the arXiv
+  Comments field) and quote what you searched in the ledger; if you can't, cut the claim. Prefer "the announcement
+  doesn't give a price" (true of that page) over "there's no price" (a claim about the world).
+- Read the code, not only the README, before stating how a repository behaves; a README can be out of date.
 - If a main slot truly has nothing worthwhile, leave it out (see "No empty slots" in step 7) instead of padding.

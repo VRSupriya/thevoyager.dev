@@ -109,7 +109,7 @@ def walk_items(d: dict):
         for t in d.get(key, []):
             yield from t.get("items", [])
             yield from t.get("background", [])
-    for key in ("coverage_pool", "regional", "deadlines_found"):
+    for key in ("coverage_pool", "regional", "deadlines_found", "security_watch"):
         yield from d.get(key, [])
 
 
@@ -124,6 +124,17 @@ def digest(d: dict) -> str:
     out.append("Ids work with --item/--search. URLs are shown except Google News redirect links (use --item, or find the primary source).")
     out.append("\n## failed (cover these with WebSearch)")
     out.append("; ".join(f"{f['source']} ({short(f['error'], 60)})" for f in d.get("failed", [])) or "none")
+
+    out.append("\n## security_watch (incidents and advisories, whatever their score: the security scout reviews every line)")
+    for s in d.get("security_watch", []):
+        if s.get("source") == "OSV":
+            flag = "MALICIOUS PACKAGE " if s.get("malicious") else ""
+            out.append(f"- [{reg.add(s)}] {flag}{s.get('id')} {s.get('cve') or ''} {short(s.get('title'), 110)} "
+                       f"(published {str(s.get('published'))[:10]}) {s.get('url')}")
+        else:
+            out.append(f"{reg.line(s, 105)} | {s.get('status')}" + (f" {s.get('score')}" if s.get("score") is not None else ""))
+    if not d.get("security_watch"):
+        out.append("none")
 
     out.append("\n## shortlist (pick, then alternates)")
     for name, slot in (d.get("shortlist") or {}).items():

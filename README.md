@@ -15,7 +15,7 @@ An Astro site on Cloudflare Pages. Cloudflare's Git integration builds every pus
 | ✍️ Writing (`/writing/`) | Your own posts (`draft: true` stays unpublished) | `src/content/writing/*.md` |
 | 🛰️ Projects (`/projects/`) | Finished builds | `src/content/projects/*.md` |
 
-Frontmatter schemas live in `src/content.config.ts`; tracks, links and site text in `src/consts.ts`.
+Frontmatter schemas live in `src/content.config.ts` (fixes after publishing go in `corrections:`, shown on the post and on `/corrections/`); tracks, links and site text in `src/consts.ts`.
 
 Posts with `curated_with_ai: true` get the "Curated with AI" badge, a
 `noindex, follow` robots tag, and are left out of the sitemap. They never get the
@@ -45,6 +45,8 @@ RSS: `/brief/rss.xml`, `/deep-dives/rss.xml`, `/writing/rss.xml`. Search: `/sear
 | `data/brief-history.json` | Stories already covered, so the brief never repeats one |
 | `data/newcomers-seen.json` | First day each new model, repo, tool or release was listed (for 🆕 New on the radar) |
 | `data/concept-history.json` | Daily count of sites mentioning each architecture concept (for 📈 rising topics; concepts listed in `feeds/priorities.yml`) |
+| `data/claims/DATE.json` | The independent verifier's claims ledger for each brief (from 2026-10-27): every main-item claim with its source quote and verdict. `check_brief.py` enforces verification, freshness, the vendor cap, 14-day repeats and the advisory fields from it |
+| `security_watch` (in candidates.json) | Security incidents and advisories in the window, whatever their score, plus OSV advisories for the packages listed under `osv:` in `feeds/sources.yml`. The security scout reviews it every run |
 | `data/deadlines.json` | Verified model retirements and compliance dates (for the ⏰ calendar, refreshed on Mondays) |
 | `config/brief-playbook.md` | The Daily Brief routine's full instructions (the scheduled task just points here) |
 | `scripts/check_brief.py` | Format and rule check for a brief: six main items, ⚡ quick hits, ⏰ on Mondays, 📅 on Sundays |

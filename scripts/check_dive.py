@@ -32,7 +32,8 @@ JSON_WIDGETS = {"steps", "flow", "calc", "chart", "compare", "timer", "curve", "
 VISUALS = JSON_WIDGETS | {"mermaid", "stats", "terminal"}
 PROCESS_LEAKS = [r"\bI couldn'?t\b", r"\bI could (read|open|find|see)\b", r"\bI was unable\b",
                  r"\bwhen I opened\b", r"\ba search didn'?t\b", r"\bsearch snippets?\b",
-                 r"\b(?:I|we) (?:used|ran) Web(?:Fetch|Search)\b"]
+                 r"\b(?:I|we) (?:used|ran) Web(?:Fetch|Search)\b", r"\breaches me\b", r"\bVendor note\b",
+                 r"\bI (?:checked|searched)\b", r"\bdidn'?t turn up\b", r"\bwhen (?:preparing|writing) this\b"]
 LEADING_EMOJI = re.compile(r"^[\U0001F000-\U0001FAFF☀-➿]")
 
 # Wednesday system posts: (heading prefix, word guide). Order matters. From config/dives-playbook.md.

@@ -21,6 +21,8 @@ google_news:
     - {section: core, edition: global, q: '"Claude Code" OR "OpenAI Codex" OR "Cursor IDE" OR "GitHub Copilot" OR "coding agent" OR "agent harness" when:2d'}
     - {section: core, edition: global, q: '"open-source" (LLM OR "agent framework" OR SDK OR "inference engine" OR vLLM OR SGLang OR "vector database") (release OR launches OR "v1.0") when:2d'}
     - {section: core, edition: global, q: '("AI-powered" OR "AI startup") (launches OR unveils OR "generally available") (enterprise OR healthcare OR fintech OR "document processing" OR "voice AI") when:2d'}
+    # Security incidents in AI tools, agents and the packages AI stacks run on (the 22 Oct LiteLLM compromise reached the pool only this way)
+    - {section: core, edition: global, q: '(AI OR LLM OR agent OR MCP OR PyPI OR npm) (CVE OR vulnerability OR "supply chain" OR compromised OR malicious OR backdoor OR breach) when:2d', weight: 2}
     # Middle East AI news
     - {section: regional, edition: uae, q: '"artificial intelligence" (UAE OR Dubai OR "Abu Dhabi" OR Saudi OR Qatar) when:2d'}
     - {section: regional, edition: uae, q: 'G42 OR MBZUAI OR Falcon TII OR Core42 OR HUMAIN OR "Stargate UAE" when:3d'}
@@ -61,6 +63,11 @@ rss:
   - {section: core, name: Last Week in AI,     url: https://lastweekin.ai/feed, weight: 1}
   # Security of AI systems
   - {section: core, name: OWASP GenAI Security, url: https://genai.owasp.org/feed/, weight: 2}
+  # Safety and alignment reports from labs and institutes (agents misbehaving in real deployments, model assessments)
+  - {section: core, name: OpenAI Alignment,    url: https://alignment.openai.com/rss.xml, weight: 3}
+  - {section: core, name: Anthropic Research,  url: https://www.anthropic.com/research, type: html, weight: 3}
+  - {section: core, name: Anthropic Alignment Science, url: https://alignment.anthropic.com/, type: html, weight: 2}
+  - {section: core, name: UK AI Security Institute, url: https://www.aisi.gov.uk/blog, type: html, weight: 2}
   - {section: core, name: Trail of Bits,       url: https://blog.trailofbits.com/index.xml, require_ai: true, weight: 1}
   # Governance and regulation
   - {section: core, name: EU AI Act Newsletter, url: https://artificialintelligenceact.substack.com/feed, weight: 2}
@@ -118,6 +125,17 @@ discovery:
   - {name: PyPI crewai,           kind: release, package: crewai,           url: https://pypi.org/rss/project/crewai/releases.xml}
   - {name: PyPI litellm,          kind: release, package: litellm,          url: https://pypi.org/rss/project/litellm/releases.xml}
   - {name: PyPI llama-index-core, kind: release, package: llama-index-core, url: https://pypi.org/rss/project/llama-index-core/releases.xml}
+
+# Security advisories for the packages AI stacks run on, from the OSV database (https://osv.dev). Every advisory
+# published or updated in the last `days` goes to "security_watch" in candidates.json, whatever its score.
+# MAL- ids are malicious package versions (supply-chain compromises), the most urgent kind.
+osv:
+  days: 3
+  packages:
+    PyPI: [litellm, vllm, sglang, transformers, langchain, langchain-core, langgraph, llama-index-core, openai, anthropic,
+           openai-agents, claude-agent-sdk, google-adk, mcp, pydantic-ai, crewai, huggingface-hub, torch, ray, mlflow,
+           gradio, ollama, chromadb, qdrant-client, brotli]
+    npm: ["@modelcontextprotocol/sdk", "@anthropic-ai/sdk", openai, ai, langchain, "@langchain/core", "@openai/agents"]
 
 # Official pages that announce retirements and compliance dates. Opened with WebFetch on Mondays
 # (for the ⏰ calendar) and whenever an item mentions a retirement. Results go to data/deadlines.json.

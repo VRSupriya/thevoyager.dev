@@ -9,3 +9,4 @@ __pycache__/
 # Lab data downloads and local results (labs/submissions/ keeps submitted results)
 labs/*/*/input.txt
 labs/*/*/results.json
+labs/*/*/experiment-*.json

@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { briefUrl, diveUrl, getBriefs, getDives } from '../lib/posts';
+
+// Every fix made to a published post, newest first. Each post keeps its own notes in `corrections:` front matter.
+const briefs = await getBriefs();
+const dives = await getDives();
+const rows = [
+	...briefs.map((p) => ({ title: p.data.title, href: briefUrl(p), kind: 'Daily Brief', published: p.data.date, fixes: p.data.corrections })),
+	...dives.map((p) => ({ title: p.data.title, href: diveUrl(p), kind: 'Deep Dive', published: p.data.date, fixes: p.data.corrections })),
+]
+	.flatMap((r) => r.fixes.map((f) => ({ ...r, date: f.date, text: f.text })))
+	.sort((a, b) => b.date.getTime() - a.date.getTime() || b.published.getTime() - a.published.getTime());
+---
+
+<Base title="Corrections" description="Every fix made to a Daily Brief or Deep Dive after it was published.">
+	<article class="prose">
+		<p class="eyebrow">Corrections</p>
+		<h1>Corrections</h1>
+		<p>
+			When something published here turns out to be wrong, the post is fixed and the change is noted on the post with its date.
+			This page lists every one of those notes. Spotted a mistake? <a href="/contact/">Tell me</a>.
+		</p>
+		{rows.length === 0 && <p>No corrections yet.</p>}
+		<ul class="corrections">
+			{
+				rows.map((r) => (
+					<li>
+						<p class="c-meta">
+							<FormattedDate date={r.date} /> · {r.kind}, <FormattedDate date={r.published} />
+						</p>
+						<p class="c-title"><a href={r.href}>{r.title}</a></p>
+						<p>{r.text}</p>
+					</li>
+				))
+			}
+		</ul>
+	</article>
+</Base>
+
+<style>
+	.corrections {
+		list-style: none;
+		padding: 0;
+		display: grid;
+		gap: 1.1rem;
+	}
+	.corrections li {
+		border-top: 1px solid var(--border);
+		padding-top: 0.8rem;
+	}
+	.corrections p {
+		margin: 0.15rem 0;
+	}
+	.c-meta {
+		color: var(--muted);
+		font-size: 0.88rem;
+	}
+	.c-title {
+		font-weight: 600;
+	}
+</style>

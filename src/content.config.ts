@@ -17,6 +17,8 @@ const curated = {
 	curated_with_ai: z.boolean().default(false),
 	// Ids of related Deep Dives, e.g. "system/2026-10-14" (C8). Shown as "Go deeper" / "Related".
 	related: z.array(z.string()).default([]),
+	// Fixes made after publishing. Shown on the post and listed on /corrections/.
+	corrections: z.array(z.object({ date: z.coerce.date(), text: z.string() })).default([]),
 };
 
 // ☕ AI Daily Brief: src/content/brief/YYYY-MM-DD.md

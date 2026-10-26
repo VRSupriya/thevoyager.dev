@@ -6,7 +6,7 @@ import Base from '../layouts/Base.astro';
 	<article class="prose">
 		<p class="eyebrow">Disclosure</p>
 		<h1>Disclosure</h1>
-		<p><em>Last updated: 20 October 2026.</em></p>
+		<p><em>Last updated: 26 October 2026.</em></p>
 
 		<h2 id="ai">How we use AI</h2>
 		<p>
@@ -15,12 +15,18 @@ import Base from '../layouts/Base.astro';
 		</p>
 		<ul>
 			<li>The routines work from primary sources: release notes, papers, repositories and official documentation.</li>
-			<li>Every claim in the brief links to where it came from, and numbers are checked against those sources before publishing.</li>
+			<li>Every story in the brief links to where it came from.</li>
+			<li>
+				Before a brief is published, a second AI agent that didn't write it re-checks each main story's numbers, dates and
+				release status against the source, and keeps a record of what it checked. Deep Dives are checked by the routine that
+				writes them. No person reviews posts before they go out.
+			</li>
 			<li>A day with nothing worth your time in a section stays empty rather than being filled.</li>
 		</ul>
 		<p>
 			AI can still get things wrong, so check anything important at the source before you rely on it. If you spot a mistake,
-			<a href="/contact/">tell me</a> and it will be corrected.
+			<a href="/contact/">tell me</a> and it will be corrected. Every fix is dated on the post and listed on the
+			<a href="/corrections/">corrections page</a>.
 		</p>
 		<p>
 			Daily Briefs are marked so search engines don't index them, because they mostly point to other people's work. Deep Dives are indexed.

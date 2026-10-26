@@ -40,6 +40,8 @@ interface Props {
 	interactive?: boolean;
 	/** "Key takeaways" box under the title (P1). */
 	takeaways?: string[];
+	/** Fixes made after publishing, shown under the title. */
+	corrections?: { date: Date; text: string }[];
 	/** h2 headings for the table of contents (P2). Shown when there are 4 or more. */
 	headings?: { depth: number; slug: string; text: string }[];
 	/** Series name and its parts (P3). */
@@ -79,6 +81,7 @@ const {
 	hasMermaid = false,
 	interactive = false,
 	takeaways = [],
+	corrections = [],
 	headings = [],
 	series,
 	prev,
@@ -140,6 +143,22 @@ const hasLead = Astro.slots.has('lead');
 								<li>{t}</li>
 							))}
 						</ul>
+					</aside>
+				)
+			}
+
+			{
+				corrections.length > 0 && (
+					<aside class="callout callout-correction" aria-label="Corrections">
+						<p class="callout-title">{corrections.length === 1 ? 'Correction' : 'Corrections'}</p>
+						<ul>
+							{corrections.map((c) => (
+								<li>
+									<FormattedDate date={c.date} />: {c.text}
+								</li>
+							))}
+						</ul>
+						<p class="correction-more"><a href="/corrections/">All corrections</a></p>
 					</aside>
 				)
 			}
@@ -377,6 +396,17 @@ const hasLead = Astro.slots.has('lead');
 	}
 	h1 {
 		margin-bottom: 0.6rem;
+	}
+	.callout-correction {
+		border-left: 3px solid var(--muted);
+		font-size: 0.95rem;
+	}
+	.callout-correction ul {
+		margin: 0.3rem 0 0;
+	}
+	.correction-more {
+		margin: 0.4rem 0 0;
+		font-size: 0.88rem;
 	}
 	.summary {
 		font-size: 1.15rem;

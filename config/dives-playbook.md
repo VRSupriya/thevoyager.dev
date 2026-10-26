@@ -129,8 +129,14 @@ curated_with_ai: true
 
 Every post has at least one visual, chosen because it explains something better than text. Pick from the list
 below. All of them work without JavaScript and in light and dark mode; the site draws them, you only write the
-data. Each is a fenced code block whose language is the widget name, with JSON inside (stats and terminal are plain
-text). Use real numbers from your sources only; when a shape is only illustrative, say so in the title.
+data. Each is a fenced code block whose language is the widget name, with the JSON on the lines inside the block,
+never on the opening fence line (a backtick in JSON on the fence line breaks the block; stats and terminal are plain
+text). The one-line examples below are shorthand for:
+
+    ```calc
+    {"title": "...", "inputs": [...], "outputs": [...]}
+    ```
+ Use real numbers from your sources only; when a shape is only illustrative, say so in the title.
 
 - **Diagram:** ```mermaid (flowchart, sequence). Keep it to ~10 nodes; prefer `flowchart TD` for long chains so it
   fits a phone.

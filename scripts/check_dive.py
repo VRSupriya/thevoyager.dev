@@ -158,6 +158,13 @@ def check_common(path: Path, fm: dict, body: str, errors: list[str], warnings: l
         errors.append("series and part must be set together (or both left out)")
 
     code = blocks(body)
+    for m in re.finditer(r"^```([\w-]+)[ \t]+(\S.*)$", body, re.M):
+        if m.group(1).lower() in VISUALS:
+            if "`" in m.group(2):
+                errors.append(f"```{m.group(1)} has data on the fence line containing a backtick, so it doesn't render as a widget; "
+                              "put the JSON on the lines inside the block")
+            else:
+                warnings.append(f"```{m.group(1)}: put the JSON on the lines inside the block, not on the fence line")
     if not any(lang in VISUALS for lang, _ in code):
         errors.append("no visual: add a ```mermaid diagram or a widget (stats, steps, flow, calc, chart, …)")
     for lang, src in code:

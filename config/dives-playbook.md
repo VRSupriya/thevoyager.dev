@@ -52,6 +52,9 @@ opinions with reasons, vary phrasing, avoid AI clichés.
    summary, the takeaways, the body and any table or chart must agree. Follow "How it's done now" below on every
    post.
 5. **Write src/content/dives/<track>/DATE.md** (format below, then the body by track).
+5b. **Check the post:** `python3 scripts/check_dive.py src/content/dives/<track>/DATE.md`. Fix every ERROR and
+   rerun until 0 errors (at most 3 rounds; list any that remain in your final report). Fix warnings unless you
+   have a clear reason not to, and give the reason in the report.
 6. Append `{date, track, week, title, topic_key}` to data/dives-history.json. If you used an item from
    data/dive-queue.json, set its `used` to DATE. Remove queue items older than 21 days.
 7. `git add` the new/changed files (only: the post, data/dives-history.json, data/dive-queue.json, and
@@ -75,7 +78,7 @@ date: DATE
 track: <track>
 week: WEEK
 phase: "<PHASE>"
-time_minutes: <total time incl. hands-on: 45 weekdays, 180 Sat, 120 Sun, 20 radar, 15 recap>
+time_minutes: <total time incl. hands-on: 45 weekdays (50 Wednesday), 180 Sat, 120 Sun, 20 radar, 15 recap>
 read_minutes: <minutes to read the post itself, without doing the exercise>
 summary: "<one sentence>"
 takeaways:
@@ -108,7 +111,7 @@ curated_with_ai: true
 ## Length and shape (C6)
 
 - Weekday posts: a 7–12 minute read (about 1,400–2,400 words) plus the hands-on part. Wednesday is the exception:
-  about 2,800 words (see its word budgets). Build and lab: the
+  about 3,200–4,000 words, with every required section complete (see its word guides). Build and lab: the
   "5-minute version" is short; the depth goes into "Do it".
 - Every section earns its place: if a paragraph doesn't change a decision or teach a mechanism, cut it.
 - Code: keep each code block under ~40 lines and runnable. For anything longer, show the important part and say
@@ -227,41 +230,64 @@ equation worth understanding, how it's being used in practice now (if at all), l
 ### Wednesday: system (solution architecture, end to end)
 
 Take the week's `use_case` from business problem to delivery plan, the way a senior AI architect and senior
-solution architect would present it at a design review. Cover the whole path briefly; spend the depth on the
-THEME (the lens). About 2,800 words (13–15 minute read) plus a 30-minute exercise; time_minutes 45. Word budgets
-are maximums.
+solution architect would present it at a design review. Cover the whole path; spend the most depth on the THEME
+(the lens). About 3,200–4,000 words (a 15–19 minute read) plus a 30-minute exercise; time_minutes 50.
 
-1. **The business case (200 words):** organisation type, the problem, the users, the KPI that defines success (a
-   number), the constraints (budget, regulation, residency, existing systems, team skills), and the stakeholders
+**Completeness beats length.** The word guides below are targets, not caps: never leave out required content to
+stay under them. A section may run about 20% over its guide when the detail changes a decision. Cut only
+repetition and filler, never a requirement, a component, an option or a number.
+
+**Fixed headings.** Use these `##` headings exactly, in this order (the text after a colon is yours to fill in).
+`scripts/check_dive.py` looks for them:
+
+1. **`## The business case` (~220 words):** organisation type, the problem, the users, the KPI that defines success
+   (a number), the constraints (budget, regulation, residency, existing systems, team skills), and the stakeholders
    who must sign off and what each needs to see.
-2. **Do we need AI here? (100 words):** the simplest option that could work (rules, search, classic ML, a better
-   process) and why it falls short, or why it doesn't.
-3. **Requirements (200 words):** functional requirements, then a non-functional table: latency, throughput,
-   availability, RPO/RTO, security and privacy, regulation (name the specific rules: EU AI Act risk class, GDPR,
-   UAE/KSA residency, India DPDP, sector rules), cost ceiling. State assumptions as assumptions.
-4. **High-level design (400 words):** a C4 container diagram (```mermaid) covering AI engineering (models, RAG,
-   agents, evals), data engineering (ingestion, pipelines, stores, lineage, quality), platform and deployment
+2. **`## Do we need AI here?` (~100 words):** the simplest option that could work (rules, search, classic ML, a
+   better process) and why it falls short, or why it doesn't.
+3. **`## Requirements` (~250 words):** functional requirements, then a non-functional table (Markdown table):
+   latency, throughput, availability, RPO/RTO, security and privacy, regulation (name the specific rules: EU AI Act
+   risk class, GDPR, UAE/KSA residency, India DPDP, sector rules), cost ceiling. State assumptions as assumptions.
+4. **`## High-level design` (~400 words):** a C4 container diagram (```mermaid) covering AI engineering (models,
+   RAG, agents, evals), data engineering (ingestion, pipelines, stores, lineage, quality), platform and deployment
    (cloud, serving, CI/CD, LLMOps) and security and governance (identity, data access, PII, prompt injection,
-   audit). Then the current state: what exists today and how the new system fits beside or replaces it.
-5. **Deep dive on the THEME (700 words):** low-level design of the component the THEME is about: API contracts,
-   data model or schema, a sequence diagram, scaling, failure handling and observability.
-6. **Key decisions (400 words):** 3–4 short ADRs (decision, options, why this one, what would change it). Always
-   include one build-vs-buy or managed-vs-self-hosted decision, and the lock-in and exit plan.
-7. **How we know it works (250 words):** the offline eval set, online metrics, human review, and the go-live
+   audit). Up to ~16 nodes, grouped into those four areas with `subgraph`; if it gets bigger, split it into two
+   diagrams rather than dropping parts. Then the current state: what exists today and how the new system fits
+   beside or replaces it.
+5. **`## Components and alternatives` (~300 words):** one Markdown table with a row for every main component in the
+   diagram (at least 6: for example the model, retrieval/vector store, orchestration, tool or API gateway, data
+   pipeline, eval and observability, identity and secrets), with these columns:
+   `| Component | Our choice | Alternatives | When to switch | AWS / Azure / Google Cloud |`.
+   "Alternatives" names 2 real options (managed and open source where both exist); "When to switch" is the
+   condition that would make an alternative the better pick (scale, cost, residency, team skills, lock-in);
+   the last column names each cloud's equivalent service ("Bedrock / Azure OpenAI / Vertex AI", or "none,
+   self-host"). Follow the table with 2–3 sentences on the one choice readers most often get wrong.
+6. **`## Deep dive: <the THEME in plain words>` (~800 words):** open with a concept recap (~80–100 words: what the
+   THEME is, the mechanism in one or two sentences, and why it is the hard part of this use case), linking
+   Monday's Part B post when it exists. Then the low-level design of the component the THEME is about: API
+   contracts, data model or schema, a sequence diagram (```mermaid with `sequenceDiagram`), scaling, failure
+   handling and observability.
+7. **`## Key decisions` (~450 words):** 3–4 ADRs, each under its own `### ADR <n>: <decision>` heading (decision,
+   options, why this one, what would change it). Always include one build-vs-buy or managed-vs-self-hosted
+   decision, with the lock-in and exit plan. The ADRs cover the big decisions in depth; the components table
+   covers the rest.
+8. **`## How we know it works` (~250 words):** the offline eval set, online metrics, human review, and the go-live
    threshold.
-8. **Sizing, cost and value (250 words):** capacity and monthly cost as a ```calc, using list prices from official
-   pricing pages with the date checked; cost per transaction against value per transaction.
-9. **From design to delivery (300 words):** proof of concept → pilot → production, team and roles, the top 3 risks
-   with mitigations, the operating model (SLOs, on-call, cost monitoring), and how users are brought on board.
-10. **How others built it:** a named organisation's real architecture for this or a close use case (engineering
-    blog, talk or postmortem) with actual detail. If none exists, a cloud provider's published reference
-    architecture, labelled as such. Then one short table mapping the main components to AWS, Azure and Google Cloud.
-11. **Explain it in 3 sentences** to the CTO, and in one more sentence to the business owner.
-12. **Exercise (30 min):** a short, deliberately flawed design for the same use case. Readers find the problems,
-    then compare with the answer in a `> [!REVEAL]` box.
-13. **Template:** end with one reusable artefact in a copyable block, rotating week to week: solution design
-    outline, ADR, non-functional requirements table, risk register, cost model. Check dives-history for last
-    week's.
+9. **`## Sizing, cost and value` (~250 words):** capacity and monthly cost as a ```calc, using list prices from
+   official pricing pages with the date checked; cost per transaction against value per transaction.
+10. **`## From design to delivery` (~300 words):** proof of concept → pilot → production, team and roles, the top 3
+    risks with mitigations, the operating model (SLOs, on-call, cost monitoring), and how users are brought on board.
+11. **`## How others built it` (~250 words):** a named organisation's real architecture for this or a close use case
+    (engineering blog, talk or postmortem) with actual detail and a link. If none exists, a cloud provider's
+    published reference architecture, labelled as such. (The cloud mapping now lives in the components table.)
+12. **`## Explain it in 3 sentences`:** 3 sentences to the CTO, and one more sentence to the business owner.
+13. **`## Exercise: find the flaws` (~200 words, 30 min):** a short, deliberately flawed design for the same use
+    case. Readers find the problems, then compare with the answer in a `> [!REVEAL]` box.
+14. **`## Template: <artefact name>` (~150 words):** one reusable artefact in a copyable fenced block, rotating week
+    to week: solution design outline, ADR, non-functional requirements table, risk register, cost model,
+    components-and-alternatives table. Check dives-history for last week's.
+
+The hook (1–3 short paragraphs) comes before the first heading; the closing line comes after the template.
 
 Record topic_key as "system:<use case>:<theme>".
 

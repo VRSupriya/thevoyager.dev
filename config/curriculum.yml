@@ -220,11 +220,11 @@ modules:
           - "Stop loops that are not converging"
         use_case: "Research analyst agent (asset management)"
       - week: 32
-        theme: "Multi-agent coordination and A2A"
+        theme: "Agent-to-agent protocols (A2A) across organisational boundaries"
         objectives:
-          - "Decide when several agents beat one agent with more tools"
-          - "Design hand-offs, shared state and failure handling between agents"
-          - "Use agent-to-agent protocols across organisational boundaries"
+          - "Explain how A2A agent cards, tasks and messages differ from MCP tool calls"
+          - "Design trust, authentication and contracts between agents owned by different organisations"
+          - "Handle partial failure and disputes when a partner's agent is slow, wrong or unavailable"
         use_case: "Procurement agents working across suppliers (logistics)"
       - week: 33
         theme: "Human-in-the-loop and approval limits"
@@ -251,174 +251,217 @@ modules:
         review: true
 
   - id: M7
+    name: "Multi-agent systems"
+    phase: "Specialise + visibility"
+    note: "Builds on M6. Week 32 covered protocols between organisations; this module is about building, evaluating and controlling teams of agents inside one system."
+    weeks:
+      - week: 37
+        theme: "Agent Skills and capability packaging"
+        objectives:
+          - "Decide when a capability should be a skill, a tool, an MCP server or a sub-agent"
+          - "Package a skill so it loads only when needed (progressive disclosure) and test that it triggers"
+          - "Version, review and share a skill library across teams without breaking agents that use it"
+        use_case: "Internal skill library for a 2,000-person engineering organisation (software)"
+      - week: 38
+        theme: "Agent frameworks and harnesses: choosing one and keeping an exit"
+        objectives:
+          - "Compare LangGraph, OpenAI Agents SDK, Claude Agent SDK, Google ADK, CrewAI and Microsoft's agent framework on state, control flow and deployment"
+          - "Learn what coding-agent harnesses (Claude Code, Codex) show about context, tools and permissions"
+          - "Keep business logic portable so a framework change does not mean a rewrite"
+        use_case: "Standardising one agent framework across business units (bank)"
+      - week: 39
+        theme: "Multi-agent topologies and context isolation"
+        objectives:
+          - "Decide when several agents beat one agent with more tools, using cost and quality numbers"
+          - "Choose between orchestrator-worker, supervisor, hand-off, parallel fan-out and critic designs"
+          - "Isolate each sub-agent's context and design what it hands back, and how state is shared"
+        use_case: "Due-diligence team of agents (private equity)"
+      - week: 40
+        theme: "Evaluating and tracing agents and multi-agent systems"
+        objectives:
+          - "Evaluate whole trajectories and tool calls, not just final answers"
+          - "Test agents against simulated users and tools, and set go-live gates"
+          - "Trace one request across several agents and find where it went wrong"
+        use_case: "Go-live gates for a customer-service agent team (telecom)"
+      - week: 41
+        theme: "Failure modes, budgets and control of multi-agent systems"
+        objectives:
+          - "Recognise loops, error cascades, conflicting writes and runaway cost between agents"
+          - "Set token, time and spend budgets with circuit breakers and a kill switch"
+          - "Run a multi-agent system in production: alerts, on-call and safe rollback"
+        use_case: "Autonomous incident-response agents (cloud provider)"
+      - week: 42
+        review: true
+
+  - id: M8
     name: "Recommendation systems"
     phase: "Specialise + visibility"
     weeks:
-      - week: 37
+      - week: 43
         theme: "Recsys foundations: retrieval then ranking, collaborative filtering, two-tower models"
         objectives:
           - "Explain the two-stage retrieval and ranking architecture"
           - "Build candidate generation with two-tower embeddings"
           - "Handle cold start for new users and items"
         use_case: "Homepage recommendations (e-commerce)"
-      - week: 38
+      - week: 44
         theme: "Ranking and features: feature stores, learning to rank, deep ranking models"
         objectives:
           - "Design features and keep training and serving consistent"
           - "Choose a ranking model and loss for the business goal"
           - "Run a feature store in production"
         use_case: "News and content feed ranking (media)"
-      - week: 39
+      - week: 45
         theme: "Real-time recommendations: session models, event pipelines, freshness"
         objectives:
           - "Build a streaming feature pipeline"
           - "React to what a user did seconds ago"
           - "Meet tight latency budgets at peak"
         use_case: "Real-time recommendations in a delivery app (logistics and food delivery)"
-      - week: 40
+      - week: 46
         theme: "LLMs and generative recommenders: semantic IDs, LLM ranking, conversational recommendations"
         objectives:
           - "Judge where LLMs genuinely improve recommendations"
           - "Explain semantic IDs and generative retrieval"
           - "Keep LLM-based ranking within latency and cost limits"
         use_case: "Conversational shopping assistant (retail)"
-      - week: 41
+      - week: 47
         theme: "Evaluation and experimentation: offline metrics, A/B tests, interleaving, bandits"
         objectives:
           - "Design an experiment that measures business impact"
           - "Avoid popularity feedback loops and unfair exposure"
           - "Use bandits where A/B tests are too slow"
         use_case: "Experimentation platform for a streaming service (media streaming)"
-      - week: 42
+      - week: 48
         review: true
 
-  - id: M8
+  - id: M9
     name: "Enterprise solution architecture"
     phase: "Specialise + visibility"
     weeks:
-      - week: 43
+      - week: 49
         theme: "Regulation and governance: EU AI Act, UAE and KSA rules, India DPDP, model risk"
         objectives:
           - "Classify a system's risk under the EU AI Act and list the duties that follow"
           - "Map data residency and privacy rules to architecture decisions"
           - "Set up model risk management that auditors accept"
         use_case: "Clinical documentation assistant (healthcare)"
-      - week: 44
+      - week: 50
         theme: "Integrating with legacy systems: APIs, events, mainframe, replacing RPA"
         objectives:
           - "Connect AI to systems of record without breaking them"
           - "Choose between APIs, events and batch for each integration"
           - "Plan a strangler-style migration away from RPA scripts"
         use_case: "Core-system modernisation with AI (insurance)"
-      - week: 45
+      - week: 51
         theme: "Responsible AI: fairness, explainability, content safety, AI policy"
         objectives:
           - "Measure and reduce unfair outcomes"
           - "Explain AI decisions to users, auditors and regulators"
           - "Turn an AI policy into enforceable technical controls"
         use_case: "Credit and hiring decisions with human review (financial services and HR)"
-      - week: 46
+      - week: 52
         theme: "Multimodal pipelines: vision, speech, video"
         objectives:
           - "Design pipelines for images, audio and video at scale"
           - "Choose between multimodal models and specialised ones"
           - "Control the cost of multimodal processing"
         use_case: "Field-service inspection from photos (utilities and infrastructure)"
-      - week: 47
+      - week: 53
         theme: "Platform strategy, build vs buy, multi-cloud"
         objectives:
           - "Decide what to build, buy or assemble, and when to revisit it"
           - "Avoid lock-in with gateways and portable data"
           - "Run AI across more than one cloud without doubling the work"
         use_case: "Group-wide AI platform for a conglomerate (diversified group)"
-      - week: 48
+      - week: 54
         review: true
 
-  - id: M9
+  - id: M10
     name: "Capstones"
     phase: "Interviews + applications"
     note: "Each week is one full reference architecture. Monday revisits the building blocks it needs; Thursday is a full mock interview round on it."
     weeks:
-      - week: 49
+      - week: 55
         theme: "Capstone: enterprise knowledge platform (M1, M2)"
         objectives:
           - "Combine retrieval, evals, ingestion, permissions and memory into one design"
           - "Defend every major decision with an ADR"
           - "Present it in 10 minutes to a mixed audience"
         use_case: "Enterprise knowledge platform (professional services)"
-      - week: 50
+      - week: 56
         theme: "Capstone: contact-centre AI, voice and text (M3)"
         objectives:
           - "Design for latency, cost and peak load together"
           - "Plan capacity and cost for a year"
           - "Present trade-offs to a CTO and a CFO"
         use_case: "Contact-centre AI (telecom)"
-      - week: 51
-        theme: "Capstone: regulated banking agent platform (M4, M6, M8)"
+      - week: 57
+        theme: "Capstone: regulated banking agent platform (M4, M6, M7, M9)"
         objectives:
-          - "Combine security, agents, approvals and regulation in one design"
+          - "Combine security, multi-agent coordination, approvals and regulation in one design"
           - "Pass a mock architecture review"
           - "Write the risk register and operating model"
         use_case: "Regulated banking agent platform (banking)"
-      - week: 52
+      - week: 58
         theme: "Capstone: own-model platform (M5)"
         objectives:
           - "Plan fine-tuning, alignment, serving and evaluation for a domain model"
           - "Justify the investment against API alternatives"
           - "Design the retraining loop"
         use_case: "Domain model platform (healthcare or legal)"
-      - week: 53
-        theme: "Capstone: personalised commerce (M7)"
+      - week: 59
+        theme: "Capstone: personalised commerce (M8)"
         objectives:
           - "Combine recommendations with an LLM assistant"
           - "Design the experiment that proves value"
           - "Plan real-time features and serving"
         use_case: "Personalised commerce platform (retail)"
-      - week: 54
+      - week: 60
         review: true
 
-  - id: M10
+  - id: M11
     name: "Architect leadership"
     phase: "Interviews + applications"
     note: "Tuesday uses a study, survey or well-known postmortem instead of a paper; Saturday produces an artefact (ADR, roadmap, business case) instead of code."
     weeks:
-      - week: 55
+      - week: 61
         theme: "Running design reviews and writing ADRs"
         objectives:
           - "Run a design review that finds real problems"
           - "Write ADRs people read and follow"
           - "Review someone else's design constructively"
         use_case: "Architecture review board for AI projects (enterprise)"
-      - week: 56
+      - week: 62
         theme: "Cost ownership and FinOps for AI"
         objectives:
           - "Own an AI budget and forecast it"
           - "Set unit economics targets and track them"
           - "Cut cost without cutting quality"
         use_case: "AI FinOps for a multi-product company (SaaS)"
-      - week: 57
+      - week: 63
         theme: "Business cases and stakeholder management"
         objectives:
           - "Write a business case with value, cost and risk"
           - "Map stakeholders and what each needs to say yes"
           - "Handle a sceptical executive"
         use_case: "Business case for an AI programme (manufacturing)"
-      - week: 58
+      - week: 64
         theme: "Technical roadmaps and platform adoption"
         objectives:
           - "Build a 12-month roadmap with clear bets"
           - "Drive adoption of a platform across teams"
           - "Measure whether the platform is working"
         use_case: "Roadmap for an internal AI platform (retail group)"
-      - week: 59
+      - week: 65
         theme: "Architecture governance, mentoring and delegation"
         objectives:
           - "Set standards without becoming a bottleneck"
           - "Mentor engineers into architects"
           - "Delegate design work and keep quality"
         use_case: "AI centre of excellence operating model (enterprise)"
-      - week: 60
+      - week: 66
         review: true
 
-# Weeks 61–64: spare. Use them to catch up, repeat a weak module, or add a capstone. Until you fill them in, the
-# routine treats them as review weeks.
+# Weeks after 66 are not planned yet. Add a module or capstone here; until then the routine treats them
+# as review weeks.

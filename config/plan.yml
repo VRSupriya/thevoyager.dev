@@ -6,5 +6,5 @@ review_week_every: 6          # in weeks 6, 12, 18…: Saturday Recap post + Sun
 phases:                       # by week of the plan (week 1 = start_date); weekly themes are in config/curriculum.yml
   - {weeks: [1, 12],  name: "Foundations + LLM application layer"}
   - {weeks: [13, 24], name: "Production depth"}
-  - {weeks: [25, 48], name: "Specialise + visibility"}
-  - {weeks: [49, 64], name: "Interviews + applications"}
+  - {weeks: [25, 54], name: "Specialise + visibility"}
+  - {weeks: [55, 66], name: "Interviews + applications"}

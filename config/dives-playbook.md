@@ -166,9 +166,9 @@ concept, see the frontier, apply it, defend it, read real code, build it.
 | Sun | lab | The research ladder (its own sequence, not the THEME) |
 
 Every themed post serves at least one of the week's `objectives`; name it to yourself before you write. Link the
-week's earlier posts where they help (`related:` and in the text). In MODULE M10, Tuesday uses a well-known study,
+week's earlier posts where they help (`related:` and in the text). In MODULE M11, Tuesday uses a well-known study,
 survey or postmortem instead of a paper, and Saturday produces an artefact (an ADR, a roadmap, a business case)
-instead of code. In MODULE M9 (capstones), Monday revisits the building blocks the capstone needs and Thursday is a
+instead of code. In MODULE M10 (capstones), Monday revisits the building blocks the capstone needs and Thursday is a
 full mock interview round on the capstone.
 
 ## How it's done now (every post)
@@ -208,7 +208,7 @@ useful even to readers who never do the exercise.
   mechanism, with a diagram), the main variants and their trade-offs, numbers worth knowing, how it's done now
   (see above), failure modes, when NOT to use it, and a 10-minute try-it. End with a quiz. Part B is the
   foundation the rest of the week builds on, so it carries the most depth.
-- In MODULE M9, Part B is "What this capstone needs": a short refresher of the building blocks it combines, with
+- In MODULE M10, Part B is "What this capstone needs": a short refresher of the building blocks it combines, with
   links to the posts that taught them.
 
 ### Tuesday: research
@@ -225,7 +225,7 @@ Pick the paper in this order, and say in your report which rule you used:
 Body: the problem, the core idea in plain words, why it works, results (verified on the paper itself, never only a
 blog summary; a ```chart of the key table where it helps), the architectural implication, the one figure or
 equation worth understanding, how it's being used in practice now (if at all), links to paper and code. End with a
-```quiz. In MODULE M10, use a well-known study, survey or postmortem instead.
+```quiz. In MODULE M11, use a well-known study, survey or postmortem instead.
 
 ### Wednesday: system (solution architecture, end to end)
 
@@ -306,7 +306,7 @@ call a question "reported", cite the public source; otherwise label it "in the s
 ROTATION STATE (never restart the counters): take it from data/dives-history.json. Let N = the number of earlier
 entries with track "interview". Then use question type = type number (N mod 6), in the order above; company =
 (N mod 6), in the order Google, OpenAI, Anthropic, Meta, Microsoft, AWS; role = (N mod 4), in the order above.
-Record them in topic_key as "interview:<type>:<company>:<role>:<topic>". In MODULE M9, Thursday is a full mock
+Record them in topic_key as "interview:<type>:<company>:<role>:<topic>". In MODULE M10, Thursday is a full mock
 round on the capstone.
 
 ### Friday: github
@@ -336,7 +336,7 @@ it's worth building, requirements, architecture (diagram), stack (lean on Python
 step-by-step milestones, stretch goals. Then a "## Build your own" box: a short fill-in template readers can copy
 to scope their own 3-hour project (goal, which of this week's ideas it uses, inputs/outputs, must-have vs
 nice-to-have, 3 milestones, how you'll know it works). Record Option A's title as current_build in
-config/progress.yml. In MODULE M10, the build is an artefact (an ADR, a roadmap, a business case) with a template
+config/progress.yml. In MODULE M11, the build is an artefact (an ADR, a roadmap, a business case) with a template
 and a worked example.
 
 ### Sunday: lab

@@ -17,11 +17,11 @@ const moduleState = (m: { weeks: { week: number }[] }) => {
 	const last = m.weeks[m.weeks.length - 1].week;
 	return currentWeek > last ? 'past' : currentWeek >= first ? 'now' : 'next';
 };
-const totalWeeks = 64;
+const totalWeeks = Math.max(...modules.flatMap((m) => m.weeks.map((w) => w.week)));
 const progress = Math.min(100, Math.max(0, Math.round(((currentWeek - 1) / totalWeeks) * 100)));
 ---
 
-<Base title="Curriculum · Deep Dives" description="The Deep Dives syllabus: 10 modules over 64 weeks, from LLM applications and data foundations to fine-tuning, recommendation systems and architect leadership.">
+<Base title="Curriculum · Deep Dives" description="The Deep Dives syllabus: 11 modules over 66 weeks, from LLM applications and data foundations to fine-tuning, multi-agent systems, recommendation systems and architect leadership.">
 	<header class="page-head">
 		<p class="eyebrow"><a href="/deep-dives/">Deep Dives</a> · Curriculum</p>
 		<h1>The curriculum</h1>
@@ -95,7 +95,6 @@ const progress = Math.min(100, Math.max(0, Math.round(((currentWeek - 1) / total
 				);
 			})
 		}
-		<p class="spare">Weeks 61–64 are spare: time to catch up, repeat a module or add a capstone.</p>
 	</div>
 </Base>
 
@@ -265,11 +264,6 @@ const progress = Math.min(100, Math.max(0, Math.round(((currentWeek - 1) / total
 		color: var(--track);
 		text-decoration: none;
 		font-weight: 600;
-	}
-	.spare {
-		font-size: 0.88rem;
-		color: var(--muted);
-		text-align: center;
 	}
 	@media (max-width: 520px) {
 		.wk {

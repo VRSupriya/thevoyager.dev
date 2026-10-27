@@ -145,5 +145,12 @@
     "week": 4,
     "title": "Your citations code may 400 this week. Plus: how to design retrieval you can defend",
     "topic_key": "models-agentic:claude-api-2026-10-21-citations-breaking-change-google-cloud-anthropic-managed:retrieval-rag-design"
+  },
+  {
+    "date": "2026-10-27",
+    "track": "research",
+    "week": 4,
+    "title": "Three RAG upgrades that should add 47% added 17%: a 450-configuration study of what composes",
+    "topic_key": "research:lasagna-rag-compositionality-sub-additive-retrieval-gains-corpus-scale"
   }
 ]

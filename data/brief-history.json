@@ -1120,5 +1120,83 @@
     "slot": "quick",
     "title": "LangChain company harness",
     "url": "https://www.langchain.com/blog/components-building-company-harness"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "top",
+    "title": "Cloudflare GLM-5.3 KV cache exposure (SGLang)",
+    "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "models",
+    "title": "OpenAI GPT-6.1 Terra",
+    "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "agents",
+    "title": "Forever Security AGENTS.md Downloads hijack of Codex and Claude Code",
+    "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "research",
+    "title": "Compaction benchmarks (Salle et al.)",
+    "url": "https://arxiv.org/abs/2610.31778"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "people",
+    "title": "Simon Willison: webframe evaluation",
+    "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "architecture",
+    "title": "Ubicloud vLLM tool-call accuracy and constrained decoding",
+    "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "quick",
+    "title": "KRAFTON Raon-1-mini-preview",
+    "url": "https://huggingface.co/KRAFTON/Raon-1-mini-preview"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "quick",
+    "title": "OpenAI Decisions API",
+    "url": "https://developers.openai.com/api/docs/guides/decisions"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "quick",
+    "title": "LiteLLM 1.107.0 root cause",
+    "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "quick",
+    "title": "MLflow CVE-2026-53995",
+    "url": "https://osv.dev/vulnerability/GHSA-wqmh-qccw-pqwf"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "quick",
+    "title": "Anthropic S-1 training pause disclosure",
+    "url": "https://www.investing.com/news/stock-market-news/anthropic-discloses-monthlong-training-pause-ai-security-breaches-in-ipo-filing-4973293"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "quick",
+    "title": "SPECMEM speculative tool calling",
+    "url": "https://arxiv.org/abs/2610.31840"
+  },
+  {
+    "date": "2026-10-27",
+    "slot": "quick",
+    "title": "Continual Learning Exam benchmark",
+    "url": "https://huggingface.co/papers/2610.33956"
   }
 ]

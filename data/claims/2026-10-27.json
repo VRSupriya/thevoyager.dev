@@ -1,0 +1,380 @@
+{
+  "date": "2026-10-27",
+  "items": [
+    {
+      "slot": "top",
+      "vendor": "Cloudflare",
+      "event_date": "2026-10-26",
+      "status": "Incident",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "number",
+          "claim": "KV pool of 681,280 tokens against a 1,048,576-token context window",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "quote": "681,280 tokens",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "155 responses affected, all to prompts longer than 681,280 tokens, between 27 August and 9 September",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "quote": "In total, 155 responses were affected, all to prompts longer than 681,280 tokens.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "found no evidence of deliberate exploitation",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "quote": "We found no evidence of deliberate exploitation.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "version",
+          "claim": "Fixed in SGLang v0.5.22 or later (patch first shipped in v0.5.20)",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "quote": "Upgrade to a build that includes #36988 and #38935 (v0.5.22 or later)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "Severity: no rating given",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "quote": "(searched whole post: no severity/CVSS rating found)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "remediation",
+          "claim": "Stopgap: compare each node's KV pool size with the context length and lower the context length if the pool is smaller",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "quote": "If the pool is smaller, lower the context length to fit.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "If compromised: not stated in the advisory",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "quote": "(searched whole post: only customer-facing instruction is to report issues at hackerone.com/cloudflare; no notification or rotation steps)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "models",
+      "vendor": "OpenAI",
+      "event_date": "2026-10-26",
+      "status": "GA",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "price",
+          "claim": "$1 input, $5 output, $0.05 cached input per million; 1,050,000 context; 128,000 max output",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+          "quote": "$1 per 1M tokens ... $5 per 1M tokens ... $0.05 per 1M tokens ... 1,050,000 ... 128,000",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "price",
+          "claim": "Cache writes $1.25 per million for 30 minutes and $2.50 for 12 hours",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+          "quote": "$1.25 per 1M tokens with 30-minute retention, or $2.50 per 1M tokens with 12-hour retention, before long-context adjustments",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "date",
+          "claim": "Available from 26 October in the OpenAI API",
+          "url": "https://developers.openai.com/api/docs/changelog",
+          "quote": "Oct 26, 2026: Released GPT-6.1 Terra",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "status",
+          "claim": "AWS announced it generally available on Bedrock the same day",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-6-1-terra-on-amazon-bedrock/",
+          "quote": "the general availability of OpenAI GPT-6.1 Terra on Amazon Bedrock",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "AWS says more than three times faster than GPT-6.1 Sol and GPT-6 Astra, at input and output prices at least 50% lower than Sol's",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-6-1-terra-on-amazon-bedrock/",
+          "quote": "completed tasks more than three times faster than GPT-6 Astra and GPT-6.1 Sol",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "The speed claim has no stated task set",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-6-1-terra-on-amazon-bedrock/",
+          "quote": "In OpenAI's Agents' Last Exam evaluation",
+          "verdict": "CORRECTED",
+          "fix": "AWS attributes the speed claim to OpenAI's Agents' Last Exam evaluation; it gives no further detail on the tasks. Say the evaluation is named but not described."
+        },
+        {
+          "kind": "attribution",
+          "claim": "Simon Willison puts it in the slot Sonnet holds in Anthropic's lineup",
+          "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/",
+          "quote": "Terra sits in the same position as Sonnet in the Anthropic model collection.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "agents",
+      "vendor": "Forever Security",
+      "event_date": "2026-10-22",
+      "status": "Research",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "number",
+          "claim": "Codex was steered into adding an MCP server to its machine-wide config and installing function-color, succeeding in more than 90% of attempts (share: 'machine-wide config change in more than 90% of the researchers' attempts')",
+          "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+          "quote": "In our testing, Codex ran the malware in more than 90% of attempts.",
+          "verdict": "CORRECTED",
+          "fix": "The 90% figure is for Codex running the malware. The post gives no rate for the config write and says 'The write is unreliable'. Codex also needed a child codex exec run with --dangerously-bypass-approvals-and-sandbox. Fix the brief and the share text."
+        },
+        {
+          "kind": "number",
+          "claim": "Claude Code wrote ANTHROPIC_BASE_URL into its settings about half the time, exposing its OAuth token",
+          "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+          "quote": "succeeded \"about half the time\" (.claude/settings.json write); token sent to attacker server",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "no versions are given",
+          "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+          "quote": "(searched whole post: names Codex, OpenAI Codex, Claude Code, Claude; no version numbers)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "remediation",
+          "claim": "No fix; the researchers say there is nothing for OpenAI or Anthropic to patch",
+          "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+          "quote": "There is nothing here for OpenAI or Anthropic to patch.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "Severity: not stated",
+          "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+          "quote": "(searched whole post: no formal severity rating)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "remediation",
+          "claim": "Stopgap and compromise guidance: don't start in Downloads, read files first, keep approvals/sandbox; rotate credentials, treat machine with function-color as compromised",
+          "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+          "quote": "If compromise is suspected, rotate credentials",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "research",
+      "vendor": "-",
+      "event_date": "2026-10-22",
+      "status": "Research",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "date",
+          "claim": "22 October preprint; five compaction strategies on PaperBench, ProgramBench, PostTrainBench; scaffold fixed",
+          "url": "https://arxiv.org/abs/2610.31778",
+          "quote": "Submitted on 22 Oct 2026",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "No strategy beat plain self-summarisation",
+          "url": "https://arxiv.org/html/2610.31778",
+          "quote": "No strategy beats default self-summarization.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "Discarding reasoning blocks or summarising with a small model cost some models up to 20 points on PaperBench",
+          "url": "https://arxiv.org/html/2610.31778",
+          "quote": "can cost some models up to 20 points on PaperBench",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "Abstract says conduct instructions vanish about six times more often than build specs",
+          "url": "https://arxiv.org/abs/2610.31778",
+          "quote": "dropped around 6 times more than specifications of what to build",
+          "verdict": "CORRECTED",
+          "fix": "The ratio is measured on SWE-chat sessions, not the three benchmarks; say 'about 6 times'. The share line 'six times more often than build specs' should carry the same scope."
+        },
+        {
+          "kind": "number",
+          "claim": "On ProgramBench the first summary loses about 0.92 of three anti-cheating rules on average",
+          "url": "https://arxiv.org/html/2610.31778",
+          "quote": "the first compaction summary already drops on average about one of the task's three anti-cheating rules",
+          "verdict": "CORRECTED",
+          "fix": "The abstract page says about one third of the rules; the paper body says about one of three rules, and 'about 0.92 categories are dropped at the first compaction'. 0.92 counts categories, not rules. Write 'about one of the task's three anti-cheating rules'."
+        }
+      ]
+    },
+    {
+      "slot": "people",
+      "vendor": "Simon Willison",
+      "event_date": "2026-10-26",
+      "status": "Commentary",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "attribution",
+          "claim": "Willison had Claude Opus 5.5 evaluate webframe, Jeff Lindsay's Go tool",
+          "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/",
+          "quote": "Claude Opus 5.5",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Verdict: fast, lightweight JavaScript runner suited to scraping, comparable to shot-scraper; console.log to stdout",
+          "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/",
+          "quote": "a fast, lightweight browser-JavaScript runner suitable for scraping",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Rough edges: CSP failures, 0x0 viewport, hanging loads, missing HTTP metadata",
+          "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/",
+          "quote": "CSP failures, a 0×0 viewport, hanging loads, missing HTTP metadata, and limited browser controls",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Uses WKWebView, WebKitGTK or WebView2 rather than a bundled browser",
+          "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/",
+          "quote": "WKWebView on macOS, WebKitGTK on Linux, WebView2 on Windows",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "architecture",
+      "vendor": "Ubicloud",
+      "event_date": "2026-10-20",
+      "status": "Case study",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "number",
+          "claim": "Kimi K2.6 on vLLM 0.28: expected tool-call schema only 92% of the time",
+          "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+          "quote": "we got the expected tool call schema only 92% of the time",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "Enabling it server-side in vLLM 0.31 took K2VV ToolCall from 92% to 100%",
+          "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+          "quote": "from 92% to 100%",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Cause was a default: vLLM stopped enabling constrained decoding for requests that didn't ask for it",
+          "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+          "quote": "vLLM changed its default behavior for requests that do not explicitly turn constrained decoding on",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "The article doesn't name the exact flag Ubicloud used",
+          "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+          "quote": "--tool-strict-level",
+          "verdict": "CORRECTED",
+          "fix": "The article names the vLLM flag --tool-strict-level (added so users can enable tool-call strictness). Replace the sentence with that, or say which value Ubicloud used if the article does not state it."
+        }
+      ]
+    }
+  ],
+  "quick": [
+    {
+      "name": "KRAFTON Raon-1-mini-preview",
+      "url": "https://huggingface.co/KRAFTON/Raon-1-mini-preview",
+      "event_date": "2026-10-21",
+      "quote": "Raon-1 mini preview scores 70.8 and Qwen3.6-35B-A3B scores 63.2",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "OpenAI Decisions API",
+      "url": "https://developers.openai.com/api/docs/guides/decisions",
+      "event_date": "2026-10-22",
+      "quote": "The Decisions API is now generally available with gpt-6-luna.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "LiteLLM 1.107.0 root cause",
+      "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain",
+      "event_date": "2026-10-23",
+      "quote": "key revocation did not occur for the master key",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "MLflow CVE-2026-53995",
+      "url": "https://osv.dev/vulnerability/GHSA-wqmh-qccw-pqwf",
+      "event_date": "2026-10-20",
+      "quote": "MLflow FileStore trace IDs allow path traversal and arbitrary file writes",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "Anthropic S-1",
+      "url": "https://www.investing.com/news/stock-market-news/anthropic-discloses-monthlong-training-pause-ai-security-breaches-in-ipo-filing-4973293",
+      "event_date": "2026-10-26",
+      "quote": "paused training of its next-generation flagship model for more than a month",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "SPECMEM",
+      "url": "https://arxiv.org/abs/2610.31840",
+      "event_date": "2026-10-22",
+      "quote": "up to 1.74x wall-clock speedup",
+      "verdict": "CORRECTED"
+    },
+    {
+      "name": "Continual Learning Exam",
+      "url": "https://huggingface.co/papers/2610.33956",
+      "event_date": "2026-10-27",
+      "quote": "Claude Code with Opus 5, completed 47.67% of levels",
+      "verdict": "CORRECTED"
+    }
+  ]
+}

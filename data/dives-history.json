@@ -152,5 +152,12 @@
     "week": 4,
     "title": "Three RAG upgrades that should add 47% added 17%: a 450-configuration study of what composes",
     "topic_key": "research:lasagna-rag-compositionality-sub-additive-retrieval-gains-corpus-scale"
+  },
+  {
+    "date": "2026-10-28",
+    "track": "system",
+    "week": 4,
+    "title": "A knowledge assistant over policies and contracts: the retrieval design a professional-services firm can defend",
+    "topic_key": "system:enterprise-knowledge-assistant-policies-contracts-professional-services:retrieval-rag-design"
   }
 ]

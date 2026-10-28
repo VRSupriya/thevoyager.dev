@@ -1198,5 +1198,107 @@
     "slot": "quick",
     "title": "Continual Learning Exam benchmark",
     "url": "https://huggingface.co/papers/2610.33956"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "top",
+    "title": "LiteLLM proxy internal_user to proxy_admin RCE",
+    "url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "models",
+    "title": "Liquid AI LFM3 small models",
+    "url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "agents",
+    "title": "MCP C# SDK 2.0 stateless HTTP",
+    "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "people",
+    "title": "LangChain Content Studio design agent",
+    "url": "https://www.langchain.com/blog/design-agent"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "architecture",
+    "title": "Momento KV cache talk at QCon AI",
+    "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "regional",
+    "title": "Sarvam five-year defence AI MoU",
+    "url": "https://analyticsindiamag.com/ai-news/sarvam-signs-5-year-defence-ai-deal-covering-army-navy-and-air-force"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "regional",
+    "title": "Maya Research Maya 2 Native TTS",
+    "url": "https://analyticsindiamag.com/ai-news/maya-research-releases-open-weight-speech-model-supporting-12-languages"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "regional",
+    "title": "Dubai Chambers Chamber AI Hub",
+    "url": "https://gulfnews.com/business/dubai-launches-worlds-first-chamber-led-agentic-ai-marketplace-1.500724627"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "Baidu Unlimited-OCR-2",
+    "url": "https://huggingface.co/baidu/Unlimited-OCR-2"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "Entire Git Forge",
+    "url": "https://analyticsindiamag.com/ai-news/former-github-ceo-launches-git-platform-built-for-ai-agents"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "vLLM code_revision RCE CVE-2026-114053",
+    "url": "https://osv.dev/vulnerability/GHSA-h3rc-6mm3-gc2m"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "MCP Python SDK token audience advisory",
+    "url": "https://osv.dev/vulnerability/GHSA-w4fh-qvv9-3v23"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "MLflow unauthenticated RCE GHSA-26p8",
+    "url": "https://osv.dev/vulnerability/GHSA-26p8-2jq9-3vq9"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "Cloudflare Auto Router",
+    "url": "https://www.infoq.com/news/2026/10/cloudflare-auto-router/"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "GitHub Copilot assisted permissions GA",
+    "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "AWS agents triage Linux kernel CVEs",
+    "url": "https://www.infoq.com/news/2026/10/aws-ai-agents-linux-kernel-cves/"
+  },
+  {
+    "date": "2026-10-28",
+    "slot": "quick",
+    "title": "Google Cloud IAM Helper agent skills",
+    "url": "https://cloud.google.com/blog/products/identity-security/scale-agents-securely-with-iam-helper-agent-skills-and-mcp-tools/"
   }
 ]

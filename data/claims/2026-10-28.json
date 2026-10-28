@@ -1,0 +1,395 @@
+{
+  "date": "2026-10-28",
+  "items": [
+    {
+      "slot": "top",
+      "vendor": "LiteLLM",
+      "event_date": "2026-10-27",
+      "status": "Advisory",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "date",
+          "claim": "LiteLLM published an advisory on 27 October",
+          "url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45",
+          "quote": "Published: 2026-10-27 15:04 UTC (GitHub Advisory Database also: published and reviewed Oct 27, 2026)",
+          "verdict": "CORRECTED",
+          "fix": "Maintainer's repo advisory header says Sep 30, 2026; NVD published Oct 22. 27 Oct is the GitHub Advisory Database/OSV publication date. Say 'the advisory was added to the GitHub Advisory Database on 27 October'."
+        },
+        {
+          "kind": "number",
+          "claim": "scored 9.9 (Critical) on CVSS v3",
+          "url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45",
+          "quote": "CVSS v3.1: 9.9 (Critical) CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H; (CVSS v4.0 7.7 High)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Cross-domain reuse of the salt key lets internal_user escalate to proxy_admin and reach RCE",
+          "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-7hp6-4w63-5g45",
+          "quote": "The proxy uses one encryption key for two purposes: sealing secrets at rest and minting session tokens.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "version",
+          "claim": "Affected: 1.91.0-1.100.3, 1.101.0-1.101.2, 1.102.0-1.102.1, 1.103.0, 1.104.0rc1; 1.87.0-1.90.x only if EXPERIMENTAL_UI_LOGIN=true",
+          "url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45",
+          "quote": "1.91.0 up to <1.100.4; 1.101.0 <1.101.3; 1.102.0 <1.102.2; 1.103.0 <1.103.1; 1.104.0rc1 <1.104.0rc2; 1.87.0 through 1.90.x exploitable only if EXPERIMENTAL_UI_LOGIN was explicitly set to true",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "version",
+          "claim": "Fixed in 1.100.4, 1.101.3, 1.102.2, 1.103.1, 1.104.0rc2",
+          "url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45",
+          "quote": "Fixed versions: 1.100.4, 1.101.3, 1.102.2, 1.103.1, 1.104.0rc2",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "remediation",
+          "claim": "Stopgap: set EXPERIMENTAL_UI_LOGIN=false; it also breaks CLI SSO and Claude Code gateway login",
+          "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-7hp6-4w63-5g45",
+          "quote": "If you cannot upgrade immediately, set EXPERIMENTAL_UI_LOGIN=false ... also breaks CLI SSO and Claude Code gateway login.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "If compromised: not stated in the advisory beyond upgrading as soon as possible",
+          "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-7hp6-4w63-5g45",
+          "quote": "Searched OSV record, GitHub Advisory Database page and BerriAI repo advisory for compromise, indicators, rotate/rotation, exploitation observed: none present; only 'upgrade to a patched version as soon as possible' and the workaround.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Separate issue from the 1.107.0 supply-chain compromise covered last week",
+          "url": "https://www.theregister.com/security/2026/10/21/litellm-supply-chain-attack-hoovers-up-passwords-and-secrets/5304548",
+          "quote": "Compromised 1.107.0 published to PyPI/Docker on Oct 21, 2026 (credential stealer via hijacked release pipeline, no CVE); the privilege-escalation advisory concerns a salt-key flaw and does not mention 1.107.0 or supply chain (checked GHSA and repo advisory).",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "models",
+      "vendor": "Liquid AI",
+      "event_date": "2026-10-27",
+      "status": "Open-source release",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "other",
+          "claim": "LFM3-1.7B text, 256K context",
+          "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+          "quote": "256K tokens (input + output)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "LFM3-VL-2B vision, 128K",
+          "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
+          "quote": "128K tokens (input + output)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "LFM3-Omni-2B text, image, video, audio in; text or speech out, 32K",
+          "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
+          "quote": "Text, images, video with or without its soundtrack, and 16 kHz audio. Out: Text, 24 kHz speech, or interleaved text and speech; 32K tokens",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "licence",
+          "claim": "All three use LFM Open License v1.0",
+          "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+          "quote": "LFM Open License v1.0 (same on VL-2B and Omni-2B cards)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "1.7B card says it is not recommended for agentic coding",
+          "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+          "quote": "not recommended for agentic coding or complex multi-step reasoning due to its small size",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "IFEval 96.66 and BFCL V4 71.39; Qwen3.5-9B ahead on several tests",
+          "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+          "quote": "IFEval 96.66 vs 92.08; BFCL V4 71.39 vs 62.83; Qwen3.5-9B higher on GPQA Diamond 80.40 vs 63.37, SWE-bench Verified 51.20 vs 43.40, RULER 128K, AA-LCR",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "agents",
+      "vendor": "-",
+      "event_date": "2026-10-26",
+      "status": "Open-source release",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "status",
+          "claim": "C# SDK reached 2.0 (stable), implementing 2026-07-28 spec revision",
+          "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/",
+          "quote": "Microsoft announced version 2.0 as a 'stable release'; implements the '2026-07-28 revision'",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Microsoft's official C# SDK",
+          "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/",
+          "quote": "maintained in collaboration with Microsoft",
+          "verdict": "CORRECTED",
+          "fix": "Say 'the official C# SDK, maintained with Microsoft'."
+        },
+        {
+          "kind": "other",
+          "claim": "HTTP stateless by default; initialize handshake and Mcp-Session-Id gone",
+          "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/",
+          "quote": "HttpServerTransportOptions.Stateless now defaults to true; initialize handshake and Mcp-Session-Id header are gone",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Tools ask for input mid-call by throwing InputRequiredException",
+          "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/",
+          "quote": "Tools throw InputRequiredException to ask the client for input mid-call",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Tasks moved to opt-in package",
+          "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/",
+          "quote": "ModelContextProtocol.Extensions.Tasks opt-in package",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "OAuth stricter: RFC 9207 issuer validation and mandatory PKCE S256",
+          "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/",
+          "quote": "RFC 9207 issuer validation; mandatory advertised PKCE S256 support",
+          "verdict": "CORRECTED",
+          "fix": "Say 'mandatory advertised PKCE S256 support'."
+        }
+      ]
+    },
+    {
+      "slot": "people",
+      "vendor": "LangChain",
+      "event_date": "2026-10-27",
+      "status": "Case study",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "other",
+          "claim": "Content Studio on Managed Deep Agents; one Linux sandbox per Slack thread",
+          "url": "https://www.langchain.com/blog/design-agent",
+          "quote": "Each Slack thread gets its own LangSmith Sandbox, an isolated Linux machine with a filesystem and a shell.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Stage order enforced in code rather than prompts",
+          "url": "https://www.langchain.com/blog/design-agent",
+          "quote": "Now the pipeline enforces it in code, so assembly waits until every act passes review.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "Median request cost from about $8 to about 50 cents",
+          "url": "https://www.langchain.com/blog/design-agent",
+          "quote": "The median request now costs about 50 cents in model spend, down from about $8 in mid-September.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "attribution",
+          "claim": "Most hard-coded rules removed after Opus 5.5",
+          "url": "https://www.langchain.com/blog/design-agent",
+          "quote": "removed most of the hard-coded rules (after the Opus 5.5 release)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "Memory file capped at 200-line index after early version reached 500K tokens",
+          "url": "https://www.langchain.com/blog/design-agent",
+          "quote": "capped at a 200-line index ... grew to 500K tokens",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Self-reported and promotes LangChain products",
+          "url": "https://www.langchain.com/blog/design-agent",
+          "quote": "invites readers to fork the repo, deploy with Managed Deep Agents, attend GTM Engineering Live",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "architecture",
+      "vendor": "-",
+      "event_date": "2026-10-27",
+      "status": "Research",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "attribution",
+          "claim": "Momento's Khawaja Shams at QCon AI",
+          "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/",
+          "quote": "Khawaja Shams (Co-Founder and CEO of Momento), QCon AI talk, recorded Oct 27, 2026",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "4B FP8 model, 10,000-token system prompt, 12-turn chats",
+          "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/",
+          "quote": "4 billion parameter model, FP8; 10,000-token system prompt over 12 turns",
+          "verdict": "CORRECTED",
+          "fix": "Source describes a mini agentic coding simulation, not generic chat; say 'agentic-coding-style 12-turn sessions'."
+        },
+        {
+          "kind": "number",
+          "claim": "p99 TTFT 2.6 s at 12 sessions, 38.9 s at 14",
+          "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/",
+          "quote": "The p99 jumps from 2.6 seconds before at 12 concurrent to 38.9 seconds.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "16 GB DRAM tier brought p99 to 3.5 s; 32 GB moved cliff 14 to 28",
+          "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/",
+          "quote": "16 GB: p99 about 3.5 s at 14 connections; 32 GB: cliff moved from 14 to 28 sessions",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "Two GPUs: 128 tok/s without affinity, 201 with",
+          "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/",
+          "quote": "naive routing 128 tokens/sec; routing back to previous GPU 201 tokens/sec",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    }
+  ],
+  "quick": [
+    {
+      "name": "Baidu Unlimited-OCR-2",
+      "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "event_date": "2026-10-27",
+      "quote": "3B; MIT; 2026/10/27; 'state-of-the-art results on extreme hundred-page benchmarks (e.g., MarathonDocBench)'",
+      "verdict": "CORRECTED",
+      "fix": "3B, MIT, 27 Oct verified. Source claims SOTA on hundred-page benchmarks (Baidu's own MarathonDocBench) and shows a full-length book parsed in one request as a demo; SGLang setup defaults to 10-page windows. Do not state hundred pages in one request as fact."
+    },
+    {
+      "name": "Entire Git Forge",
+      "url": "https://analyticsindiamag.com/ai-news/former-github-ceo-launches-git-platform-built-for-ai-agents",
+      "event_date": "2026-10-26",
+      "quote": "Entire's source control server handles 418 pushes per second, compared with 4.7 for GitHub ... based on its own internal benchmarks; repositories can be hosted in India",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "vLLM CVE-2026-114053",
+      "url": "https://osv.dev/vulnerability/GHSA-h3rc-6mm3-gc2m",
+      "event_date": "2026-10-27",
+      "quote": "The default trust_remote_code=False configuration is not affected; introduced 0.7.3 through 0.30.0; fixed 0.31.0",
+      "verdict": "CORRECTED",
+      "fix": "RCE only when --trust-remote-code is enabled; say 'can import attacker-chosen processor code (RCE when trust_remote_code is enabled)'. CVSS 8.1 High."
+    },
+    {
+      "name": "MCP SDK advisories",
+      "url": "https://osv.dev/vulnerability/GHSA-w4fh-qvv9-3v23",
+      "event_date": "2026-10-27",
+      "quote": "Affected: PyPI mcp 1.10.0-1.29.1 and 2.0.0-2.1.1; fixed 1.30.0 and 2.2.0; set validate_token_resource=True in AuthSettings. Lists only the Python SDK and one flaw (token audience not checked), CVSS 6.8 Medium",
+      "verdict": "CORRECTED",
+      "fix": "This page supports only: Python mcp 1.10.0-1.29.1 / 2.0.0-2.1.1, fixed 1.30.0 / 2.2.0, audience-validation flaw, validate_token_resource=True needed (otherwise default off). TypeScript SDK below 1.30.1 and redirect/request-size flaws are NOT IN SOURCE (not checked on any other advisory page)."
+    },
+    {
+      "name": "MLflow tracking server",
+      "url": "https://osv.dev/vulnerability/GHSA-26p8-2jq9-3vq9",
+      "event_date": "2026-10-27",
+      "quote": "3.12.0rc0 through 3.16.1; fixed 3.17.0; CVSS 9.8; with basic authentication enabled, an attacker still needs an authenticated account that can create experiments, runs, and artifacts",
+      "verdict": "CORRECTED",
+      "fix": "Say 'unauthenticated on servers with auth disabled; with basic auth an authenticated account is needed'. Report text also says 'No fixed release was identified as of 2026-07-12' conflicting with the 3.17.0 database entry."
+    },
+    {
+      "name": "Cloudflare Auto Router",
+      "url": "https://www.infoq.com/news/2026/10/cloudflare-auto-router/",
+      "event_date": "2026-10-26",
+      "quote": "Cloudflare released Auto Router in public beta; Set the model to cloudflare/auto, and a classifier picks one per request.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "GitHub Copilot assisted permissions",
+      "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available",
+      "event_date": "2026-10-26",
+      "quote": "Assisted permissions are now generally available in GitHub Copilot CLI, GitHub Copilot app, and Visual Studio Code; administrators can block Allow All while keeping Assisted available",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "AWS kernel CVE triage",
+      "url": "https://www.infoq.com/news/2026/10/aws-ai-agents-linux-kernel-cves/",
+      "event_date": "2026-10-27",
+      "quote": "A script drops about 70% (depends on kernel configuration); agent about 3.4 seconds per CVE; two engineers usually review each table",
+      "verdict": "CORRECTED",
+      "fix": "Source says engineers 'usually' review each table, not every one; say 'engineers usually review each table'."
+    },
+    {
+      "name": "Google IAM Helper",
+      "url": "https://cloud.google.com/blog/products/identity-security/scale-agents-securely-with-iam-helper-agent-skills-and-mcp-tools/",
+      "event_date": "2026-10-27",
+      "quote": "read-only MCP tools ... Any change to an access policy pauses for human-in-the-loop (HITL) confirmation; confirmation follows customizable risk tiers",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "Sarvam defence MoU",
+      "url": "https://analyticsindiamag.com/ai-news/sarvam-signs-5-year-defence-ai-deal-covering-army-navy-and-air-force",
+      "event_date": "2026-10-27",
+      "quote": "five-year MoU with the Ministry of Defence via HQ IDS; Chanakya division; Human oversight will be retained for operational decisions; no specific project list and no timelines",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "Maya 2 Native",
+      "url": "https://analyticsindiamag.com/ai-news/maya-research-releases-open-weight-speech-model-supporting-12-languages",
+      "event_date": "2026-10-27",
+      "quote": "generates speech in 12 languages, including 11 Indian languages and English; Licensed under Apache 2.0; at least 12 GB of GPU memory for a single-session setup",
+      "verdict": "CORRECTED",
+      "fix": "Say '12 languages (11 Indian plus English)', not 12 Indian languages."
+    },
+    {
+      "name": "Dubai Chambers Chamber AI Hub",
+      "url": "https://gulfnews.com/business/dubai-launches-worlds-first-chamber-led-agentic-ai-marketplace-1.500724627",
+      "event_date": "2026-10-26",
+      "quote": "22 specialised AI agents; seven functional areas; companies operating in Dubai can access the agents",
+      "verdict": "VERIFIED"
+    }
+  ]
+}

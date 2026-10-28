@@ -110,5 +110,12 @@
     "source_url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
     "hypothesis": "At least one directory where agents are started holds an instruction file nobody on the team wrote; a launch-from-project-root rule removes that path.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-28",
+    "title": "Audit LiteLLM proxy versions and EXPERIMENTAL_UI_LOGIN",
+    "source_url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45",
+    "hypothesis": "Some LiteLLM proxies still run an affected 1.91.0-1.104.0rc1 build; patching breaks nothing if CLI SSO and Claude Code gateway login are tested first.",
+    "status": "suggested"
   }
 ]

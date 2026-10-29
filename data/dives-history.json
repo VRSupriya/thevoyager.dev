@@ -159,5 +159,12 @@
     "week": 4,
     "title": "A knowledge assistant over policies and contracts: the retrieval design a professional-services firm can defend",
     "topic_key": "system:enterprise-knowledge-assistant-policies-contracts-professional-services:retrieval-rag-design"
+  },
+  {
+    "date": "2026-10-29",
+    "track": "interview",
+    "week": 4,
+    "title": "Principal/Staff Architect, project deep-dive: your retrieval stopped improving. Walk the panel through why",
+    "topic_key": "interview:project-deep-dive:meta:principal-staff-architect:rag-plateau-triage-abstention-crag-sufficient-context"
   }
 ]

@@ -42,6 +42,13 @@
     "added": "2026-10-26"
   },
   {
+    "date": "2026-12-01",
+    "what": "Foundry Agent Service starts billing Copilot harness runtime and sandbox usage ($0.0994 per vCPU-hour, $0.0118 per GiB-hour)",
+    "who": "Teams using the Copilot harness in Foundry Agent Service",
+    "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+    "added": "2026-10-29"
+  },
+  {
     "date": "2026-12-02",
     "what": "EU AI Act: Article 50(2) steps due for generative systems placed on market before 2 Aug 2026; new prohibitions on non-consensual intimate imagery and CSAM apply",
     "who": "Providers of generative AI systems in the EU",

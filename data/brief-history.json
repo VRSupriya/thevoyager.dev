@@ -1300,5 +1300,107 @@
     "slot": "quick",
     "title": "Google Cloud IAM Helper agent skills",
     "url": "https://cloud.google.com/blog/products/identity-security/scale-agents-securely-with-iam-helper-agent-skills-and-mcp-tools/"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "top",
+    "title": "GitHub Copilot Fusion model routing",
+    "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "models",
+    "title": "Google Gemini 4 Carbon limited release",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "agents",
+    "title": "Microsoft Copilot harness in Foundry Agent Service",
+    "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "research",
+    "title": "Group memory CrossProfile attribution bias study",
+    "url": "https://huggingface.co/papers/2610.37624"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "architecture",
+    "title": "vLLM 0.32.0 security advisories batch",
+    "url": "https://github.com/advisories/GHSA-h3rc-j82p-2c3h"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "regional",
+    "title": "Oracle Fusion Claw agentic platform",
+    "url": "https://www.thenationalnews.com/future/technology/2026/10/26/oracle-launches-new-agentic-ai-to-take-on-complex-tasks-such-as-supply-chains/"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "Google EmbeddingGemma 2",
+    "url": "https://huggingface.co/papers/2610.37364"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "OpenBMB MiniCPM-OCR-1.0",
+    "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "MLflow 3.17.0 advisories",
+    "url": "https://github.com/advisories/GHSA-j7qq-vr8c-xvw3"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "MCP Python SDK redirect and ref advisories",
+    "url": "https://github.com/advisories/GHSA-5h93-6whr-6q8j"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "Check Point Yoba fake AI desktop apps",
+    "url": "https://research.checkpoint.com/2026/tricks-from-the-past-deployed-via-signed-chatgpt-and-claude-binaries/"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "Mozilla Firefox 159 security advisory",
+    "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "Anthropic UK AISI cybertesting alignment assessment",
+    "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "Amazon Bedrock AgentCore CLI 1.0",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore-cli-version-1-0-available/"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "GitHub Agentic Workflows GA",
+    "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "Surge AI Dayjob Tax",
+    "url": "https://surgehq.ai/blog/dayjob-tax"
+  },
+  {
+    "date": "2026-10-29",
+    "slot": "quick",
+    "title": "Cognition FrontierCode 2.0",
+    "url": "https://cognition.com/blog/frontier-code-2.0"
   }
 ]

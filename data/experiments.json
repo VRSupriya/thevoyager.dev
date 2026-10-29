@@ -117,5 +117,12 @@
     "source_url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45",
     "hypothesis": "Some LiteLLM proxies still run an affected 1.91.0-1.104.0rc1 build; patching breaks nothing if CLI SSO and Claude Code gateway login are tested first.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-29",
+    "title": "Copilot Fusion Standard vs current default on real tickets",
+    "source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+    "hypothesis": "On 20 recent tickets, Fusion Standard cuts cost per merged change by 30%+ at an equal merge rate.",
+    "status": "suggested"
   }
 ]

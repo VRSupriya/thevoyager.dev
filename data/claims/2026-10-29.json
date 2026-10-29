@@ -1,0 +1,349 @@
+{
+  "date": "2026-10-29",
+  "items": [
+    {
+      "slot": "top",
+      "vendor": "GitHub Copilot Fusion",
+      "event_date": "2026-10-28",
+      "status": "GA",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "status",
+          "claim": "generally available on 28 October",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+          "quote": "Copilot Fusion is generally available (changelog dated Oct 28, 2026)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Standard/High/Max and Single/Cascade/Critique; VS Code, Copilot app, CLI, JetBrains; all plans",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+          "quote": "available on all Copilot plans in Visual Studio Code, the GitHub Copilot app, GitHub Copilot CLI, and JetBrains IDEs",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "Fusion Max scored 60, within two points of Claude Code with Opus 5.5 Max, about half API cost, about 40% less time",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+          "quote": "Copilot Fusion Max scored 60, within two points of Claude Code with Opus 5.5 Max. It delivered that result at about half the average API cost per task, using about half as many tokens and taking about 40% less time per task.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "the page doesn't say who ran the cost and time measurements",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+          "quote": "Searched full page text (changelog body, 6.9k chars): only 'In the Artificial Analysis Coding Agent Index, Copilot Fusion Max scored 60...'; no words such as independent, measured, methodology, ran by anyone",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "price",
+          "claim": "billed at each model's standard rate; limited-time 30% discount on paid plans",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+          "quote": "For a limited time, users on paid Copilot plans will receive a 30% discount on model costs",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "Fusion only uses models your org policy enables",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+          "quote": "Copilot Fusion only uses the models that are enabled in your enterprise and organization model policies.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "status",
+          "claim": "separate experimental preview routes between local and cloud models; routing decision still in cloud",
+          "url": "https://github.blog/changelog/2026-10-28-github-copilot-fusion-now-supports-selection-of-local-models",
+          "quote": "Today we are shipping intelligent routing for local models into experimental preview. ... Copilot Fusion still makes routing decisions in the cloud",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "models",
+      "vendor": "Google Gemini 4 Carbon",
+      "event_date": "2026-10-28",
+      "status": "Announced",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "status",
+          "claim": "limited release to a subset of cyber defenders through the Fairwind Program",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "quote": "Starting this week, we will make Carbon available to a subset of cyber defenders and will gradually phase access to additional trusted partners through our Fairwind Program",
+          "verdict": "CORRECTED",
+          "fix": "Source: a subset of cyber defenders get it now; additional trusted partners are phased in later via the Fairwind Program. The Fairwind Program is the route for the later partners, not stated as the route for the first group."
+        },
+        {
+          "kind": "date",
+          "claim": "broader access coming soon, no date",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "quote": "Coming soon to developers, businesses, and consumers ... as soon as possible",
+          "verdict": "REMOVED",
+          "fix": ""
+        },
+        {
+          "kind": "price",
+          "claim": "$2/$10 per million, rising to $4/$20 after introductory period; page doesn't say how long",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "quote": "After the introductory period expires, the price of $4 per 1M input tokens and $20 per 1M output tokens will apply. (Searched whole page text 11k chars for introductory/period/months/until: no duration.)",
+          "verdict": "REMOVED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "59 on AA Index v5.0 ranked first; 88.2% SEC-bench Pro; 54.8% ExploitGym; 0.0% Gray Swan vs 0.7% Argon",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "quote": "Carbon ranks #1 on the recently updated v5.0 of Artificial Analysis Intelligence Index at 59 ... SEC-bench Pro (88.2%) ... ExploitGym (54.8%) ... Carbon achieves 0.0% ... 0.7% attack success rate",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "announcement gives no model ID or context window",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "quote": "Searched whole page text for 'context', 'model id', 'identifier', 'gemini-4', 'API', 'Vertex', 'AI Studio': no model identifier or context window found",
+          "verdict": "REMOVED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "agents",
+      "vendor": "Microsoft Foundry Agent Service",
+      "event_date": "2026-10-28",
+      "status": "Preview",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "status",
+          "claim": "Copilot harness in public preview on 28 October; long-running resilience GA",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "quote": "in public preview ... long-running resilience ... generally available this week (post dated October 28th, 2026)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "switching an existing agent isn't supported yet",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "quote": "switching the harness after creation isn't supported yet",
+          "verdict": "REMOVED",
+          "fix": ""
+        },
+        {
+          "kind": "price",
+          "claim": "free before 1 December; $0.0994 per vCPU-hour and $0.0118 per GiB-hour after",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "quote": "Harness runtime usage is free before December 1 ... USD $0.0994 per vCPU-hour and $0.0118 per GiB-hour",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "research",
+      "vendor": "-",
+      "event_date": "2026-10-27",
+      "status": "Research",
+      "freshness_exception": null,
+      "vendor_cap_exception": null,
+      "claims": [
+        {
+          "kind": "number",
+          "claim": "CrossProfile 60 templates, 480 tasks",
+          "url": "https://huggingface.co/papers/2610.37624",
+          "quote": "a diagnostic benchmark of 60 templates with automatically verified answer keys (480 tasks)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "rarest claims no better than random; perfect relevance filter loses 23 to 31 points to rarest-first",
+          "url": "https://huggingface.co/papers/2610.37624",
+          "quote": "Rarest-first selection is no better than random selection on average ... loses 23 to 31 points to rarest-first selection",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "removing or randomizing tags raised accuracy 13 to 24 points",
+          "url": "https://huggingface.co/papers/2610.37624",
+          "quote": "raises accuracy in the classic configuration by 13 to 24 points",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "models Qwen2.5-7B, Llama-3.1-8B and two DeepSeek models",
+          "url": "https://huggingface.co/papers/2610.37624",
+          "quote": "Across Qwen2.5-7B, Llama-3.1-8B, and two DeepSeek models",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    },
+    {
+      "slot": "architecture",
+      "vendor": "vLLM",
+      "event_date": "2026-10-28",
+      "status": "Advisory",
+      "freshness_exception": null,
+      "vendor_cap_exception": "vLLM security advisories (two RCEs) readers must act on",
+      "claims": [
+        {
+          "kind": "number",
+          "claim": "eight vLLM advisories added to GitHub Advisory Database on 28 October, all fixed in 0.32.0",
+          "url": "https://github.com/advisories/GHSA-vvpg-rrww-wpmh",
+          "quote": "Advisory DB list (github.com/advisories?query=vllm): Oct 28 entries vvpg-rrww-wpmh, 8397-8qf6-f2gm, gq5q-89c7-vhvx, h3rc-j82p-2c3h, 6757-hggm-hp2w, q97c-p368-75c4, x567-49g5-p4cf, 542m-9234-8gvf = 8; each page: Patched version 0.32.0",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "GHSA-h3rc-j82p CVSS 8.1, affected below 0.32.0, EPS labelled image/png reaches Ghostscript, vulnerable Ghostscript needed",
+          "url": "https://github.com/advisories/GHSA-h3rc-j82p-2c3h",
+          "quote": "High 8.1; < 0.32.0; An EPS payload labeled image/png reached the host's Ghostscript executable ... Deployments without Ghostscript or with a build fixed for CVE-2024-29510 are not affected by this execution chain.",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "number",
+          "claim": "GHSA-6757-hggm 7.5, --mm-processor-cache-type shm, authenticated caller, unpickles attacker bytes even with VLLM_ALLOW_INSECURE_SERIALIZATION=0",
+          "url": "https://github.com/advisories/GHSA-6757-hggm-hp2w",
+          "quote": "When --mm-processor-cache-type shm is enabled ... does not require VLLM_ALLOW_INSECURE_SERIALIZATION=1 ... An ordinary authenticated inference caller can execute arbitrary Python in the worker process",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "other",
+          "claim": "other six: CORS default *, Phi-4 audio, DeepSeek-OCR and OOV token crashes; severities Low to Moderate",
+          "url": "https://github.com/advisories/GHSA-vvpg-rrww-wpmh",
+          "quote": "CORS: Low 3.4, allowed_origins defaulting to [\"*\"], no authentication unless --api-key or VLLM_API_KEY. Phi-4 audio, DeepSeek-OCR, OOV token: Moderate 6.5. Also x567 (Responses API trust gate bypass) and 542m (chat template thread-pool DoS): Moderate. Note the brief's 'rest are crashes and exposure' omits the two template advisories.",
+          "verdict": "CORRECTED",
+          "fix": "Six others are Low (CORS) and Moderate (five); two of them (GHSA-x567, GHSA-542m) are chat-template DoS issues, not named in the brief."
+        },
+        {
+          "kind": "version",
+          "claim": "Upgrading to 0.32.0 also covers last week's code_revision fix",
+          "url": "https://github.com/advisories/GHSA-h3rc-j82p-2c3h",
+          "quote": "GHSA-h3rc-6mm3-gc2m (code_revision RCE, High 8.1): affected >= 0.7.3, < 0.31.0; patched 0.31.0; published to repo Oct 6, to Advisory DB Oct 27; requires --trust-remote-code",
+          "verdict": "CORRECTED",
+          "fix": "0.32.0 does include it (fixed in 0.31.0), but it entered the Advisory DB on 27 Oct (repo publication 6 Oct), not 'last week', and only affects deployments with --trust-remote-code. Say 'yesterday's code_revision advisory (fixed in 0.31.0)'."
+        },
+        {
+          "kind": "remediation",
+          "claim": "Stopgap: none listed for the two RCEs; hosts without Ghostscript or patched for CVE-2024-29510 not exposed",
+          "url": "https://github.com/advisories/GHSA-h3rc-j82p-2c3h",
+          "quote": "The page has no workarounds section. Deployments without Ghostscript or with a build fixed for CVE-2024-29510 are not affected by this execution chain. (GHSA-6757: no workarounds section.)",
+          "verdict": "VERIFIED",
+          "fix": ""
+        },
+        {
+          "kind": "absence",
+          "claim": "If compromised: not stated in the advisories",
+          "url": "https://github.com/advisories/GHSA-h3rc-j82p-2c3h",
+          "quote": "Searched GHSA-h3rc-j82p and GHSA-6757-hggm full pages: only 'upgrade to 0.32.0' and Pillow/Ghostscript version notes; no compromise indicators or incident-response steps",
+          "verdict": "VERIFIED",
+          "fix": ""
+        }
+      ]
+    }
+  ],
+  "quick": [
+    {
+      "name": "EmbeddingGemma 2",
+      "url": "https://huggingface.co/papers/2610.37364",
+      "event_date": "2026-10-28",
+      "quote": "Brief says weights aren't confirmed. Paper: 'We release EmbeddingGemma 2 checkpoints to the community'; huggingface.co/google/embeddinggemma-2 exists with Safetensors weights, apache-2.0, 'The model has 740M total parameters' (paper: 744M-parameter)",
+      "verdict": "CORRECTED"
+    },
+    {
+      "name": "MiniCPM-OCR-1.0",
+      "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0",
+      "event_date": "2026-10-27",
+      "quote": "Model weights, code, and documentation are released under the Apache License 2.0; MiniCPM-OCR 1.0 (1.3B); 93.68 Real5-OmniDocBench; 1.2 pages/s on RTX 5090 (date from collection 'Updated 1 day ago', approximate)",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "MLflow 3.17.0",
+      "url": "https://github.com/advisories/GHSA-j7qq-vr8c-xvw3",
+      "event_date": "2026-10-27",
+      "quote": "Patched 3.17.0; Rotate any LLM provider key that a CrewAI LLM object held. The linked page covers only the CrewAI issue; GHSA-m65p-9j7q-6w33 (High 7.5, >= 3.10.0, < 3.17.0, fixed 3.17.0) is on a different page not linked",
+      "verdict": "CORRECTED"
+    },
+    {
+      "name": "MCP Python SDK 2.2.0 and 1.30.0",
+      "url": "https://github.com/advisories/GHSA-5h93-6whr-6q8j",
+      "event_date": "2026-10-27",
+      "quote": "followed HTTP redirects to any host ... custom headers such as an X-API-Key were sent; Supply your own HTTP client with follow_redirects left at False. The $ref fetching is a separate advisory GHSA-rwrf-2pqf-9j8j (Moderate, fixed 2.2.0/1.30.0), not linked",
+      "verdict": "CORRECTED"
+    },
+    {
+      "name": "Fake ChatGPT and Claude desktop apps",
+      "url": "https://research.checkpoint.com/2026/tricks-from-the-past-deployed-via-signed-chatgpt-and-claude-binaries/",
+      "event_date": "2026-10-27",
+      "quote": "malicious ZIP releases hosted on GitHub ... legitimate signed OpenAI executable ... loaded a malicious winmm.dll ... XMRig 6.26.0 miner ... WMProcess folder under ProgramData ... scheduled task",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "Firefox 159",
+      "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/",
+      "event_date": "2026-10-27",
+      "quote": "167 CVEs; 34 credited to OpenAI Codex Security (kylebot) and 7 to Amy Burnett of OpenAI = 41",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "Anthropic and UK AISI review",
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "event_date": "2026-10-23",
+      "quote": "In nine of AISI's 43 evaluation runs, Mythos 5 took unsanctioned actions ... None of these attempts succeeded. (Page names the model 'Mythos 5'; internet access enabled, cyber safeguards turned off. Incident reported by AISI on Aug 4.)",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "Amazon Bedrock AgentCore CLI 1.0",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore-cli-version-1-0-available/",
+      "event_date": "2026-10-28",
+      "quote": "general availability of Amazon Bedrock AgentCore CLI version 1.0 ... @aws/agentcore 1.0.0 ... agentcore migrate",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "GitHub Agentic Workflows",
+      "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
+      "event_date": "2026-10-28",
+      "quote": "now generally available ... run with read-only permissions by default ... default engine, GitHub Copilot CLI, needs a Copilot seat",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "Dayjob: Tax",
+      "url": "https://surgehq.ai/blog/dayjob-tax",
+      "event_date": "2026-10-27",
+      "quote": "Claude Sonnet 5.5 leads with a 10.8% pass rate; 50 assignments; 95% rubric threshold; built and run by Surge AI",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "FrontierCode 2.0",
+      "url": "https://cognition.com/blog/frontier-code-2.0",
+      "event_date": "2026-10-27",
+      "quote": "Claude Opus 5.5 leads at 45.5%; graded by open-source maintainers",
+      "verdict": "VERIFIED"
+    },
+    {
+      "name": "Oracle Fusion Claw",
+      "url": "https://www.thenationalnews.com/future/technology/2026/10/26/oracle-launches-new-agentic-ai-to-take-on-complex-tasks-such-as-supply-chains/",
+      "event_date": "2026-10-26",
+      "quote": "Fusion Claw, a 'governed agentic execution' platform; supply chain, shipping, restaurant operations, healthcare. Article does not state availability, preview/GA status, or UAE/GCC availability; two UAE regions (Abu Dhabi, Dubai) and two Saudi (Riyadh, Jeddah)",
+      "verdict": "VERIFIED"
+    }
+  ]
+}

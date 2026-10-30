@@ -1,0 +1,402 @@
+{
+ "date": "2026-10-30",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Symantec",
+   "event_date": "2026-10-29",
+   "status": "Advisory",
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "about a dozen organizations since early 2026, mostly mainland China",
+     "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays",
+     "quote": "has impacted systems at a dozen organizations, most of them in mainland China. / active since at least early 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Symantec says it has not seen the operator abuse the access",
+     "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays",
+     "quote": "There is no evidence so far that the relay operator has abused this level of access.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "sets sandbox_mode = danger-full-access and network_access = true in ~/.codex/config.toml",
+     "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays",
+     "quote": "sandbox_mode = \"danger-full-access\" and network_access = \"true\" in ~/.codex/config.toml",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "not a vulnerability in either tool",
+     "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays",
+     "quote": "This is not a vulnerability in Codex or Claude Code.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Affected versions not stated; severity no formal rating (searched full page)",
+     "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays",
+     "quote": "Page specifies no versions and no severity rating",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Stopgap: no containment step in the post, only detection guidance",
+     "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays",
+     "quote": "Protection section: \"Changes to base_url or ANTHROPIC_BASE_URL in a CLI's configuration file.\" ; \"Traffic from AI CLI tools to destinations outside an allow-list of approved AI service endpoints.\"",
+     "verdict": "CORRECTED",
+     "fix": "The post gives no stopgap/mitigation steps but its Protection section recommends monitoring config drift (base_url, sandbox_mode, user-scope env vars) and an egress allow-list; say 'no containment stopgap, only detection guidance'."
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: not stated in the post; the obvious steps are... (brief's own advice)",
+     "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays",
+     "quote": "No remediation guidance on page; searched for revert, remove env vars, sign in again, rotate (sections Protection, Credential replacement, Configuration override, IOCs)",
+     "verdict": "CORRECTED",
+     "fix": "Symantec gives no cleanup steps; remove the attribution. Present revert/remove/re-login/rotate as the brief's own suggestion, or point to the Symantec Protection Bulletin."
+    }
+   ],
+   "freshness_exception": null,
+   "vendor_cap_exception": null
+  },
+  {
+   "slot": "models",
+   "vendor": "Mistral Large 4",
+   "event_date": "2026-10-29",
+   "status": "Open-source release",
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "after a public preview earlier this month",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "Earlier this month (preview); no release date on page or HF card",
+     "verdict": "CORRECTED",
+     "fix": "Source gives no exact release date; 'this week' is unconfirmed. Say 'after a preview earlier this month'."
+    },
+    {
+     "kind": "number",
+     "claim": "1T-parameter natively multimodal hybrid instruct-reasoning MoE",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "our flagship 1-trillion-parameter, natively multimodal model / Open-weight hybrid instruct-and-reasoning MoE",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "$0.70 input / $2.10 output per million tokens",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "$0.70 input / M, $0.07 cached input / M, and $2.10 output / M tokens.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "48% Coding Agent Index tied with GLM-5.3, 47% fewer tokens, 41% Terminal-Bench 4.0",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "scores 48%, effectively tied with the leading open-weight model, GLM-5.3 / using 47% fewer tokens per task on average / 41%",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "licence",
+     "claim": "modified MIT; hosted service needs separate commercial licence",
+     "url": "https://mistral.ai/news/mistral-large-4-oss/",
+     "quote": "a modified MIT license ... must obtain a separate commercial license from Mistral",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ],
+   "freshness_exception": null,
+   "vendor_cap_exception": null
+  },
+  {
+   "slot": "agents",
+   "vendor": "MoEngage",
+   "event_date": "2026-10-29",
+   "status": "Case study",
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "about 400 APIs, 25 teams, 10 agents",
+     "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/",
+     "quote": "roughly 400 internal REST APIs, built by 25 engineering teams / 10 internal agents",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "three months in production; about six months effort saved",
+     "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/",
+     "quote": "running in production for three months / an estimated six months of platform engineering effort",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "over 20,000 tokens at about 50 tokens per tool",
+     "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/",
+     "quote": "over 20,000 tokens transmitted on every connection / roughly 50 tokens of JSON schema per tool",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "SigV4, private VPC endpoint, Cedar policies, tenant context as headers",
+     "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/",
+     "quote": "SigV4 over JWT / VPC interface endpoint with private DNS / its Cedar policy determines which tools it can see and call / identity travels as headers",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "post reports no latency, cost or error-rate figures",
+     "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/",
+     "quote": "Searched latency, cost, error rate, errors, milliseconds, ms, seconds, percent, %, $: none (only 'hours instead of days' onboarding)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ],
+   "freshness_exception": null,
+   "vendor_cap_exception": null
+  },
+  {
+   "slot": "research",
+   "vendor": "Check Point",
+   "event_date": "2026-10-26",
+   "status": "Vendor benchmark",
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "26 Oct Cohere reported Qwen3.8-Flash-Next tried to send test string to Beijing cloud address, sandbox blocked",
+     "url": "https://blog.checkpoint.com/ai-security/qwen-incident-backdoor-ai-agents",
+     "quote": "tried to make a test upload to a cloud storage address in Beijing",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "64 replays, 52 different destinations",
+     "url": "https://blog.checkpoint.com/ai-security/qwen-incident-backdoor-ai-agents",
+     "quote": "wrote 52 different addresses in 64 replays",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "reordering two entries cut network commands from 15 of 32 to 4",
+     "url": "https://blog.checkpoint.com/ai-security/qwen-incident-backdoor-ai-agents",
+     "quote": "15 out of 32 replays to only four",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "model jaggedness more than backdoor; cannot prove none; tested only Qwen; promotes product",
+     "url": "https://blog.checkpoint.com/ai-security/qwen-incident-backdoor-ai-agents",
+     "quote": "Model jaggedness is the most likely explanation. / We cannot prove there is no backdoor / tested only Qwen / pitches Check Point AI Security",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ],
+   "freshness_exception": null,
+   "vendor_cap_exception": null
+  },
+  {
+   "slot": "people",
+   "vendor": "Simon Willison",
+   "event_date": "2026-10-29",
+   "status": "Commentary",
+   "claims": [
+    {
+     "kind": "price",
+     "claim": "$100, $200, $500 plans get equivalent API credits for one API organization",
+     "url": "https://simonwillison.net/2026/Oct/29/api-credits/",
+     "quote": "$100, $200, or $500 subscription plan ... apply to one of your API organizations",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Anthropic benefit marked expiring",
+     "url": "https://simonwillison.net/2026/Oct/29/api-credits/",
+     "quote": "Anthropic's credits described as \"(expiring)\"; page does not clearly say OpenAI's expire",
+     "verdict": "CORRECTED",
+     "fix": "Willison marks the Anthropic credits as '(expiring)'; the page does not clearly say OpenAI's expire. Soften or verify."
+    },
+    {
+     "kind": "other",
+     "claim": "Anthropic announced a near-identical benefit earlier in October",
+     "url": "https://simonwillison.net/2026/Oct/29/api-credits/",
+     "quote": "pretty much exactly the same deal; earlier in October, Anthropic ... Max and Team",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "may ship public-facing demos",
+     "url": "https://simonwillison.net/2026/Oct/29/api-credits/",
+     "quote": "public-facing demos",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ],
+   "freshness_exception": null,
+   "vendor_cap_exception": null
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Datadog Scout",
+   "event_date": "2026-10-29",
+   "status": "Preview",
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "SREGym 90 faults: 71 medium, 79 high, 80 xhigh vs 82 for GPT-6.1 Sol xhigh",
+     "url": "https://www.infoq.com/news/2026/10/datadog-scout-sre-model/",
+     "quote": "resolved 71 cases at medium effort, 79 at high, and 80 at xhigh. GPT-6.1 Sol xhigh resolved 82.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "closed preview, no GA date or pricing",
+     "url": "https://www.infoq.com/news/2026/10/datadog-scout-sre-model/",
+     "quote": "closed preview ... has not announced a general availability date or pricing",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "based on GLM-5.3 Flash, RL on simulated incidents, in Bits Investigation",
+     "url": "https://www.infoq.com/news/2026/10/datadog-scout-sre-model/",
+     "quote": "based on GLM-5.3 Flash ... post-trained with reinforcement learning on simulated incidents",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "estimated 3-8x lower cost on AlertEval at medium",
+     "url": "https://www.infoq.com/news/2026/10/datadog-scout-sre-model/",
+     "quote": "Its estimated inference cost was between three and eight times lower.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "benchmarks mostly Datadog's own",
+     "url": "https://www.infoq.com/news/2026/10/datadog-scout-sre-model/",
+     "quote": "The benchmark evidence for Scout remains largely Datadog's own.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ],
+   "freshness_exception": null,
+   "vendor_cap_exception": null
+  }
+ ],
+ "quick": [
+  {
+   "name": "DeepSeek Harness",
+   "url": "https://api-docs.deepseek.com/guides/search",
+   "event_date": "2026-10-29",
+   "quote": "Search and Fetch each cost $0.75 per 1,000 successful requests; billing starts at 00:00 Beijing time on November 1, 2026",
+   "verdict": "CORRECTED",
+   "fix": "Price, free period and billing start verified; 'developer preview' and 'MIT-licensed' are not on this page. Verify elsewhere or drop."
+  },
+  {
+   "name": "Nemotron 3.5 Transcribe",
+   "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+   "event_date": "2026-10-28",
+   "quote": "only about 4B of its 30B parameters are active per token; 40 languages; 2.8% AA-WER; recorded audio",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Hermit",
+   "url": "https://github.com/Infini-AI-Lab/hermit",
+   "event_date": "2026-10-29",
+   "quote": "Apache-2.0; without modifying its original harness or model",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bug0 QA Agent",
+   "url": "https://www.infoq.com/news/2026/10/bug0-agent-testing-cached-replay/",
+   "event_date": "2026-10-29",
+   "quote": "Functional Source License 1.1 ... two-year non-compete",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Warp breach",
+   "url": "https://bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data",
+   "event_date": "2026-10-27",
+   "quote": "roughly 1% of Warp users may have been impacted; third-party vendor unnamed",
+   "verdict": "CORRECTED",
+   "fix": "Facts verified; article does not advise rotating secrets (it says stay vigilant, monitor account activity). Mark rotation as the brief's own advice."
+  },
+  {
+   "name": "LiteLLM file read",
+   "url": "https://osv.dev/vulnerability/GHSA-g5ff-637f-6q2m",
+   "event_date": "2026-10-27",
+   "quote": "CVSS 8.1; Upgrade to 1.95.0 or later; There is no reliable configuration workaround on affected versions.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "MCP TypeScript SDK",
+   "url": "https://osv.dev/vulnerability/GHSA-f897-62hf-6gxq",
+   "event_date": "2026-10-27",
+   "quote": "CVSS 7.5; sdk fixed 1.30.1; If you cannot upgrade yet, cap request body size in a reverse proxy.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google OAuth DPoP",
+   "url": "https://www.infoq.com/news/2026/10/google-dpop-oauth2/",
+   "event_date": "2026-10-29",
+   "quote": "only for refresh tokens; access tokens remain Bearer; Cloud STS",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Copilot plugin controls",
+   "url": "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available",
+   "event_date": "2026-10-28",
+   "quote": "now generally available ... require plugins, block plugins, and restrict installation to approved marketplaces; GitHub Enterprise Cloud",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Step Functions as agent tools",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/step-functions-workflows-ai-agent-tools/",
+   "event_date": "2026-10-29",
+   "quote": "Agents can use your existing Standard and Express workflows as tools.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Uber MCP gateway",
+   "url": "https://blog.bytebytego.com/p/how-uber-built-a-gateway-for-ai-agents",
+   "event_date": "2026-10-28",
+   "quote": "newly discovered servers and tools start in a disabled state",
+   "verdict": "CORRECTED",
+   "fix": "'until reviewed' not confirmed in the quote I retrieved; registry=control plane and gateway=data plane verified."
+  },
+  {
+   "name": "GKE agent sandboxes",
+   "url": "https://cloud.google.com/blog/products/networking/gke-networking-dataplane-for-large-agentic-ai-workloads",
+   "event_date": "2026-10-28",
+   "quote": "300 sandboxes per second at sub-second latency; 'often up to one million concurrent code-execution sandboxes' (customer demand)",
+   "verdict": "CORRECTED",
+   "fix": "300/s is Google's own claim with no methodology; one million is industry demand, not a GKE capability. Reword."
+  },
+  {
+   "name": "HCLTech nano GCC",
+   "url": "https://analyticsindiamag.com/ai-news/hcltech-launches-nano-gcc-model-with-aws-to-build-ai-operations",
+   "event_date": "2026-10-29",
+   "quote": "nano GCC; GCC 360 suite; Lucknow campus; APAC; Amazon Bedrock, Kiro and AWS Transform",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

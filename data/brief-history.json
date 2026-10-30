@@ -1402,5 +1402,119 @@
     "slot": "quick",
     "title": "Cognition FrontierCode 2.0",
     "url": "https://cognition.com/blog/frontier-code-2.0"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "top",
+    "title": "Symantec relay service rewires Codex and Claude Code",
+    "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "models",
+    "title": "Mistral Large 4 open weights",
+    "url": "https://mistral.ai/news/mistral-large-4-oss/"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "agents",
+    "title": "MoEngage AgentCore Gateway 400 APIs as agent tools",
+    "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "research",
+    "title": "Check Point Qwen incident replay",
+    "url": "https://blog.checkpoint.com/ai-security/qwen-incident-backdoor-ai-agents"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "people",
+    "title": "Simon Willison: ChatGPT API credits benefit",
+    "url": "https://simonwillison.net/2026/Oct/29/api-credits/"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "architecture",
+    "title": "Datadog Scout SRE investigation model",
+    "url": "https://www.infoq.com/news/2026/10/datadog-scout-sre-model/"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "regional",
+    "title": "HCLTech nano GCC on AWS",
+    "url": "https://analyticsindiamag.com/ai-news/hcltech-launches-nano-gcc-model-with-aws-to-build-ai-operations"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "DeepSeek Harness Search and Fetch billing",
+    "url": "https://api-docs.deepseek.com/guides/search"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "NVIDIA Nemotron 3.5 Transcribe",
+    "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "Infini-AI-Lab Hermit",
+    "url": "https://github.com/Infini-AI-Lab/hermit"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "Bug0 QA Agent",
+    "url": "https://www.infoq.com/news/2026/10/bug0-agent-testing-cached-replay/"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "Warp breach AI agent logs",
+    "url": "https://bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "LiteLLM vertex_ai_credentials file read GHSA-g5ff",
+    "url": "https://osv.dev/vulnerability/GHSA-g5ff-637f-6q2m"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "MCP TypeScript SDK request size DoS",
+    "url": "https://osv.dev/vulnerability/GHSA-f897-62hf-6gxq"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "Google OAuth DPoP for refresh tokens",
+    "url": "https://www.infoq.com/news/2026/10/google-dpop-oauth2/"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "GitHub Copilot enterprise plugin controls GA",
+    "url": "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "AWS Step Functions as AgentCore Gateway tools",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/step-functions-workflows-ai-agent-tools/"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "Uber MCP gateway for agents",
+    "url": "https://blog.bytebytego.com/p/how-uber-built-a-gateway-for-ai-agents"
+  },
+  {
+    "date": "2026-10-30",
+    "slot": "quick",
+    "title": "Google GKE networking for agent sandboxes",
+    "url": "https://cloud.google.com/blog/products/networking/gke-networking-dataplane-for-large-agentic-ai-workloads"
   }
 ]

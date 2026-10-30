@@ -124,5 +124,12 @@
     "source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
     "hypothesis": "On 20 recent tickets, Fusion Standard cuts cost per merged change by 30%+ at an equal merge rate.",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-30",
+    "title": "Mistral Large 4 vs current coding-agent default",
+    "source_url": "https://mistral.ai/news/mistral-large-4-oss/",
+    "hypothesis": "Large 4 resolves comparable tickets at lower cost per resolved ticket",
+    "status": "suggested"
   }
 ]

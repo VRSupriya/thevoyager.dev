@@ -166,5 +166,12 @@
     "week": 4,
     "title": "Principal/Staff Architect, project deep-dive: your retrieval stopped improving. Walk the panel through why",
     "topic_key": "interview:project-deep-dive:meta:principal-staff-architect:rag-plateau-triage-abstention-crag-sufficient-context"
+  },
+  {
+    "date": "2026-10-30",
+    "track": "github",
+    "week": 4,
+    "title": "claude-mem: retrieval for an agent's own memory, in three calls that each cost less than the last",
+    "topic_key": "github:thedotmack-claude-mem-progressive-disclosure-memory-retrieval:retrieval-rag-design"
   }
 ]

@@ -131,5 +131,12 @@
     "source_url": "https://mistral.ai/news/mistral-large-4-oss/",
     "hypothesis": "Large 4 resolves comparable tickets at lower cost per resolved ticket",
     "status": "suggested"
+  },
+  {
+    "date": "2026-10-31",
+    "title": "Precompute a predictable agent step (DoorDash pattern)",
+    "source_url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+    "hypothesis": "Precomputing one repeatable agent step in a nightly job halves p50 latency at equal task success.",
+    "status": "suggested"
   }
 ]

@@ -1516,5 +1516,107 @@
     "slot": "quick",
     "title": "Google GKE networking for agent sandboxes",
     "url": "https://cloud.google.com/blog/products/networking/gke-networking-dataplane-for-large-agentic-ai-workloads"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "top",
+    "title": "Cursor tampered Claude Code extension SSH backdoor",
+    "url": "https://cursor.com/blog/claude-code-extension-security-notice"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "models",
+    "title": "Amazon Bedrock OpenAI GPT-5.6 models and Daybreak Red in GovCloud",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-openai-runtime-govcloud/"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "agents",
+    "title": "LangChain Managed Deep Agents v0.10 browser and async subagents",
+    "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "research",
+    "title": "Amazon Sandman agent sandboxes on Kubernetes",
+    "url": "https://arxiv.org/abs/2610.39711"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "people",
+    "title": "Nathan Lambert: open models and cyber risks",
+    "url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "architecture",
+    "title": "DoorDash grocery reorder offline bundle agent",
+    "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "regional",
+    "title": "TRAI draft AI guidelines for telecom",
+    "url": "https://www.tribuneindia.com/news/business/trai-releases-draft-ai-guidelines-for-telecom-sector-seeks-public-comments-by-november-27"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "regional",
+    "title": "UAE Vibe Codes platform",
+    "url": "https://fastcompanyme.com/news/uae-introduces-ai-powered-coding-platform-to-help-people-build-apps-without-programming-skills/"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "LangGraph SDK path traversal CVE-2026-118667",
+    "url": "https://osv.dev/vulnerability/GHSA-3fx2-cqw9-xr3c"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "GitHub Copilot app security extension",
+    "url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "Google Cloud spend caps",
+    "url": "https://cloud.google.com/blog/topics/cost-management/google-cloud-spend-caps-now-generally-available/"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "Amazon SageMaker GPU partitioning",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-gpu-partitioning/"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "GitHub Enterprise includes Copilot",
+    "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "Airbnb Chronon",
+    "url": "https://www.infoq.com/news/2026/10/airbnb-chronon-recommendation/"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "Netflix GPU reliability",
+    "url": "https://www.infoq.com/news/2026/10/netflix-gpu-distributed-systems/"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "Netflix Titus single-tenant",
+    "url": "https://www.infoq.com/news/2026/10/netflix-titus-kubernetes-microvm/"
+  },
+  {
+    "date": "2026-10-31",
+    "slot": "quick",
+    "title": "Databricks and SAP",
+    "url": "https://www.databricks.com/blog/databricks-and-sap-unleash-end-end-data-ai-capabilities-level-enterprise-ai-transformation"
   }
 ]

@@ -1,0 +1,436 @@
+{
+ "date": "2026-10-31",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Cursor",
+   "event_date": "2026-10-29",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Live between about 2:27am and 1:35pm PT on 29 October (about 11 hours)",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Between about 2:27am PT and 1:35pm PT today",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "version",
+     "claim": "Affected: anthropic.claude-code 2.1.312 and 2.1.313, Windows and macOS",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Anthropic.claude-code version 2.1.312 and 2.1.313 for Windows and MacOS",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Anthropic says it didn't build or publish it",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "These malicious versions of the extension were not developed by Anthropic.",
+     "verdict": "CORRECTED",
+     "fix": "Cursor's notice says only 'not developed by Anthropic' (no Anthropic statement, nothing on 'publish'). Microsoft: Anthropic told Microsoft it did not develop the package ('did not develop the malicious package posted in Cursor marketplace') and its systems were not compromised. Suggest: 'Cursor says Anthropic did not develop it; Anthropic told Microsoft the same.'"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Anthropic statement (second source)",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+     "quote": "did not develop the malicious package posted in Cursor marketplace",
+     "verdict": "CORRECTED",
+     "fix": "Source supports 'did not develop' only; 'or publish' not in either page."
+    },
+    {
+     "kind": "other",
+     "claim": "Adds SSH key labelled svc-telemetry",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "appends the attacker's public key, labeled `svc-telemetry`, to your SSH authorized keys",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Tries reverse tunnel; collects names of env vars that look like keys/tokens/secrets",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+     "quote": "matching environment-variable names, not values",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Cursor: admin-permission errors blocked the SSH step on most machines",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "turning on the local SSH service requires admin rights ... would fail",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Microsoft notes files may still have been written",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+     "quote": "the loader may still write keys and persistence artifacts even when tunnel access fails",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Uninstalling the extension may not be sufficient",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Uninstalling the extension may not be sufficient",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Attack path into the marketplace isn't stated in either post",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Searched both full pages: Cursor says only 'a maliciously modified version ... was made available'; Microsoft says the article does not say how access was gained. No statement found.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: Cursor removed the version, rotated keys, rebuilt marketplace; no fixed version number stated",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Removed the malicious version from the Cursor VS Code Extension Marketplace immediately upon detection ... We rotated our keys, rebuilt the marketplace",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: no formal rating",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Searched Cursor and Microsoft pages: no severity/CVSS rating given in either.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: block 134.209.82.225",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Attacker endpoint: 134[.]209[.]82[.]225 (reverse SSH tunnel TCP 22, HTTP beacon port 8099)",
+     "verdict": "CORRECTED",
+     "fix": "IP is verified as the attacker endpoint/IOC in both posts (Microsoft: 'Configured remote SSH and HTTP destination', with hunting queries), but neither recommends blocking it. Cursor says it worked with the hosting provider to take the server offline. Reword to 'hunt for connections to 134.209.82.225 (attacker endpoint)' or mark the block as the brief's own advice."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: search authorized_keys for svc-telemetry",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+     "quote": "Remove the unauthorized svc-telemetry key only after confirming its fingerprint",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: isolate host, remove key and persistence, consider rebuilding, rotate credentials from clean machine; macOS and Windows scripts",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "isolate affected hosts, remove the key and persistence mechanisms, assess whether to rebuild, and rotate credentials from a trusted system; remediate-macos.sh and remediate-windows.ps1",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Pin publishers and add install delay (advice)",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+     "quote": "Restrict extensions to approved publishers and use an installation cooldown",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Amazon Bedrock",
+   "event_date": "2026-10-30",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "Bedrock serves OpenAI GPT-5.6 'Terra and Luna' in GovCloud (US) via Responses, Converse, Chat Completions",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-openai-runtime-govcloud/",
+     "quote": "the OpenAI GPT-5.6 models (Terra and Luna) ... Responses, Converse, and Chat Completions APIs",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Cross-Region Inference routes between the two regions; usage in Cost Explorer",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-openai-runtime-govcloud/",
+     "quote": "automatically routes inference requests across both AWS GovCloud (US) Regions ... itemized in AWS Cost Explorer",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "status",
+     "claim": "Daybreak Red 'GPT-5.6 Cyber' in GovCloud (US-East) and US East (Ohio); needs Daybreak enrollment; inference data not used for training",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-daybreak-red-govcloud-east/",
+     "quote": "available in US East (Ohio) and AWS GovCloud (US-East) ... requires enrollment in Daybreak access from OpenAI ... not used to train models",
+     "verdict": "CORRECTED",
+     "fix": "Page says 'enrollment in Daybreak access from OpenAI', not 'programme'; 'eligible customers' is via contacting OpenAI/AWS about Daybreak eligibility. GA status wording not stated explicitly on the page ('now available')."
+    },
+    {
+     "kind": "absence",
+     "claim": "Neither notice gives prices",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-openai-runtime-govcloud/",
+     "quote": "Searched both AWS notices for price/pricing: first says no pricing figures; second does not mention pricing.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "LangChain",
+   "event_date": "2026-10-29",
+   "status": "Beta",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "version",
+     "claim": "Managed Deep Agents v0.10 in public beta",
+     "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents",
+     "quote": "Managed Deep Agents v0.10 is available in public beta today.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Each conversation gets own browser in LangSmith sandbox; handoff keeps credentials out of messages and traces",
+     "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents",
+     "quote": "each conversation gets its own browser ... never ends up in the model's messages or traces",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Handoff links expire after 15 minutes",
+     "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents",
+     "quote": "Handoff links expire after 15 minutes.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Set \"async\": True; notifies parent; no polling loop",
+     "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents",
+     "quote": "\"async\": True ... never sits in a polling loop",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-10-29",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Scale test held 11,858 concurrent tiny sandboxes",
+     "url": "https://arxiv.org/abs/2610.39711",
+     "quote": "In a scale test, Sandman held 11,858 concurrent tiny sandboxes.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Four production SWE-bench Verified campaigns created 3.1 million sandboxes in October",
+     "url": "https://arxiv.org/abs/2610.39711",
+     "quote": "Four production SWE-bench Verified training campaigns created 3.1 million sandboxes in October 2026.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "42-page preprint from 29 October",
+     "url": "https://arxiv.org/abs/2610.39711",
+     "quote": "42 pages, 6 figures, 53 tables; submitted 29 Oct 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Authors say they plan to open-source the daemon, provider and pool",
+     "url": "https://arxiv.org/abs/2610.39711",
+     "quote": "We will open-source Sandman's daemon, provider and pool.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "(private note) Sandman code not released",
+     "url": "https://arxiv.org/abs/2610.39711",
+     "quote": "Searched arXiv abs page, Comments and Code/Data/Media section: no code repository link, only generic third-party toggles.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "-",
+   "event_date": "2026-10-30",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Lambert revisits view that open-weight Mythos would have been manageable; admits 'fine' undersold it",
+     "url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and",
+     "quote": "Open-weight Mythos in April would've been fine? ... he admits 'fine' undersold it",
+     "verdict": "CORRECTED",
+     "fix": "Source heading uses 'would've been fine?', not 'manageable'; use Lambert's word 'fine'."
+    },
+    {
+     "kind": "attribution",
+     "claim": "'a forced industry update to a new way of working with software'",
+     "url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and",
+     "quote": "forced industry update to a new way of working with software",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "closed models 'have played a very heavy part in the recent hacks'",
+     "url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and",
+     "quote": "have played a very heavy part in the recent hacks",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "He still argues open models help balance offence and defence",
+     "url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and",
+     "quote": "providing balance in the offense-defense equation",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "DoorDash",
+   "event_date": "2026-10-30",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Grocery reorder latency from about 16 seconds to 2",
+     "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+     "quote": "from about 16 seconds to 2 seconds",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "90 days of history; LLM spots recurring purchases; deterministic checks validate",
+     "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+     "quote": "processes 90 days of purchase history ... Batch LLM inference identifies likely recurring purchases, while deterministic validation checks the generated results",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Daily batch job",
+     "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+     "quote": "Searched whole InfoQ article for 'daily', 'nightly', 'bundle': no matches; article does not say how often the batch runs.",
+     "verdict": "CORRECTED",
+     "fix": "Say 'a batch job' / 'offline batch inference' (also fix 'nightly job' in the telegram_private and share lines 'daily batch job'). Frequency would need DoorDash's own blog."
+    },
+    {
+     "kind": "other",
+     "claim": "Stored as a reusable bundle; app fetches the bundle and resolves items against live catalogue",
+     "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+     "quote": "deterministic validation checks the generated results before storing reusable shopping list data ... resolves each item against the current catalog",
+     "verdict": "CORRECTED",
+     "fix": "Word 'bundle' is not in the article; it says 'reusable shopping list data' / 'prepared data'. Reword."
+    },
+    {
+     "kind": "other",
+     "claim": "Agent still handles reasoning such as cheaper alternatives; quantity changes/removals no model call",
+     "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+     "quote": "finding cheaper alternatives based on current prices ... update the shopping list directly without another LLM round trip",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Shopping-list views doubled; order rate up about 34%",
+     "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+     "quote": "doubled shopping list views and increased the flow's order rate by approximately 34%",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "per InfoQ's report of DoorDash's write-up",
+     "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+     "quote": "Article is by InfoQ and links DoorDash blog posts; does not explicitly attribute the metrics to the write-up.",
+     "verdict": "CORRECTED",
+     "fix": "Acceptable as 'per InfoQ'; 'of DoorDash's write-up' is an inference from the linked DoorDash posts."
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "LangGraph SDK path traversal (CVE-2026-118667)",
+   "url": "https://osv.dev/vulnerability/GHSA-3fx2-cqw9-xr3c",
+   "event_date": "2026-10-30",
+   "quote": "CVE-2026-118667 ... 4.3 (Medium) ... langgraph-sdk 0.4.0 through 0.4.5 ... fixed langgraph-sdk 0.4.6 / langgraph 1.2.14 (date not shown on page; event_date approximate)",
+   "verdict": "CORRECTED",
+   "fix": "All facts match (affected 0.4.0-0.4.5, CVSS 4.3 Medium, fixes 0.4.6 / 1.2.14); event date not stated on the OSV page, so 2026-10-30 is unconfirmed."
+  },
+  {
+   "name": "GitHub Copilot app security extension",
+   "url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app",
+   "event_date": "2026-10-28",
+   "quote": "Copilot only makes fixes in your local working copy and doesn't commit or push anything. (now in public preview)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google Cloud spend caps",
+   "url": "https://cloud.google.com/blog/topics/cost-management/google-cloud-spend-caps-now-generally-available/",
+   "event_date": "2026-10-30",
+   "quote": "Provisioned Throughput is never halted; spend caps halt pay-as-you-go and CUD-covered requests",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "SageMaker GPU partitioning",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-gpu-partitioning/",
+   "event_date": "2026-10-30",
+   "quote": "as many as seven isolated partitions ... available on P4d, P5, G7, and G7e instances",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub Enterprise includes Copilot",
+   "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot",
+   "event_date": "2026-10-28",
+   "quote": "Copilot Standalone at $10 per user per month ... does not include monthly AI credits per seat ... metered from the first request against your enterprise budget",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Airbnb Chronon",
+   "url": "https://www.infoq.com/news/2026/10/airbnb-chronon-recommendation/",
+   "event_date": "2026-10-28",
+   "quote": "nearly two days ... under a minute ... 10 to 30 seconds",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Netflix GPU reliability",
+   "url": "https://www.infoq.com/news/2026/10/netflix-gpu-distributed-systems/",
+   "event_date": "2026-10-30",
+   "quote": "more than 99.95% GPU-node availability ... deliberately designed to fail closed",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Netflix Titus single-tenant mode",
+   "url": "https://www.infoq.com/news/2026/10/netflix-titus-kubernetes-microvm/",
+   "event_date": "2026-10-30",
+   "quote": "a mode that runs one task alone on its own right-sized EC2 instance ... The rollout continues",
+   "verdict": "CORRECTED",
+   "fix": "Flink/data pipelines are described as early users, not as where rollout 'starts'; also isolation is performance isolation between trusted teams, not hostile tenants. Reword 'early users include managed Flink, streaming connectors and telemetry/logging pipelines'."
+  },
+  {
+   "name": "Databricks and SAP",
+   "url": "https://www.databricks.com/blog/databricks-and-sap-unleash-end-end-data-ai-capabilities-level-enterprise-ai-transformation",
+   "event_date": "2026-10-30",
+   "quote": "SAP Databricks and SAP Business Data Cloud Connect for Databricks are available today ... plans to bring (Genie, Lakebase)",
+   "verdict": "CORRECTED",
+   "fix": "Availability matches and Genie/Lakebase are described as planned; page gives no date (event_date approximate) and no GA label for the 'available' items."
+  },
+  {
+   "name": "TRAI draft AI rules for telecom",
+   "url": "https://www.tribuneindia.com/news/business/trai-releases-draft-ai-guidelines-for-telecom-sector-seeks-public-comments-by-november-27",
+   "event_date": "2026-10-30",
+   "quote": "Stakeholders can submit feedback by November 27, 2026; draft released October 30, 2026",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "UAE Vibe Codes",
+   "url": "https://fastcompanyme.com/news/uae-introduces-ai-powered-coding-platform-to-help-people-build-apps-without-programming-skills/",
+   "event_date": "2026-10-29",
+   "quote": "The initiative is accessible through the UAE Codes Day platform",
+   "verdict": "CORRECTED",
+   "fix": "UAE AI Office + Microsoft, announced 29 Oct on UAE Codes Day are supported; 'live online across the country' is not the page's wording (it says nationwide, accessible through the UAE Codes Day platform)."
+  }
+ ]
+}

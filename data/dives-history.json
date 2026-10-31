@@ -1,177 +1,184 @@
 [
-  {
-    "date": "2026-10-06",
-    "track": "research",
-    "week": 1,
-    "title": "ReCAP: compacting agent memory from attention you already paid for",
-    "topic_key": "research:recap-persistent-context-graph-memory-compaction"
-  },
-  {
-    "date": "2026-10-07",
-    "track": "system",
-    "week": 1,
-    "title": "Your load balancer is quietly deleting your prefix cache",
-    "topic_key": "system:llm-d-precise-prefix-cache-routing"
-  },
-  {
-    "date": "2026-10-08",
-    "track": "interview",
-    "week": 1,
-    "title": "Interview, AI/Solution Architect (Google-style): design an enterprise assistant for 50,000 employees",
-    "topic_key": "interview:system-design:google:ai-solution-architect:enterprise-assistant-permissions-aware-rag"
-  },
-  {
-    "date": "2026-10-09",
-    "track": "github",
-    "week": 1,
-    "title": "Google's AX: Kubernetes-style YAML for agents, with Redis where etcd would choke",
-    "topic_key": "github:google-ax-agent-runtime-declarative-tasks"
-  },
-  {
-    "date": "2026-10-10",
-    "track": "build",
-    "week": 1,
-    "title": "Build: a prefix-aware context broker, or a task runner that can pause mid-thought",
-    "topic_key": "build:prefix-aware-context-broker-simulator-vs-suspendable-task-runner"
-  },
-  {
-    "date": "2026-10-11",
-    "track": "lab",
-    "week": 1,
-    "title": "Lab, Step 1 (part 1): build a GPT you can read in one sitting",
-    "topic_key": "lab:step1:part1:char-gpt-from-bigram-nanogpt"
-  },
-  {
-    "date": "2026-10-12",
-    "track": "models-agentic",
-    "week": 2,
-    "title": "The newest models won't let you force a tool call. Here's what your agent loop does instead",
-    "topic_key": "models-agentic:opus-sonnet-5-5-no-forced-tool-use:agent-loop-tool-calling"
-  },
-  {
-    "date": "2026-10-13",
-    "track": "research",
-    "week": 2,
-    "title": "Your agent's recovery step helps some runs and wrecks others. A paper shows how to measure that",
-    "topic_key": "research:causal-intervention-router-agent-recovery-paired-counterfactuals"
-  },
-  {
-    "date": "2026-10-14",
-    "track": "system",
-    "week": 2,
-    "title": "An agent that survives a deploy: durable execution, and the history limit nobody mentions",
-    "topic_key": "system:durable-execution-agents-temporal-codex-history-limits"
-  },
-  {
-    "date": "2026-10-15",
-    "track": "interview",
-    "week": 2,
-    "title": "Forward Deployed Engineer, LLM system design: one customer, three latency budgets, one bill",
-    "topic_key": "interview:ml-llm-system-design:openai:forward-deployed-engineer:tiered-inference-flex-batch-cache-evals"
-  },
-  {
-    "date": "2026-10-16",
-    "track": "github",
-    "week": 2,
-    "title": "Durable Streams: the agent session as an HTTP log you can resume from any offset",
-    "topic_key": "github:durable-streams-resumable-http-streams-agent-sessions"
-  },
-  {
-    "date": "2026-10-17",
-    "track": "build",
-    "week": 2,
-    "title": "Build: a fork lab that counts your agent's rescues and harms, or a session log that survives zombie workers",
-    "topic_key": "build:paired-counterfactual-fork-lab-vs-idempotent-fenced-session-log"
-  },
-  {
-    "date": "2026-10-18",
-    "track": "lab",
-    "week": 2,
-    "title": "Lab, Step 1 (part 2): the training loop is where small GPTs quietly go wrong",
-    "topic_key": "lab:step1:part2:training-loop-warmup-cosine-adamw-clipping-eval"
-  },
-  {
-    "date": "2026-10-19",
-    "track": "models-agentic",
-    "week": 3,
-    "title": "The agent that writes its own workflow: when the plan becomes a program",
-    "topic_key": "models-agentic:managed-agents-dynamic-workflows:workflows-vs-agents"
-  },
-  {
-    "date": "2026-10-20",
-    "track": "research",
-    "week": 3,
-    "title": "Skill routing collapse: your agent has 1,000 skills installed and loads half of nothing",
-    "topic_key": "research:skill-routing-collapse-implicit-routing-preselection"
-  },
-  {
-    "date": "2026-10-21",
-    "track": "system",
-    "week": 3,
-    "title": "One MCP URL for a hundred engineers: what a tool gateway actually buys you",
-    "topic_key": "system:mcp-gateway-eon-agentcore-cedar-identity-federation"
-  },
-  {
-    "date": "2026-10-22",
-    "track": "interview",
-    "week": 3,
-    "title": "Senior AI/ML Engineer, customer scenario: 140 tools, one agent, and a customer asking for more autonomy",
-    "topic_key": "interview:customer-solution-scenario:anthropic:senior-ai-ml-engineer:tool-catalogue-bloat-workflow-vs-agent-tool-search"
-  },
-  {
-    "date": "2026-10-23",
-    "track": "github",
-    "week": 3,
-    "title": "context-mode: keep tool output out of the context window, and make the model's memory survive compaction",
-    "topic_key": "github:mksglu-context-mode-sandboxed-tool-output-fts5-session-snapshots"
-  },
-  {
-    "date": "2026-10-24",
-    "track": "build",
-    "week": 3,
-    "title": "Build: a tool gateway that says no, or a skill router you can measure",
-    "topic_key": "build:mcp-style-deny-by-default-gateway-vs-skill-preselection-recall-harness"
-  },
-  {
-    "date": "2026-10-25",
-    "track": "lab",
-    "week": 3,
-    "title": "Lab, Step 1 (part 3): scale your tiny GPT without fooling yourself",
-    "topic_key": "lab:step1:part3:bpe-tokeniser-model-sizes-6nd-compute-scaling-laws"
-  },
-  {
-    "date": "2026-10-26",
-    "track": "models-agentic",
-    "week": 4,
-    "title": "Your citations code may 400 this week. Plus: how to design retrieval you can defend",
-    "topic_key": "models-agentic:claude-api-2026-10-21-citations-breaking-change-google-cloud-anthropic-managed:retrieval-rag-design"
-  },
-  {
-    "date": "2026-10-27",
-    "track": "research",
-    "week": 4,
-    "title": "Three RAG upgrades that should add 47% added 17%: a 450-configuration study of what composes",
-    "topic_key": "research:lasagna-rag-compositionality-sub-additive-retrieval-gains-corpus-scale"
-  },
-  {
-    "date": "2026-10-28",
-    "track": "system",
-    "week": 4,
-    "title": "A knowledge assistant over policies and contracts: the retrieval design a professional-services firm can defend",
-    "topic_key": "system:enterprise-knowledge-assistant-policies-contracts-professional-services:retrieval-rag-design"
-  },
-  {
-    "date": "2026-10-29",
-    "track": "interview",
-    "week": 4,
-    "title": "Principal/Staff Architect, project deep-dive: your retrieval stopped improving. Walk the panel through why",
-    "topic_key": "interview:project-deep-dive:meta:principal-staff-architect:rag-plateau-triage-abstention-crag-sufficient-context"
-  },
-  {
-    "date": "2026-10-30",
-    "track": "github",
-    "week": 4,
-    "title": "claude-mem: retrieval for an agent's own memory, in three calls that each cost less than the last",
-    "topic_key": "github:thedotmack-claude-mem-progressive-disclosure-memory-retrieval:retrieval-rag-design"
-  }
+ {
+  "date": "2026-10-06",
+  "track": "research",
+  "week": 1,
+  "title": "ReCAP: compacting agent memory from attention you already paid for",
+  "topic_key": "research:recap-persistent-context-graph-memory-compaction"
+ },
+ {
+  "date": "2026-10-07",
+  "track": "system",
+  "week": 1,
+  "title": "Your load balancer is quietly deleting your prefix cache",
+  "topic_key": "system:llm-d-precise-prefix-cache-routing"
+ },
+ {
+  "date": "2026-10-08",
+  "track": "interview",
+  "week": 1,
+  "title": "Interview, AI/Solution Architect (Google-style): design an enterprise assistant for 50,000 employees",
+  "topic_key": "interview:system-design:google:ai-solution-architect:enterprise-assistant-permissions-aware-rag"
+ },
+ {
+  "date": "2026-10-09",
+  "track": "github",
+  "week": 1,
+  "title": "Google's AX: Kubernetes-style YAML for agents, with Redis where etcd would choke",
+  "topic_key": "github:google-ax-agent-runtime-declarative-tasks"
+ },
+ {
+  "date": "2026-10-10",
+  "track": "build",
+  "week": 1,
+  "title": "Build: a prefix-aware context broker, or a task runner that can pause mid-thought",
+  "topic_key": "build:prefix-aware-context-broker-simulator-vs-suspendable-task-runner"
+ },
+ {
+  "date": "2026-10-11",
+  "track": "lab",
+  "week": 1,
+  "title": "Lab, Step 1 (part 1): build a GPT you can read in one sitting",
+  "topic_key": "lab:step1:part1:char-gpt-from-bigram-nanogpt"
+ },
+ {
+  "date": "2026-10-12",
+  "track": "models-agentic",
+  "week": 2,
+  "title": "The newest models won't let you force a tool call. Here's what your agent loop does instead",
+  "topic_key": "models-agentic:opus-sonnet-5-5-no-forced-tool-use:agent-loop-tool-calling"
+ },
+ {
+  "date": "2026-10-13",
+  "track": "research",
+  "week": 2,
+  "title": "Your agent's recovery step helps some runs and wrecks others. A paper shows how to measure that",
+  "topic_key": "research:causal-intervention-router-agent-recovery-paired-counterfactuals"
+ },
+ {
+  "date": "2026-10-14",
+  "track": "system",
+  "week": 2,
+  "title": "An agent that survives a deploy: durable execution, and the history limit nobody mentions",
+  "topic_key": "system:durable-execution-agents-temporal-codex-history-limits"
+ },
+ {
+  "date": "2026-10-15",
+  "track": "interview",
+  "week": 2,
+  "title": "Forward Deployed Engineer, LLM system design: one customer, three latency budgets, one bill",
+  "topic_key": "interview:ml-llm-system-design:openai:forward-deployed-engineer:tiered-inference-flex-batch-cache-evals"
+ },
+ {
+  "date": "2026-10-16",
+  "track": "github",
+  "week": 2,
+  "title": "Durable Streams: the agent session as an HTTP log you can resume from any offset",
+  "topic_key": "github:durable-streams-resumable-http-streams-agent-sessions"
+ },
+ {
+  "date": "2026-10-17",
+  "track": "build",
+  "week": 2,
+  "title": "Build: a fork lab that counts your agent's rescues and harms, or a session log that survives zombie workers",
+  "topic_key": "build:paired-counterfactual-fork-lab-vs-idempotent-fenced-session-log"
+ },
+ {
+  "date": "2026-10-18",
+  "track": "lab",
+  "week": 2,
+  "title": "Lab, Step 1 (part 2): the training loop is where small GPTs quietly go wrong",
+  "topic_key": "lab:step1:part2:training-loop-warmup-cosine-adamw-clipping-eval"
+ },
+ {
+  "date": "2026-10-19",
+  "track": "models-agentic",
+  "week": 3,
+  "title": "The agent that writes its own workflow: when the plan becomes a program",
+  "topic_key": "models-agentic:managed-agents-dynamic-workflows:workflows-vs-agents"
+ },
+ {
+  "date": "2026-10-20",
+  "track": "research",
+  "week": 3,
+  "title": "Skill routing collapse: your agent has 1,000 skills installed and loads half of nothing",
+  "topic_key": "research:skill-routing-collapse-implicit-routing-preselection"
+ },
+ {
+  "date": "2026-10-21",
+  "track": "system",
+  "week": 3,
+  "title": "One MCP URL for a hundred engineers: what a tool gateway actually buys you",
+  "topic_key": "system:mcp-gateway-eon-agentcore-cedar-identity-federation"
+ },
+ {
+  "date": "2026-10-22",
+  "track": "interview",
+  "week": 3,
+  "title": "Senior AI/ML Engineer, customer scenario: 140 tools, one agent, and a customer asking for more autonomy",
+  "topic_key": "interview:customer-solution-scenario:anthropic:senior-ai-ml-engineer:tool-catalogue-bloat-workflow-vs-agent-tool-search"
+ },
+ {
+  "date": "2026-10-23",
+  "track": "github",
+  "week": 3,
+  "title": "context-mode: keep tool output out of the context window, and make the model's memory survive compaction",
+  "topic_key": "github:mksglu-context-mode-sandboxed-tool-output-fts5-session-snapshots"
+ },
+ {
+  "date": "2026-10-24",
+  "track": "build",
+  "week": 3,
+  "title": "Build: a tool gateway that says no, or a skill router you can measure",
+  "topic_key": "build:mcp-style-deny-by-default-gateway-vs-skill-preselection-recall-harness"
+ },
+ {
+  "date": "2026-10-25",
+  "track": "lab",
+  "week": 3,
+  "title": "Lab, Step 1 (part 3): scale your tiny GPT without fooling yourself",
+  "topic_key": "lab:step1:part3:bpe-tokeniser-model-sizes-6nd-compute-scaling-laws"
+ },
+ {
+  "date": "2026-10-26",
+  "track": "models-agentic",
+  "week": 4,
+  "title": "Your citations code may 400 this week. Plus: how to design retrieval you can defend",
+  "topic_key": "models-agentic:claude-api-2026-10-21-citations-breaking-change-google-cloud-anthropic-managed:retrieval-rag-design"
+ },
+ {
+  "date": "2026-10-27",
+  "track": "research",
+  "week": 4,
+  "title": "Three RAG upgrades that should add 47% added 17%: a 450-configuration study of what composes",
+  "topic_key": "research:lasagna-rag-compositionality-sub-additive-retrieval-gains-corpus-scale"
+ },
+ {
+  "date": "2026-10-28",
+  "track": "system",
+  "week": 4,
+  "title": "A knowledge assistant over policies and contracts: the retrieval design a professional-services firm can defend",
+  "topic_key": "system:enterprise-knowledge-assistant-policies-contracts-professional-services:retrieval-rag-design"
+ },
+ {
+  "date": "2026-10-29",
+  "track": "interview",
+  "week": 4,
+  "title": "Principal/Staff Architect, project deep-dive: your retrieval stopped improving. Walk the panel through why",
+  "topic_key": "interview:project-deep-dive:meta:principal-staff-architect:rag-plateau-triage-abstention-crag-sufficient-context"
+ },
+ {
+  "date": "2026-10-30",
+  "track": "github",
+  "week": 4,
+  "title": "claude-mem: retrieval for an agent's own memory, in three calls that each cost less than the last",
+  "topic_key": "github:thedotmack-claude-mem-progressive-disclosure-memory-retrieval:retrieval-rag-design"
+ },
+ {
+  "date": "2026-10-31",
+  "track": "build",
+  "week": 4,
+  "title": "Build: a retrieval harness that tells you what each choice is worth, or a contract-aware chunker",
+  "topic_key": "build:retrieval-eval-harness-chunking-context-header-rrf-vs-contract-aware-chunker:retrieval-rag-design"
+ }
 ]

@@ -1,0 +1,18 @@
+{
+  "title": "Build: a retrieval harness that measures chunking, context and fusion (synthetic contracts)",
+  "post": "build/2026-10-31",
+  "command": ["run.py"],
+  "timeout_minutes": 15,
+  "gates": [
+    {"metric": "clause_ctx/hybrid/single/hit5", "op": ">=", "value": 0.75, "label": "clause chunks + context line, hybrid: hit@5 over exact, party and paraphrase queries"},
+    {"metric": "context_lift_hit5", "op": ">=", "value": 0.5, "label": "hit@5 gained by adding the context line to clause chunks"},
+    {"metric": "structure_lift_hit5", "op": ">=", "value": 0.2, "label": "hit@5 gained by clause chunks over fixed windows (both with context)"},
+    {"metric": "multihop_one_shot_hit5", "op": "<=", "value": 0.5, "label": "multi-hop questions answered by one query"},
+    {"metric": "multihop_two_step_hit5", "op": ">=", "value": 0.9, "label": "multi-hop questions answered by two chained queries"},
+    {"metric": "aggregation_recall_at_10", "op": "<=", "value": 0.5, "label": "share of auto-renewing agreements visible in the top 10 chunks"}
+  ],
+  "experiments": [
+    {"name": "scale_4x", "args": ["--docs", "144"], "label": "4x the corpus (144 documents)"},
+    {"name": "seed_2", "args": ["--seed", "2"], "label": "another random corpus (seed 2)"}
+  ]
+}

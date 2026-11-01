@@ -1,1622 +1,1712 @@
 [
-  {
-    "date": "2026-10-04",
-    "slot": "top",
-    "title": "Agents shrink gap between fix and exploit",
-    "url": "https://www.infoq.com/news/2026/10/open-source-ai-security/"
-  },
-  {
-    "date": "2026-10-04",
-    "slot": "models",
-    "title": "GPT-6.1 Sol",
-    "url": "https://www.infoq.com/news/2026/10/openai-devday-2026/"
-  },
-  {
-    "date": "2026-10-04",
-    "slot": "agents",
-    "title": "Istio 1.31 agentgateway waypoints",
-    "url": "https://www.infoq.com/news/2026/10/istio-1-31-agentgateway/"
-  },
-  {
-    "date": "2026-10-04",
-    "slot": "research",
-    "title": "ThinkingBox",
-    "url": "https://huggingface.co/blog/microsoft/thinkingbox"
-  },
-  {
-    "date": "2026-10-04",
-    "slot": "people",
-    "title": "Simon Willison: hard budget caps",
-    "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/"
-  },
-  {
-    "date": "2026-10-04",
-    "slot": "architecture",
-    "title": "DoorDash GenAI platform",
-    "url": "https://www.infoq.com/presentations/doordash-genai-platform-architecture/"
-  },
-  {
-    "date": "2026-10-05",
-    "slot": "top",
-    "title": "Apple tightens Full Disk Access over AI agents",
-    "url": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/"
-  },
-  {
-    "date": "2026-10-05",
-    "slot": "models",
-    "title": "Cloudflare Web Search API in AI Gateway",
-    "url": "https://blog.cloudflare.com/introducing-web-search-api/"
-  },
-  {
-    "date": "2026-10-05",
-    "slot": "agents",
-    "title": "OpenAPPA agent security engine",
-    "url": "https://www.infoq.com/news/2026/10/open-APPA-zero-security-breach/"
-  },
-  {
-    "date": "2026-10-05",
-    "slot": "research",
-    "title": "Do LLM Agents Execute the Plans They Declare?",
-    "url": "https://arxiv.org/abs/2609.38108"
-  },
-  {
-    "date": "2026-10-05",
-    "slot": "people",
-    "title": "Alex Zhang on RLMs (Latent Space)",
-    "url": "https://www.latent.space/p/rlm"
-  },
-  {
-    "date": "2026-10-05",
-    "slot": "architecture",
-    "title": "Databricks REGISTER/UNREGISTER Iceberg APIs",
-    "url": "https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis"
-  },
-  {
-    "date": "2026-10-06",
-    "slot": "top",
-    "title": "Reflection AI Beam 501B MoE",
-    "url": "https://reflection.ai/blog/introducing-beam"
-  },
-  {
-    "date": "2026-10-06",
-    "slot": "models",
-    "title": "GLM 5.3 on Amazon Bedrock",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-glm-5-3/"
-  },
-  {
-    "date": "2026-10-06",
-    "slot": "agents",
-    "title": "Cloudflare cf CLI for agents",
-    "url": "https://www.infoq.com/news/2026/10/cloudflare-cf-cli/"
-  },
-  {
-    "date": "2026-10-06",
-    "slot": "research",
-    "title": "When Evidence Changes: memory repair vs re-reading",
-    "url": "https://arxiv.org/abs/2610.03902"
-  },
-  {
-    "date": "2026-10-06",
-    "slot": "people",
-    "title": "Felix Rieseberg on Cowork cloud sandboxes",
-    "url": "https://simonwillison.net/2026/Oct/5/felix-rieseberg/"
-  },
-  {
-    "date": "2026-10-06",
-    "slot": "architecture",
-    "title": "Cloudflare Containers cross-tenant disk exposure",
-    "url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
-  },
-  {
-    "date": "2026-10-06",
-    "slot": "regional",
-    "title": "Falcon-Emirati-7B",
-    "url": "https://huggingface.co/blog/tiiuae/falcon-emirati"
-  },
-  {
-    "date": "2026-10-07",
-    "slot": "top",
-    "title": "OpenAI agents on Wikimedia projects",
-    "url": "https://wikimediafoundation.org/news/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/"
-  },
-  {
-    "date": "2026-10-07",
-    "slot": "models",
-    "title": "Mistral Large 4",
-    "url": "https://mistral.ai/news/mistral-large-4/"
-  },
-  {
-    "date": "2026-10-07",
-    "slot": "agents",
-    "title": "MCP Toolbox Java SDK v1.0",
-    "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-mcp-toolbox-java-sdk-v10-agentic-data-access-for-the-enterprise/"
-  },
-  {
-    "date": "2026-10-07",
-    "slot": "research",
-    "title": "Speculative execution for on-device voice agents",
-    "url": "https://huggingface.co/papers/2610.07641"
-  },
-  {
-    "date": "2026-10-07",
-    "slot": "people",
-    "title": "Simon Willison on EmbeddingGemma 2 licensing",
-    "url": "https://simonwillison.net/2026/Oct/6/hn-49983751/"
-  },
-  {
-    "date": "2026-10-07",
-    "slot": "architecture",
-    "title": "Spanner-backed Lakehouse runtime catalog",
-    "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-powered-by-spanner/"
-  },
-  {
-    "date": "2026-10-08",
-    "slot": "top",
-    "title": "OpenAI 722 math manuscripts",
-    "url": "https://github.com/openai/math"
-  },
-  {
-    "date": "2026-10-08",
-    "slot": "models",
-    "title": "Claude Haiku 5.5",
-    "url": "https://www.anthropic.com/claude-haiku-5-5"
-  },
-  {
-    "date": "2026-10-08",
-    "slot": "agents",
-    "title": "Stacklok cloud-native agent harness",
-    "url": "https://www.latent.space/p/stacklok"
-  },
-  {
-    "date": "2026-10-08",
-    "slot": "research",
-    "title": "WebFovea",
-    "url": "https://huggingface.co/papers/2610.03036"
-  },
-  {
-    "date": "2026-10-08",
-    "slot": "people",
-    "title": "Kleppmann CCTI",
-    "url": "http://martin.kleppmann.com/2026/10/07/centre-for-cryptographic-trust-infrastructure.html"
-  },
-  {
-    "date": "2026-10-08",
-    "slot": "architecture",
-    "title": "Grab Counter Service on Aerospike",
-    "url": "https://engineering.grab.com/counter-service-storage-migration"
-  },
-  {
-    "date": "2026-10-09",
-    "slot": "top",
-    "title": "Anthropic 2026 Usage Policy update",
-    "url": "https://www.anthropic.com/news/2026-usage-policy-update"
-  },
-  {
-    "date": "2026-10-09",
-    "slot": "models",
-    "title": "GPT-6.1 Sol Ultrafast on Bedrock",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-sol-ultrafast-amazon/"
-  },
-  {
-    "date": "2026-10-09",
-    "slot": "agents",
-    "title": "Spotify Ads multi-agent patterns",
-    "url": "https://www.infoq.com/presentations/spotify-multi-agent-ai-architecture/"
-  },
-  {
-    "date": "2026-10-09",
-    "slot": "research",
-    "title": "SparseDecoding",
-    "url": "https://huggingface.co/papers/2610.12327"
-  },
-  {
-    "date": "2026-10-09",
-    "slot": "people",
-    "title": "Sam Newman on resilient systems",
-    "url": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam"
-  },
-  {
-    "date": "2026-10-09",
-    "slot": "architecture",
-    "title": "Replit + Databricks Lakebase governed apps",
-    "url": "https://www.databricks.com/blog/how-build-governed-enterprise-apps-databricks-replit-and-lakebase"
-  },
-  {
-    "date": "2026-10-10",
-    "slot": "top",
-    "title": "Anthropic unintended model actions",
-    "url": "https://www.anthropic.com/research/investigating-unintended-model-actions"
-  },
-  {
-    "date": "2026-10-10",
-    "slot": "models",
-    "title": "Gemini 4 Argon",
-    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
-  },
-  {
-    "date": "2026-10-10",
-    "slot": "agents",
-    "title": "Netflix ontology-driven observability",
-    "url": "https://www.infoq.com/presentations/netflix-observability-aiops-ontology-scale/"
-  },
-  {
-    "date": "2026-10-10",
-    "slot": "research",
-    "title": "Ai2 impactful GPU scheduling",
-    "url": "https://huggingface.co/blog/allenai/impactful-scheduling"
-  },
-  {
-    "date": "2026-10-10",
-    "slot": "people",
-    "title": "Simon Willison on Deno joining Cloudflare",
-    "url": "https://simonwillison.net/2026/Oct/9/deno-is-joining-cloudflare/"
-  },
-  {
-    "date": "2026-10-10",
-    "slot": "architecture",
-    "title": "Valkey evolution",
-    "url": "https://www.infoq.com/news/2026/10/valkey-evolution/"
-  },
-  {
-    "date": "2026-10-11",
-    "slot": "top",
-    "title": "Google Gemini agent coworker agents",
-    "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
-  },
-  {
-    "date": "2026-10-11",
-    "slot": "models",
-    "title": "Decision models: OpenAI Decisions API and Cloudflare Clef",
-    "url": "https://letsdatascience.com/news/openai-opens-decisions-api-public-beta-b69a1e40"
-  },
-  {
-    "date": "2026-10-11",
-    "slot": "agents",
-    "title": "Copilot local sandboxing GA",
-    "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5"
-  },
-  {
-    "date": "2026-10-11",
-    "slot": "research",
-    "title": "Evidence-Grounded Behavior Graph for agent oversight",
-    "url": "https://arxiv.org/abs/2610.06406"
-  },
-  {
-    "date": "2026-10-11",
-    "slot": "people",
-    "title": "LangChain model router in the harness",
-    "url": "https://www.langchain.com/blog/how-to-build-a-model-router-in-the-harness"
-  },
-  {
-    "date": "2026-10-11",
-    "slot": "architecture",
-    "title": "Cloudflare Traces open beta",
-    "url": "https://www.infoq.com/news/2026/10/cloudflare-traces-open-beta/"
-  },
-  {
-    "date": "2026-10-11",
-    "slot": "regional",
-    "title": "TII Falcon-ASR",
-    "url": "https://www.zawya.com/en/press-release/companies-news/tii-launches-falcon-emirati-alongside-new-arabic-ai-models-for-speech-and-visual-text-understanding-1523900"
-  },
-  {
-    "date": "2026-10-12",
-    "slot": "top",
-    "title": "AgentCore SDK install_packages flaws",
-    "url": "https://www.infosecurity-magazine.com/news/aws-agentcore-sdk-flaws-ai/"
-  },
-  {
-    "date": "2026-10-12",
-    "slot": "models",
-    "title": "Anthropic OSS Scanner (Cyber Mission)",
-    "url": "https://www.anthropic.com/news/anthropic-cyber-mission"
-  },
-  {
-    "date": "2026-10-12",
-    "slot": "agents",
-    "title": "Gremlin Foresight AI GA",
-    "url": "https://www.infoq.com/news/2026/10/gremlin-foresight-ai/"
-  },
-  {
-    "date": "2026-10-12",
-    "slot": "research",
-    "title": "Context Language Models",
-    "url": "https://www.infoq.com/news/2026/10/context-language-models/"
-  },
-  {
-    "date": "2026-10-12",
-    "slot": "architecture",
-    "title": "EventBridge enhanced custom event buses",
-    "url": "https://www.infoq.com/news/2026/10/aws-enhanced-eventbridge-buses/"
-  },
-  {
-    "date": "2026-10-13",
-    "slot": "top",
-    "title": "Anthropic Managed Agents flows",
-    "url": "https://www.latent.space/p/claude-dynamic-workflows"
-  },
-  {
-    "date": "2026-10-13",
-    "slot": "models",
-    "title": "Flo Health open-model post-training",
-    "url": "https://www.databricks.com/blog/how-flo-health-built-safer-more-useful-open-models-databricks-ai-runtime"
-  },
-  {
-    "date": "2026-10-13",
-    "slot": "agents",
-    "title": "GitLab 19.4 /goal agents",
-    "url": "https://www.infoq.com/news/2026/10/gitlab-19-4-goal-driven-agents/"
-  },
-  {
-    "date": "2026-10-13",
-    "slot": "research",
-    "title": "SWE-Duel",
-    "url": "https://arxiv.org/abs/2610.12569"
-  },
-  {
-    "date": "2026-10-13",
-    "slot": "people",
-    "title": "Simon Willison web-edit",
-    "url": "https://simonwillison.net/2026/Oct/12/web-edit/"
-  },
-  {
-    "date": "2026-10-13",
-    "slot": "architecture",
-    "title": "Spotify AI quality controls",
-    "url": "https://www.infoq.com/news/2026/10/spotify-ai-quality-controls/"
-  },
-  {
-    "date": "2026-10-14",
-    "slot": "top",
-    "title": "Gemini 4 Argon",
-    "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud/"
-  },
-  {
-    "date": "2026-10-14",
-    "slot": "models",
-    "title": "LFM2.5-24B-A2B",
-    "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b"
-  },
-  {
-    "date": "2026-10-14",
-    "slot": "agents",
-    "title": "Google ADK in five languages",
-    "url": "https://cloud.google.com/blog/topics/developers-practitioners/one-agent-development-kit-five-languages/"
-  },
-  {
-    "date": "2026-10-14",
-    "slot": "research",
-    "title": "Apple Minions distributed GPU cloud",
-    "url": "https://machinelearning.apple.com/research/distributed-gpu-cloud"
-  },
-  {
-    "date": "2026-10-14",
-    "slot": "people",
-    "title": "Geoffrey Huntley pre-commit hooks",
-    "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
-  },
-  {
-    "date": "2026-10-14",
-    "slot": "architecture",
-    "title": "Anthropic Scion source control",
-    "url": "https://www.anthropic.com/engineering/redesigning-source-control"
-  },
-  {
-    "date": "2026-10-14",
-    "slot": "regional",
-    "title": "Sarvam Bulbul V4 Flash",
-    "url": "https://www.sarvam.ai/blogs/bulbul-v4-flash"
-  },
-  {
-    "date": "2026-10-15",
-    "slot": "top",
-    "title": "Workday Trusted Agent Platform headless",
-    "url": "https://www.prnewswire.com/news-releases/workdays-trusted-agent-platform-now-delivers-headless-access-to-hr-and-finance-letting-customers-build-and-run-lawful-ai-agents-302906696.html"
-  },
-  {
-    "date": "2026-10-15",
-    "slot": "models",
-    "title": "Meta Muse Wonder",
-    "url": "https://research.meta.ai/blog/muse-wonder"
-  },
-  {
-    "date": "2026-10-15",
-    "slot": "agents",
-    "title": "DigitalOcean Agent Learning and Data Services",
-    "url": "https://digitalocean.com/blog/introducing-agent-data-services"
-  },
-  {
-    "date": "2026-10-15",
-    "slot": "research",
-    "title": "Skill LLMs customer support workflow benchmark",
-    "url": "https://arxiv.org/abs/2610.14346"
-  },
-  {
-    "date": "2026-10-15",
-    "slot": "people",
-    "title": "Pragmatic Engineer: Uber's AI infra",
-    "url": "https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside"
-  },
-  {
-    "date": "2026-10-15",
-    "slot": "architecture",
-    "title": "BigQuery generative AI token quotas GA",
-    "url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/"
-  },
-  {
-    "date": "2026-10-16",
-    "slot": "top",
-    "title": "Meta Muse Spark Open",
-    "url": "https://huggingface.co/blog/meta-muse-spark-open"
-  },
-  {
-    "date": "2026-10-16",
-    "slot": "models",
-    "title": "IBM Granite Switch 4.1",
-    "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1"
-  },
-  {
-    "date": "2026-10-16",
-    "slot": "agents",
-    "title": "Temporal Serverless Workers on Cloud Run",
-    "url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/"
-  },
-  {
-    "date": "2026-10-16",
-    "slot": "research",
-    "title": "SWE-at-Scale",
-    "url": "https://arxiv.org/abs/2610.21359"
-  },
-  {
-    "date": "2026-10-16",
-    "slot": "people",
-    "title": "LangChain Deep Agents context engineering",
-    "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember"
-  },
-  {
-    "date": "2026-10-16",
-    "slot": "architecture",
-    "title": "VPC Service Controls folder perimeters",
-    "url": "https://cloud.google.com/blog/products/identity-security/introducing-new-scalable-perimeter-options-with-vpc-service-controls/"
-  },
-  {
-    "date": "2026-10-16",
-    "slot": "regional",
-    "title": "NVIDIA Nemotron Indic pretraining",
-    "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining"
-  },
-  {
-    "date": "2026-10-17",
-    "slot": "top",
-    "title": "Perplexity SPACE open-source sandbox",
-    "url": "https://github.com/perplexityai/space"
-  },
-  {
-    "date": "2026-10-17",
-    "slot": "models",
-    "title": "Reflection Beam",
-    "url": "https://huggingface.co/blog/reflection-beam"
-  },
-  {
-    "date": "2026-10-17",
-    "slot": "agents",
-    "title": "Google Cloud agent plugin eval lessons",
-    "url": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons/"
-  },
-  {
-    "date": "2026-10-17",
-    "slot": "research",
-    "title": "Apple MLX distributed inference on Mac Studio",
-    "url": "https://machinelearning.apple.com/research/mlx-distributed-inference"
-  },
-  {
-    "date": "2026-10-17",
-    "slot": "people",
-    "title": "Claude Code team on continuous review",
-    "url": "https://simonwillison.net/2026/Oct/16/code-review/"
-  },
-  {
-    "date": "2026-10-17",
-    "slot": "architecture",
-    "title": "Wiz Runtime Sensor add-on for GKE",
-    "url": "https://cloud.google.com/blog/products/identity-security/wiz-sensor-for-gke-turnkey-threat-detection-for-kubernetes/"
-  },
-  {
-    "date": "2026-10-17",
-    "slot": "regional",
-    "title": "Jais 3 Arabic models",
-    "url": "https://gulfnews.com/uae/uae-launches-jais-3-arabic-native-ai-for-speech-writing-and-agents-1.500711935"
-  },
-  {
-    "date": "2026-10-18",
-    "slot": "top",
-    "title": "DeepSeek V4.1-Flash-1017",
-    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
-  },
-  {
-    "date": "2026-10-18",
-    "slot": "models",
-    "title": "DeepSeek flash alias repointed to 1017",
-    "url": "https://api-docs.deepseek.com/news/news1017"
-  },
-  {
-    "date": "2026-10-18",
-    "slot": "agents",
-    "title": "REA MCP server for reverse engineering",
-    "url": "https://github.com/morluto/rea"
-  },
-  {
-    "date": "2026-10-18",
-    "slot": "research",
-    "title": "Google VERID wet-lab agents",
-    "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/"
-  },
-  {
-    "date": "2026-10-18",
-    "slot": "people",
-    "title": "Nathan Lambert: Meta shakes up the frontiers",
-    "url": "https://www.interconnects.ai/p/meta-shakes-up-the-frontiers-open"
-  },
-  {
-    "date": "2026-10-18",
-    "slot": "architecture",
-    "title": "Databricks multi-table transactions GA",
-    "url": "https://www.databricks.com/blog/transactions-are-generally-available-advancing-warehousing-lakehouse"
-  },
-  {
-    "date": "2026-10-18",
-    "slot": "regional",
-    "title": "Mashreq pilots IBM Bob",
-    "url": "https://www.zawya.com/en/press-release/companies-news/mashreq-pilots-ibm-bob-to-advance-agentic-ai-for-integration-engineering-1589075"
-  },
-  {
-    "date": "2026-10-18",
-    "slot": "regional",
-    "title": "Abu Dhabi TAMM Global",
-    "url": "https://www.kucoin.com/news/flash/abu-dhabi-launches-tamm-global-to-license-ai-government-platform"
-  },
-  {
-    "date": "2026-10-19",
-    "slot": "top",
-    "title": "CERT-In advisory on AI agents reaching live systems",
-    "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02"
-  },
-  {
-    "date": "2026-10-19",
-    "slot": "agents",
-    "title": "OpenCode 2 changelog",
-    "url": "https://opencode.ai/changelog"
-  },
-  {
-    "date": "2026-10-19",
-    "slot": "research",
-    "title": "Hybrid Reasoning Agents",
-    "url": "https://arxiv.org/abs/2610.18861"
-  },
-  {
-    "date": "2026-10-19",
-    "slot": "people",
-    "title": "Latent Space: Crossing the Threshold",
-    "url": "https://www.latent.space/p/crossing-the-threshold"
-  },
-  {
-    "date": "2026-10-19",
-    "slot": "architecture",
-    "title": "OpenCode Console breach",
-    "url": "https://xenospectrum.com/en/opencode-console-breach-api-key-management/"
-  },
-  {
-    "date": "2026-10-20",
-    "slot": "top",
-    "title": "GitHub Copilot model retirements and model policy API",
-    "url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026"
-  },
-  {
-    "date": "2026-10-20",
-    "slot": "agents",
-    "title": "Pi Durable resumable agent harness",
-    "url": "https://github.com/earendil-works/pi/tree/main/packages/durable"
-  },
-  {
-    "date": "2026-10-20",
-    "slot": "research",
-    "title": "AuditKIT evaluation library",
-    "url": "https://arxiv.org/abs/2610.22511"
-  },
-  {
-    "date": "2026-10-20",
-    "slot": "people",
-    "title": "Simon Willison: My obituary for programming",
-    "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
-  },
-  {
-    "date": "2026-10-20",
-    "slot": "architecture",
-    "title": "AWS vLLM bi-directional KV transfer",
-    "url": "https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/"
-  },
-  {
-    "date": "2026-10-20",
-    "slot": "regional",
-    "title": "Birla AI Labs Yug forecasting model",
-    "url": "https://huggingface.co/birlaailabs/yug"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "top",
-    "title": "DeepSeek DeepInfer inference engine",
-    "url": "https://github.com/deepseek-ai/DeepInfer"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "models",
-    "title": "Mistral Voxtral 3 voice agent stack",
-    "url": "https://mistral.ai/news/voxtral-3"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "agents",
-    "title": "Eon MCP gateway on Amazon Bedrock AgentCore",
-    "url": "https://aws.amazon.com/blogs/machine-learning/how-eon-built-multi-cloud-investigation-with-an-mcp-gateway-on-amazon-bedrock-agentcore/"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "research",
-    "title": "The Window Is in the Reasoning (prompt injection)",
-    "url": "https://arxiv.org/abs/2610.24048"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "people",
-    "title": "Hamel Husain: decision models for evals",
-    "url": "https://hamel.dev/blog/posts/decision-model-evals/"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "architecture",
-    "title": "llm-d 1.0 distributed inference",
-    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference/"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "quick",
-    "title": "Tencent Hy-Memory-30B-A3B",
-    "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "quick",
-    "title": "Inception Mercury 3",
-    "url": "https://openrouter.ai/inception/mercury-3/api"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "quick",
-    "title": "vLLM 0.32.0",
-    "url": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "quick",
-    "title": "Google TorchTPU open source",
-    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/torchtpu-is-now-open-source-run-native-pytorch-on-tpus/"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "quick",
-    "title": "AWS TorchNeuron public beta",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-native-pytorch-support-trainium"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "quick",
-    "title": "Databricks Agent Memory",
-    "url": "https://www.databricks.com/blog/introducing-agent-memory-databricks"
-  },
-  {
-    "date": "2026-10-21",
-    "slot": "quick",
-    "title": "AWS Well-Architected Agent",
-    "url": "https://www.infoq.com/news/2026/10/aws-well-architected-agent/"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "top",
-    "title": "Google Cloud brings OpenAI GPT-6 models",
-    "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers/"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "models",
-    "title": "ElevenLabs Eleven Realtime",
-    "url": "https://elevenlabs.io/blog/realtime"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "agents",
-    "title": "Walmart Agent Gateway for shopping agents",
-    "url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "research",
-    "title": "Harness Scaling for agentic RL",
-    "url": "https://huggingface.co/papers/2610.29458"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "people",
-    "title": "Latent Space: Claude Mods",
-    "url": "https://www.latent.space/p/claude-mods"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "architecture",
-    "title": "Vercel durable-harness",
-    "url": "https://vercel.com/blog/making-every-harness-durable"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "quick",
-    "title": "MiniMax M3.1 Flash",
-    "url": "https://www.minimax.io/blog/minimax-m31f"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "quick",
-    "title": "RecursiveSI Flint",
-    "url": "https://huggingface.co/RecursiveSI/flint"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "quick",
-    "title": "IBM Granite Speech 5.0 2B",
-    "url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "quick",
-    "title": "KiviDB",
-    "url": "https://github.com/kividbio/kividb"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "quick",
-    "title": "Mouse-1 decision model",
-    "url": "https://www.producthunt.com/products/mouse-1"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "quick",
-    "title": "Ramp Laminar",
-    "url": "https://builders.ramp.com/post/building-laminar"
-  },
-  {
-    "date": "2026-10-22",
-    "slot": "quick",
-    "title": "Apple Ray agent infrastructure talk",
-    "url": "https://www.infoq.com/presentations/scale-llm-agents-production-ray/"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "top",
-    "title": "LiteLLM 1.107.0 supply-chain compromise",
-    "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "agents",
-    "title": "Agentic AI Foundation Agent Skills, Open Responses, OpenEnv, OpenSandbox",
-    "url": "https://www.linuxfoundation.org/press/agentic-ai-foundation-announces-four-new-projects-agent-skills-open-responses-openenv-and-opensandbox"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "research",
-    "title": "RAG Compositionality (lasagna)",
-    "url": "https://huggingface.co/papers/2610.29722"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "people",
-    "title": "Simon Willison: PHP security release",
-    "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "architecture",
-    "title": "NVIDIA OpenShell agent runtime",
-    "url": "https://github.com/NVIDIA/OpenShell"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "regional",
-    "title": "Chariot-1-ASR Realtime",
-    "url": "https://chariot.in/"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "quick",
-    "title": "Anthropic Claude Duet",
-    "url": "https://claude.com/resources/articles/claude-duet"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "quick",
-    "title": "Omnara open-source agent platform",
-    "url": "https://github.com/omnara-ai/omnara"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "quick",
-    "title": "Harbor Docker Sandboxes",
-    "url": "https://www.infoq.com/news/2026/10/ai-agents-harbor-docker/"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "quick",
-    "title": "GitHub Copilot usage metrics customizations",
-    "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "quick",
-    "title": "Google Agent Compute Engine",
-    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive/"
-  },
-  {
-    "date": "2026-10-23",
-    "slot": "quick",
-    "title": "Jellyfish AI productivity study",
-    "url": "https://www.infoq.com/news/2026/10/jellyfish-ai-productivity/"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "top",
-    "title": "Node.js Brotli decoder CVE-2026-111497",
-    "url": "https://nodejs.org/en/blog/release/v24.22.1"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "models",
-    "title": "Moonshot Kimi K3.1 Pro",
-    "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "agents",
-    "title": "LangChain Deep Agents large tool results",
-    "url": "https://www.langchain.com/blog/context-engineering-starts-with-retrieval"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "research",
-    "title": "SWE-Verifier",
-    "url": "https://arxiv.org/abs/2610.30284"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "people",
-    "title": "Latent Space: Modal Erik Bernhardsson",
-    "url": "https://latent.space/p/modal-d/"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "architecture",
-    "title": "Databricks declarative pipelines for agents",
-    "url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "regional",
-    "title": "Humain Nvidia 84MW",
-    "url": "https://www.thenationalnews.com/future/technology/2026/10/22/saudi-arabias-humain-expands-nvidia-deal-with-84mw-ai-computing-plan/"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "regional",
-    "title": "G42 Greece AI factory",
-    "url": "https://www.thenationalnews.com/business/2026/10/23/uaes-g42-signs-pacts-to-explore-ai-infrastructure-in-greece/"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "IQuest-Q1",
-    "url": "https://huggingface.co/papers/2610.30949"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "Block Dessa",
-    "url": "https://block.xyz/dessa"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "Mistral Timestral-209M",
-    "url": "https://huggingface.co/mistralai/Timestral-209M"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "Cloudflare security-audit-skill",
-    "url": "https://github.com/cloudflare/security-audit-skill"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "NVIDIA Nemotron 3.5 Bolt E4B",
-    "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "Cloudflare Workers profiling",
-    "url": "https://www.infoq.com/news/2026/10/cloudflare-cpu-memory-profiling/"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "AWS AgentCore Gateway fallback",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-gateway-invokemodel-fallback/"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "Google agent governance",
-    "url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance/"
-  },
-  {
-    "date": "2026-10-24",
-    "slot": "quick",
-    "title": "Banks blocking third-party agents",
-    "url": "https://fstech.co.uk/fst/Citi_BofA_Block_AI_Agents.php"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "top",
-    "title": "Microsoft Storm-0940 ARTEX ConnectWise compromise",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "models",
-    "title": "NVIDIA Nemotron Labs Dory 1.0 4B looped model",
-    "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "agents",
-    "title": "Google ADK 2.13.0 telemetry default change",
-    "url": "https://github.com/google/adk-python/releases"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "research",
-    "title": "LLM-as-a-Judge prompting strategy robustness study",
-    "url": "https://arxiv.org/abs/2610.31172"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "architecture",
-    "title": "InfoQ Actors for Agents talk",
-    "url": "https://www.infoq.com/presentations/actors-for-production-ai-agents/"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "regional",
-    "title": "MBZUAI Inception42 Jais 3",
-    "url": "https://gulfnews.com/uae/uae-launches-jais-3-arabic-native-ai-for-speech-writing-and-agents-1.500711935"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "quick",
-    "title": "Vercel fx Zig coding agent",
-    "url": "https://www.infoq.com/news/2026/10/vercel-zig-fx-agent/"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "quick",
-    "title": "XHToken Spark-X2.6-4B",
-    "url": "https://huggingface.co/XHToken/Spark-X2.6-4B"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "quick",
-    "title": "Amazon Polly generative engine upgrade",
-    "url": "https://aws.amazon.com/blogs/machine-learning/amazon-polly-delivers-a-major-upgrade-to-its-generative-engine/"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "quick",
-    "title": "Pydantic AI 2.61.0",
-    "url": "https://github.com/pydantic/pydantic-ai/releases"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "quick",
-    "title": "Anthropic Claude on Google Cloud Anthropic-managed GA",
-    "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud/"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "quick",
-    "title": "GitHub Copilot in Microsoft Teams",
-    "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "quick",
-    "title": "Nutanix NVIDIA Supermicro Netris tie-ups",
-    "url": "https://analyticsindiamag.com/ai-news/nutanix-announces-ai-infrastructure-tie-ups-with-nvidia-supermicro-and-netris"
-  },
-  {
-    "date": "2026-10-25",
-    "slot": "quick",
-    "title": "RIFT KV cache compression for draft models",
-    "url": "https://arxiv.org/abs/2610.31098"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "top",
-    "title": "PingCAP TiDB Cloud breach",
-    "url": "https://www.pingcap.com/trust-hub/security/security-update-october-2026/"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "models",
-    "title": "Anthropic Claude API 2026-10-21 removes sampling parameters",
-    "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "agents",
-    "title": "Bayer Crop Science agentic decision engine on AgentCore",
-    "url": "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "research",
-    "title": "CNN vs GPT-6 Astra and Fable 5.1 on skin lesions",
-    "url": "https://lynchlab.net/llm-skin-cancer"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "regional",
-    "title": "Chariot-1-ASR Realtime",
-    "url": "https://analyticsindiamag.com/ai-news/chariot-launches-speech-recognition-model-for-10-indian-languages"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "quick",
-    "title": "Nanbeige4.3-33B",
-    "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "quick",
-    "title": "Carbon-X DNA chat model",
-    "url": "https://huggingface.co/HuggingFaceBio/Carbon-X"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "quick",
-    "title": "Google ML Drift",
-    "url": "https://www.infoq.com/news/2026/10/google-ml-drift/"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "quick",
-    "title": "GitHub Copilot usage metrics by client",
-    "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "quick",
-    "title": "GitHub Apps enterprise installations GA",
-    "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available"
-  },
-  {
-    "date": "2026-10-26",
-    "slot": "quick",
-    "title": "LangChain company harness",
-    "url": "https://www.langchain.com/blog/components-building-company-harness"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "top",
-    "title": "Cloudflare GLM-5.3 KV cache exposure (SGLang)",
-    "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "models",
-    "title": "OpenAI GPT-6.1 Terra",
-    "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "agents",
-    "title": "Forever Security AGENTS.md Downloads hijack of Codex and Claude Code",
-    "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "research",
-    "title": "Compaction benchmarks (Salle et al.)",
-    "url": "https://arxiv.org/abs/2610.31778"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "people",
-    "title": "Simon Willison: webframe evaluation",
-    "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "architecture",
-    "title": "Ubicloud vLLM tool-call accuracy and constrained decoding",
-    "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "quick",
-    "title": "KRAFTON Raon-1-mini-preview",
-    "url": "https://huggingface.co/KRAFTON/Raon-1-mini-preview"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "quick",
-    "title": "OpenAI Decisions API",
-    "url": "https://developers.openai.com/api/docs/guides/decisions"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "quick",
-    "title": "LiteLLM 1.107.0 root cause",
-    "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "quick",
-    "title": "MLflow CVE-2026-53995",
-    "url": "https://osv.dev/vulnerability/GHSA-wqmh-qccw-pqwf"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "quick",
-    "title": "Anthropic S-1 training pause disclosure",
-    "url": "https://www.investing.com/news/stock-market-news/anthropic-discloses-monthlong-training-pause-ai-security-breaches-in-ipo-filing-4973293"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "quick",
-    "title": "SPECMEM speculative tool calling",
-    "url": "https://arxiv.org/abs/2610.31840"
-  },
-  {
-    "date": "2026-10-27",
-    "slot": "quick",
-    "title": "Continual Learning Exam benchmark",
-    "url": "https://huggingface.co/papers/2610.33956"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "top",
-    "title": "LiteLLM proxy internal_user to proxy_admin RCE",
-    "url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "models",
-    "title": "Liquid AI LFM3 small models",
-    "url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "agents",
-    "title": "MCP C# SDK 2.0 stateless HTTP",
-    "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "people",
-    "title": "LangChain Content Studio design agent",
-    "url": "https://www.langchain.com/blog/design-agent"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "architecture",
-    "title": "Momento KV cache talk at QCon AI",
-    "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "regional",
-    "title": "Sarvam five-year defence AI MoU",
-    "url": "https://analyticsindiamag.com/ai-news/sarvam-signs-5-year-defence-ai-deal-covering-army-navy-and-air-force"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "regional",
-    "title": "Maya Research Maya 2 Native TTS",
-    "url": "https://analyticsindiamag.com/ai-news/maya-research-releases-open-weight-speech-model-supporting-12-languages"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "regional",
-    "title": "Dubai Chambers Chamber AI Hub",
-    "url": "https://gulfnews.com/business/dubai-launches-worlds-first-chamber-led-agentic-ai-marketplace-1.500724627"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "Baidu Unlimited-OCR-2",
-    "url": "https://huggingface.co/baidu/Unlimited-OCR-2"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "Entire Git Forge",
-    "url": "https://analyticsindiamag.com/ai-news/former-github-ceo-launches-git-platform-built-for-ai-agents"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "vLLM code_revision RCE CVE-2026-114053",
-    "url": "https://osv.dev/vulnerability/GHSA-h3rc-6mm3-gc2m"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "MCP Python SDK token audience advisory",
-    "url": "https://osv.dev/vulnerability/GHSA-w4fh-qvv9-3v23"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "MLflow unauthenticated RCE GHSA-26p8",
-    "url": "https://osv.dev/vulnerability/GHSA-26p8-2jq9-3vq9"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "Cloudflare Auto Router",
-    "url": "https://www.infoq.com/news/2026/10/cloudflare-auto-router/"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "GitHub Copilot assisted permissions GA",
-    "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "AWS agents triage Linux kernel CVEs",
-    "url": "https://www.infoq.com/news/2026/10/aws-ai-agents-linux-kernel-cves/"
-  },
-  {
-    "date": "2026-10-28",
-    "slot": "quick",
-    "title": "Google Cloud IAM Helper agent skills",
-    "url": "https://cloud.google.com/blog/products/identity-security/scale-agents-securely-with-iam-helper-agent-skills-and-mcp-tools/"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "top",
-    "title": "GitHub Copilot Fusion model routing",
-    "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "models",
-    "title": "Google Gemini 4 Carbon limited release",
-    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "agents",
-    "title": "Microsoft Copilot harness in Foundry Agent Service",
-    "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "research",
-    "title": "Group memory CrossProfile attribution bias study",
-    "url": "https://huggingface.co/papers/2610.37624"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "architecture",
-    "title": "vLLM 0.32.0 security advisories batch",
-    "url": "https://github.com/advisories/GHSA-h3rc-j82p-2c3h"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "regional",
-    "title": "Oracle Fusion Claw agentic platform",
-    "url": "https://www.thenationalnews.com/future/technology/2026/10/26/oracle-launches-new-agentic-ai-to-take-on-complex-tasks-such-as-supply-chains/"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "Google EmbeddingGemma 2",
-    "url": "https://huggingface.co/papers/2610.37364"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "OpenBMB MiniCPM-OCR-1.0",
-    "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "MLflow 3.17.0 advisories",
-    "url": "https://github.com/advisories/GHSA-j7qq-vr8c-xvw3"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "MCP Python SDK redirect and ref advisories",
-    "url": "https://github.com/advisories/GHSA-5h93-6whr-6q8j"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "Check Point Yoba fake AI desktop apps",
-    "url": "https://research.checkpoint.com/2026/tricks-from-the-past-deployed-via-signed-chatgpt-and-claude-binaries/"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "Mozilla Firefox 159 security advisory",
-    "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "Anthropic UK AISI cybertesting alignment assessment",
-    "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "Amazon Bedrock AgentCore CLI 1.0",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore-cli-version-1-0-available/"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "GitHub Agentic Workflows GA",
-    "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "Surge AI Dayjob Tax",
-    "url": "https://surgehq.ai/blog/dayjob-tax"
-  },
-  {
-    "date": "2026-10-29",
-    "slot": "quick",
-    "title": "Cognition FrontierCode 2.0",
-    "url": "https://cognition.com/blog/frontier-code-2.0"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "top",
-    "title": "Symantec relay service rewires Codex and Claude Code",
-    "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "models",
-    "title": "Mistral Large 4 open weights",
-    "url": "https://mistral.ai/news/mistral-large-4-oss/"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "agents",
-    "title": "MoEngage AgentCore Gateway 400 APIs as agent tools",
-    "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "research",
-    "title": "Check Point Qwen incident replay",
-    "url": "https://blog.checkpoint.com/ai-security/qwen-incident-backdoor-ai-agents"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "people",
-    "title": "Simon Willison: ChatGPT API credits benefit",
-    "url": "https://simonwillison.net/2026/Oct/29/api-credits/"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "architecture",
-    "title": "Datadog Scout SRE investigation model",
-    "url": "https://www.infoq.com/news/2026/10/datadog-scout-sre-model/"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "regional",
-    "title": "HCLTech nano GCC on AWS",
-    "url": "https://analyticsindiamag.com/ai-news/hcltech-launches-nano-gcc-model-with-aws-to-build-ai-operations"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "DeepSeek Harness Search and Fetch billing",
-    "url": "https://api-docs.deepseek.com/guides/search"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "NVIDIA Nemotron 3.5 Transcribe",
-    "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "Infini-AI-Lab Hermit",
-    "url": "https://github.com/Infini-AI-Lab/hermit"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "Bug0 QA Agent",
-    "url": "https://www.infoq.com/news/2026/10/bug0-agent-testing-cached-replay/"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "Warp breach AI agent logs",
-    "url": "https://bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "LiteLLM vertex_ai_credentials file read GHSA-g5ff",
-    "url": "https://osv.dev/vulnerability/GHSA-g5ff-637f-6q2m"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "MCP TypeScript SDK request size DoS",
-    "url": "https://osv.dev/vulnerability/GHSA-f897-62hf-6gxq"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "Google OAuth DPoP for refresh tokens",
-    "url": "https://www.infoq.com/news/2026/10/google-dpop-oauth2/"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "GitHub Copilot enterprise plugin controls GA",
-    "url": "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "AWS Step Functions as AgentCore Gateway tools",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/step-functions-workflows-ai-agent-tools/"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "Uber MCP gateway for agents",
-    "url": "https://blog.bytebytego.com/p/how-uber-built-a-gateway-for-ai-agents"
-  },
-  {
-    "date": "2026-10-30",
-    "slot": "quick",
-    "title": "Google GKE networking for agent sandboxes",
-    "url": "https://cloud.google.com/blog/products/networking/gke-networking-dataplane-for-large-agentic-ai-workloads"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "top",
-    "title": "Cursor tampered Claude Code extension SSH backdoor",
-    "url": "https://cursor.com/blog/claude-code-extension-security-notice"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "models",
-    "title": "Amazon Bedrock OpenAI GPT-5.6 models and Daybreak Red in GovCloud",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-openai-runtime-govcloud/"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "agents",
-    "title": "LangChain Managed Deep Agents v0.10 browser and async subagents",
-    "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "research",
-    "title": "Amazon Sandman agent sandboxes on Kubernetes",
-    "url": "https://arxiv.org/abs/2610.39711"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "people",
-    "title": "Nathan Lambert: open models and cyber risks",
-    "url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "architecture",
-    "title": "DoorDash grocery reorder offline bundle agent",
-    "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "regional",
-    "title": "TRAI draft AI guidelines for telecom",
-    "url": "https://www.tribuneindia.com/news/business/trai-releases-draft-ai-guidelines-for-telecom-sector-seeks-public-comments-by-november-27"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "regional",
-    "title": "UAE Vibe Codes platform",
-    "url": "https://fastcompanyme.com/news/uae-introduces-ai-powered-coding-platform-to-help-people-build-apps-without-programming-skills/"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "LangGraph SDK path traversal CVE-2026-118667",
-    "url": "https://osv.dev/vulnerability/GHSA-3fx2-cqw9-xr3c"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "GitHub Copilot app security extension",
-    "url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "Google Cloud spend caps",
-    "url": "https://cloud.google.com/blog/topics/cost-management/google-cloud-spend-caps-now-generally-available/"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "Amazon SageMaker GPU partitioning",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-gpu-partitioning/"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "GitHub Enterprise includes Copilot",
-    "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "Airbnb Chronon",
-    "url": "https://www.infoq.com/news/2026/10/airbnb-chronon-recommendation/"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "Netflix GPU reliability",
-    "url": "https://www.infoq.com/news/2026/10/netflix-gpu-distributed-systems/"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "Netflix Titus single-tenant",
-    "url": "https://www.infoq.com/news/2026/10/netflix-titus-kubernetes-microvm/"
-  },
-  {
-    "date": "2026-10-31",
-    "slot": "quick",
-    "title": "Databricks and SAP",
-    "url": "https://www.databricks.com/blog/databricks-and-sap-unleash-end-end-data-ai-capabilities-level-enterprise-ai-transformation"
-  }
+ {
+  "date": "2026-10-04",
+  "slot": "top",
+  "title": "Agents shrink gap between fix and exploit",
+  "url": "https://www.infoq.com/news/2026/10/open-source-ai-security/"
+ },
+ {
+  "date": "2026-10-04",
+  "slot": "models",
+  "title": "GPT-6.1 Sol",
+  "url": "https://www.infoq.com/news/2026/10/openai-devday-2026/"
+ },
+ {
+  "date": "2026-10-04",
+  "slot": "agents",
+  "title": "Istio 1.31 agentgateway waypoints",
+  "url": "https://www.infoq.com/news/2026/10/istio-1-31-agentgateway/"
+ },
+ {
+  "date": "2026-10-04",
+  "slot": "research",
+  "title": "ThinkingBox",
+  "url": "https://huggingface.co/blog/microsoft/thinkingbox"
+ },
+ {
+  "date": "2026-10-04",
+  "slot": "people",
+  "title": "Simon Willison: hard budget caps",
+  "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/"
+ },
+ {
+  "date": "2026-10-04",
+  "slot": "architecture",
+  "title": "DoorDash GenAI platform",
+  "url": "https://www.infoq.com/presentations/doordash-genai-platform-architecture/"
+ },
+ {
+  "date": "2026-10-05",
+  "slot": "top",
+  "title": "Apple tightens Full Disk Access over AI agents",
+  "url": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/"
+ },
+ {
+  "date": "2026-10-05",
+  "slot": "models",
+  "title": "Cloudflare Web Search API in AI Gateway",
+  "url": "https://blog.cloudflare.com/introducing-web-search-api/"
+ },
+ {
+  "date": "2026-10-05",
+  "slot": "agents",
+  "title": "OpenAPPA agent security engine",
+  "url": "https://www.infoq.com/news/2026/10/open-APPA-zero-security-breach/"
+ },
+ {
+  "date": "2026-10-05",
+  "slot": "research",
+  "title": "Do LLM Agents Execute the Plans They Declare?",
+  "url": "https://arxiv.org/abs/2609.38108"
+ },
+ {
+  "date": "2026-10-05",
+  "slot": "people",
+  "title": "Alex Zhang on RLMs (Latent Space)",
+  "url": "https://www.latent.space/p/rlm"
+ },
+ {
+  "date": "2026-10-05",
+  "slot": "architecture",
+  "title": "Databricks REGISTER/UNREGISTER Iceberg APIs",
+  "url": "https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis"
+ },
+ {
+  "date": "2026-10-06",
+  "slot": "top",
+  "title": "Reflection AI Beam 501B MoE",
+  "url": "https://reflection.ai/blog/introducing-beam"
+ },
+ {
+  "date": "2026-10-06",
+  "slot": "models",
+  "title": "GLM 5.3 on Amazon Bedrock",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-glm-5-3/"
+ },
+ {
+  "date": "2026-10-06",
+  "slot": "agents",
+  "title": "Cloudflare cf CLI for agents",
+  "url": "https://www.infoq.com/news/2026/10/cloudflare-cf-cli/"
+ },
+ {
+  "date": "2026-10-06",
+  "slot": "research",
+  "title": "When Evidence Changes: memory repair vs re-reading",
+  "url": "https://arxiv.org/abs/2610.03902"
+ },
+ {
+  "date": "2026-10-06",
+  "slot": "people",
+  "title": "Felix Rieseberg on Cowork cloud sandboxes",
+  "url": "https://simonwillison.net/2026/Oct/5/felix-rieseberg/"
+ },
+ {
+  "date": "2026-10-06",
+  "slot": "architecture",
+  "title": "Cloudflare Containers cross-tenant disk exposure",
+  "url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
+ },
+ {
+  "date": "2026-10-06",
+  "slot": "regional",
+  "title": "Falcon-Emirati-7B",
+  "url": "https://huggingface.co/blog/tiiuae/falcon-emirati"
+ },
+ {
+  "date": "2026-10-07",
+  "slot": "top",
+  "title": "OpenAI agents on Wikimedia projects",
+  "url": "https://wikimediafoundation.org/news/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/"
+ },
+ {
+  "date": "2026-10-07",
+  "slot": "models",
+  "title": "Mistral Large 4",
+  "url": "https://mistral.ai/news/mistral-large-4/"
+ },
+ {
+  "date": "2026-10-07",
+  "slot": "agents",
+  "title": "MCP Toolbox Java SDK v1.0",
+  "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-mcp-toolbox-java-sdk-v10-agentic-data-access-for-the-enterprise/"
+ },
+ {
+  "date": "2026-10-07",
+  "slot": "research",
+  "title": "Speculative execution for on-device voice agents",
+  "url": "https://huggingface.co/papers/2610.07641"
+ },
+ {
+  "date": "2026-10-07",
+  "slot": "people",
+  "title": "Simon Willison on EmbeddingGemma 2 licensing",
+  "url": "https://simonwillison.net/2026/Oct/6/hn-49983751/"
+ },
+ {
+  "date": "2026-10-07",
+  "slot": "architecture",
+  "title": "Spanner-backed Lakehouse runtime catalog",
+  "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-powered-by-spanner/"
+ },
+ {
+  "date": "2026-10-08",
+  "slot": "top",
+  "title": "OpenAI 722 math manuscripts",
+  "url": "https://github.com/openai/math"
+ },
+ {
+  "date": "2026-10-08",
+  "slot": "models",
+  "title": "Claude Haiku 5.5",
+  "url": "https://www.anthropic.com/claude-haiku-5-5"
+ },
+ {
+  "date": "2026-10-08",
+  "slot": "agents",
+  "title": "Stacklok cloud-native agent harness",
+  "url": "https://www.latent.space/p/stacklok"
+ },
+ {
+  "date": "2026-10-08",
+  "slot": "research",
+  "title": "WebFovea",
+  "url": "https://huggingface.co/papers/2610.03036"
+ },
+ {
+  "date": "2026-10-08",
+  "slot": "people",
+  "title": "Kleppmann CCTI",
+  "url": "http://martin.kleppmann.com/2026/10/07/centre-for-cryptographic-trust-infrastructure.html"
+ },
+ {
+  "date": "2026-10-08",
+  "slot": "architecture",
+  "title": "Grab Counter Service on Aerospike",
+  "url": "https://engineering.grab.com/counter-service-storage-migration"
+ },
+ {
+  "date": "2026-10-09",
+  "slot": "top",
+  "title": "Anthropic 2026 Usage Policy update",
+  "url": "https://www.anthropic.com/news/2026-usage-policy-update"
+ },
+ {
+  "date": "2026-10-09",
+  "slot": "models",
+  "title": "GPT-6.1 Sol Ultrafast on Bedrock",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-sol-ultrafast-amazon/"
+ },
+ {
+  "date": "2026-10-09",
+  "slot": "agents",
+  "title": "Spotify Ads multi-agent patterns",
+  "url": "https://www.infoq.com/presentations/spotify-multi-agent-ai-architecture/"
+ },
+ {
+  "date": "2026-10-09",
+  "slot": "research",
+  "title": "SparseDecoding",
+  "url": "https://huggingface.co/papers/2610.12327"
+ },
+ {
+  "date": "2026-10-09",
+  "slot": "people",
+  "title": "Sam Newman on resilient systems",
+  "url": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam"
+ },
+ {
+  "date": "2026-10-09",
+  "slot": "architecture",
+  "title": "Replit + Databricks Lakebase governed apps",
+  "url": "https://www.databricks.com/blog/how-build-governed-enterprise-apps-databricks-replit-and-lakebase"
+ },
+ {
+  "date": "2026-10-10",
+  "slot": "top",
+  "title": "Anthropic unintended model actions",
+  "url": "https://www.anthropic.com/research/investigating-unintended-model-actions"
+ },
+ {
+  "date": "2026-10-10",
+  "slot": "models",
+  "title": "Gemini 4 Argon",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+ },
+ {
+  "date": "2026-10-10",
+  "slot": "agents",
+  "title": "Netflix ontology-driven observability",
+  "url": "https://www.infoq.com/presentations/netflix-observability-aiops-ontology-scale/"
+ },
+ {
+  "date": "2026-10-10",
+  "slot": "research",
+  "title": "Ai2 impactful GPU scheduling",
+  "url": "https://huggingface.co/blog/allenai/impactful-scheduling"
+ },
+ {
+  "date": "2026-10-10",
+  "slot": "people",
+  "title": "Simon Willison on Deno joining Cloudflare",
+  "url": "https://simonwillison.net/2026/Oct/9/deno-is-joining-cloudflare/"
+ },
+ {
+  "date": "2026-10-10",
+  "slot": "architecture",
+  "title": "Valkey evolution",
+  "url": "https://www.infoq.com/news/2026/10/valkey-evolution/"
+ },
+ {
+  "date": "2026-10-11",
+  "slot": "top",
+  "title": "Google Gemini agent coworker agents",
+  "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+ },
+ {
+  "date": "2026-10-11",
+  "slot": "models",
+  "title": "Decision models: OpenAI Decisions API and Cloudflare Clef",
+  "url": "https://letsdatascience.com/news/openai-opens-decisions-api-public-beta-b69a1e40"
+ },
+ {
+  "date": "2026-10-11",
+  "slot": "agents",
+  "title": "Copilot local sandboxing GA",
+  "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5"
+ },
+ {
+  "date": "2026-10-11",
+  "slot": "research",
+  "title": "Evidence-Grounded Behavior Graph for agent oversight",
+  "url": "https://arxiv.org/abs/2610.06406"
+ },
+ {
+  "date": "2026-10-11",
+  "slot": "people",
+  "title": "LangChain model router in the harness",
+  "url": "https://www.langchain.com/blog/how-to-build-a-model-router-in-the-harness"
+ },
+ {
+  "date": "2026-10-11",
+  "slot": "architecture",
+  "title": "Cloudflare Traces open beta",
+  "url": "https://www.infoq.com/news/2026/10/cloudflare-traces-open-beta/"
+ },
+ {
+  "date": "2026-10-11",
+  "slot": "regional",
+  "title": "TII Falcon-ASR",
+  "url": "https://www.zawya.com/en/press-release/companies-news/tii-launches-falcon-emirati-alongside-new-arabic-ai-models-for-speech-and-visual-text-understanding-1523900"
+ },
+ {
+  "date": "2026-10-12",
+  "slot": "top",
+  "title": "AgentCore SDK install_packages flaws",
+  "url": "https://www.infosecurity-magazine.com/news/aws-agentcore-sdk-flaws-ai/"
+ },
+ {
+  "date": "2026-10-12",
+  "slot": "models",
+  "title": "Anthropic OSS Scanner (Cyber Mission)",
+  "url": "https://www.anthropic.com/news/anthropic-cyber-mission"
+ },
+ {
+  "date": "2026-10-12",
+  "slot": "agents",
+  "title": "Gremlin Foresight AI GA",
+  "url": "https://www.infoq.com/news/2026/10/gremlin-foresight-ai/"
+ },
+ {
+  "date": "2026-10-12",
+  "slot": "research",
+  "title": "Context Language Models",
+  "url": "https://www.infoq.com/news/2026/10/context-language-models/"
+ },
+ {
+  "date": "2026-10-12",
+  "slot": "architecture",
+  "title": "EventBridge enhanced custom event buses",
+  "url": "https://www.infoq.com/news/2026/10/aws-enhanced-eventbridge-buses/"
+ },
+ {
+  "date": "2026-10-13",
+  "slot": "top",
+  "title": "Anthropic Managed Agents flows",
+  "url": "https://www.latent.space/p/claude-dynamic-workflows"
+ },
+ {
+  "date": "2026-10-13",
+  "slot": "models",
+  "title": "Flo Health open-model post-training",
+  "url": "https://www.databricks.com/blog/how-flo-health-built-safer-more-useful-open-models-databricks-ai-runtime"
+ },
+ {
+  "date": "2026-10-13",
+  "slot": "agents",
+  "title": "GitLab 19.4 /goal agents",
+  "url": "https://www.infoq.com/news/2026/10/gitlab-19-4-goal-driven-agents/"
+ },
+ {
+  "date": "2026-10-13",
+  "slot": "research",
+  "title": "SWE-Duel",
+  "url": "https://arxiv.org/abs/2610.12569"
+ },
+ {
+  "date": "2026-10-13",
+  "slot": "people",
+  "title": "Simon Willison web-edit",
+  "url": "https://simonwillison.net/2026/Oct/12/web-edit/"
+ },
+ {
+  "date": "2026-10-13",
+  "slot": "architecture",
+  "title": "Spotify AI quality controls",
+  "url": "https://www.infoq.com/news/2026/10/spotify-ai-quality-controls/"
+ },
+ {
+  "date": "2026-10-14",
+  "slot": "top",
+  "title": "Gemini 4 Argon",
+  "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud/"
+ },
+ {
+  "date": "2026-10-14",
+  "slot": "models",
+  "title": "LFM2.5-24B-A2B",
+  "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b"
+ },
+ {
+  "date": "2026-10-14",
+  "slot": "agents",
+  "title": "Google ADK in five languages",
+  "url": "https://cloud.google.com/blog/topics/developers-practitioners/one-agent-development-kit-five-languages/"
+ },
+ {
+  "date": "2026-10-14",
+  "slot": "research",
+  "title": "Apple Minions distributed GPU cloud",
+  "url": "https://machinelearning.apple.com/research/distributed-gpu-cloud"
+ },
+ {
+  "date": "2026-10-14",
+  "slot": "people",
+  "title": "Geoffrey Huntley pre-commit hooks",
+  "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+ },
+ {
+  "date": "2026-10-14",
+  "slot": "architecture",
+  "title": "Anthropic Scion source control",
+  "url": "https://www.anthropic.com/engineering/redesigning-source-control"
+ },
+ {
+  "date": "2026-10-14",
+  "slot": "regional",
+  "title": "Sarvam Bulbul V4 Flash",
+  "url": "https://www.sarvam.ai/blogs/bulbul-v4-flash"
+ },
+ {
+  "date": "2026-10-15",
+  "slot": "top",
+  "title": "Workday Trusted Agent Platform headless",
+  "url": "https://www.prnewswire.com/news-releases/workdays-trusted-agent-platform-now-delivers-headless-access-to-hr-and-finance-letting-customers-build-and-run-lawful-ai-agents-302906696.html"
+ },
+ {
+  "date": "2026-10-15",
+  "slot": "models",
+  "title": "Meta Muse Wonder",
+  "url": "https://research.meta.ai/blog/muse-wonder"
+ },
+ {
+  "date": "2026-10-15",
+  "slot": "agents",
+  "title": "DigitalOcean Agent Learning and Data Services",
+  "url": "https://digitalocean.com/blog/introducing-agent-data-services"
+ },
+ {
+  "date": "2026-10-15",
+  "slot": "research",
+  "title": "Skill LLMs customer support workflow benchmark",
+  "url": "https://arxiv.org/abs/2610.14346"
+ },
+ {
+  "date": "2026-10-15",
+  "slot": "people",
+  "title": "Pragmatic Engineer: Uber's AI infra",
+  "url": "https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside"
+ },
+ {
+  "date": "2026-10-15",
+  "slot": "architecture",
+  "title": "BigQuery generative AI token quotas GA",
+  "url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/"
+ },
+ {
+  "date": "2026-10-16",
+  "slot": "top",
+  "title": "Meta Muse Spark Open",
+  "url": "https://huggingface.co/blog/meta-muse-spark-open"
+ },
+ {
+  "date": "2026-10-16",
+  "slot": "models",
+  "title": "IBM Granite Switch 4.1",
+  "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1"
+ },
+ {
+  "date": "2026-10-16",
+  "slot": "agents",
+  "title": "Temporal Serverless Workers on Cloud Run",
+  "url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/"
+ },
+ {
+  "date": "2026-10-16",
+  "slot": "research",
+  "title": "SWE-at-Scale",
+  "url": "https://arxiv.org/abs/2610.21359"
+ },
+ {
+  "date": "2026-10-16",
+  "slot": "people",
+  "title": "LangChain Deep Agents context engineering",
+  "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember"
+ },
+ {
+  "date": "2026-10-16",
+  "slot": "architecture",
+  "title": "VPC Service Controls folder perimeters",
+  "url": "https://cloud.google.com/blog/products/identity-security/introducing-new-scalable-perimeter-options-with-vpc-service-controls/"
+ },
+ {
+  "date": "2026-10-16",
+  "slot": "regional",
+  "title": "NVIDIA Nemotron Indic pretraining",
+  "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining"
+ },
+ {
+  "date": "2026-10-17",
+  "slot": "top",
+  "title": "Perplexity SPACE open-source sandbox",
+  "url": "https://github.com/perplexityai/space"
+ },
+ {
+  "date": "2026-10-17",
+  "slot": "models",
+  "title": "Reflection Beam",
+  "url": "https://huggingface.co/blog/reflection-beam"
+ },
+ {
+  "date": "2026-10-17",
+  "slot": "agents",
+  "title": "Google Cloud agent plugin eval lessons",
+  "url": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons/"
+ },
+ {
+  "date": "2026-10-17",
+  "slot": "research",
+  "title": "Apple MLX distributed inference on Mac Studio",
+  "url": "https://machinelearning.apple.com/research/mlx-distributed-inference"
+ },
+ {
+  "date": "2026-10-17",
+  "slot": "people",
+  "title": "Claude Code team on continuous review",
+  "url": "https://simonwillison.net/2026/Oct/16/code-review/"
+ },
+ {
+  "date": "2026-10-17",
+  "slot": "architecture",
+  "title": "Wiz Runtime Sensor add-on for GKE",
+  "url": "https://cloud.google.com/blog/products/identity-security/wiz-sensor-for-gke-turnkey-threat-detection-for-kubernetes/"
+ },
+ {
+  "date": "2026-10-17",
+  "slot": "regional",
+  "title": "Jais 3 Arabic models",
+  "url": "https://gulfnews.com/uae/uae-launches-jais-3-arabic-native-ai-for-speech-writing-and-agents-1.500711935"
+ },
+ {
+  "date": "2026-10-18",
+  "slot": "top",
+  "title": "DeepSeek V4.1-Flash-1017",
+  "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+ },
+ {
+  "date": "2026-10-18",
+  "slot": "models",
+  "title": "DeepSeek flash alias repointed to 1017",
+  "url": "https://api-docs.deepseek.com/news/news1017"
+ },
+ {
+  "date": "2026-10-18",
+  "slot": "agents",
+  "title": "REA MCP server for reverse engineering",
+  "url": "https://github.com/morluto/rea"
+ },
+ {
+  "date": "2026-10-18",
+  "slot": "research",
+  "title": "Google VERID wet-lab agents",
+  "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/"
+ },
+ {
+  "date": "2026-10-18",
+  "slot": "people",
+  "title": "Nathan Lambert: Meta shakes up the frontiers",
+  "url": "https://www.interconnects.ai/p/meta-shakes-up-the-frontiers-open"
+ },
+ {
+  "date": "2026-10-18",
+  "slot": "architecture",
+  "title": "Databricks multi-table transactions GA",
+  "url": "https://www.databricks.com/blog/transactions-are-generally-available-advancing-warehousing-lakehouse"
+ },
+ {
+  "date": "2026-10-18",
+  "slot": "regional",
+  "title": "Mashreq pilots IBM Bob",
+  "url": "https://www.zawya.com/en/press-release/companies-news/mashreq-pilots-ibm-bob-to-advance-agentic-ai-for-integration-engineering-1589075"
+ },
+ {
+  "date": "2026-10-18",
+  "slot": "regional",
+  "title": "Abu Dhabi TAMM Global",
+  "url": "https://www.kucoin.com/news/flash/abu-dhabi-launches-tamm-global-to-license-ai-government-platform"
+ },
+ {
+  "date": "2026-10-19",
+  "slot": "top",
+  "title": "CERT-In advisory on AI agents reaching live systems",
+  "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02"
+ },
+ {
+  "date": "2026-10-19",
+  "slot": "agents",
+  "title": "OpenCode 2 changelog",
+  "url": "https://opencode.ai/changelog"
+ },
+ {
+  "date": "2026-10-19",
+  "slot": "research",
+  "title": "Hybrid Reasoning Agents",
+  "url": "https://arxiv.org/abs/2610.18861"
+ },
+ {
+  "date": "2026-10-19",
+  "slot": "people",
+  "title": "Latent Space: Crossing the Threshold",
+  "url": "https://www.latent.space/p/crossing-the-threshold"
+ },
+ {
+  "date": "2026-10-19",
+  "slot": "architecture",
+  "title": "OpenCode Console breach",
+  "url": "https://xenospectrum.com/en/opencode-console-breach-api-key-management/"
+ },
+ {
+  "date": "2026-10-20",
+  "slot": "top",
+  "title": "GitHub Copilot model retirements and model policy API",
+  "url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026"
+ },
+ {
+  "date": "2026-10-20",
+  "slot": "agents",
+  "title": "Pi Durable resumable agent harness",
+  "url": "https://github.com/earendil-works/pi/tree/main/packages/durable"
+ },
+ {
+  "date": "2026-10-20",
+  "slot": "research",
+  "title": "AuditKIT evaluation library",
+  "url": "https://arxiv.org/abs/2610.22511"
+ },
+ {
+  "date": "2026-10-20",
+  "slot": "people",
+  "title": "Simon Willison: My obituary for programming",
+  "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
+ },
+ {
+  "date": "2026-10-20",
+  "slot": "architecture",
+  "title": "AWS vLLM bi-directional KV transfer",
+  "url": "https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/"
+ },
+ {
+  "date": "2026-10-20",
+  "slot": "regional",
+  "title": "Birla AI Labs Yug forecasting model",
+  "url": "https://huggingface.co/birlaailabs/yug"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "top",
+  "title": "DeepSeek DeepInfer inference engine",
+  "url": "https://github.com/deepseek-ai/DeepInfer"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "models",
+  "title": "Mistral Voxtral 3 voice agent stack",
+  "url": "https://mistral.ai/news/voxtral-3"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "agents",
+  "title": "Eon MCP gateway on Amazon Bedrock AgentCore",
+  "url": "https://aws.amazon.com/blogs/machine-learning/how-eon-built-multi-cloud-investigation-with-an-mcp-gateway-on-amazon-bedrock-agentcore/"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "research",
+  "title": "The Window Is in the Reasoning (prompt injection)",
+  "url": "https://arxiv.org/abs/2610.24048"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "people",
+  "title": "Hamel Husain: decision models for evals",
+  "url": "https://hamel.dev/blog/posts/decision-model-evals/"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "architecture",
+  "title": "llm-d 1.0 distributed inference",
+  "url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference/"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "quick",
+  "title": "Tencent Hy-Memory-30B-A3B",
+  "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "quick",
+  "title": "Inception Mercury 3",
+  "url": "https://openrouter.ai/inception/mercury-3/api"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "quick",
+  "title": "vLLM 0.32.0",
+  "url": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "quick",
+  "title": "Google TorchTPU open source",
+  "url": "https://cloud.google.com/blog/topics/ai-infrastructure/torchtpu-is-now-open-source-run-native-pytorch-on-tpus/"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "quick",
+  "title": "AWS TorchNeuron public beta",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-native-pytorch-support-trainium"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "quick",
+  "title": "Databricks Agent Memory",
+  "url": "https://www.databricks.com/blog/introducing-agent-memory-databricks"
+ },
+ {
+  "date": "2026-10-21",
+  "slot": "quick",
+  "title": "AWS Well-Architected Agent",
+  "url": "https://www.infoq.com/news/2026/10/aws-well-architected-agent/"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "top",
+  "title": "Google Cloud brings OpenAI GPT-6 models",
+  "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers/"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "models",
+  "title": "ElevenLabs Eleven Realtime",
+  "url": "https://elevenlabs.io/blog/realtime"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "agents",
+  "title": "Walmart Agent Gateway for shopping agents",
+  "url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "research",
+  "title": "Harness Scaling for agentic RL",
+  "url": "https://huggingface.co/papers/2610.29458"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "people",
+  "title": "Latent Space: Claude Mods",
+  "url": "https://www.latent.space/p/claude-mods"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "architecture",
+  "title": "Vercel durable-harness",
+  "url": "https://vercel.com/blog/making-every-harness-durable"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "quick",
+  "title": "MiniMax M3.1 Flash",
+  "url": "https://www.minimax.io/blog/minimax-m31f"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "quick",
+  "title": "RecursiveSI Flint",
+  "url": "https://huggingface.co/RecursiveSI/flint"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "quick",
+  "title": "IBM Granite Speech 5.0 2B",
+  "url": "https://huggingface.co/ibm-granite/granite-speech-5.0-2b"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "quick",
+  "title": "KiviDB",
+  "url": "https://github.com/kividbio/kividb"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "quick",
+  "title": "Mouse-1 decision model",
+  "url": "https://www.producthunt.com/products/mouse-1"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "quick",
+  "title": "Ramp Laminar",
+  "url": "https://builders.ramp.com/post/building-laminar"
+ },
+ {
+  "date": "2026-10-22",
+  "slot": "quick",
+  "title": "Apple Ray agent infrastructure talk",
+  "url": "https://www.infoq.com/presentations/scale-llm-agents-production-ray/"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "top",
+  "title": "LiteLLM 1.107.0 supply-chain compromise",
+  "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "agents",
+  "title": "Agentic AI Foundation Agent Skills, Open Responses, OpenEnv, OpenSandbox",
+  "url": "https://www.linuxfoundation.org/press/agentic-ai-foundation-announces-four-new-projects-agent-skills-open-responses-openenv-and-opensandbox"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "research",
+  "title": "RAG Compositionality (lasagna)",
+  "url": "https://huggingface.co/papers/2610.29722"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "people",
+  "title": "Simon Willison: PHP security release",
+  "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "architecture",
+  "title": "NVIDIA OpenShell agent runtime",
+  "url": "https://github.com/NVIDIA/OpenShell"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "regional",
+  "title": "Chariot-1-ASR Realtime",
+  "url": "https://chariot.in/"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "quick",
+  "title": "Anthropic Claude Duet",
+  "url": "https://claude.com/resources/articles/claude-duet"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "quick",
+  "title": "Omnara open-source agent platform",
+  "url": "https://github.com/omnara-ai/omnara"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "quick",
+  "title": "Harbor Docker Sandboxes",
+  "url": "https://www.infoq.com/news/2026/10/ai-agents-harbor-docker/"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "quick",
+  "title": "GitHub Copilot usage metrics customizations",
+  "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "quick",
+  "title": "Google Agent Compute Engine",
+  "url": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive/"
+ },
+ {
+  "date": "2026-10-23",
+  "slot": "quick",
+  "title": "Jellyfish AI productivity study",
+  "url": "https://www.infoq.com/news/2026/10/jellyfish-ai-productivity/"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "top",
+  "title": "Node.js Brotli decoder CVE-2026-111497",
+  "url": "https://nodejs.org/en/blog/release/v24.22.1"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "models",
+  "title": "Moonshot Kimi K3.1 Pro",
+  "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "agents",
+  "title": "LangChain Deep Agents large tool results",
+  "url": "https://www.langchain.com/blog/context-engineering-starts-with-retrieval"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "research",
+  "title": "SWE-Verifier",
+  "url": "https://arxiv.org/abs/2610.30284"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "people",
+  "title": "Latent Space: Modal Erik Bernhardsson",
+  "url": "https://latent.space/p/modal-d/"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "architecture",
+  "title": "Databricks declarative pipelines for agents",
+  "url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "regional",
+  "title": "Humain Nvidia 84MW",
+  "url": "https://www.thenationalnews.com/future/technology/2026/10/22/saudi-arabias-humain-expands-nvidia-deal-with-84mw-ai-computing-plan/"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "regional",
+  "title": "G42 Greece AI factory",
+  "url": "https://www.thenationalnews.com/business/2026/10/23/uaes-g42-signs-pacts-to-explore-ai-infrastructure-in-greece/"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "IQuest-Q1",
+  "url": "https://huggingface.co/papers/2610.30949"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "Block Dessa",
+  "url": "https://block.xyz/dessa"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "Mistral Timestral-209M",
+  "url": "https://huggingface.co/mistralai/Timestral-209M"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "Cloudflare security-audit-skill",
+  "url": "https://github.com/cloudflare/security-audit-skill"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "NVIDIA Nemotron 3.5 Bolt E4B",
+  "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "Cloudflare Workers profiling",
+  "url": "https://www.infoq.com/news/2026/10/cloudflare-cpu-memory-profiling/"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "AWS AgentCore Gateway fallback",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-gateway-invokemodel-fallback/"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "Google agent governance",
+  "url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance/"
+ },
+ {
+  "date": "2026-10-24",
+  "slot": "quick",
+  "title": "Banks blocking third-party agents",
+  "url": "https://fstech.co.uk/fst/Citi_BofA_Block_AI_Agents.php"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "top",
+  "title": "Microsoft Storm-0940 ARTEX ConnectWise compromise",
+  "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "models",
+  "title": "NVIDIA Nemotron Labs Dory 1.0 4B looped model",
+  "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "agents",
+  "title": "Google ADK 2.13.0 telemetry default change",
+  "url": "https://github.com/google/adk-python/releases"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "research",
+  "title": "LLM-as-a-Judge prompting strategy robustness study",
+  "url": "https://arxiv.org/abs/2610.31172"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "architecture",
+  "title": "InfoQ Actors for Agents talk",
+  "url": "https://www.infoq.com/presentations/actors-for-production-ai-agents/"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "regional",
+  "title": "MBZUAI Inception42 Jais 3",
+  "url": "https://gulfnews.com/uae/uae-launches-jais-3-arabic-native-ai-for-speech-writing-and-agents-1.500711935"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "quick",
+  "title": "Vercel fx Zig coding agent",
+  "url": "https://www.infoq.com/news/2026/10/vercel-zig-fx-agent/"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "quick",
+  "title": "XHToken Spark-X2.6-4B",
+  "url": "https://huggingface.co/XHToken/Spark-X2.6-4B"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "quick",
+  "title": "Amazon Polly generative engine upgrade",
+  "url": "https://aws.amazon.com/blogs/machine-learning/amazon-polly-delivers-a-major-upgrade-to-its-generative-engine/"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "quick",
+  "title": "Pydantic AI 2.61.0",
+  "url": "https://github.com/pydantic/pydantic-ai/releases"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "quick",
+  "title": "Anthropic Claude on Google Cloud Anthropic-managed GA",
+  "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud/"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "quick",
+  "title": "GitHub Copilot in Microsoft Teams",
+  "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "quick",
+  "title": "Nutanix NVIDIA Supermicro Netris tie-ups",
+  "url": "https://analyticsindiamag.com/ai-news/nutanix-announces-ai-infrastructure-tie-ups-with-nvidia-supermicro-and-netris"
+ },
+ {
+  "date": "2026-10-25",
+  "slot": "quick",
+  "title": "RIFT KV cache compression for draft models",
+  "url": "https://arxiv.org/abs/2610.31098"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "top",
+  "title": "PingCAP TiDB Cloud breach",
+  "url": "https://www.pingcap.com/trust-hub/security/security-update-october-2026/"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "models",
+  "title": "Anthropic Claude API 2026-10-21 removes sampling parameters",
+  "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "agents",
+  "title": "Bayer Crop Science agentic decision engine on AgentCore",
+  "url": "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "research",
+  "title": "CNN vs GPT-6 Astra and Fable 5.1 on skin lesions",
+  "url": "https://lynchlab.net/llm-skin-cancer"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "regional",
+  "title": "Chariot-1-ASR Realtime",
+  "url": "https://analyticsindiamag.com/ai-news/chariot-launches-speech-recognition-model-for-10-indian-languages"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "quick",
+  "title": "Nanbeige4.3-33B",
+  "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "quick",
+  "title": "Carbon-X DNA chat model",
+  "url": "https://huggingface.co/HuggingFaceBio/Carbon-X"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "quick",
+  "title": "Google ML Drift",
+  "url": "https://www.infoq.com/news/2026/10/google-ml-drift/"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "quick",
+  "title": "GitHub Copilot usage metrics by client",
+  "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "quick",
+  "title": "GitHub Apps enterprise installations GA",
+  "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available"
+ },
+ {
+  "date": "2026-10-26",
+  "slot": "quick",
+  "title": "LangChain company harness",
+  "url": "https://www.langchain.com/blog/components-building-company-harness"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "top",
+  "title": "Cloudflare GLM-5.3 KV cache exposure (SGLang)",
+  "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "models",
+  "title": "OpenAI GPT-6.1 Terra",
+  "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "agents",
+  "title": "Forever Security AGENTS.md Downloads hijack of Codex and Claude Code",
+  "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "research",
+  "title": "Compaction benchmarks (Salle et al.)",
+  "url": "https://arxiv.org/abs/2610.31778"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "people",
+  "title": "Simon Willison: webframe evaluation",
+  "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "architecture",
+  "title": "Ubicloud vLLM tool-call accuracy and constrained decoding",
+  "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "quick",
+  "title": "KRAFTON Raon-1-mini-preview",
+  "url": "https://huggingface.co/KRAFTON/Raon-1-mini-preview"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "quick",
+  "title": "OpenAI Decisions API",
+  "url": "https://developers.openai.com/api/docs/guides/decisions"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "quick",
+  "title": "LiteLLM 1.107.0 root cause",
+  "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "quick",
+  "title": "MLflow CVE-2026-53995",
+  "url": "https://osv.dev/vulnerability/GHSA-wqmh-qccw-pqwf"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "quick",
+  "title": "Anthropic S-1 training pause disclosure",
+  "url": "https://www.investing.com/news/stock-market-news/anthropic-discloses-monthlong-training-pause-ai-security-breaches-in-ipo-filing-4973293"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "quick",
+  "title": "SPECMEM speculative tool calling",
+  "url": "https://arxiv.org/abs/2610.31840"
+ },
+ {
+  "date": "2026-10-27",
+  "slot": "quick",
+  "title": "Continual Learning Exam benchmark",
+  "url": "https://huggingface.co/papers/2610.33956"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "top",
+  "title": "LiteLLM proxy internal_user to proxy_admin RCE",
+  "url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "models",
+  "title": "Liquid AI LFM3 small models",
+  "url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "agents",
+  "title": "MCP C# SDK 2.0 stateless HTTP",
+  "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "people",
+  "title": "LangChain Content Studio design agent",
+  "url": "https://www.langchain.com/blog/design-agent"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "architecture",
+  "title": "Momento KV cache talk at QCon AI",
+  "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "regional",
+  "title": "Sarvam five-year defence AI MoU",
+  "url": "https://analyticsindiamag.com/ai-news/sarvam-signs-5-year-defence-ai-deal-covering-army-navy-and-air-force"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "regional",
+  "title": "Maya Research Maya 2 Native TTS",
+  "url": "https://analyticsindiamag.com/ai-news/maya-research-releases-open-weight-speech-model-supporting-12-languages"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "regional",
+  "title": "Dubai Chambers Chamber AI Hub",
+  "url": "https://gulfnews.com/business/dubai-launches-worlds-first-chamber-led-agentic-ai-marketplace-1.500724627"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "Baidu Unlimited-OCR-2",
+  "url": "https://huggingface.co/baidu/Unlimited-OCR-2"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "Entire Git Forge",
+  "url": "https://analyticsindiamag.com/ai-news/former-github-ceo-launches-git-platform-built-for-ai-agents"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "vLLM code_revision RCE CVE-2026-114053",
+  "url": "https://osv.dev/vulnerability/GHSA-h3rc-6mm3-gc2m"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "MCP Python SDK token audience advisory",
+  "url": "https://osv.dev/vulnerability/GHSA-w4fh-qvv9-3v23"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "MLflow unauthenticated RCE GHSA-26p8",
+  "url": "https://osv.dev/vulnerability/GHSA-26p8-2jq9-3vq9"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "Cloudflare Auto Router",
+  "url": "https://www.infoq.com/news/2026/10/cloudflare-auto-router/"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "GitHub Copilot assisted permissions GA",
+  "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "AWS agents triage Linux kernel CVEs",
+  "url": "https://www.infoq.com/news/2026/10/aws-ai-agents-linux-kernel-cves/"
+ },
+ {
+  "date": "2026-10-28",
+  "slot": "quick",
+  "title": "Google Cloud IAM Helper agent skills",
+  "url": "https://cloud.google.com/blog/products/identity-security/scale-agents-securely-with-iam-helper-agent-skills-and-mcp-tools/"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "top",
+  "title": "GitHub Copilot Fusion model routing",
+  "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "models",
+  "title": "Google Gemini 4 Carbon limited release",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "agents",
+  "title": "Microsoft Copilot harness in Foundry Agent Service",
+  "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "research",
+  "title": "Group memory CrossProfile attribution bias study",
+  "url": "https://huggingface.co/papers/2610.37624"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "architecture",
+  "title": "vLLM 0.32.0 security advisories batch",
+  "url": "https://github.com/advisories/GHSA-h3rc-j82p-2c3h"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "regional",
+  "title": "Oracle Fusion Claw agentic platform",
+  "url": "https://www.thenationalnews.com/future/technology/2026/10/26/oracle-launches-new-agentic-ai-to-take-on-complex-tasks-such-as-supply-chains/"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "Google EmbeddingGemma 2",
+  "url": "https://huggingface.co/papers/2610.37364"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "OpenBMB MiniCPM-OCR-1.0",
+  "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "MLflow 3.17.0 advisories",
+  "url": "https://github.com/advisories/GHSA-j7qq-vr8c-xvw3"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "MCP Python SDK redirect and ref advisories",
+  "url": "https://github.com/advisories/GHSA-5h93-6whr-6q8j"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "Check Point Yoba fake AI desktop apps",
+  "url": "https://research.checkpoint.com/2026/tricks-from-the-past-deployed-via-signed-chatgpt-and-claude-binaries/"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "Mozilla Firefox 159 security advisory",
+  "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "Anthropic UK AISI cybertesting alignment assessment",
+  "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "Amazon Bedrock AgentCore CLI 1.0",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore-cli-version-1-0-available/"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "GitHub Agentic Workflows GA",
+  "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "Surge AI Dayjob Tax",
+  "url": "https://surgehq.ai/blog/dayjob-tax"
+ },
+ {
+  "date": "2026-10-29",
+  "slot": "quick",
+  "title": "Cognition FrontierCode 2.0",
+  "url": "https://cognition.com/blog/frontier-code-2.0"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "top",
+  "title": "Symantec relay service rewires Codex and Claude Code",
+  "url": "https://www.security.com/blog-post/openai-claude-unauthorized-relays"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "models",
+  "title": "Mistral Large 4 open weights",
+  "url": "https://mistral.ai/news/mistral-large-4-oss/"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "agents",
+  "title": "MoEngage AgentCore Gateway 400 APIs as agent tools",
+  "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "research",
+  "title": "Check Point Qwen incident replay",
+  "url": "https://blog.checkpoint.com/ai-security/qwen-incident-backdoor-ai-agents"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "people",
+  "title": "Simon Willison: ChatGPT API credits benefit",
+  "url": "https://simonwillison.net/2026/Oct/29/api-credits/"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "architecture",
+  "title": "Datadog Scout SRE investigation model",
+  "url": "https://www.infoq.com/news/2026/10/datadog-scout-sre-model/"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "regional",
+  "title": "HCLTech nano GCC on AWS",
+  "url": "https://analyticsindiamag.com/ai-news/hcltech-launches-nano-gcc-model-with-aws-to-build-ai-operations"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "DeepSeek Harness Search and Fetch billing",
+  "url": "https://api-docs.deepseek.com/guides/search"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "NVIDIA Nemotron 3.5 Transcribe",
+  "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "Infini-AI-Lab Hermit",
+  "url": "https://github.com/Infini-AI-Lab/hermit"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "Bug0 QA Agent",
+  "url": "https://www.infoq.com/news/2026/10/bug0-agent-testing-cached-replay/"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "Warp breach AI agent logs",
+  "url": "https://bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "LiteLLM vertex_ai_credentials file read GHSA-g5ff",
+  "url": "https://osv.dev/vulnerability/GHSA-g5ff-637f-6q2m"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "MCP TypeScript SDK request size DoS",
+  "url": "https://osv.dev/vulnerability/GHSA-f897-62hf-6gxq"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "Google OAuth DPoP for refresh tokens",
+  "url": "https://www.infoq.com/news/2026/10/google-dpop-oauth2/"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "GitHub Copilot enterprise plugin controls GA",
+  "url": "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "AWS Step Functions as AgentCore Gateway tools",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/step-functions-workflows-ai-agent-tools/"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "Uber MCP gateway for agents",
+  "url": "https://blog.bytebytego.com/p/how-uber-built-a-gateway-for-ai-agents"
+ },
+ {
+  "date": "2026-10-30",
+  "slot": "quick",
+  "title": "Google GKE networking for agent sandboxes",
+  "url": "https://cloud.google.com/blog/products/networking/gke-networking-dataplane-for-large-agentic-ai-workloads"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "top",
+  "title": "Cursor tampered Claude Code extension SSH backdoor",
+  "url": "https://cursor.com/blog/claude-code-extension-security-notice"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "models",
+  "title": "Amazon Bedrock OpenAI GPT-5.6 models and Daybreak Red in GovCloud",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-openai-runtime-govcloud/"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "agents",
+  "title": "LangChain Managed Deep Agents v0.10 browser and async subagents",
+  "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "research",
+  "title": "Amazon Sandman agent sandboxes on Kubernetes",
+  "url": "https://arxiv.org/abs/2610.39711"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "people",
+  "title": "Nathan Lambert: open models and cyber risks",
+  "url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "architecture",
+  "title": "DoorDash grocery reorder offline bundle agent",
+  "url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "regional",
+  "title": "TRAI draft AI guidelines for telecom",
+  "url": "https://www.tribuneindia.com/news/business/trai-releases-draft-ai-guidelines-for-telecom-sector-seeks-public-comments-by-november-27"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "regional",
+  "title": "UAE Vibe Codes platform",
+  "url": "https://fastcompanyme.com/news/uae-introduces-ai-powered-coding-platform-to-help-people-build-apps-without-programming-skills/"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "LangGraph SDK path traversal CVE-2026-118667",
+  "url": "https://osv.dev/vulnerability/GHSA-3fx2-cqw9-xr3c"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "GitHub Copilot app security extension",
+  "url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "Google Cloud spend caps",
+  "url": "https://cloud.google.com/blog/topics/cost-management/google-cloud-spend-caps-now-generally-available/"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "Amazon SageMaker GPU partitioning",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-gpu-partitioning/"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "GitHub Enterprise includes Copilot",
+  "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "Airbnb Chronon",
+  "url": "https://www.infoq.com/news/2026/10/airbnb-chronon-recommendation/"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "Netflix GPU reliability",
+  "url": "https://www.infoq.com/news/2026/10/netflix-gpu-distributed-systems/"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "Netflix Titus single-tenant",
+  "url": "https://www.infoq.com/news/2026/10/netflix-titus-kubernetes-microvm/"
+ },
+ {
+  "date": "2026-10-31",
+  "slot": "quick",
+  "title": "Databricks and SAP",
+  "url": "https://www.databricks.com/blog/databricks-and-sap-unleash-end-end-data-ai-capabilities-level-enterprise-ai-transformation"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "top",
+  "title": "Northflank breach and abused AI API keys",
+  "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "models",
+  "title": "Microsoft Mage-VL-Cowork 4B computer-use model",
+  "url": "https://huggingface.co/microsoft/Mage-VL-Cowork"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "agents",
+  "title": "Factory Droid 1.0 Script Mode harness",
+  "url": "https://factory.com/news/frontier-harness"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "research",
+  "title": "Prefix Executability tool-agent evaluation",
+  "url": "https://arxiv.org/abs/2610.40444"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "people",
+  "title": "Latent Space: Arca long-horizon finance agents",
+  "url": "https://latent.space/p/arca/"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "architecture",
+  "title": "Databricks Real-Time Mode for Spark Declarative Pipelines GA",
+  "url": "https://www.databricks.com/blog/announcing-general-availability-real-time-mode-spark-declarative-pipelines-databricks"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "regional",
+  "title": "Jio Haptik SOLO in the UAE",
+  "url": "https://martechseries.com/predictive-ai/ai-platforms-machine-learning/jio-haptik-launches-solo-in-the-uae-to-support-ai-powered-entrepreneurship/"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "regional",
+  "title": "Gnani Prisma v3.0 speech recognition",
+  "url": "https://fintechbiznews.com/fintech-technology/prisma-v30-by-gnani-ai"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "regional",
+  "title": "CoRover BharatGPT on AIKosh",
+  "url": "https://analyticsindiamag.com/ai-news/corover-lists-three-bharatgpt-models-on-government-backed-aikosh-platform"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "quick",
+  "title": "Memdoor five-role Qwen3.8-27B workflow",
+  "url": "https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "quick",
+  "title": "ChatGPT HTML preview account takeover (Parameter Labs)",
+  "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "quick",
+  "title": "Volta infostealer LLM victim ranking",
+  "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "quick",
+  "title": "Epoch AI open-weight model Firefox patch gap",
+  "url": "https://epoch.ai/publications/open-weight-models-patch-gap"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "quick",
+  "title": "Fortanix Kubernetes Confidential Containers",
+  "url": "https://www.infoq.com/news/2026/10/k8s-confidential-containers/"
+ },
+ {
+  "date": "2026-11-01",
+  "slot": "quick",
+  "title": "Google PageBreak security agent",
+  "url": "https://www.infoq.com/news/2026/10/google-pagebreak-security-agent/"
+ }
 ]

@@ -354,5 +354,20 @@
 "sovereign AI & data residency": 2,
 "voice agents": 2,
 "world models & robotics": 1
+},
+"2026-11-01": {
+"AI compute & data centres": 2,
+"RL post-training": 1,
+"agent harnesses": 2,
+"agent memory": 1,
+"coding agents": 3,
+"computer & browser agents": 2,
+"distillation & synthetic data": 1,
+"guardrails & AI safety": 1,
+"inference optimisation": 1,
+"mixture of experts": 1,
+"sandboxing": 1,
+"sovereign AI & data residency": 1,
+"voice agents": 3
 }
 }

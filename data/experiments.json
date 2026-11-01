@@ -1,142 +1,149 @@
 [
-  {
-    "date": "2026-10-11",
-    "title": "One-pass decision models vs generative LLM call for routing/classification",
-    "source_url": "https://huggingface.co/Cloudflare/clef",
-    "hypothesis": "Typed one-pass decision models (OpenAI Decisions, Clef-flash) match a generative call on closed-set tasks within 2 accuracy points at under a third of the cost and latency.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-12",
-    "title": "Audit agents for vulnerable AgentCore SDK versions",
-    "source_url": "https://www.infosecurity-magazine.com/news/aws-agentcore-sdk-flaws-ai/",
-    "hypothesis": "Some agent services still run a pre-1.18.1 bedrock-agentcore SDK with an execution role attached to a Code Interpreter.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-13",
-    "title": "Flows vs single agent on a seeded research task",
-    "source_url": "https://www.latent.space/p/claude-dynamic-workflows",
-    "hypothesis": "Claude Managed Agents flows find more of a seeded 20-fact set than a single agent on the same token budget, at a cost multiple smaller than the recall gain.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-14",
-    "title": "Gemini 4 Argon vs current model on real agent traces",
-    "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud/",
-    "hypothesis": "On 20 of your own hard agent traces, Argon cuts cost per resolved task by 20%+ at equal pass rate, including at the post-Nov 30 price.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-15",
-    "title": "BigQuery AI token quota: silent empty rows",
-    "source_url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/",
-    "hypothesis": "With a quota at ~10% of a batch, AI.GENERATE rows past the limit come back empty with a quota error in status, and downstream jobs don't notice unless they check.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-16",
-    "title": "Temporal serverless worker cold start on Cloud Run",
-    "source_url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/",
-    "hypothesis": "With min instances 0, p95 backlog-to-start latency after 10 idle minutes is clearly higher than with min 1; adopt for bursty agent queues only if the gap fits your SLA.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-17",
-    "title": "Trace-based vs final-message grading of agent runs",
-    "source_url": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons/",
-    "hypothesis": "On 10 runs of an internal agent, grading the tool-call trace disagrees with grading the final message on at least 2.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-18",
-    "title": "DeepSeek V4.1-Flash-1017 cost per resolved task",
-    "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-    "hypothesis": "On 20 of your own agent traces, cost per resolved task drops versus your current model at pass rate within 3 points.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-19",
-    "title": "Canary credential and default-deny egress test for agent runs",
-    "source_url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02",
-    "hypothesis": "In 20 staging agent runs, at least one outbound call leaves the allowlist or the planted fake key is used.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-20",
-    "title": "Pi Durable replay-safe write keys under SIGKILL",
-    "source_url": "https://github.com/earendil-works/pi/tree/main/packages/durable",
-    "hypothesis": "Default tool never duplicates a write; a replay-safe tool with a call-id key and target lookup keeps duplicates at zero over 20 kills.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-21",
-    "title": "Prompt-injection run-to-run disagreement with reasoning on/off",
-    "source_url": "https://arxiv.org/abs/2610.24048",
-    "hypothesis": "Single-run injection tests are unstable for reasoning agents; multi-run gating changes pass/fail for more than 10% of cases.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-22",
-    "title": "Crash-resume of long coding-agent sessions with durable-harness",
-    "source_url": "https://vercel.com/blog/making-every-harness-durable",
-    "hypothesis": "Wrapping a coding agent with durable-harness resumes over 95% of mid-turn crashes without duplicated side effects.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-23",
-    "title": "Scan gateway/proxy logs for tokens in response bodies",
-    "source_url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026",
-    "hypothesis": "Gateways that log response bodies retain readable GitHub, cloud or provider tokens; redaction removes them.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-25",
-    "title": "Audit third-party service principals for role-write permissions",
-    "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
-    "hypothesis": "At least one multi-tenant third-party app in our tenants can add credentials or assign roles; least-privilege review removes that path.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-26",
-    "title": "Claude API 2026-10-21: effect of removing temperature/top_p/top_k",
-    "source_url": "https://platform.claude.com/docs/en/api/migration-2026-10-21",
-    "hypothesis": "Some calls rely on non-default sampling values for consistency; removing them drops pass rate by more than 2 points.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-27",
-    "title": "Find unknown AGENTS.md/CLAUDE.md files in agent launch directories",
-    "source_url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
-    "hypothesis": "At least one directory where agents are started holds an instruction file nobody on the team wrote; a launch-from-project-root rule removes that path.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-28",
-    "title": "Audit LiteLLM proxy versions and EXPERIMENTAL_UI_LOGIN",
-    "source_url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45",
-    "hypothesis": "Some LiteLLM proxies still run an affected 1.91.0-1.104.0rc1 build; patching breaks nothing if CLI SSO and Claude Code gateway login are tested first.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-29",
-    "title": "Copilot Fusion Standard vs current default on real tickets",
-    "source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
-    "hypothesis": "On 20 recent tickets, Fusion Standard cuts cost per merged change by 30%+ at an equal merge rate.",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-30",
-    "title": "Mistral Large 4 vs current coding-agent default",
-    "source_url": "https://mistral.ai/news/mistral-large-4-oss/",
-    "hypothesis": "Large 4 resolves comparable tickets at lower cost per resolved ticket",
-    "status": "suggested"
-  },
-  {
-    "date": "2026-10-31",
-    "title": "Precompute a predictable agent step (DoorDash pattern)",
-    "source_url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
-    "hypothesis": "Precomputing one repeatable agent step in a nightly job halves p50 latency at equal task success.",
-    "status": "suggested"
-  }
+ {
+  "date": "2026-10-11",
+  "title": "One-pass decision models vs generative LLM call for routing/classification",
+  "source_url": "https://huggingface.co/Cloudflare/clef",
+  "hypothesis": "Typed one-pass decision models (OpenAI Decisions, Clef-flash) match a generative call on closed-set tasks within 2 accuracy points at under a third of the cost and latency.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-12",
+  "title": "Audit agents for vulnerable AgentCore SDK versions",
+  "source_url": "https://www.infosecurity-magazine.com/news/aws-agentcore-sdk-flaws-ai/",
+  "hypothesis": "Some agent services still run a pre-1.18.1 bedrock-agentcore SDK with an execution role attached to a Code Interpreter.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-13",
+  "title": "Flows vs single agent on a seeded research task",
+  "source_url": "https://www.latent.space/p/claude-dynamic-workflows",
+  "hypothesis": "Claude Managed Agents flows find more of a seeded 20-fact set than a single agent on the same token budget, at a cost multiple smaller than the recall gain.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-14",
+  "title": "Gemini 4 Argon vs current model on real agent traces",
+  "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud/",
+  "hypothesis": "On 20 of your own hard agent traces, Argon cuts cost per resolved task by 20%+ at equal pass rate, including at the post-Nov 30 price.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-15",
+  "title": "BigQuery AI token quota: silent empty rows",
+  "source_url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/",
+  "hypothesis": "With a quota at ~10% of a batch, AI.GENERATE rows past the limit come back empty with a quota error in status, and downstream jobs don't notice unless they check.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-16",
+  "title": "Temporal serverless worker cold start on Cloud Run",
+  "source_url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/",
+  "hypothesis": "With min instances 0, p95 backlog-to-start latency after 10 idle minutes is clearly higher than with min 1; adopt for bursty agent queues only if the gap fits your SLA.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-17",
+  "title": "Trace-based vs final-message grading of agent runs",
+  "source_url": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons/",
+  "hypothesis": "On 10 runs of an internal agent, grading the tool-call trace disagrees with grading the final message on at least 2.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-18",
+  "title": "DeepSeek V4.1-Flash-1017 cost per resolved task",
+  "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+  "hypothesis": "On 20 of your own agent traces, cost per resolved task drops versus your current model at pass rate within 3 points.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-19",
+  "title": "Canary credential and default-deny egress test for agent runs",
+  "source_url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02",
+  "hypothesis": "In 20 staging agent runs, at least one outbound call leaves the allowlist or the planted fake key is used.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-20",
+  "title": "Pi Durable replay-safe write keys under SIGKILL",
+  "source_url": "https://github.com/earendil-works/pi/tree/main/packages/durable",
+  "hypothesis": "Default tool never duplicates a write; a replay-safe tool with a call-id key and target lookup keeps duplicates at zero over 20 kills.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-21",
+  "title": "Prompt-injection run-to-run disagreement with reasoning on/off",
+  "source_url": "https://arxiv.org/abs/2610.24048",
+  "hypothesis": "Single-run injection tests are unstable for reasoning agents; multi-run gating changes pass/fail for more than 10% of cases.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-22",
+  "title": "Crash-resume of long coding-agent sessions with durable-harness",
+  "source_url": "https://vercel.com/blog/making-every-harness-durable",
+  "hypothesis": "Wrapping a coding agent with durable-harness resumes over 95% of mid-turn crashes without duplicated side effects.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-23",
+  "title": "Scan gateway/proxy logs for tokens in response bodies",
+  "source_url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026",
+  "hypothesis": "Gateways that log response bodies retain readable GitHub, cloud or provider tokens; redaction removes them.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-25",
+  "title": "Audit third-party service principals for role-write permissions",
+  "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+  "hypothesis": "At least one multi-tenant third-party app in our tenants can add credentials or assign roles; least-privilege review removes that path.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-26",
+  "title": "Claude API 2026-10-21: effect of removing temperature/top_p/top_k",
+  "source_url": "https://platform.claude.com/docs/en/api/migration-2026-10-21",
+  "hypothesis": "Some calls rely on non-default sampling values for consistency; removing them drops pass rate by more than 2 points.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-27",
+  "title": "Find unknown AGENTS.md/CLAUDE.md files in agent launch directories",
+  "source_url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+  "hypothesis": "At least one directory where agents are started holds an instruction file nobody on the team wrote; a launch-from-project-root rule removes that path.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-28",
+  "title": "Audit LiteLLM proxy versions and EXPERIMENTAL_UI_LOGIN",
+  "source_url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45",
+  "hypothesis": "Some LiteLLM proxies still run an affected 1.91.0-1.104.0rc1 build; patching breaks nothing if CLI SSO and Claude Code gateway login are tested first.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-29",
+  "title": "Copilot Fusion Standard vs current default on real tickets",
+  "source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+  "hypothesis": "On 20 recent tickets, Fusion Standard cuts cost per merged change by 30%+ at an equal merge rate.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-30",
+  "title": "Mistral Large 4 vs current coding-agent default",
+  "source_url": "https://mistral.ai/news/mistral-large-4-oss/",
+  "hypothesis": "Large 4 resolves comparable tickets at lower cost per resolved ticket",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-10-31",
+  "title": "Precompute a predictable agent step (DoorDash pattern)",
+  "source_url": "https://www.infoq.com/news/2026/10/doordash-ai-grocery-reorder/",
+  "hypothesis": "Precomputing one repeatable agent step in a nightly job halves p50 latency at equal task success.",
+  "status": "suggested"
+ },
+ {
+  "date": "2026-11-01",
+  "title": "Scripted tool calls vs direct calls (Droid Script Mode)",
+  "source_url": "https://factory.com/news/frontier-harness",
+  "hypothesis": "For one tool-heavy agent flow, letting the model write a script that makes the tool calls cuts cost per passed task 10%+ at equal pass rate.",
+  "status": "suggested"
+ }
 ]

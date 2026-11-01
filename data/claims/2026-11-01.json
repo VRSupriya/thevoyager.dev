@@ -1,0 +1,369 @@
+{
+ "date": "2026-11-01",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Northflank",
+   "event_date": "2026-10-30",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Northflank disclosed a security incident on 30 October",
+     "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/",
+     "quote": "disclosed a security incident on October 30",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "Assume all environment variables were decrypted; rotate all user-defined credentials",
+     "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+     "quote": "Users were told to assume all environment variables were decrypted and to disable or rotate all keys (Oct 30, 1:58 PM entry; page text condensed by fetch tool)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Later reports that users had seen unauthorised use of AI API keys supplied to the platform",
+     "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/",
+     "quote": "Users have reported unauthorised use of AI API keys supplied to the Northflank platform.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "BleepingComputer says Northflank didn't answer its questions; cause and number of customers aren't public",
+     "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/",
+     "quote": "Searched BleepingComputer page: 'has not received a response' from Northflank; 'has not disclosed how attackers gained access'; no customer count. Status page also gives no customer count or confirmed root cause.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Affected: environment variables in workloads, secret groups, global secrets and add-on credentials",
+     "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+     "quote": "Rotation was advised for workload secrets, secret groups, and global secrets (Oct 30 3:12 PM); secret rotation added for Postgres, MongoDB, MySQL, Redis, Minio, RabbitMQ add-ons",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: not applicable; Northflank added secret rotation for several add-ons and audit logs for all accounts",
+     "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+     "quote": "Oct 31, 1:04 AM: Audit logs were enabled for all customers, including free users. Secret rotation for MySQL, Redis, Minio, RabbitMQ became available.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated by Northflank",
+     "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+     "quote": "Status page labels the incident 'Major outage' on the Northflank Platform, affecting 7 components; status 'Identified'.",
+     "verdict": "CORRECTED",
+     "fix": "No CVSS/formal severity rating, but the status page marks it 'Major outage' (7 components affected, status Identified). Write 'no formal rating; status page lists it as a major outage'."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: rotate all, disable public access on add-ons, revoke and replace AI keys at issuing providers",
+     "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+     "quote": "Disabling public expose on add-ons was recommended; revoke credentials with their providers, issue replacements, update Northflank secrets and workloads",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: review provider usage and billing logs, report to Northflank and the provider",
+     "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+     "quote": "review provider usage and billing logs, and report suspicious activity to Northflank support and the provider (Oct 30, 11:38 PM)",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Microsoft",
+   "event_date": "2026-10-30",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Microsoft put Mage-VL-Cowork on Hugging Face this week",
+     "url": "https://huggingface.co/microsoft/Mage-VL-Cowork/commits/main",
+     "quote": "Oct 30 12:14 'Release Mage-VL-Cowork model weights, card, and OSWorld evaluation reference'; 12:13 'initial commit' (page shows '2 days ago', no year; model card itself gives no date, only citation year 2026; arXiv badge links to a GitHub PDF, not an arXiv ID)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "licence",
+     "claim": "Apache-2.0",
+     "url": "https://huggingface.co/microsoft/Mage-VL-Cowork",
+     "quote": "Mage-VL-Cowork is released under the Apache-2.0 License.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "version",
+     "claim": "4B vision-language agent, Qwen3-4B-Instruct-2507 backbone, GUI plus shell/Python from a single policy",
+     "url": "https://huggingface.co/microsoft/Mage-VL-Cowork",
+     "quote": "Mage-ViT vision encoder with Qwen3-4B (Qwen3-4B-Instruct-2507); GUI and shell/Python in one policy, no external orchestrator (Hub size field shows 5B params)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "66.0% on OSWorld-Verified, two-run average, 361 tasks, 50-step budget; highest among 4B models",
+     "url": "https://huggingface.co/microsoft/Mage-VL-Cowork",
+     "quote": "66.0% = average of two runs (65.33%, 66.75%); 361 held-out tasks excluding Google Drive; 50 steps; 'the highest performance among 4B models'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "ScaleCUA-Qwen3.5-9B scores 68.7%",
+     "url": "https://huggingface.co/microsoft/Mage-VL-Cowork",
+     "quote": "ScaleCUA-Qwen3.5-9B 68.7% overall",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Factory",
+   "event_date": "2026-10-29",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Factory published Droid 1.0 on 29 October; desktop app, terminal UI, TypeScript SDK; model-independent",
+     "url": "https://factory.com/news/frontier-harness",
+     "quote": "Today, we introduce Droid 1.0 (dated October 29, 2026); desktop app for macOS and Windows, a terminal UI, and a TypeScript SDK; 'Factory is model-independent by design.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Script Mode: model writes JavaScript in a sandbox with no file, network or system access of its own",
+     "url": "https://factory.com/news/frontier-harness",
+     "quote": "no file, network, or system access of its own",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Factory says Script Mode cuts cost 15% versus direct tool calls on Claude Opus 5.5",
+     "url": "https://factory.com/news/frontier-harness",
+     "quote": "cuts Droid's cost by 15% on Claude Opus 5.5",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Terminal-Bench 4 with GPT-6.1 Sol: Droid 57.6% at $0.79 per passed task, Codex 54.0%, OpenCode 51.0%; about 10% slower than Codex",
+     "url": "https://factory.com/news/frontier-harness",
+     "quote": "Droid 57.6% at $0.79 per passed task; Codex 54.0%, OpenCode 51.0%, Devin 45.0%; 12% fewer tokens than Codex but takes 10% longer",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-10-29",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "arXiv 2610.40444, 29 October, accepted to NeurIPS 2026",
+     "url": "https://arxiv.org/abs/2610.40444",
+     "quote": "Submitted 29 October 2026 (v1); Comments: 21 pages, 2 figures, accepted to NeurIPS 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Runs on BFCL-v3 multi-turn, ToolSandbox and the Airline and Retail splits of tau3-bench",
+     "url": "https://arxiv.org/abs/2610.40444",
+     "quote": "BFCL-v3 multi-turn (stratified sample); ToolSandbox (stratified sample); τ³-bench, Airline and Retail base splits (complete)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Main claim: outcome-only and prefix-level rankings diverge",
+     "url": "https://arxiv.org/abs/2610.40444",
+     "quote": "Outcome-only rankings and prefix-level rankings diverge.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "The abstract gives no numbers",
+     "url": "https://arxiv.org/abs/2610.40444",
+     "quote": "Searched the abs page: no experimental results or performance figures; only arXiv id, file size, page and figure counts.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "-",
+   "event_date": "2026-10-31",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "26-minute Latent Space episode",
+     "url": "https://latent.space/p/arca/",
+     "quote": "Published Oct 31, running 26 minutes",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Tasks can take 'ten days' and the work is 'very stop-start'",
+     "url": "https://latent.space/p/arca/",
+     "quote": "tasks can take up to ten days; 'very stop-start, there's many actors in between.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Persistent state for every client; custom harness picks best model per task from internal benchmarks; Claude primary provider",
+     "url": "https://latent.space/p/arca/",
+     "quote": "persistent memory for each client; harness picks the best model for each task using internal benchmarks; Claude is Arca's primary model provider",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Switching providers is a config change, not a rewrite",
+     "url": "https://latent.space/p/arca/",
+     "quote": "Owning the harness ... means Arca can change model providers if needed.",
+     "verdict": "CORRECTED",
+     "fix": "Page supports 'owning the harness lets Arca change providers'; 'config change, not a rewrite' is the brief's gloss. Attribute as the brief's reading or soften."
+    },
+    {
+     "kind": "attribution",
+     "claim": "Arca's head of AI",
+     "url": "https://latent.space/p/arca/",
+     "quote": "Speaker title not present in the fetched summary of the page.",
+     "verdict": "REMOVED",
+     "fix": "Confirm guest name/title on the page or say 'an Arca executive'."
+    },
+    {
+     "kind": "other",
+     "claim": "Agents propose; human advisors handle trading and money movement",
+     "url": "https://latent.space/p/arca/",
+     "quote": "Agents handle analysis and propose solutions. Trading and other money movement stay with human advisors.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Databricks",
+   "event_date": "2026-10-29",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "Real-Time Mode generally available for Spark Declarative Pipelines, announced 29 October",
+     "url": "https://www.databricks.com/blog/announcing-general-availability-real-time-mode-spark-declarative-pipelines-databricks",
+     "quote": "Real-Time Mode on Spark Declarative Pipelines is now Generally Available. (October 29, 2026)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Up to 92% faster than specialized engines like Flink, on customer feature-computation workloads (Databricks benchmarks)",
+     "url": "https://www.databricks.com/blog/announcing-general-availability-real-time-mode-spark-declarative-pipelines-databricks",
+     "quote": "RTM is up to 92% faster than specialized engines like Flink; benchmarked against Apache Flink on actual customer workloads",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Feature Store 200 ms end-to-end p99 from Kafka to online feature store",
+     "url": "https://www.databricks.com/blog/announcing-general-availability-real-time-mode-spark-declarative-pipelines-databricks",
+     "quote": "end-to-end p99 latency of 200ms from Kafka to the online feature store",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Needs continuous mode, spark.databricks.streaming.realTimeMode.enabled=true and the RealTime trigger",
+     "url": "https://www.databricks.com/blog/announcing-general-availability-real-time-mode-spark-declarative-pipelines-databricks",
+     "quote": "Set spark.databricks.streaming.realTimeMode.enabled to true; run in continuous mode; pipelines.trigger = \"RealTime\"",
+     "verdict": "VERIFIED"
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Memdoor",
+   "url": "https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve",
+   "event_date": "2026-10-31",
+   "quote": "The 'five' are workflow roles (planner, two ideators, solver, manager, plus a repair worker), all Qwen3.8-27B; 49 of 50 runs solved; ten problems over five passes; 'contamination cannot be ruled out'; benchmark dated 2026-10-31",
+   "verdict": "CORRECTED",
+   "fix": "Say 'a five-role Qwen3.8-27B workflow solved 49 of 50 problem attempts (first ten LiveCodeBench Hard problems x five passes)', not 'five agents solved 49 of 50 runs'. Self-run and contamination caveat are correct."
+  },
+  {
+   "name": "ChatGPT HTML previews",
+   "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+   "event_date": "2026-10-26",
+   "quote": "Reported to OpenAI bug bounty 18 October; OpenAI resolved the issue on October 26; browser-side flaw in ChatGPT web frontend; MathLive listener accepted messages without sender check; iframe inserted without sandbox attribute; 'Opening the shared link was the only required action.' OpenAI raised severity P2 to P1. Simon Willison: 'OpenAI closed the hole and paid out a $5,000 bug bounty'.",
+   "verdict": "CORRECTED",
+   "fix": "18 Oct report, 26 Oct fix, listener and iframe are verified. 'Confirmed fixed server-side' is not supported (page describes a browser-side flaw; says only that OpenAI resolved it). 'Nothing for users to do' is not stated; say 'OpenAI says it resolved it on 26 October'. Chain also used a YouTube oEmbed CSP bypass per Willison."
+  },
+  {
+   "name": "Volta infostealer",
+   "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+   "event_date": "2026-10-31",
+   "quote": "'VOLTA sends a structured evidence bundle to an LLM to rank the victim's assets by monetization value.' Posted 31 Oct 2026; sample first seen 2026-10-11. POSTs to OpenRouter, default model anthropic/claude-opus-4.6, fails over to kimi-k2 then gemini-2.5-flash if it refuses; runs without the LLM stage if no key. Recommendations: application control on Chrome --headless launches, alert on Chrome --headless from non-developer processes, hardware-backed credential stores; if compromised preserve %APPDATA%\\volta_debug.txt, revoke tokens and change passwords.",
+   "verdict": "CORRECTED",
+   "fix": "Reword: Talos says the VOLTA stealer sends a bundle of stolen data about each victim to an LLM (via OpenRouter) to rank that victim's assets by monetization value ('WHAT THEY'RE WORTH' and 'THEIR OPSEC'). It is not ranking victims against each other as stated. The advice 'treat stolen-credential alerts as higher priority' is not in the post; Talos advises blocking or alerting on headless Chrome launched by unknown processes (the ABE decryption path) and using hardware-backed credential stores."
+  },
+  {
+   "name": "Firefox patch gap (Epoch AI)",
+   "url": "https://epoch.ai/publications/open-weight-models-patch-gap",
+   "event_date": "2026-10-29",
+   "quote": "Report dated October 29, 2026. GLM 5.3 (open-weight, released by Z.ai in August) used published but unshipped fixes plus a separate unpublished vulnerability it rediscovered each time to compromise six Firefox releases (156.0 to 158.0.1); 'it cost only about $1,000 to successfully attack each Firefox version'; fastest attempt about 12 hours; no arbitrary code execution on recent Firefox; no equivalent Chrome exploit after about $100,000; unpublished flaw reported to Mozilla, patched in Firefox 159.0 on October 27. Recommendation: shorten the time fixes are public before reaching users.",
+   "verdict": "CORRECTED",
+   "fix": "Reword: Epoch AI reports GLM 5.3, an open-weight model, built a Firefox attack (local file read from a webpage, not arbitrary code execution) for about $1,000 per version using fixes that were public but not yet shipped, plus a separate unpublished bug now fixed in Firefox 159.0. 'Ship browser updates quickly' is the brief's advice; Epoch's recommendation is for vendors to shrink the gap between publishing a fix and shipping it. Not a pure 'exploits from patches' result."
+  },
+  {
+   "name": "Confidential Containers with Fortanix",
+   "url": "https://www.infoq.com/news/2026/10/k8s-confidential-containers/",
+   "event_date": "2026-10-31",
+   "quote": "Fortanix DSM 'releases keys only to environments CCM has verified'; '`Required` makes CCM validate GPU evidence through NVIDIA's attestation service.'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google PageBreak",
+   "url": "https://www.infoq.com/news/2026/10/google-pagebreak-security-agent/",
+   "event_date": "2026-10-31",
+   "quote": "'uncovered more than 500 XSS vulnerabilities' in Google's web applications since full operation in January; reports only after validators 'reproduce the exploit against a running application'; Google claims near-zero false positives; the article notes no independent validation of the 500+ figure.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Jio Haptik SOLO UAE",
+   "url": "https://martechseries.com/predictive-ai/ai-platforms-machine-learning/jio-haptik-launches-solo-in-the-uae-to-support-ai-powered-entrepreneurship/",
+   "event_date": "2026-10-29",
+   "quote": "announced the UAE launch of SOLO at the Dubai AI Festival; goal 'more than two million solopreneurs and small businesses over the next two years'; searched page: pricing not mentioned, availability date not mentioned",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Gnani Prisma v3.0",
+   "url": "https://fintechbiznews.com/fintech-technology/prisma-v30-by-gnani-ai",
+   "event_date": "2026-10-28",
+   "quote": "Launch 28 October 2026; macro WER 16.9% across nine Indian languages vs ElevenLabs Scribe v2 19.98% in Gnani's own evaluation (Vistaar protocol); available now via REST, WebSocket streaming, batch",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "CoRover BharatGPT on AIKosh",
+   "url": "https://analyticsindiamag.com/ai-news/corover-lists-three-bharatgpt-models-on-government-backed-aikosh-platform",
+   "event_date": "2026-10-27",
+   "quote": "Published 2026-10-27; three models BharatGPT Mini, Instruct, ASR Hindi Conformer; WER 24.72% on the 'AI4Bharat/Lahaja Hindi test set'; the article does not describe the set as public",
+   "verdict": "CORRECTED",
+   "fix": "Say 'on the AI4Bharat/Lahaja Hindi test set', drop 'public'. Event date is 27 October (4 days before the brief)."
+  },
+  {
+   "name": "Government AI Summit 2026",
+   "url": "https://govaisummitmea.com/",
+   "event_date": "2026-11-03",
+   "quote": "3 November 2026 at Grand Hyatt Hotel Emirates Pearl, Abu Dhabi; one-day international event for the public sector",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

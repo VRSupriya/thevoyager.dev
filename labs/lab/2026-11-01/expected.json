@@ -1,0 +1,21 @@
+{
+  "title": "Lab, Step 1 (part 4): ablate the small GPT one piece at a time",
+  "post": "lab/2026-11-01",
+  "command": ["run.py"],
+  "timeout_minutes": 15,
+  "gates": [
+    {"metric": "init_val_loss", "op": "between", "value": [4.0, 4.4], "label": "starting loss near ln(65) = 4.17"},
+    {"metric": "val_loss", "op": "<=", "value": 1.95, "label": "baseline val loss after 2,000 steps"},
+    {"metric": "train_val_gap", "op": "<=", "value": 0.25, "label": "val minus train loss (overfitting check)"}
+  ],
+  "experiments": [
+    {"name": "seed_2", "args": ["--seed", "2"], "label": "baseline, seed 2 (noise)"},
+    {"name": "seed_3", "args": ["--seed", "3"], "label": "baseline, seed 3 (noise)"},
+    {"name": "no_pos", "args": ["--ablate", "no_pos"], "label": "remove position embeddings"},
+    {"name": "one_head", "args": ["--ablate", "one_head"], "label": "one attention head instead of four"},
+    {"name": "no_mlp", "args": ["--ablate", "no_mlp"], "label": "attention only (no MLP)"},
+    {"name": "no_attn", "args": ["--ablate", "no_attn"], "label": "MLP only (no attention)"},
+    {"name": "no_ln", "args": ["--ablate", "no_ln"], "label": "remove all LayerNorms"},
+    {"name": "no_wd", "args": ["--ablate", "no_wd"], "label": "no weight decay"}
+  ]
+}

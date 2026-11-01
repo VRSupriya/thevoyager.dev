@@ -180,5 +180,12 @@
   "week": 4,
   "title": "Build: a retrieval harness that tells you what each choice is worth, or a contract-aware chunker",
   "topic_key": "build:retrieval-eval-harness-chunking-context-header-rrf-vs-contract-aware-chunker:retrieval-rag-design"
+ },
+ {
+  "date": "2026-11-01",
+  "track": "lab",
+  "week": 4,
+  "title": "Lab, Step 1 (part 4): pull one piece out of a small GPT and see what you lose",
+  "topic_key": "lab:step1:part4:ablations-seed-noise-no-attn-no-mlp-no-ln-no-pos-one-head-no-wd"
  }
 ]

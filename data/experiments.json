@@ -145,5 +145,12 @@
   "source_url": "https://factory.com/news/frontier-harness",
   "hypothesis": "For one tool-heavy agent flow, letting the model write a script that makes the tool calls cuts cost per passed task 10%+ at equal pass rate.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-02",
+  "title": "Weekly regression set for a coding agent",
+  "source_url": "https://github.com/anthropics/claude-code/issues/106167",
+  "hypothesis": "A 15-task weekly rerun surfaces vendor-side behaviour changes (refusals, pass rate) before users report them.",
+  "status": "suggested"
  }
 ]

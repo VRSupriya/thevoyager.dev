@@ -1,10 +1,10 @@
 [
   {
-    "date": "2026-10-31",
-    "what": "DeepSeek starts billing server-side Search and Fetch calls ($0.75 per 1,000 calls each) from 16:00 UTC",
-    "who": "Teams using DeepSeek Search/Fetch via DeepSeek Harness, Claude Code or Codex",
-    "url": "https://api-docs.deepseek.com/news/news261017",
-    "added": "2026-10-22"
+    "date": "2026-11-13",
+    "what": "Amazon Bedrock end-of-life for Claude 3 Haiku, Claude 3 Sonnet, Claude 3.5 Sonnet (v1 and v2) and Claude 3.7 Sonnet in the regions the legacy page lists",
+    "who": "Teams calling those models through Bedrock",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
+    "added": "2026-11-02"
   },
   {
     "date": "2026-11-16",
@@ -19,6 +19,27 @@
     "who": "Teams using those Gemini preview models",
     "url": "https://ai.google.dev/gemini-api/docs/deprecations",
     "added": "2026-10-26"
+  },
+  {
+    "date": "2026-11-19",
+    "what": "Azure Foundry retires o1, o1-pro, o3, o3-pro, o3-deep-research (replacement gpt-5.6-sol) and o3-mini, o4-mini (replacement gpt-5.6-terra)",
+    "who": "Azure OpenAI users on those models",
+    "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
+    "added": "2026-11-02"
+  },
+  {
+    "date": "2026-11-19",
+    "what": "Vertex AI retires gemini-3.6-flash; replacement gemini-3.8-flash",
+    "who": "Vertex AI users on gemini-3.6-flash",
+    "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
+    "added": "2026-11-02"
+  },
+  {
+    "date": "2026-11-24",
+    "what": "Azure Foundry retires claude-opus-4-5",
+    "who": "Azure users on Claude Opus 4.5",
+    "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
+    "added": "2026-11-02"
   },
   {
     "date": "2026-11-30",
@@ -63,10 +84,31 @@
     "added": "2026-10-26"
   },
   {
+    "date": "2027-01-06",
+    "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts variants (replacement gpt-realtime-2.1-mini) and ends new self-serve fine-tuning jobs",
+    "who": "Teams using OpenAI TTS or fine-tuning",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-11-02"
+  },
+  {
     "date": "2027-01-14",
     "what": "OpenAI removes GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini snapshots from the API",
     "who": "OpenAI API users on those models",
     "url": "https://developers.openai.com/api/docs/deprecations",
     "added": "2026-10-26"
+  },
+  {
+    "date": "2027-01-20",
+    "what": "OpenAI removes gpt-realtime, gpt-4o-realtime, gpt-audio and related audio models (replacements gpt-realtime-2.1, gpt-audio-1.5)",
+    "who": "Voice-agent teams on OpenAI realtime/audio models",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-11-02"
+  },
+  {
+    "date": "2027-01-28",
+    "what": "Vertex AI retires gemini-3.7-flash; replacement gemini-3.8-flash",
+    "who": "Vertex AI users on gemini-3.7-flash",
+    "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
+    "added": "2026-11-02"
   }
 ]

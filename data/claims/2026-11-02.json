@@ -1,0 +1,395 @@
+{
+ "date": "2026-11-02",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Anthropic Claude Code",
+   "event_date": "2026-10-30",
+   "status": "Policy",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Anthropic added two sentences to Claude Code's prompt for Opus 5.5",
+     "url": "https://www.gamedeveloper.com/programming/anthropic-appears-to-have-ordered-ai-tool-claude-to-stop-remaking-video-games",
+     "quote": "We added two sentences to Claude Code's prompt on Opus 5.5.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Addy Osmani of Anthropic confirmed it on 30 October and said original games, genre games and games from your own designs and assets \"are meant to keep working\"",
+     "url": "https://www.gamedeveloper.com/programming/anthropic-appears-to-have-ordered-ai-tool-claude-to-stop-remaking-video-games",
+     "quote": "Original games, genre games, and games built from your own designs and assets are meant to keep working.",
+     "verdict": "CORRECTED",
+     "fix": "Osmani is an Anthropic member of technical staff and the quote is right, but the page dates only the article (30 Oct 2026), not Osmani's post; say 'reported on 30 October'. Quote is 'built from', not 'from'."
+    },
+    {
+     "kind": "date",
+     "claim": "Around 27 October the rule was added; GitHub issue filed the same day (30 Oct)",
+     "url": "https://github.com/anthropics/claude-code/issues/106167",
+     "quote": "Around October 27, Claude Code began receiving a server-side instruction",
+     "verdict": "VERIFIED",
+     "fix": "Issue opened on Oct 30, 2026."
+    },
+    {
+     "kind": "other",
+     "claim": "Reporter builds digital board-wargame modules for clients and asks for a changelog entry for server-delivered instruction changes",
+     "url": "https://github.com/anthropics/claude-code/issues/106167",
+     "quote": "Document server-delivered instruction changes of this scope in the Claude Code changelog",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "(share text) the first public record of it was a GitHub issue",
+     "url": "https://www.gamedeveloper.com/programming/anthropic-appears-to-have-ordered-ai-tool-claude-to-stop-remaking-video-games",
+     "quote": "Chasm reported the rule change was pushed sometime on October 27.",
+     "verdict": "CORRECTED",
+     "fix": "Neither page says the issue was the first public record; Game Developer credits a Chasm report. Drop 'first public record' or say 'a GitHub issue filed 30 October documented it'."
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Particle AI Particle-1",
+   "event_date": "2026-10-28",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "1,048,576-token context",
+     "url": "https://openrouter.ai/api/v1/models",
+     "quote": "\"context_length\": 1048576",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "$0.05/M input, $0.50/M output, $0.003/M cached input",
+     "url": "https://openrouter.ai/api/v1/models",
+     "quote": "\"prompt\": \"0.00000005\", \"completion\": \"0.0000005\", \"input_cache_read\": \"0.000000003\"",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "Listed on OpenRouter on 28 October",
+     "url": "https://openrouter.ai/api/v1/models",
+     "quote": "\"created\": 1793207893 (2026-10-28 17:18 UTC; slug particle-1-20261027)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Token-efficient agentic coding model post-trained on DeepSeek V4.1 Flash; text and image input; reasoning support",
+     "url": "https://openrouter.ai/api/v1/models",
+     "quote": "token-efficient agentic coding model from Particle AI, post-trained on DeepSeek V4.1 Flash",
+     "verdict": "VERIFIED",
+     "fix": "Modality text+image->text; reasoning supported parameter present."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Forever Security (Cursor, Copilot, Claude Desktop, VS Code, Codex)",
+   "event_date": "2026-10-29",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "remediation",
+     "claim": "Cursor patched on 1 October",
+     "url": "https://forever.security/blog/embrace-hacking-5-ai-assistants-embedded-browsers-technical",
+     "quote": "October 1st - vulnerability silently patched",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "version",
+     "claim": "Copilot 1.1.27 confirmed affected, fixed in 1.1.29",
+     "url": "https://forever.security/blog/embrace-hacking-5-ai-assistants-embedded-browsers-technical",
+     "quote": "GitHub fixed it independently in a later Copilot build (1.1.29)",
+     "verdict": "VERIFIED",
+     "fix": "Found on 1.1.27; GitHub fixed before the researchers reported it."
+    },
+    {
+     "kind": "status",
+     "claim": "Codex and VS Code remain unpatched; anyone using either is still exposed",
+     "url": "https://forever.security/blog/embrace-hacking-5-ai-assistants-embedded-browsers-technical",
+     "quote": "the Codex and VS Code issues are still open",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: Copilot 1.1.29; Cursor 1 October; Codex and VS Code unpatched (Claude Desktop omitted)",
+     "url": "https://forever.security/blog/embrace-hacking-5-ai-assistants-embedded-browsers-technical",
+     "quote": "accepted as valid",
+     "verdict": "CORRECTED",
+     "fix": "Claude Desktop was disclosed, first declined, then accepted as valid; the post gives no fix status. Add 'Claude Desktop: accepted as valid, fix status not stated'."
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity, stopgap and compromise step: not stated in the advisory",
+     "url": "https://forever.security/blog/embrace-hacking-5-ai-assistants-embedded-browsers-technical",
+     "quote": "no mitigation or recommendations section; no severity scores or CVE identifiers (searched whole post and timeline)",
+     "verdict": "CORRECTED",
+     "fix": "Severity and stopgap absence confirmed (only guidance is warning that Codex/VS Code users are exposed). The post does describe the compromise: one click on an assistant-rendered link lets an attacker read SSH keys, .env files, npm tokens; so 'If compromised' is not strictly 'not stated' for impact."
+    },
+    {
+     "kind": "other",
+     "claim": "Codex applied no file-read restriction at all; web workers in Claude Desktop and VS Code read local files",
+     "url": "https://forever.security/blog/embrace-hacking-5-ai-assistants-embedded-browsers-technical",
+     "quote": "Codex had no file-read fence at all (project-scope check ran only in the top document, not in web workers)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "OpenAI alignment research",
+   "event_date": "2026-10-29",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Monitors every RL run and eval for models at least as capable as GPT-6 Astra, and all internal Codex traffic",
+     "url": "https://alignment.openai.com/how-we-detect-frontier-model-misalignment/",
+     "quote": "we monitor every reinforcement learning (RL) run and evaluation",
+     "verdict": "VERIFIED",
+     "fix": "Also: 'all internal Codex traffic, regardless of the model being used'."
+    },
+    {
+     "kind": "number",
+     "claim": "Random 5 percent of unflagged traffic goes to a model-based reviewer",
+     "url": "https://alignment.openai.com/how-we-detect-frontier-model-misalignment/",
+     "quote": "a random 5 percent of the traffic that our probes don't flag",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Humans are typically paged within 15 minutes",
+     "url": "https://alignment.openai.com/how-we-detect-frontier-model-misalignment/",
+     "quote": "typically within 15 minutes of the initial alert",
+     "verdict": "CORRECTED",
+     "fix": "Applies to highest-priority security alerts reaching responders, not all escalations."
+    },
+    {
+     "kind": "number",
+     "claim": "Replay would have alerted about 30 minutes after escape, more than 30 hours before the Hugging Face breach",
+     "url": "https://alignment.openai.com/how-we-detect-frontier-model-misalignment/",
+     "quote": "about 30 minutes after the agents first escaped their sandbox",
+     "verdict": "VERIFIED",
+     "fix": "It was a simulated replay, which the brief implies with 'a replay'."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Pragmatic Engineer",
+   "event_date": "2026-10-30",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "incident.io cut AI spend from $4,500 per developer per month in August to $1,600 now",
+     "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding",
+     "quote": "from $4,500 per dev, per month, in August, to $1,600 now",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Headline: cut by 64%",
+     "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding",
+     "quote": "from $4,500 per dev, per month, in August, to $1,600 now",
+     "verdict": "VERIFIED",
+     "fix": "(4500-1600)/4500 = 64.4%, derived not stated."
+    },
+    {
+     "kind": "attribution",
+     "claim": "A team at Anthropic behind Claude Cowork and Claude Desktop dropped coding questions from engineering interviews",
+     "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding",
+     "quote": "have stopped asking coding questions to candidates for software engineering jobs",
+     "verdict": "VERIFIED",
+     "fix": "Said by a hiring manager who has led Claude Cowork and Claude Desktop."
+    },
+    {
+     "kind": "absence",
+     "claim": "How incident.io did it sits behind the paywall",
+     "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding",
+     "quote": "details on how incident.io reduced its AI spend are paywalled",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "AWS",
+   "event_date": "2026-11-01",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Jassy: 2027 is largely sold out and a good chunk of 2028 too (Reuters 23 Oct, InfoQ 1 Nov)",
+     "url": "https://www.infoq.com/news/2026/11/aws-capacity-sold-out/",
+     "quote": "2027 is largely sold out",
+     "verdict": "VERIFIED",
+     "fix": "'A good chunk of 2028 is sold out.'"
+    },
+    {
+     "kind": "number",
+     "claim": "Roughly $220 billion capex this year; Capacity Blocks for ML up about 15% in January",
+     "url": "https://www.infoq.com/news/2026/11/aws-capacity-sold-out/",
+     "quote": "roughly $220 billion in capital expenditure planned for this year",
+     "verdict": "VERIFIED",
+     "fix": "AWS raised Capacity Blocks rates by about 15% across all regions in January."
+    },
+    {
+     "kind": "other",
+     "claim": "AWS keeps headroom for On-Demand, EC2 and Bedrock",
+     "url": "https://www.infoq.com/news/2026/11/aws-capacity-sold-out/",
+     "quote": "We always leave a certain amount for on demand and our inference service bedrock, or EC2",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Linthicum pushes back that reserved blocks are not the same as being out of capacity",
+     "url": "https://www.infoq.com/news/2026/11/aws-capacity-sold-out/",
+     "quote": "that's not exactly the same thing as \"AWS is sold out.\"",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "DeepSeek dsh-superagent",
+   "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+   "event_date": "2026-10-31",
+   "quote": "Treat it as research code, not production-ready software. (MIT license; first commit dated October 31, 2026 on /commits page)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Silencio-2",
+   "url": "https://huggingface.co/BlueRoseLabs/Silencio-2",
+   "event_date": "2026-10-30",
+   "quote": "runs about 20x faster than real time on four CPU threads of an Apple M4 (weights CC-BY-4.0; silencio2/core MIT; English only; page shows no date)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Gemini Computer Use",
+   "url": "https://ai.google.dev/gemini-api/docs/changelog",
+   "event_date": "2026-10-30",
+   "quote": "Released the Computer Use tool to general availability (GA) across the Interactions and GenerateContent APIs.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GPT-6 Rosalind",
+   "url": "https://developers.openai.com/api/docs/changelog",
+   "event_date": "2026-10-30",
+   "quote": "Access is available to organizations approved for Rosalind Research through the trusted-access program.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Meta Catching JiTTests",
+   "url": "https://engineering.fb.com/2026/10/29/security/catching-bugs-before-they-land-jittestings-human-on-the-loop-approach-at-full-scale/",
+   "event_date": "2026-10-29",
+   "quote": "589 engineers at Meta ... 64% of our outreach; a 60% rate of true positives; 74 serious (SEV) privacy bugs; first half of 2026",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Platonic Representation Hypothesis with JEPAs",
+   "url": "https://arxiv.org/abs/2610.39302",
+   "event_date": "2026-10-29",
+   "quote": "Good views need 42 times fewer training samples than next-token prediction on the same corpus to reach the same alignment. (Submitted on 29 Oct 2026; Balestriero, LeCun; no Comments field)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Amazon Bedrock Claude legacy EOL",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
+   "event_date": "2026-11-13",
+   "quote": "EOL date: November 13, 2026 (Claude 3 Haiku, 3 Sonnet, 3.5 Sonnet, 3.5 Sonnet v2, 3.7 Sonnet; listed regions only)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Gemini preview audio shutdown",
+   "url": "https://ai.google.dev/gemini-api/docs/deprecations",
+   "event_date": "2026-11-17",
+   "quote": "gemini-3.1-flash-live-preview | March 11, 2026 | November 17, 2026 | gemini-3.8-live (five models; 'earliest possible dates')",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Azure Foundry o-series retirement",
+   "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
+   "event_date": "2026-11-19",
+   "quote": "o3-mini | 2025-01-31 | Deprecated | 2026-11-19 | gpt-5.6-terra; o3 ... 2026-11-19 | gpt-5.6-sol",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Claude Sonnet 4.5 retirement",
+   "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+   "event_date": "2026-11-30",
+   "quote": "November 30, 2026 | claude-sonnet-4-5-20250929 | claude-sonnet-5-5",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI Evals/prompts/Agent Builder shutdown",
+   "url": "https://developers.openai.com/api/docs/deprecations",
+   "event_date": "2026-11-30",
+   "quote": "The Evals dashboard and API are scheduled to shut down. / Agent Builder is scheduled to shut down.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "EU AI Act Article 50(2)",
+   "url": "https://artificialintelligenceact.eu/implementation-timeline/",
+   "event_date": "2026-12-02",
+   "quote": "must have taken the necessary steps to comply with Article 50(2) by this date.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "India DEPA framework for AI training",
+   "url": "https://inc42.com/buzz/meity-floats-new-privacy-led-framework-to-unlock-data-for-training-ai-models/",
+   "event_date": "2026-10-31",
+   "quote": "proposed a consent-based framework",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bengaluru Tech Summit 2026",
+   "url": "https://www.bengalurutechsummit.com/",
+   "event_date": "2026-11-17",
+   "quote": "17-19 November 2026; Bangalore International Exhibition Centre (BIEC); AI & Beyond",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GITEX GLOBAL 2026",
+   "url": "https://www.gitex.com/",
+   "event_date": "2026-12-07",
+   "quote": "GITEX Summit (7 Dec 2026) at the Dubai World Trade Centre; Expo 8-11 Dec at Expo City Dubai",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "World Summit AI Qatar",
+   "url": "https://qatar.worldsummit.ai/",
+   "event_date": "2026-12-15",
+   "quote": "15-16 December 2026; Doha Exhibition & Convention Center",
+   "verdict": "INCORRECT: brief says the venue isn't confirmed on the organiser's page, but the page names Doha Exhibition & Convention Center. Fix: state the venue."
+  }
+ ]
+}

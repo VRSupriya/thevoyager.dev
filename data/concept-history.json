@@ -369,5 +369,16 @@
 "sandboxing": 1,
 "sovereign AI & data residency": 1,
 "voice agents": 3
+},
+"2026-11-02": {
+"AI compute & data centres": 4,
+"agent protocols (MCP/A2A)": 1,
+"coding agents": 15,
+"enterprise agent adoption": 1,
+"mixture of experts": 1,
+"multi-agent systems": 1,
+"open-weight models": 1,
+"sovereign AI & data residency": 3,
+"voice agents": 1
 }
 }

@@ -187,5 +187,12 @@
   "week": 4,
   "title": "Lab, Step 1 (part 4): pull one piece out of a small GPT and see what you lose",
   "topic_key": "lab:step1:part4:ablations-seed-noise-no-attn-no-mlp-no-ln-no-pos-one-head-no-wd"
+ },
+ {
+  "date": "2026-11-02",
+  "track": "models-agentic",
+  "week": 5,
+  "title": "A trillion-parameter open model lands. Your eval set decides whether it's yours to use",
+  "topic_key": "models-agentic:mistral-large-4-open-weights-1t-a52b:evals-llm-observability"
  }
 ]

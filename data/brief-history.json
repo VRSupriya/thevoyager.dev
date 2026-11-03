@@ -1786,5 +1786,83 @@
   "slot": "quick",
   "title": "Platonic Representation Hypothesis with JEPAs",
   "url": "https://arxiv.org/abs/2610.39302"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "top",
+  "title": "GitHub Actions pull_request_target blocked by default",
+  "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "agents",
+  "title": "Google Cloud developer plugin in Antigravity Marketplace",
+  "url": "https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-developer-plugin-now-available-in-antigravity-marketplace/"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "research",
+  "title": "MIT CSAIL weight-space programming (GPT-6 Astra edits Qwen)",
+  "url": "https://rikiyat.github.io/blog/weight-space-programming/"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "people",
+  "title": "Philipp Schmid code mode single exec tool",
+  "url": "https://www.philschmid.de/code-mode"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "architecture",
+  "title": "NVIDIA AICR Kubernetes recipes for Vera Rubin",
+  "url": "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "regional",
+  "title": "ADNOC, Inception42 and OpenAI agreement",
+  "url": "https://analyticsindiamag.com/ai-news/openai-signs-four-agreements-with-abu-dhabi-across-government-energy-and-investment"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "regional",
+  "title": "HCLTech AI-Powered Operations for mainframes",
+  "url": "https://www.investywise.com/hcltech-launches-ai-powered-operations-for-mainframe-environments"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "quick",
+  "title": "Letterpress-1 growth engineering coding agent",
+  "url": "https://letter.dev/"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "quick",
+  "title": "Chainalysis breach with agentic techniques",
+  "url": "https://www.chainalysis.com/blog/security-incident-october-30/"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "quick",
+  "title": "Amazon Inspector EC2 AMI scanning",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-amis-scanned-through-inspector/"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "quick",
+  "title": "Amazon AgentCore Gateway Step Functions and Connect MCP tools",
+  "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-1-terra-on-bedrock-step-functions-as-agent-tools-and-more-november-2-2026/"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "quick",
+  "title": "Upstage Solar Pro 4 on Korea government AI platform",
+  "url": "https://en.sedaily.com/technology/2026/11/03/upstage-ai-model-deployed-on-government-administrative"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "quick",
+  "title": "TraceSpec speculative decoding for agents",
+  "url": "https://arxiv.org/abs/2610.41177"
  }
 ]

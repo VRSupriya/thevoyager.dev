@@ -152,5 +152,12 @@
   "source_url": "https://github.com/anthropics/claude-code/issues/106167",
   "hypothesis": "A 15-task weekly rerun surfaces vendor-side behaviour changes (refusals, pass rate) before users report them.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-03",
+  "title": "Single sandboxed exec tool over a large MCP catalog",
+  "source_url": "https://www.philschmid.de/code-mode",
+  "hypothesis": "Wrapping a 20+ tool MCP server as typed declarations behind one sandboxed exec tool cuts model round trips and tokens per task without lowering task success.",
+  "status": "suggested"
  }
 ]

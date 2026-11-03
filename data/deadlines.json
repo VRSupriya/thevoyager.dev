@@ -1,114 +1,128 @@
 [
-  {
-    "date": "2026-11-13",
-    "what": "Amazon Bedrock end-of-life for Claude 3 Haiku, Claude 3 Sonnet, Claude 3.5 Sonnet (v1 and v2) and Claude 3.7 Sonnet in the regions the legacy page lists",
-    "who": "Teams calling those models through Bedrock",
-    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
-    "added": "2026-11-02"
-  },
-  {
-    "date": "2026-11-16",
-    "what": "Legacy GitHub app in Microsoft Teams retired (renamed 'GitHub (deprecated)')",
-    "who": "Teams using GitHub notifications or Copilot in Teams",
-    "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
-    "added": "2026-10-25"
-  },
-  {
-    "date": "2026-11-17",
-    "what": "Gemini API shuts down five preview audio models (gemini-3.1-flash-live-preview, gemini-3.1-flash-tts-preview, 2.5 native-audio and TTS previews); earliest possible date",
-    "who": "Teams using those Gemini preview models",
-    "url": "https://ai.google.dev/gemini-api/docs/deprecations",
-    "added": "2026-10-26"
-  },
-  {
-    "date": "2026-11-19",
-    "what": "Azure Foundry retires o1, o1-pro, o3, o3-pro, o3-deep-research (replacement gpt-5.6-sol) and o3-mini, o4-mini (replacement gpt-5.6-terra)",
-    "who": "Azure OpenAI users on those models",
-    "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
-    "added": "2026-11-02"
-  },
-  {
-    "date": "2026-11-19",
-    "what": "Vertex AI retires gemini-3.6-flash; replacement gemini-3.8-flash",
-    "who": "Vertex AI users on gemini-3.6-flash",
-    "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
-    "added": "2026-11-02"
-  },
-  {
-    "date": "2026-11-24",
-    "what": "Azure Foundry retires claude-opus-4-5",
-    "who": "Azure users on Claude Opus 4.5",
-    "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
-    "added": "2026-11-02"
-  },
-  {
-    "date": "2026-11-30",
-    "what": "Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) retires on the Claude API; replacement claude-sonnet-5-5",
-    "who": "Claude API users on Sonnet 4.5",
-    "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
-    "added": "2026-10-26"
-  },
-  {
-    "date": "2026-11-30",
-    "what": "OpenAI shuts down Evals dashboard and API, v1/prompts API and Agent Builder",
-    "who": "Teams using OpenAI Evals, stored prompts or Agent Builder",
-    "url": "https://developers.openai.com/api/docs/deprecations",
-    "added": "2026-10-26"
-  },
-  {
-    "date": "2026-12-01",
-    "what": "OpenAI removes gpt-image-1-mini, gpt-image-1.5 and chatgpt-image-latest from the API",
-    "who": "Image generation API users",
-    "url": "https://developers.openai.com/api/docs/deprecations",
-    "added": "2026-10-26"
-  },
-  {
-    "date": "2026-12-01",
-    "what": "Foundry Agent Service starts billing Copilot harness runtime and sandbox usage ($0.0994 per vCPU-hour, $0.0118 per GiB-hour)",
-    "who": "Teams using the Copilot harness in Foundry Agent Service",
-    "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
-    "added": "2026-10-29"
-  },
-  {
-    "date": "2026-12-02",
-    "what": "EU AI Act: Article 50(2) steps due for generative systems placed on market before 2 Aug 2026; new prohibitions on non-consensual intimate imagery and CSAM apply",
-    "who": "Providers of generative AI systems in the EU",
-    "url": "https://artificialintelligenceact.eu/implementation-timeline/",
-    "added": "2026-10-26"
-  },
-  {
-    "date": "2026-12-11",
-    "what": "OpenAI removes gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-pro, o3 and o3-pro from the API",
-    "who": "OpenAI API users on those models",
-    "url": "https://developers.openai.com/api/docs/deprecations",
-    "added": "2026-10-26"
-  },
-  {
-    "date": "2027-01-06",
-    "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts variants (replacement gpt-realtime-2.1-mini) and ends new self-serve fine-tuning jobs",
-    "who": "Teams using OpenAI TTS or fine-tuning",
-    "url": "https://developers.openai.com/api/docs/deprecations",
-    "added": "2026-11-02"
-  },
-  {
-    "date": "2027-01-14",
-    "what": "OpenAI removes GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini snapshots from the API",
-    "who": "OpenAI API users on those models",
-    "url": "https://developers.openai.com/api/docs/deprecations",
-    "added": "2026-10-26"
-  },
-  {
-    "date": "2027-01-20",
-    "what": "OpenAI removes gpt-realtime, gpt-4o-realtime, gpt-audio and related audio models (replacements gpt-realtime-2.1, gpt-audio-1.5)",
-    "who": "Voice-agent teams on OpenAI realtime/audio models",
-    "url": "https://developers.openai.com/api/docs/deprecations",
-    "added": "2026-11-02"
-  },
-  {
-    "date": "2027-01-28",
-    "what": "Vertex AI retires gemini-3.7-flash; replacement gemini-3.8-flash",
-    "who": "Vertex AI users on gemini-3.7-flash",
-    "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
-    "added": "2026-11-02"
-  }
+ {
+  "date": "2026-11-09",
+  "what": "GitHub pull_request_target brownout in public repos (16:00-18:00 UTC, repeated 2026-11-16): blocked workflows fail",
+  "who": "Public repos on Free, Team and Enterprise Cloud using pull_request_target",
+  "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
+  "added": "2026-11-03"
+ },
+ {
+  "date": "2026-11-13",
+  "what": "Amazon Bedrock end-of-life for Claude 3 Haiku, Claude 3 Sonnet, Claude 3.5 Sonnet (v1 and v2) and Claude 3.7 Sonnet in the regions the legacy page lists",
+  "who": "Teams calling those models through Bedrock",
+  "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
+  "added": "2026-11-02"
+ },
+ {
+  "date": "2026-11-16",
+  "what": "Legacy GitHub app in Microsoft Teams retired (renamed 'GitHub (deprecated)')",
+  "who": "Teams using GitHub notifications or Copilot in Teams",
+  "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+  "added": "2026-10-25"
+ },
+ {
+  "date": "2026-11-17",
+  "what": "Gemini API shuts down five preview audio models (gemini-3.1-flash-live-preview, gemini-3.1-flash-tts-preview, 2.5 native-audio and TTS previews); earliest possible date",
+  "who": "Teams using those Gemini preview models",
+  "url": "https://ai.google.dev/gemini-api/docs/deprecations",
+  "added": "2026-10-26"
+ },
+ {
+  "date": "2026-11-19",
+  "what": "Azure Foundry retires o1, o1-pro, o3, o3-pro, o3-deep-research (replacement gpt-5.6-sol) and o3-mini, o4-mini (replacement gpt-5.6-terra)",
+  "who": "Azure OpenAI users on those models",
+  "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
+  "added": "2026-11-02"
+ },
+ {
+  "date": "2026-11-19",
+  "what": "Vertex AI retires gemini-3.6-flash; replacement gemini-3.8-flash",
+  "who": "Vertex AI users on gemini-3.6-flash",
+  "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
+  "added": "2026-11-02"
+ },
+ {
+  "date": "2026-11-24",
+  "what": "Azure Foundry retires claude-opus-4-5",
+  "who": "Azure users on Claude Opus 4.5",
+  "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
+  "added": "2026-11-02"
+ },
+ {
+  "date": "2026-11-30",
+  "what": "Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) retires on the Claude API; replacement claude-sonnet-5-5",
+  "who": "Claude API users on Sonnet 4.5",
+  "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+  "added": "2026-10-26"
+ },
+ {
+  "date": "2026-11-30",
+  "what": "OpenAI shuts down Evals dashboard and API, v1/prompts API and Agent Builder",
+  "who": "Teams using OpenAI Evals, stored prompts or Agent Builder",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "added": "2026-10-26"
+ },
+ {
+  "date": "2026-12-01",
+  "what": "OpenAI removes gpt-image-1-mini, gpt-image-1.5 and chatgpt-image-latest from the API",
+  "who": "Image generation API users",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "added": "2026-10-26"
+ },
+ {
+  "date": "2026-12-01",
+  "what": "Foundry Agent Service starts billing Copilot harness runtime and sandbox usage ($0.0994 per vCPU-hour, $0.0118 per GiB-hour)",
+  "who": "Teams using the Copilot harness in Foundry Agent Service",
+  "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+  "added": "2026-10-29"
+ },
+ {
+  "date": "2026-12-02",
+  "what": "EU AI Act: Article 50(2) steps due for generative systems placed on market before 2 Aug 2026; new prohibitions on non-consensual intimate imagery and CSAM apply",
+  "who": "Providers of generative AI systems in the EU",
+  "url": "https://artificialintelligenceact.eu/implementation-timeline/",
+  "added": "2026-10-26"
+ },
+ {
+  "date": "2026-12-02",
+  "what": "GitHub Actions blocks pull_request_target by default in public repos unless an Actions event policy allows it",
+  "who": "Public repos on Free, Team and Enterprise Cloud",
+  "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
+  "added": "2026-11-03"
+ },
+ {
+  "date": "2026-12-11",
+  "what": "OpenAI removes gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-pro, o3 and o3-pro from the API",
+  "who": "OpenAI API users on those models",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "added": "2026-10-26"
+ },
+ {
+  "date": "2027-01-06",
+  "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts variants (replacement gpt-realtime-2.1-mini) and ends new self-serve fine-tuning jobs",
+  "who": "Teams using OpenAI TTS or fine-tuning",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "added": "2026-11-02"
+ },
+ {
+  "date": "2027-01-14",
+  "what": "OpenAI removes GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini snapshots from the API",
+  "who": "OpenAI API users on those models",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "added": "2026-10-26"
+ },
+ {
+  "date": "2027-01-20",
+  "what": "OpenAI removes gpt-realtime, gpt-4o-realtime, gpt-audio and related audio models (replacements gpt-realtime-2.1, gpt-audio-1.5)",
+  "who": "Voice-agent teams on OpenAI realtime/audio models",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "added": "2026-11-02"
+ },
+ {
+  "date": "2027-01-28",
+  "what": "Vertex AI retires gemini-3.7-flash; replacement gemini-3.8-flash",
+  "who": "Vertex AI users on gemini-3.7-flash",
+  "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
+  "added": "2026-11-02"
+ }
 ]

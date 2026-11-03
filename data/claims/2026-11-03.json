@@ -1,0 +1,312 @@
+{
+ "date": "2026-11-03",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "GitHub Actions",
+   "event_date": "2026-11-02",
+   "status": "Announced",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "From 2 December 2026, GitHub Actions blocks pull_request_target by default in public repositories on Free, Team and Enterprise Cloud; private and internal repositories aren't affected",
+     "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
+     "quote": "Starting December 2, 2026, GitHub Actions will block `pull_request_target` events by default in all public repositories ... This change applies to public repositories on GitHub Free, GitHub Team, and GitHub Enterprise Cloud ... Private and internal repositories aren’t affected.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "The change was first scheduled for 2 November and moved back a month",
+     "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
+     "quote": "Enforcement was previously scheduled for November 2, 2026.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "Brownouts on 9 and 16 November (16:00 to 18:00 UTC) make blocked workflows fail with an error annotation; between them the rule only warns",
+     "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
+     "quote": "blocked attempts will create failed runs with an error annotation; the workflows won’t execute ... the default rule will return to evaluate mode, allowing workflows to run with warnings.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Allow it through an Actions event policy, which can be scoped to specific workflow files",
+     "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
+     "quote": "Use workflow file targeting to allow specific workflows.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Google Antigravity / Google Cloud",
+   "event_date": "2026-11-03",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "other",
+     "claim": "google-cloud-developer plugin installed with agy plugin install google-cloud-developer",
+     "url": "https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-developer-plugin-now-available-in-antigravity-marketplace/",
+     "quote": "agy plugin install google-cloud-developer",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Bundles a Developer Knowledge MCP server that is pre-authorized by default, with no API keys or OAuth setup",
+     "url": "https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-developer-plugin-now-available-in-antigravity-marketplace/",
+     "quote": "The bundled Developer Knowledge Model Context Protocol (MCP) server is pre-authorized by default. ... You don't need to configure API keys, exchange OAuth tokens, or edit any configuration files.",
+     "verdict": "VERIFIED",
+     "fix": "Optional nuance: the page says Antigravity manages the authentication transparently for the marketplace-installed server."
+    },
+    {
+     "kind": "other",
+     "claim": "Guardrails: least-privilege IAM, and consent before it enables billable APIs or changes infrastructure",
+     "url": "https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-developer-plugin-now-available-in-antigravity-marketplace/",
+     "quote": "The agent enforces least-privilege IAM patterns and it requires your consent before it enables billable APIs or modifying cloud infrastructure.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "It only grounds you in Google Cloud, so it won't help with the rest of your stack",
+     "url": "https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-developer-plugin-now-available-in-antigravity-marketplace/",
+     "quote": "official Google documentation across Google Cloud, Firebase, Android, Web, and Gemini",
+     "verdict": "CORRECTED",
+     "fix": "Grounding covers Google Cloud, Firebase, Android, Web and Gemini docs, not only Google Cloud. The page says nothing about non-Google clouds or third-party stacks either way. Say 'grounds you in Google's own docs (Cloud, Firebase, Android, Web, Gemini), not the rest of your stack'."
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "MIT CSAIL (Takehi, Teoh, Zhang, Khattab)",
+   "event_date": "2026-11-02",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "2 November post from Rikiya Takehi, Jayden Teoh, Alex Zhang and Omar Khattab (MIT CSAIL)",
+     "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+     "quote": "November 2, 2026 (authors listed, all MIT CSAIL)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "GPT-6 Astra, a closed model",
+     "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+     "quote": "(absent) The page never describes Astra as closed, API-only, or proprietary; it only names it as the LLM used.",
+     "verdict": "CORRECTED",
+     "fix": "Drop 'a closed model' or say 'GPT-6 Astra' only. Searched the whole post."
+    },
+    {
+     "kind": "number",
+     "claim": "Edited 131,072 weights (0.016%); with 50 forward passes MATH-500 went from 7.9% to 48.1%",
+     "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+     "quote": "changes only 131,072 of the model's 0.8 billion weights (0.016%) ... MATH-500 rose from 7.9% to 48.1%",
+     "verdict": "VERIFIED",
+     "fix": "50 forward passes was the budget behind the best Qwen results."
+    },
+    {
+     "kind": "other",
+     "claim": "Traced a looping habit in Qwen3.5-0.8B to one direction in two MLP layers",
+     "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+     "quote": "one direction written by the MLPs of layers 15 and 19",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Same approach failed on Gemma 3 270M; quote 'could remove an obstacle that hid an ability, but it could not add an ability the model lacked'",
+     "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+     "quote": "Editing weights could remove an obstacle that hid an ability, but it could not add an ability the model lacked.",
+     "verdict": "VERIFIED",
+     "fix": "Brief's quote starts at 'could remove', fine as a fragment. Gemma MATH-500 stayed between 6.8% and 7.7%."
+    },
+    {
+     "kind": "other",
+     "claim": "An edited checkpoint and logs are public",
+     "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+     "quote": "github.com/RikiyaT/lm_understand-logs ... RikiyaT/Qwen3.5-0.8B-weight-space-programming (Hugging Face)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Philipp Schmid",
+   "event_date": "2026-11-01",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "1 November post; agents moving toward a single tool, exec",
+     "url": "https://www.philschmid.de/code-mode",
+     "quote": "November 1, 2026 ... a single `exec(code)` tool",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "About 80 JSON-Schema tools compiled into TypeScript declarations; one script fans out with Promise.all",
+     "url": "https://www.philschmid.de/code-mode",
+     "quote": "Instead of passing 80 separate JSON Schema tool objects to the model API, the agent compiles those schemas into compact type declarations.",
+     "verdict": "VERIFIED",
+     "fix": "Page says 80; 'about' is harmless. The page says 'compact type declarations'; confirm TypeScript from the code, which uses await Promise.all."
+    },
+    {
+     "kind": "number",
+     "claim": "Linear example makes 55 underlying API calls and returns a single line",
+     "url": "https://www.philschmid.de/code-mode",
+     "quote": "The sandbox executes all 55 underlying API calls, filters the payloads in memory",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "His Linear example archives issues with no confirmation step",
+     "url": "https://www.philschmid.de/code-mode",
+     "quote": "tools.linear.archiveIssue({ id: issue.id }) ... host can \"pause for user confirmation on destructive calls\"",
+     "verdict": "VERIFIED",
+     "fix": "The code archives all unassigned issues via Promise.all with no confirmation; the text does not comment on this, so it is an observation about the pseudo-code, not Schmid's statement."
+    },
+    {
+     "kind": "other",
+     "claim": "Demo's Node vm sandbox carries a comment to use QuickJS or isolated-vm for untrusted code",
+     "url": "https://www.philschmid.de/code-mode",
+     "quote": "use QuickJS or isolated-vm for untrusted code",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "NVIDIA AI Cluster Runtime (AICR)",
+   "event_date": "2026-11-02",
+   "status": "Preview",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "version",
+     "claim": "AICR v1.0.0 with a Vera Rubin NVL72 recipe family, marked Preview, covering training, inference and Dynamo variants on Ubuntu with RKE2",
+     "url": "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/",
+     "quote": "training, inference, and NVIDIA Dynamo inference variants ... ships as Preview ... RKE2 on Ubuntu 26.04",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Training recipe has 14 components, including GPU Operator v26.7.0 and DRA driver v0.5.0; needs Kubernetes 1.34.1 or later",
+     "url": "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/",
+     "quote": "The resolved recipe layers five overlays into 14 components. ... Kubernetes >= 1.34.1",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "8 of 8 conformance checks passing and 744.71 GB/s busbw at 16 GiB for a cross-node NCCL all-reduce",
+     "url": "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/",
+     "quote": "validators=8 passed=8 ... 744.71 GB/s busbw at 16 GiB",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Inference performance isn't validated; vLLM images through v0.28.0 are built against CUDA 13.0.3 while Rubin kernels need CUDA 13.4 or later",
+     "url": "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/",
+     "quote": "Inference serving performance remains deferred for now. ... gated at build time on NVIDIA CUDA >= 13.4",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Host-managed IMEX and DRA-managed ComputeDomains can't share a node",
+     "url": "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/",
+     "quote": "cannot share a node today",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Letterpress-1",
+   "url": "https://letter.dev/",
+   "event_date": "2026-11-03",
+   "quote": "Nothing lands until you say ... a preview, a pull request, or a merge once checks pass. (page gives no launch date or availability status)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Chainalysis breach",
+   "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
+   "event_date": "2026-10-30",
+   "quote": "an external actor using offensive agentic techniques to gain unauthorized access to Chainalysis systems and internal tools ... user IDs, full names, email addresses, and organization role labels",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Amazon Inspector for AMIs",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-amis-scanned-through-inspector/",
+   "event_date": "2026-11-02",
+   "quote": "without launching instances or installing additional software",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Amazon AgentCore Gateway (Step Functions)",
+   "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-1-terra-on-bedrock-step-functions-as-agent-tools-and-more-november-2-2026/",
+   "event_date": "2026-11-02",
+   "quote": "AWS Step Functions workflows are now available as AI agent tools",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Amazon AgentCore Gateway (Connect)",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/connect-flows-mcp-tools/",
+   "event_date": "2026-11-02",
+   "quote": "without writing custom Lambda functions",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Upstage Solar Pro 4",
+   "url": "https://en.sedaily.com/technology/2026/11/03/upstage-ai-model-deployed-on-government-administrative",
+   "event_date": "2026-11-03",
+   "quote": "internal administrative data will not leave the network",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "TraceSpec",
+   "url": "https://arxiv.org/abs/2610.41177",
+   "event_date": "2026-10-30",
+   "quote": "it improves replay throughput by 12.5% to 22.6% over its DSpark base (no code link on page)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "ADNOC, Inception42 and OpenAI",
+   "url": "https://analyticsindiamag.com/ai-news/openai-signs-four-agreements-with-abu-dhabi-across-government-energy-and-investment",
+   "event_date": "2026-11-02",
+   "quote": "ADNOC becomes the first company in the energy sector to deploy OpenAI's frontier AI technology.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "HCLTech AI-Powered Operations",
+   "url": "https://www.investywise.com/hcltech-launches-ai-powered-operations-for-mainframe-environments",
+   "event_date": "2026-11-02",
+   "quote": "integrates specialized mainframe skill agents and conversational AI assistants ... maintaining human oversight (no availability or pricing on the page)",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

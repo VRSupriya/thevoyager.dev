@@ -194,5 +194,12 @@
   "week": 5,
   "title": "A trillion-parameter open model lands. Your eval set decides whether it's yours to use",
   "topic_key": "models-agentic:mistral-large-4-open-weights-1t-a52b:evals-llm-observability"
+ },
+ {
+  "date": "2026-11-03",
+  "track": "research",
+  "week": 5,
+  "title": "Your judge says 90% sure. A new audit of 1,176 transfers says don't ship that calibration map",
+  "topic_key": "research:judge-calibration-transfer-accuracy-gap-certificate-temperature-16-labels:evals-llm-observability"
  }
 ]

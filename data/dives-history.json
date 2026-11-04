@@ -201,5 +201,12 @@
   "week": 5,
   "title": "Your judge says 90% sure. A new audit of 1,176 transfers says don't ship that calibration map",
   "topic_key": "research:judge-calibration-transfer-accuracy-gap-certificate-temperature-16-labels:evals-llm-observability"
+ },
+ {
+  "date": "2026-11-04",
+  "track": "system",
+  "week": 5,
+  "title": "A support copilot a retailer can switch on: designing the eval gates, the judge and the traces before launch day",
+  "topic_key": "system:customer-support-copilot-go-live-criteria-retail:evals-llm-observability"
  }
 ]

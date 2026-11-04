@@ -1,0 +1,400 @@
+{
+ "date": "2026-11-04",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Binance",
+   "event_date": "2026-11-03",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "On 20 October they used a compromised engineer's computer and an internal AI tool to take control of a wallet DevOps engineer",
+     "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+     "quote": "used an internal AI tool to gain control over the Wallet DevOps Engineer A",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "about USD 6.34 billion impacted, about USD 2.85 billion frozen or intercepted, 98% replenished by 31 October",
+     "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+     "quote": "Approximately USD 6.34 billion in digital assets were impacted by the incident. / As of 31 October 2026, 98% of the impacted token assets have been replenished.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Attackers got in through a fake job-interview assignment and a tampered Homebrew installer",
+     "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+     "quote": "Engineer A from Wallet DevOps downloaded a tampered Homebrew installation (June, device replaced); Engineer B was told to download an assignment (September)",
+     "verdict": "CORRECTED",
+     "fix": "Post describes both as stages of a multi-stage campaign (Homebrew in June on Engineer A, fake interview in September on Engineer B, whose machine was the springboard); it does not explicitly name the initial entry point for the 29 Oct attack."
+    },
+    {
+     "kind": "other",
+     "claim": "attackers used the token on 29 October to deploy a container and run a malicious script",
+     "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+     "quote": "On 29 October between 17:15 and 19:56, the attacker logged onto Software Engineer C's computer ... used the credentials stolen from Wallet DevOps Engineer A, deployed a container",
+     "verdict": "VERIFIED",
+     "fix": "Detail: done from Engineer C's computer using Engineer A's stolen credentials."
+    },
+    {
+     "kind": "absence",
+     "claim": "It doesn't name the AI tool or give indicators of compromise",
+     "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+     "quote": "refers only to 'an internal AI tool'; no hashes, IPs, domains or wallet addresses; but lists file paths such as /opt/homebrew/Cellar/pyenv/2.8.0/libexec/pyenv and links a SANS diary; 'Some technical details will remain confidential'",
+     "verdict": "CORRECTED",
+     "fix": "Tool is not named (true). No hashes/domains/wallet addresses, but the post does list file-level paths from the malicious pyenv replacement and links a SANS diary on the tampered Homebrew; say 'no hashes, domains or addresses'."
+    },
+    {
+     "kind": "absence",
+     "claim": "Stopgap: not stated in the post",
+     "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+     "quote": "immediately initiated multiple containment measures, including suspending withdrawals to restrict further outflows ... on-chain EIP-7702 authorizations had to be revoked separately (revocation at 00:10 UTC on 30 October)",
+     "verdict": "CORRECTED",
+     "fix": "The post states containment: suspended withdrawals and revoked on-chain EIP-7702 authorizations (00:10 UTC 30 Oct)."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Binance rebuilt the tool; decommissioned credentials and tokens tied to affected engineers and replaced affected devices",
+     "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+     "quote": "Rebuilt the affected internal AI tool and access controls. / Decommissioned credentials and tokens related to affected engineers. / Replaced affected devices.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Cogent Security",
+   "event_date": "2026-11-03",
+   "status": "Vendor benchmark",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "57.9% of 190 tasks across 14 languages vs 45.3% for both Claude Code and Codex",
+     "url": "https://www.prnewswire.com/news-releases/cogent-unveils-vr-1-1--its-latest-frontier-cyber-model-which-tops-livecvebench-for-vulnerability-repair-302927966.html",
+     "quote": "repaired 57.9% of the benchmark's 190 tasks, compared with 45.3% for both Claude Code and Codex.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "inference budgets differed; network blocked; grading tests hidden",
+     "url": "https://siliconangle.com/2026/11/03/exclusive-cogent-securitys-vr-1-1-model-outscores-claude-code-and-codex-on-vulnerability-repair/",
+     "quote": "Inference budgets differed across the three systems; outbound network access was blocked during the repair phase; the grading tests were withheld until each agent finished.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Neither the press release nor SiliconANGLE says how customers can get VR-1.1",
+     "url": "https://www.prnewswire.com/news-releases/cogent-unveils-vr-1-1--its-latest-frontier-cyber-model-which-tops-livecvebench-for-vulnerability-repair-302927966.html",
+     "quote": "Searched both full pages for availability, access, pricing: only 'released VR-1.1' / 'today released'; no access details.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "LiveCVEBench is a public set built from newly disclosed CVEs",
+     "url": "https://siliconangle.com/2026/11/03/exclusive-cogent-securitys-vr-1-1-model-outscores-claude-code-and-codex-on-vulnerability-repair/",
+     "quote": "LiveCVEBench, built by researchers at Harbin Institute of Technology and Kuaishou Technology",
+     "verdict": "CORRECTED",
+     "fix": "Source confirms third-party authorship and 14 languages; 'public' and 'newly disclosed CVEs' were not confirmed in the fetched text."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Postman",
+   "event_date": "2026-10-25",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "GitHub issue opened on 25 October",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Opened: Oct 25, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "now at over a thousand points on Hacker News",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "No HN point count on the issue page; web search found none.",
+     "verdict": "CORRECTED",
+     "fix": "Check the HN item directly or drop the figure."
+    },
+    {
+     "kind": "other",
+     "claim": "Codex and Claude Code install a Postman plugin, session-start hook, remote MCP connection and CLI; installer approves Postman's own hook",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Approves only Postman's current hook after installation",
+     "verdict": "VERIFIED",
+     "fix": "Reporter notes the trust record alone doesn't prove who created it."
+    },
+    {
+     "kind": "other",
+     "claim": "The hook tells agents to load a Postman skill before any non-trivial API engineering task",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "Before responding to any non-trivial API engineering task",
+     "verdict": "CORRECTED",
+     "fix": "Exact wording is 'non-trivial API engineering task' and loads the postman:api-engineer skill."
+    },
+    {
+     "kind": "attribution",
+     "claim": "Postman replied on 3 November: bundles them, removable in-app, will make opt-in clearer",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "We're going to make the opt-in clearer, especially for existing users ... you can uninstall any of these components from inside the app",
+     "verdict": "VERIFIED",
+     "fix": "Reply also says Postman is 'reviewing the hook approval and session-start behavior'."
+    },
+    {
+     "kind": "version",
+     "claim": "Postman desktop 12.33.4; commenter 12.31.3 to 12.35.1",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "12.33.4 original report; 12.31.3 -> 12.35.1 later report on macOS",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "The issue is still open; no fix confirmed; reporter labels it severe",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "State: Open; title includes [SEVERE]; No labels; no fix shown",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Postman says the components can be uninstalled from inside the app (stopgap)",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "quote": "We're going to make the opt-in clearer, especially for existing users ... you can uninstall any of these components from inside the app",
+     "verdict": "VERIFIED",
+     "fix": "Reply also says Postman is 'reviewing the hook approval and session-start behavior'."
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-02",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Meta-Harness with DeepSeek-V4-Flash-0731 raised SWE-Bench to 94.0%, then fell to 32.0% by round 5 after evolving on FeatureBench, a 66% relative drop",
+     "url": "https://arxiv.org/abs/2611.03219",
+     "quote": "reached 94.0% on SWE-Bench after evolution, but fell to 32.0% after a fifth round of evolution on FeatureBench, a 66% relative decrease",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Of the pass-to-fail cases, 87.1% were verification conflicts",
+     "url": "https://huggingface.co/papers/2611.03219",
+     "quote": "Among the pass-to-fail cases, verification conflicts account for 87.1%,",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Code is at github.com/THU-Agent/continual-harness-evolution",
+     "url": "https://arxiv.org/abs/2611.03219",
+     "quote": "Code is available at https://github.com/THU-Agent/continual-harness-evolution.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "a preprint on small task subsets",
+     "url": "https://huggingface.co/papers/2611.03219",
+     "quote": "we randomly sampled a limited number of instances ... 50 instances from SWE-Bench Verified, 50 from SWT-Bench, and 30 from FeatureBench",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "A Tsinghua group",
+     "url": "https://huggingface.co/papers/2611.03219",
+     "quote": "Tsinghua University (author affiliations)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "LangChain (Harrison Chase)",
+   "event_date": "2026-11-02",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "\"the hardest part of the intelligence layer is figuring out what to remember\"",
+     "url": "https://www.langchain.com/blog/context-engineering-challenges-late-2026",
+     "quote": "The hardest part of the intelligence layer is figuring out what to remember.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "Chase's 2 November post",
+     "url": "https://www.langchain.com/blog/context-engineering-challenges-late-2026",
+     "quote": "November 2, 2026, Harrison Chase",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Calibrating when a background agent interrupts you is hard; main agent must stay responsive, be told when background work finishes, handle work paused for human approval",
+     "url": "https://www.langchain.com/blog/context-engineering-challenges-late-2026",
+     "quote": "if you push too many notifications to the user, you risk overwhelming them; you almost always want to make sure the main agent interacting with the user is responsive to new messages",
+     "verdict": "VERIFIED",
+     "fix": "Source frames it as notifications, not 'interrupts'."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Docker Sandboxes",
+   "event_date": "2026-11-03",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "version",
+     "claim": "Fixed in v0.51.0 after an earlier fix was found incomplete",
+     "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+     "quote": "The eventual fix was released November 3, 2026 with version 0.51.0 ... after the initial patch was live, the Docker team determined the fix was incomplete.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "High, CVSS 3.1 8.2; CVE-2026-103916",
+     "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+     "quote": "High, CVSS 3.1 8.2",
+     "verdict": "VERIFIED",
+     "fix": "Page also lists CVSS 4.0 7.3 High."
+    },
+    {
+     "kind": "absence",
+     "claim": "the page gives no explicit affected range",
+     "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+     "quote": "Searched whole page: only fixed version v0.51.0 and an earlier planned fix in 0.48.0; no affected range.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "agent plants a symlink; operator's sbx cp resolves it on the host bypassing allowlist; copy-out can overwrite shell configs and SSH keys",
+     "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+     "quote": "~/.zshrc, ~/.ssh/authorized_keys ... described as reasoning rather than demonstrated results; demonstrated write was to a canary file notes.txt",
+     "verdict": "CORRECTED",
+     "fix": "Write to host files is demonstrated only on a canary file; shell configs and SSH keys are the author's examples of what could be overwritten, not demonstrated."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: run realpath on copy source and destination and check they stay inside workspace; If compromised: not stated",
+     "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+     "quote": "resolve the path yourself and confirm it lands where you expect ... realpath ~/sbxlab/repro/work/results",
+     "verdict": "VERIFIED",
+     "fix": "Page also advises preferring directories never mounted into the sandbox and being suspicious of agent-proposed copies; no in-the-wild exploitation reported."
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Claude message threads",
+   "url": "https://claude.com/resources/articles/message-threads",
+   "event_date": "2026-11-02",
+   "quote": "now available in public beta on the Claude Platform ... requests with 500k to 1M tokens see median TTFT drop by about 35%.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "NVIDIA DeepSeek-V4.1-Flash NVFP4",
+   "url": "https://huggingface.co/nvidia/DeepSeek-V4.1-Flash-1017-NVFP4",
+   "event_date": "2026-10-30",
+   "quote": "MIT; about 400 GiB; GB300; requires vLLM build with MXFP4 Engram support (vllm-project/vllm#61530); release date 10/30/2026",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "CrowdStrike AI Kill Switch",
+   "url": "https://www.crowdstrike.com/en-us/press-releases/crowdstrike-introduces-ai-kill-switch-for-ai-safety/",
+   "event_date": "2026-11-03",
+   "quote": "The AI Kill Switch is available today. (Searched page for 'Fiddler', 'acquisition', 'fiscal': no matches.)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "WorkOS",
+   "url": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/",
+   "event_date": "2026-11-03",
+   "quote": "WorkOS says it identified the intrusion on October 30, 2026; article doesn't say when access began; attribution to ARTEX AI described as 'likely'",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Google on LLMjacking",
+   "url": "https://cloud.google.com/blog/topics/threat-intelligence/llmjacking-monetizing-compromised-cloud-models/",
+   "event_date": "2026-11-02",
+   "quote": "fraudulent charges associated with resource consumption exceeding $100,000 USD in a single day ... treat any unauthorized enablement as a critical security event.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "vLLM 0.33.0",
+   "url": "https://github.com/vllm-project/vllm/releases",
+   "event_date": "2026-11-02",
+   "quote": "release wheels and images are CUDA 13.0 only; Medusa and the MLP speculator removed; OpenAI-compatible /v1/decisions endpoint (released 02 Nov; year not shown; only first 100000 of 209458 chars read)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google Cloud on agent skills",
+   "url": "https://cloud.google.com/blog/topics/developers-practitioners/evaluate-agent-skills-before-they-bloat-your-context-window",
+   "event_date": "2026-11-03",
+   "quote": "more than a third of benchmark tasks produced different scores across consecutive runs of the exact same code and prompt; five numbered rules",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Quantization and coding agents",
+   "url": "https://arxiv.org/abs/2611.02368",
+   "event_date": "2026-11-02",
+   "quote": "No agent shows a statistically significant accuracy loss ... AWQ drops Qwen-7B's one-shot solves from 17 to 0",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI on eval vs production",
+   "url": "https://alignment.openai.com/eval-production-behavior-gap/",
+   "event_date": "2026-11-03",
+   "quote": "Across all six models studied, success rates are lower in evaluation than in comparable production situations ... The gaps range from 10.2 to 37.4 percentage points.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI Agent Builder shutdown",
+   "url": "https://developers.openai.com/api/docs/deprecations",
+   "event_date": "2026-06-03",
+   "quote": "Agent Builder is scheduled to shut down (Nov 30, 2026); Migrate from Agent Builder to Agents SDK or ChatGPT Workspace Agents",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Kimi K3 on Bedrock India",
+   "url": "https://aws.amazon.com/blogs/machine-learning/introducing-india-based-inference-for-kimi-k3-on-amazon-bedrock/",
+   "event_date": "2026-11-03",
+   "quote": "Inference processing must stay within Mumbai and Hyderabad Regions; Flex 50 percent discount; page does not state GA",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

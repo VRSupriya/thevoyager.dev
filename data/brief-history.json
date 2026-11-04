@@ -1,41 +1,5 @@
 [
  {
-  "date": "2026-10-04",
-  "slot": "top",
-  "title": "Agents shrink gap between fix and exploit",
-  "url": "https://www.infoq.com/news/2026/10/open-source-ai-security/"
- },
- {
-  "date": "2026-10-04",
-  "slot": "models",
-  "title": "GPT-6.1 Sol",
-  "url": "https://www.infoq.com/news/2026/10/openai-devday-2026/"
- },
- {
-  "date": "2026-10-04",
-  "slot": "agents",
-  "title": "Istio 1.31 agentgateway waypoints",
-  "url": "https://www.infoq.com/news/2026/10/istio-1-31-agentgateway/"
- },
- {
-  "date": "2026-10-04",
-  "slot": "research",
-  "title": "ThinkingBox",
-  "url": "https://huggingface.co/blog/microsoft/thinkingbox"
- },
- {
-  "date": "2026-10-04",
-  "slot": "people",
-  "title": "Simon Willison: hard budget caps",
-  "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/"
- },
- {
-  "date": "2026-10-04",
-  "slot": "architecture",
-  "title": "DoorDash GenAI platform",
-  "url": "https://www.infoq.com/presentations/doordash-genai-platform-architecture/"
- },
- {
   "date": "2026-10-05",
   "slot": "top",
   "title": "Apple tightens Full Disk Access over AI agents",
@@ -1864,5 +1828,101 @@
   "slot": "quick",
   "title": "TraceSpec speculative decoding for agents",
   "url": "https://arxiv.org/abs/2610.41177"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "top",
+  "title": "Binance internal AI tool breach",
+  "url": "https://www.binance.com/en/blog/community/3229153443759566763"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "models",
+  "title": "Cogent VR-1.1 vulnerability repair model",
+  "url": "https://siliconangle.com/2026/11/03/exclusive-cogent-securitys-vr-1-1-model-outscores-claude-code-and-codex-on-vulnerability-repair/"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "agents",
+  "title": "Postman desktop auto-installs agent plugins",
+  "url": "https://github.com/postmanlabs/postman-app-support/issues/14370"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "research",
+  "title": "Tsinghua continual harness evolution forgetting",
+  "url": "https://huggingface.co/papers/2611.03219"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "people",
+  "title": "LangChain Harrison Chase context engineering challenges",
+  "url": "https://www.langchain.com/blog/context-engineering-challenges-late-2026"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "architecture",
+  "title": "Docker Sandboxes CVE-2026-103916 symlink escape",
+  "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "regional",
+  "title": "Amazon Bedrock Kimi K3 India-based inference",
+  "url": "https://aws.amazon.com/blogs/machine-learning/introducing-india-based-inference-for-kimi-k3-on-amazon-bedrock/"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "Anthropic Claude message threads",
+  "url": "https://claude.com/resources/articles/message-threads"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "NVIDIA DeepSeek-V4.1-Flash NVFP4",
+  "url": "https://huggingface.co/nvidia/DeepSeek-V4.1-Flash-1017-NVFP4"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "CrowdStrike AI Kill Switch",
+  "url": "https://www.crowdstrike.com/en-us/press-releases/crowdstrike-introduces-ai-kill-switch-for-ai-safety/"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "WorkOS ARTEX AI breach",
+  "url": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "Google LLMjacking report",
+  "url": "https://cloud.google.com/blog/topics/threat-intelligence/llmjacking-monetizing-compromised-cloud-models/"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "vLLM 0.33.0",
+  "url": "https://github.com/vllm-project/vllm/releases"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "Google Cloud agent skills evaluation rules",
+  "url": "https://cloud.google.com/blog/topics/developers-practitioners/evaluate-agent-skills-before-they-bloat-your-context-window"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "Quantization effects on coding agents",
+  "url": "https://arxiv.org/abs/2611.02368"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "quick",
+  "title": "OpenAI eval-production behavior gap",
+  "url": "https://alignment.openai.com/eval-production-behavior-gap/"
  }
 ]

@@ -159,5 +159,12 @@
   "source_url": "https://www.philschmid.de/code-mode",
   "hypothesis": "Wrapping a 20+ tool MCP server as typed declarations behind one sandboxed exec tool cuts model round trips and tokens per task without lowering task success.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-04",
+  "title": "Audit what internal AI tools can reach on developer machines",
+  "source_url": "https://www.binance.com/en/blog/community/3229153443759566763",
+  "hypothesis": "At least one long-lived deploy or signing token is reachable by an internal AI tool or coding agent on a typical developer laptop.",
+  "status": "suggested"
  }
 ]

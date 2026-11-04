@@ -63,6 +63,13 @@
   "added": "2026-10-26"
  },
  {
+  "date": "2026-11-30",
+  "what": "OpenAI shuts down Agent Builder; migrate to the Agents SDK or ChatGPT Workspace Agents",
+  "who": "Teams with workflows built in Agent Builder",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "added": "2026-11-04"
+ },
+ {
   "date": "2026-12-01",
   "what": "OpenAI removes gpt-image-1-mini, gpt-image-1.5 and chatgpt-image-latest from the API",
   "who": "Image generation API users",

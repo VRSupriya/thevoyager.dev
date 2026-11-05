@@ -1,1 +1,9 @@
-[]
+[
+ {
+  "date": "2026-11-05",
+  "kind": "repo",
+  "title": "Anthropic FlashProve",
+  "url": "https://github.com/anthropics/FlashProve",
+  "why": "Major lab with code released; changes how third-party inference could be audited (covered by AINews, Rundown, HN)"
+ }
+]

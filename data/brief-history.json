@@ -1,41 +1,5 @@
 [
  {
-  "date": "2026-10-05",
-  "slot": "top",
-  "title": "Apple tightens Full Disk Access over AI agents",
-  "url": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/"
- },
- {
-  "date": "2026-10-05",
-  "slot": "models",
-  "title": "Cloudflare Web Search API in AI Gateway",
-  "url": "https://blog.cloudflare.com/introducing-web-search-api/"
- },
- {
-  "date": "2026-10-05",
-  "slot": "agents",
-  "title": "OpenAPPA agent security engine",
-  "url": "https://www.infoq.com/news/2026/10/open-APPA-zero-security-breach/"
- },
- {
-  "date": "2026-10-05",
-  "slot": "research",
-  "title": "Do LLM Agents Execute the Plans They Declare?",
-  "url": "https://arxiv.org/abs/2609.38108"
- },
- {
-  "date": "2026-10-05",
-  "slot": "people",
-  "title": "Alex Zhang on RLMs (Latent Space)",
-  "url": "https://www.latent.space/p/rlm"
- },
- {
-  "date": "2026-10-05",
-  "slot": "architecture",
-  "title": "Databricks REGISTER/UNREGISTER Iceberg APIs",
-  "url": "https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis"
- },
- {
   "date": "2026-10-06",
   "slot": "top",
   "title": "Reflection AI Beam 501B MoE",
@@ -1924,5 +1888,149 @@
   "slot": "quick",
   "title": "OpenAI eval-production behavior gap",
   "url": "https://alignment.openai.com/eval-production-behavior-gap/"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "top",
+  "title": "OpenAI kernel privilege-escalation pipeline",
+  "url": "https://openai.com/news/rss.xml"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "models",
+  "title": "Ricursive Ripple-65B-Preview",
+  "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "agents",
+  "title": "Inkitt one-shot PR creator agent",
+  "url": "https://www.infoq.com/news/2026/11/inkitt-one-shot-pr-creator-agent/"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "research",
+  "title": "Context rot attention competition study",
+  "url": "https://huggingface.co/papers/2611.04169"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "people",
+  "title": "Import AI 479 Realtime-Bench",
+  "url": "https://importai.substack.com/p/import-ai-479-spacewar-low-latency"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "architecture",
+  "title": "Anthropic FlashProve provable inference",
+  "url": "https://www.anthropic.com/research/provable-inference"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Tencent Hy4",
+  "url": "https://openrouter.ai/tencent/hy4"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Together Compiler",
+  "url": "https://www.together.ai/blog/together-compiler-continual-compilation-for-ai-inference"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Claude Agent SDK",
+  "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Dependabot",
+  "url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "GitHub Copilot in Xcode",
+  "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Snowflake CoCo",
+  "url": "https://www.snowflake.com/en/blog/snowflake-coco-cloud-agents-automations/"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Databricks MLflow",
+  "url": "https://www.databricks.com/blog/claude-platform-now-supports-native-opentelemetry-observability-databricks-mlflow"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "AlloyDB Express",
+  "url": "https://cloud.google.com/blog/products/databases/introducing-alloydb-express-for-rapid-testing-and-prototyping/"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Azure MCP gateway",
+  "url": "https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/mcp-gateway"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Agentforce Coworker",
+  "url": "https://www.salesforce.com/news/stories/agentforce-coworker-surpasses-185k-users/"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "SLATE",
+  "url": "https://arxiv.org/abs/2611.03982"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Conductor Cloud",
+  "url": "https://www.conductor.build/changelog/0.93.0-conductor-is-joining-meta"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "IndiaAI Mission three models",
+  "url": "https://analyticsindiamag.com/ai-news/indiaai-mission-releases-3-indigenous-ai-models-developed-by-soket-zenteiq"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "Sarvam Prism",
+  "url": "https://analyticsindiamag.com/ai-news/sarvam-ai-launches-prism-a-jev-like-decision-model-built-on-sarvam-105b"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "quick",
+  "title": "E2E Networks Blaze",
+  "url": "https://analyticsindiamag.com/ai-news/e2e-networks-launches-blaze-to-offer-pay-per-token-ai-inference-services"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "regional",
+  "title": "IndiaAI EKA-1 and Dhir models",
+  "url": "https://analyticsindiamag.com/ai-news/indiaai-mission-releases-3-indigenous-ai-models-developed-by-soket-zenteiq"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "regional",
+  "title": "Sarvam Prism decision model",
+  "url": "https://analyticsindiamag.com/ai-news/sarvam-ai-launches-prism-a-jev-like-decision-model-built-on-sarvam-105b"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "regional",
+  "title": "E2E Networks Blaze inference",
+  "url": "https://analyticsindiamag.com/ai-news/e2e-networks-launches-blaze-to-offer-pay-per-token-ai-inference-services"
  }
 ]

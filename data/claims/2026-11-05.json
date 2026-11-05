@@ -1,0 +1,419 @@
+{
+ "date": "2026-11-05",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "OpenAI",
+   "event_date": "2026-11-04",
+   "status": "Vendor benchmark",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "948 local privilege-escalation vulnerabilities, found, validated and generated patches",
+     "url": "https://openai.com/news/rss.xml",
+     "quote": "OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "dated 4 November, filed under Security",
+     "url": "https://openai.com/news/rss.xml",
+     "quote": "pubDate: Wed, 04 Nov 2026 08:00:00 GMT; Category: Security",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "the patches, CVE list and affected versions aren't in it",
+     "url": "https://openai.com/news/rss.xml",
+     "quote": "Full RSS description is the single sentence above; searched it for 'CVE' (absent), 'version' (absent); 'patches' appears only as 'generated patches'. No patch list/links in the item.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Ricursive Intelligence",
+   "event_date": "2026-11-04",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "licence",
+     "claim": "BF16 weights on Hugging Face under Apache 2.0",
+     "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
+     "quote": "License: Apache 2.0 ... This repo contains the BF16 instruction-tuned model.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "version",
+     "claim": "dense 65B-parameter transformer, not MoE",
+     "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
+     "quote": "a 65B parameter dense Transformer model pretrained on 12 trillion tokens",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "80.52 on Terminal-Bench 2.1, calls it best US open-weight",
+     "url": "https://www.ricursive.com/ripple",
+     "quote": "achieving U.S. open-weight state-of-the-art (80.52) on TerminalBench 2.1",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "authors say results vary with harness",
+     "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
+     "quote": "Replicating benchmark scores has been challenging ... using the official Terminus 2 harness at 128K sequence length with summarization",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "one OpenRouter provider lists $0.20 in / $0.60 out",
+     "url": "https://openrouter.ai/ricursiveai/ripple-65b-preview",
+     "quote": "GMICloud: $0.20/M tokens input, $0.60/M tokens output (plus 1 more; see the model page for the full price list)",
+     "verdict": "CORRECTED",
+     "fix": "Price is GMICloud's; page says a second provider exists, so 'one provider lists it' is true but not the only provider. Name GMICloud."
+    },
+    {
+     "kind": "date",
+     "claim": "released on 4 November",
+     "url": "https://www.ricursive.com/ripple",
+     "quote": "Page metadata shows 'Nov 4, 2026, 9:50 PM UTC' as published date; no explicit release date stated",
+     "verdict": "CORRECTED",
+     "fix": "Say 'announced/published 4 November'; HF and OpenRouter pages state no release date."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Inkitt",
+   "event_date": "2026-11-04",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "other",
+     "claim": "event-driven orchestrator coordinating short-lived containers, not fixed pipeline",
+     "url": "https://www.infoq.com/news/2026/11/inkitt-one-shot-pr-creator-agent/",
+     "quote": "Event-driven orchestrator that coordinates short-lived agent containers rather than relying on a fixed pipeline.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "containers have no Slack, Linear or cloud identity and no arbitrary network egress",
+     "url": "https://www.infoq.com/news/2026/11/inkitt-one-shot-pr-creator-agent/",
+     "quote": "cannot directly access Slack or Linear credentials, cloud identities, or arbitrary network connections",
+     "verdict": "CORRECTED",
+     "fix": "Source says 'arbitrary network connections', not 'egress'; wording acceptable but not verbatim."
+    },
+    {
+     "kind": "other",
+     "claim": "rejects migrations, schemas, CI, auth, payments; draft PRs only; cannot bypass branch protection",
+     "url": "https://www.infoq.com/news/2026/11/inkitt-one-shot-pr-creator-agent/",
+     "quote": "The workflow rejects tasks involving database migrations, schema or shared contract changes. ... The system opens draft PRs, cannot bypass branch protection or merge its own changes.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "two attempts each for verification, CI repair, merge-conflict resolution",
+     "url": "https://www.infoq.com/news/2026/11/inkitt-one-shot-pr-creator-agent/",
+     "quote": "Verification, CI repair, and merge conflict resolution each have a maximum of two attempts.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-03",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Qwen2.5-1.5B stayed at 0.97 to 1.00 accuracy with neutral filler",
+     "url": "https://huggingface.co/papers/2611.04169",
+     "quote": "accuracy 'stays between 0.96 and 1.00' across the tested lengths",
+     "verdict": "CORRECTED",
+     "fix": "0.96 to 1.00."
+    },
+    {
+     "kind": "number",
+     "claim": "competing statements dropped it to 0.11 to 0.21 at 8K to 32K",
+     "url": "https://huggingface.co/papers/2611.04169",
+     "quote": "falls to 0.11 to 0.21",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "126,473 trials; attention explains 35-58% of loss variance, log length 2-8%",
+     "url": "https://huggingface.co/papers/2611.04169",
+     "quote": "Across 126,473 trials ... explains 35 to 58% of the variance in loss ... log length explains only 2 to 8%",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "five open models, 0.5B to 3B; correlational, one synthetic task",
+     "url": "https://huggingface.co/papers/2611.04169",
+     "quote": "five open models from 0.5B to 3B parameters from four families; All results come from one synthetic retrieval task and models of at most 3B parameters",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "probe and trial data are said to be released, but the page gives no link",
+     "url": "https://arxiv.org/abs/2611.04169",
+     "quote": "arXiv Comments field: '15 pages, 2 figures, 5 tables. Code and trial-level data: this https URL' -> https://github.com/yliusci/length-is-cheap. HF papers page text had no link.",
+     "verdict": "CORRECTED",
+     "fix": "The arXiv Comments field links the code and trial-level data: https://github.com/yliusci/length-is-cheap. Only the HF page lacks the link."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Import AI",
+   "event_date": "2026-11-02",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Realtime-Bench: 50 interactive tasks, 30 web and 20 game",
+     "url": "https://importai.substack.com/p/import-ai-479-spacewar-low-latency",
+     "quote": "50 interactive tasks: 30 web tasks ... and 20 game tasks",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "best model GPT-6 Astra (high) passed 36% on wall-clock",
+     "url": "https://importai.substack.com/p/import-ai-479-spacewar-low-latency",
+     "quote": "GPT-6 Astra (high) had the highest wall-clock pass rate, at 36%",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "clock paused: high-reasoning models reached about 70 to 80%",
+     "url": "https://importai.substack.com/p/import-ai-479-spacewar-low-latency",
+     "quote": "closer to 70% or even 80% success",
+     "verdict": "CORRECTED",
+     "fix": "Source: 'closer to 70% or even 80%'; say 'around 70%, up to 80%'."
+    },
+    {
+     "kind": "other",
+     "claim": "same issue covers a DIA space report and Genie 4 preview",
+     "url": "https://importai.substack.com/p/import-ai-479-spacewar-low-latency",
+     "quote": "DIA 'Challenges to Security in Space'; Genie 4 rolling out as a research preview to trusted testers",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Anthropic",
+   "event_date": "2026-11-02",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "released on 2 November, Frontier Red Team",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "Published Nov 2, 2026; listed under the team 'Frontier Red Team'",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "licence",
+     "claim": "Apache 2.0 prototype",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "We release our code, Lean proofs, and documentation under the Apache 2.0 license.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "about 110 tokens/s on one H100 on Llama 4 Maverick",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "around 110 tokens/second",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "roughly 72 times the GPU time of vLLM",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "proving a batch of 24 requests takes 'about 72 times longer' than vLLM serving the same batch (FP8 model on eight H100s)",
+     "verdict": "CORRECTED",
+     "fix": "Add: per GPU, batch of 24 requests, vs FP8 vLLM on eight H100s."
+    },
+    {
+     "kind": "number",
+     "claim": "about 19 MB per 1,024-token request; verify ~17 s on 24 threads",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "~19 MB per 1,024-token request ... Checking a proof takes 17 seconds on 24 threads",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "intermediate progress; integer weights, greedy decoding, contexts up to 1,024",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "intermediate progress; exact integer version of the published weights; greedy decoding; up to 1,024 tokens",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "it's the first concrete price tag on auditing a third-party inference provider",
+     "url": "https://www.anthropic.com/research/provable-inference",
+     "quote": "No 'first' claim found in the post",
+     "verdict": "CORRECTED",
+     "fix": "Drop 'first' or attribute as the editor's view."
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Tencent Hy4",
+   "url": "https://openrouter.ai/tencent/hy4",
+   "event_date": "unknown",
+   "quote": "Tencent Cloud: $0.417 per million input tokens and $1.251 per million output tokens. Page has no date and never uses 'Preview', 'official', 'release' or 'launch'.",
+   "verdict": "CORRECTED",
+   "fix": "Prices verified. 'official release after Hy4 Preview' is not in the source; a search found only Hy4 preview (tencent/hy4-preview, $0.834/$2.501). Say 'now listed', drop the release-status claim. No event date on page."
+  },
+  {
+   "name": "Together Compiler",
+   "url": "https://www.together.ai/blog/together-compiler-continual-compilation-for-ai-inference",
+   "event_date": "2026-11-04",
+   "quote": "achieves up to 2.6x higher TPS across frontier open source models (Kimi K3, GLM 5.3, MiniMax M3.1-Flash, DeepSeek v4.1-Flash); filed under Research",
+   "verdict": "CORRECTED",
+   "fix": "Body says 2.6x; page metadata description says 3.7x. Also states it is already 'serving trillions of tokens today'."
+  },
+  {
+   "name": "Claude Agent SDK",
+   "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
+   "event_date": "unknown",
+   "quote": "2.1.317: Added `onFailure: \"block\"` for Agent SDK hook callbacks, so a callback that fails blocks the action instead of letting it run. (No date in changelog.)",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Dependabot",
+   "url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager",
+   "event_date": "2026-11-03",
+   "quote": "generally available on github.com for all GitHub plans ... This support covers version updates, not security updates.",
+   "verdict": "CORRECTED",
+   "fix": "Draft's link is the changelog index; use https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager. Claim itself verified (GHES 3.24 later)."
+  },
+  {
+   "name": "GitHub Copilot in Xcode",
+   "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
+   "event_date": "2026-11-04",
+   "quote": "The integration is now in public preview; Xcode 27.3 beta; macOS Tahoe 26.6 or later",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Snowflake CoCo",
+   "url": "https://www.snowflake.com/en/blog/snowflake-coco-cloud-agents-automations/",
+   "event_date": "unknown",
+   "quote": "trailing note lists Cloud Agents and Coding Agents as generally available, memory and dynamic model routing in public preview, and Business Ontology as coming to public preview soon (page text fetched shows no date)",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Databricks MLflow",
+   "url": "https://www.databricks.com/blog/claude-platform-now-supports-native-opentelemetry-observability-databricks-mlflow",
+   "event_date": "2026-11-03",
+   "quote": "OpenTelemetry for Claude Platform is now in Public Beta; stores them in Unity Catalog tables linked to an MLflow experiment",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "AlloyDB Express",
+   "url": "https://cloud.google.com/blog/products/databases/introducing-alloydb-express-for-rapid-testing-and-prototyping/",
+   "event_date": "2026-11-04",
+   "quote": "Available in preview; under two seconds; Active compute: $0.115 per CU-hour",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Azure MCP gateway",
+   "url": "https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/mcp-gateway",
+   "event_date": "2026-11-03",
+   "quote": "MCPRoute uses the alb.networking.azure.io/v1alpha1 API. Preview APIs can change before general availability. A route can reference up to 64 backends.",
+   "verdict": "VERIFIED",
+   "fix": "Optional: add that it is a preview API."
+  },
+  {
+   "name": "Agentforce Coworker",
+   "url": "https://www.salesforce.com/news/stories/agentforce-coworker-surpasses-185k-users/",
+   "event_date": "2026-11-04",
+   "quote": "21x growth in usage in just three months; More than 185,000 users; $50 per user, per month",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "SLATE",
+   "url": "https://arxiv.org/abs/2611.03982",
+   "event_date": "2026-11-02",
+   "quote": "about 1,000 tools; six open decision models, 3B to 12B; even the best model completes only 5.0% of the tasks",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Conductor Cloud",
+   "url": "https://www.conductor.build/changelog/0.93.0-conductor-is-joining-meta",
+   "event_date": "2026-11-04",
+   "quote": "Conductor Cloud goes read-only on November 13 and shuts down on November 20; 'Transfer to local'",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "IndiaAI Mission three models",
+   "url": "https://analyticsindiamag.com/ai-news/indiaai-mission-releases-3-indigenous-ai-models-developed-by-soket-zenteiq",
+   "event_date": "2026-11-03",
+   "quote": "unveiled at a New Delhi event on November 3; EKA-1 26.3B, 22 scheduled languages plus English; Dhir 2B/5B English and 10 Indian languages; does not name a specific licence",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Sarvam Prism",
+   "url": "https://analyticsindiamag.com/ai-news/sarvam-ai-launches-prism-a-jev-like-decision-model-built-on-sarvam-105b",
+   "event_date": "2026-11-04",
+   "quote": "44 ms, measured on a single NVIDIA B200 GPU; Weights are on Hugging Face under Apache 2.0; Also available through the Sarvam API",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "E2E Networks Blaze",
+   "url": "https://analyticsindiamag.com/ai-news/e2e-networks-launches-blaze-to-offer-pay-per-token-ai-inference-services",
+   "event_date": "2026-11-03",
+   "quote": "Customers pay only for the tokens they use; Blaze provides an OpenAI-compatible API; no specific prices or rates given",
+   "verdict": "VERIFIED",
+   "fix": ""
+  }
+ ]
+}

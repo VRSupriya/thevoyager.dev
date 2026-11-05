@@ -14,6 +14,13 @@
   "added": "2026-11-02"
  },
  {
+  "date": "2026-11-13",
+  "what": "Conductor Cloud goes read-only (shuts down 2026-11-20); export data or transfer workspaces to local",
+  "who": "Teams using Conductor Cloud coding agents",
+  "url": "https://www.conductor.build/changelog/0.93.0-conductor-is-joining-meta",
+  "added": "2026-11-05"
+ },
+ {
   "date": "2026-11-16",
   "what": "Legacy GitHub app in Microsoft Teams retired (renamed 'GitHub (deprecated)')",
   "who": "Teams using GitHub notifications or Copilot in Teams",

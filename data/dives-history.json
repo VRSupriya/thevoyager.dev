@@ -215,5 +215,12 @@
   "week": 5,
   "title": "AI/Solution Architect, behavioural: tell us about a time a green dashboard was wrong",
   "topic_key": "interview:behavioural:microsoft:ai-solution-architect:green-dashboard-wrong-judge-validation-coverage:evals-llm-observability"
+ },
+ {
+  "date": "2026-11-06",
+  "track": "github",
+  "week": 5,
+  "title": "FlashProve: a verifier whose exit code 0 is not the verdict, and what that teaches about gating on evals",
+  "topic_key": "github:anthropics-flashprove-verifiable-inference-verifier-contract:evals-llm-observability"
  }
 ]

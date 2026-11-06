@@ -1,47 +1,5 @@
 [
  {
-  "date": "2026-10-06",
-  "slot": "top",
-  "title": "Reflection AI Beam 501B MoE",
-  "url": "https://reflection.ai/blog/introducing-beam"
- },
- {
-  "date": "2026-10-06",
-  "slot": "models",
-  "title": "GLM 5.3 on Amazon Bedrock",
-  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-glm-5-3/"
- },
- {
-  "date": "2026-10-06",
-  "slot": "agents",
-  "title": "Cloudflare cf CLI for agents",
-  "url": "https://www.infoq.com/news/2026/10/cloudflare-cf-cli/"
- },
- {
-  "date": "2026-10-06",
-  "slot": "research",
-  "title": "When Evidence Changes: memory repair vs re-reading",
-  "url": "https://arxiv.org/abs/2610.03902"
- },
- {
-  "date": "2026-10-06",
-  "slot": "people",
-  "title": "Felix Rieseberg on Cowork cloud sandboxes",
-  "url": "https://simonwillison.net/2026/Oct/5/felix-rieseberg/"
- },
- {
-  "date": "2026-10-06",
-  "slot": "architecture",
-  "title": "Cloudflare Containers cross-tenant disk exposure",
-  "url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
- },
- {
-  "date": "2026-10-06",
-  "slot": "regional",
-  "title": "Falcon-Emirati-7B",
-  "url": "https://huggingface.co/blog/tiiuae/falcon-emirati"
- },
- {
   "date": "2026-10-07",
   "slot": "top",
   "title": "OpenAI agents on Wikimedia projects",
@@ -2032,5 +1990,107 @@
   "slot": "regional",
   "title": "E2E Networks Blaze inference",
   "url": "https://analyticsindiamag.com/ai-news/e2e-networks-launches-blaze-to-offer-pay-per-token-ai-inference-services"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "top",
+  "title": "Claude Code email in User-Agent header",
+  "url": "https://github.com/anthropics/claude-code/issues/107757"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "models",
+  "title": "Moonshot Kimi K3.1 Pro open weights",
+  "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "agents",
+  "title": "Google Agent Substrate gVisor OpenRL CNCF",
+  "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "research",
+  "title": "Harness changes compliance banking study",
+  "url": "https://arxiv.org/abs/2611.06116"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "people",
+  "title": "Simon Willison Qwen 3.8 reads model weights",
+  "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "architecture",
+  "title": "Buoyant Kinference",
+  "url": "https://www.buoyant.io/blog/introducing-kinference"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "regional",
+  "title": "CrowdStrike Saudi sovereign cloud",
+  "url": "https://finance.yahoo.com/technology/ai/articles/crowdstrike-launches-sovereign-cloud-saudi-172800746.html"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "regional",
+  "title": "CERT-In AI-driven attacks advisory CIAD-2026-0058",
+  "url": "https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES02&VLCODE=CIAD-2026-0058"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "regional",
+  "title": "TRAI draft responsible AI telecom guidelines",
+  "url": "https://newsonair.gov.in/trai-issues-draft-guidelines-to-seek-inputs-on-responsible-use-of-ai-in-tele-services/"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "quick",
+  "title": "Cognition SWE-2 Flash",
+  "url": "https://cognition.com/blog/swe-2-flash"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "quick",
+  "title": "OpenAI GPT-6 Cyber pricing",
+  "url": "https://developers.openai.com/api/docs/pricing"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "quick",
+  "title": "Alpine OpenSSH password bypass",
+  "url": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "quick",
+  "title": "Google threat intelligence agentic offensive frameworks",
+  "url": "https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "quick",
+  "title": "OpenAI GPT-6 Astra covert underperformance",
+  "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "quick",
+  "title": "Google Gemini Omni 1.2 Flash GA",
+  "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available/"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "quick",
+  "title": "Cohere Model Vault open models",
+  "url": "https://cohere.com/blog/open-source-model-vault"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "quick",
+  "title": "Google agent skill optimizer AlphaEvolve Harbor",
+  "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-an-agent-skill-optimizer-with-alphaevolve-and-harbor/"
  }
 ]

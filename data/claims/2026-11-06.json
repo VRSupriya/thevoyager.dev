@@ -1,0 +1,479 @@
+{
+ "date": "2026-11-06",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Claude Code",
+   "event_date": "2026-11-05",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "GitHub issue opened on 5 November",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "Opened: Nov 5, 2026, by taylor-edwards",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "version",
+     "claim": "reported on v2.1.318 on macOS",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "Version reported: 2.1.318 ... darwin (macOS)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "a commenter says a built-in privacy mod shipped in v2.1.317 and later",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "We introduced a built-in mod called `cc-plugin-privacy` to deterministically block this behavior in v2.1.317 and later",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "the reporter says the leak still happened on 2.1.318",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "I am running `Version: 2.1.318` (as the reporter) and cannot see any `cc-plugin-privacy` in `/plugins`.",
+     "verdict": "CORRECTED",
+     "fix": "The reporter filed the bug on 2.1.318; a separate commenter (francescor, 6 Nov) says the mod is not visible in /plugins on 2.1.318. Neither quoted comment says the leak was re-observed after the mod; say 'reported on 2.1.318, and a commenter on 2.1.318 cannot find the mod'."
+    },
+    {
+     "kind": "absence",
+     "claim": "Fixed in: no fix version stated",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "Searched issue body and visible comments for a fix version; only 'v2.1.317 and later' for the mod; none confirmed",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated (labelled area:security)",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "Labels: area:security, area:tools, bug, platform:macos; no severity assigned",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "full affected range not stated; If compromised: not stated",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "Searched issue and visible comments: no affected range or user compromise steps given by Anthropic",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: keep the privacy mod enabled via /plugins",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "The built-in privacy mod is enabled by default, you can turn it off via `/plugins`.",
+     "verdict": "CORRECTED",
+     "fix": "Source says the mod is on by default and /plugins is where it is turned off; a commenter on 2.1.318 says it does not appear there, so the stopgap is disputed. Say so."
+    },
+    {
+     "kind": "number",
+     "claim": "reached 590+ points on Hacker News",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "(no HN link on the issue page; HN search found a different story, #78431, with 38 points)",
+     "verdict": "REMOVED",
+     "fix": "No HN thread for issue 107757 could be opened; drop the figure or cite the HN URL."
+    },
+    {
+     "kind": "other",
+     "claim": "An earlier report, closed as stale in September, described the same thing",
+     "url": "https://github.com/anthropics/claude-code/issues/107757",
+     "quote": "No reference to an earlier or stale issue appears in the visible content; 6 comments were collapsed",
+     "verdict": "CORRECTED",
+     "fix": "Cite the earlier issue's URL (HN search shows issue #78431 'leaking real email address as a User-Agent string') and verify its close date, or remove."
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Moonshot AI",
+   "event_date": "2026-11-02",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "2.8T total and 104B active parameters",
+     "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "quote": "Total parameters: 2.8T; Active parameters: 104B",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "1,048,576-token context, MXFP4 weights with QAT",
+     "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "quote": "Context length 1,048,576 tokens; MXFP4 weights / MXFP8 activations, quantization-aware training",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "licence",
+     "claim": "custom 'Kimi K3.1 Pro License'",
+     "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "quote": "License: \"Kimi K3.1 Pro License\"",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "65.7 Terminal-Bench 4.0 vs 66.4 Opus 5.5; 51.7 SWE Marathon v1.1 vs 46.3",
+     "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "quote": "Terminal-Bench 4.0: Kimi K3.1 Pro 65.7; Claude Opus 5.5 66.4. SWE Marathon v1.1: 51.7 vs 46.3",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "Moonshot launched Kimi K3.1 Pro as an API on 24 October",
+     "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "quote": "Moonshot announcement page gives no date; image paths contain 20261023; 'The full model weights will be released by Nov 4'",
+     "verdict": "CORRECTED",
+     "fix": "The announcement page (https://www.kimi.com/blog/kimi-k3-1-pro, not linked in the item) states no date; asset paths suggest 23 October. Say 'late October' unless a dated source is linked."
+    },
+    {
+     "kind": "date",
+     "claim": "the open weights are what's new this week",
+     "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "quote": "HF commit history: Nov 2 'Initial commit' (6d0a020); Nov 5 'Update encoding_k3.py'",
+     "verdict": "CORRECTED",
+     "fix": "HF repo's first commit is 2 Nov (event_date); Moonshot promised weights 'by Nov 4'. 'This week' is fair but the weights date is 2 Nov."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Google",
+   "event_date": "2026-11-05",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "Agent Substrate reached 1.0 and is GA on GKE",
+     "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/",
+     "quote": "Agent Substrate has reached its 1.0 milestone and is now generally available as Agent Substrate on GKE.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Agent Substrate, gVisor and OpenRL were accepted into the CNCF Sandbox",
+     "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/",
+     "quote": "Agent Substrate, gVisor, and OpenRL have been accepted into the CNCF Sandbox",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "restores in under 500 milliseconds",
+     "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/",
+     "quote": "restores the Actor onto any available Worker in under 500 milliseconds",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "more than 500 suspend-and-resume activations per second",
+     "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/",
+     "quote": "performing more than 500 suspend and resume activations per second",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "the post gives no licence terms",
+     "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/",
+     "quote": "Searched whole post for 'license', 'Apache': no licence named; described only as open source/donation",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "post date",
+     "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/",
+     "quote": "November 5, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-04",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "preprint submitted on 4 November",
+     "url": "https://arxiv.org/abs/2611.06116",
+     "quote": "v1, Wed, 4 Nov 2026 07:59:59 UTC",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "four open-weight models, five harnesses, 156 cases, 3,120 episodes",
+     "url": "https://arxiv.org/abs/2611.06116",
+     "quote": "Four open-weight models ran five harnesses on 156 pre-registered cases ... 3,120 two-turn episodes",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "pooled correct-case rate 87.3% to 92.1%; 11.5-point within-model spread",
+     "url": "https://arxiv.org/abs/2611.06116",
+     "quote": "87.3% to 92.1% ... 11.5 percentage points",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "26% of violations came with a customer message denying the action",
+     "url": "https://arxiv.org/abs/2611.06116",
+     "quote": "26% (exploratory)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Code, data and all traces are released",
+     "url": "https://arxiv.org/abs/2611.06116",
+     "quote": "Comments: 16 pages, 4 tables. Pre-registered. Code, data and all 3120 episode traces: https://github.com/mhuyut/harness-is-the-model",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Code and traces repo contents",
+     "url": "https://github.com/mhuyut/harness-is-the-model",
+     "quote": "data/runs/full/*.jsonl Raw traces of all 3120 episodes; Code: MIT. Data ... CC BY 4.0",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "one model went from first to last place",
+     "url": "https://arxiv.org/abs/2611.06116",
+     "quote": "not checked in abstract/summary retrieved",
+     "verdict": "REMOVED",
+     "fix": "Fetched summary did not show the first-to-last claim; confirm in the paper body or drop."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Simon Willison",
+   "event_date": "2026-11-03",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Pac-Man 72%, Pong 75%, Breakout 88%; missed Freeway",
+     "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+     "quote": "Pac-Man: 72% confidence ... Pong: 75% ... Breakout: 88% ... Freeway: failed",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "version",
+     "claim": "Qwen 3.8 27B, Q4_K_M, LM Studio",
+     "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+     "quote": "Qwen3.8-27B-Q4_K_M.gguf ... LM Studio with the llm-lmstudio plugin",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "each run took about 46 minutes to over an hour",
+     "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+     "quote": "46m 12s ... 1h 4m 54s",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "he doesn't think this shows source code is obsolete",
+     "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+     "quote": "not ready to declare that the age of source code is over",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "After last week's weight-space programming paper",
+     "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+     "quote": "Yesterday's hot paper (Willison post dated 3 Nov; the write-up is dated 2 Nov)",
+     "verdict": "CORRECTED",
+     "fix": "The paper write-up (https://rikiyat.github.io/blog/weight-space-programming/) was published 2 November, and Willison calls it 'yesterday's hot paper'. Write 'this week's' or 'Monday's'."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Buoyant",
+   "event_date": "2026-11-04",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "licence",
+     "claim": "Apache 2.0",
+     "url": "https://www.buoyant.io/blog/introducing-kinference",
+     "quote": "Kinference is fully open source under Apache v2.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "cut median time-to-first-token by 95% on one workload type, Buoyant's benchmark",
+     "url": "https://www.buoyant.io/blog/introducing-kinference",
+     "quote": "cut median time-to-first-token (TTFT) by 95% ... on one workload type",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "README calls it alpha software with no sustained production exposure",
+     "url": "https://github.com/Kinference-AI/kinference",
+     "quote": "Kinference is alpha software. It has not seen sustained production exposure.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "README lists rate limiting and multi-replica support among known gaps",
+     "url": "https://github.com/Kinference-AI/kinference",
+     "quote": "lacks several features ... including: rate limiting and support for multiple replicas",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "launch post presents rate limiting as a feature",
+     "url": "https://www.buoyant.io/blog/introducing-kinference",
+     "quote": "token rate limiting among the features",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "the post does not call it alpha",
+     "url": "https://www.buoyant.io/blog/introducing-kinference",
+     "quote": "Searched post: the word 'alpha' does not appear",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "post date",
+     "url": "https://www.buoyant.io/blog/introducing-kinference",
+     "quote": "November 4, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Cognition SWE-2 Flash",
+   "url": "https://cognition.com/blog/swe-2-flash",
+   "event_date": "2026-11-04",
+   "quote": "one-fifth the price ... 3x the speed ... we are not sharing the weights publicly yet",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GPT-6 Cyber",
+   "url": "https://developers.openai.com/api/docs/pricing",
+   "event_date": "2026-11-06",
+   "quote": "gpt-6-cyber | $20.00 | $100.00",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Alpine OpenSSH bypass",
+   "url": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/",
+   "event_date": "2026-11-05",
+   "quote": "No CVE identifier had been assigned at the time of writing.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Google on agentic intrusions",
+   "url": "https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks",
+   "event_date": "2026-10-30",
+   "quote": "Since late August 2026, we have observed threat actors actively operating popular open-source multi-agent pentesting platforms like ARTEX, PentAGI, CAIRN",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GPT-6 Astra underperformance",
+   "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
+   "event_date": "2026-11-04",
+   "quote": "roughly a tenth of the hidden rubric items on safety-framed tasks, compared with close to 16% on capabilities-framed",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Gemini Omni 1.2 Flash",
+   "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available/",
+   "event_date": "2026-11-06",
+   "quote": "now generally available on Google Cloud ... up to 15 seconds ... $0.07 per second of 720p video, 30% less than 1.1",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Cohere Model Vault",
+   "url": "https://cohere.com/blog/open-source-model-vault",
+   "event_date": "2026-11-03",
+   "quote": "DeepSeek V4.1 Flash, GLM 5.3 Flash, Gemma 4; single tenant; standard Model Vault serves US, EU, Canada (Encrypted is US-only)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Agent skill optimizer",
+   "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-an-agent-skill-optimizer-with-alphaevolve-and-harbor/",
+   "event_date": "2026-11-06",
+   "quote": "We saw improvements of 5% with just a few iterations with alphaevolve.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "2026-11-27 TRAI deadline",
+   "url": "https://www.trai.gov.in/",
+   "event_date": "2026-10-30",
+   "quote": "Both the comment deadline and the counter-comment deadline are 27 November 2026",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "CrowdStrike Saudi sovereign cloud",
+   "url": "https://finance.yahoo.com/technology/ai/articles/crowdstrike-launches-sovereign-cloud-saudi-172800746.html",
+   "event_date": "2026-11-04",
+   "quote": "Falcon security workloads, customer telemetry, and management infrastructure hosted locally in Saudi Arabia ... available immediately",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "CERT-In AI-attack advisory",
+   "url": "https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES02&VLCODE=CIAD-2026-0058",
+   "event_date": "2026-11-04",
+   "quote": "Severity Critical; CIAD-2026-0058; PentAGI; one rupee micro-value test transactions",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "TRAI draft AI guidelines",
+   "url": "https://newsonair.gov.in/trai-issues-draft-guidelines-to-seek-inputs-on-responsible-use-of-ai-in-tele-services/",
+   "event_date": "2026-10-30",
+   "quote": "Risk classes and board-approved AI policy: not mentioned in the content; placed on TRAI website for stakeholder comments",
+   "verdict": "CORRECTED"
+  }
+ ]
+}

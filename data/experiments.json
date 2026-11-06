@@ -173,5 +173,12 @@
   "source_url": "https://importai.substack.com/p/import-ai-479-spacewar-low-latency",
   "hypothesis": "On interactive tasks success is limited by wall-clock latency more than reasoning; paused-clock vs live gap exceeds 20 points",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-06",
+  "title": "Audit identity data in agent egress",
+  "source_url": "https://github.com/anthropics/claude-code/issues/107757",
+  "hypothesis": "A coding or search agent with web access sends identity strings (email, name, hostname) to third-party sites in at least some of 20 search-style tasks.",
+  "status": "suggested"
  }
 ]

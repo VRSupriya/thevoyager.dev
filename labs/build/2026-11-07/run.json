@@ -1,0 +1,207 @@
+{
+ "lab": "labs/build/2026-11-07",
+ "ran_at": "2026-11-07T03:22:06+00:00",
+ "seconds": 0.8,
+ "passed": true,
+ "gates": [
+  {
+   "metric": "dashboard_gap",
+   "op": "between",
+   "value": [
+    -0.04,
+    0.04
+   ],
+   "label": "judge pass rate minus human pass rate over all traffic: the headline number looks right",
+   "observed": -0.014,
+   "passed": true
+  },
+  {
+   "metric": "kappa",
+   "op": "<=",
+   "value": 0.7,
+   "label": "judge-human agreement beyond chance (Cohen's kappa) is only moderate",
+   "observed": 0.568,
+   "passed": true
+  },
+  {
+   "metric": "judge_pass/invented_promise",
+   "op": ">=",
+   "value": 0.5,
+   "label": "share of answers with an invented promise that the judge passes",
+   "observed": 0.781,
+   "passed": true
+  },
+  {
+   "metric": "pairwise_flip_rate",
+   "op": ">=",
+   "value": 0.05,
+   "label": "pairs where swapping the order changes the pairwise winner",
+   "observed": 0.092,
+   "passed": true
+  },
+  {
+   "metric": "ci_width_ratio_50_to_400",
+   "op": ">=",
+   "value": 2.5,
+   "label": "interval width with 50 labels divided by width with 400 labels",
+   "observed": 3.38,
+   "passed": true
+  },
+  {
+   "metric": "power/100",
+   "op": "<=",
+   "value": 0.4,
+   "label": "6-point regression caught with 100 labelled cases per version",
+   "observed": 0.237,
+   "passed": true
+  },
+  {
+   "metric": "power/1600",
+   "op": ">=",
+   "value": 0.9,
+   "label": "6-point regression caught with 1,600 labelled cases per version",
+   "observed": 0.968,
+   "passed": true
+  }
+ ],
+ "metrics": {
+  "traffic": 3000,
+  "human_pass_rate": 0.679,
+  "judge_pass_rate": 0.665,
+  "dashboard_gap": -0.014,
+  "agreement": 0.809,
+  "kappa": 0.568,
+  "tpr": 0.85,
+  "tnr": 0.724,
+  "judge_pass/correct": 0.85,
+  "judge_pass/wrong_number": 0.064,
+  "judge_pass/invented_promise": 0.781,
+  "judge_pass/refusal": 0.0,
+  "bad_long_pass": 0.396,
+  "bad_short_pass": 0.013,
+  "verbosity_gap": 0.383,
+  "pairwise_flip_rate": 0.092,
+  "ci_width/50": 0.463,
+  "abs_err/50": 0.057,
+  "ci_width/100": 0.292,
+  "abs_err/100": 0.048,
+  "ci_width/200": 0.194,
+  "abs_err/200": 0.033,
+  "ci_width/400": 0.137,
+  "abs_err/400": 0.026,
+  "ci_width_ratio_50_to_400": 3.38,
+  "labels_used": 150,
+  "corrected_pass_rate": 0.63,
+  "corrected_error": 0.049,
+  "raw_error": 0.013,
+  "power/100": 0.237,
+  "power/400": 0.573,
+  "power/1600": 0.968,
+  "seconds": 0.7
+ },
+ "config": {
+  "seed": 7,
+  "traffic": 3000,
+  "labels": 150,
+  "verbosity": 0.18
+ },
+ "curve": null,
+ "experiments": [
+  {
+   "name": "no_length_bias",
+   "label": "judge with no length bias",
+   "args": [
+    "--verbosity",
+    "0"
+   ],
+   "exit_code": 0,
+   "seconds": 0.9,
+   "metrics": {
+    "traffic": 3000,
+    "human_pass_rate": 0.679,
+    "judge_pass_rate": 0.551,
+    "dashboard_gap": -0.128,
+    "agreement": 0.752,
+    "kappa": 0.486,
+    "tpr": 0.723,
+    "tnr": 0.813,
+    "judge_pass/correct": 0.723,
+    "judge_pass/wrong_number": 0.027,
+    "judge_pass/invented_promise": 0.548,
+    "judge_pass/refusal": 0.0,
+    "bad_long_pass": 0.223,
+    "bad_short_pass": 0.013,
+    "verbosity_gap": 0.21,
+    "pairwise_flip_rate": 0.09,
+    "ci_width/50": 0.483,
+    "abs_err/50": 0.107,
+    "ci_width/100": 0.333,
+    "abs_err/100": 0.062,
+    "ci_width/200": 0.217,
+    "abs_err/200": 0.035,
+    "ci_width/400": 0.163,
+    "abs_err/400": 0.03,
+    "ci_width_ratio_50_to_400": 2.96,
+    "labels_used": 150,
+    "corrected_pass_rate": 0.582,
+    "corrected_error": 0.097,
+    "raw_error": 0.128,
+    "power/100": 0.237,
+    "power/400": 0.573,
+    "power/1600": 0.968,
+    "seconds": 0.8
+   }
+  },
+  {
+   "name": "seed_2",
+   "label": "another random world (seed 2)",
+   "args": [
+    "--seed",
+    "2"
+   ],
+   "exit_code": 0,
+   "seconds": 0.8,
+   "metrics": {
+    "traffic": 3000,
+    "human_pass_rate": 0.68,
+    "judge_pass_rate": 0.648,
+    "dashboard_gap": -0.032,
+    "agreement": 0.806,
+    "kappa": 0.566,
+    "tpr": 0.834,
+    "tnr": 0.748,
+    "judge_pass/correct": 0.834,
+    "judge_pass/wrong_number": 0.043,
+    "judge_pass/invented_promise": 0.755,
+    "judge_pass/refusal": 0.0,
+    "bad_long_pass": 0.318,
+    "bad_short_pass": 0.005,
+    "verbosity_gap": 0.313,
+    "pairwise_flip_rate": 0.113,
+    "ci_width/50": 0.466,
+    "abs_err/50": 0.066,
+    "ci_width/100": 0.288,
+    "abs_err/100": 0.051,
+    "ci_width/200": 0.195,
+    "abs_err/200": 0.038,
+    "ci_width/400": 0.129,
+    "abs_err/400": 0.024,
+    "ci_width_ratio_50_to_400": 3.61,
+    "labels_used": 150,
+    "corrected_pass_rate": 0.593,
+    "corrected_error": 0.087,
+    "raw_error": 0.032,
+    "power/100": 0.268,
+    "power/400": 0.57,
+    "power/1600": 0.97,
+    "seconds": 0.7
+   }
+  }
+ ],
+ "environment": {
+  "python": "3.11.18",
+  "numpy": "2.4.6",
+  "platform": "Linux-6.18.44-fc-v300-x86_64-with-glibc2.39",
+  "runner_python": "3.11.18"
+ }
+}

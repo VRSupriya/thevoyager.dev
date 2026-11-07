@@ -1,0 +1,19 @@
+{
+  "title": "Build: an eval harness that audits its own judge (synthetic retail support copilot)",
+  "post": "build/2026-11-07",
+  "command": ["run.py"],
+  "timeout_minutes": 15,
+  "gates": [
+    {"metric": "dashboard_gap", "op": "between", "value": [-0.04, 0.04], "label": "judge pass rate minus human pass rate over all traffic: the headline number looks right"},
+    {"metric": "kappa", "op": "<=", "value": 0.7, "label": "judge-human agreement beyond chance (Cohen's kappa) is only moderate"},
+    {"metric": "judge_pass/invented_promise", "op": ">=", "value": 0.5, "label": "share of answers with an invented promise that the judge passes"},
+    {"metric": "pairwise_flip_rate", "op": ">=", "value": 0.05, "label": "pairs where swapping the order changes the pairwise winner"},
+    {"metric": "ci_width_ratio_50_to_400", "op": ">=", "value": 2.5, "label": "interval width with 50 labels divided by width with 400 labels"},
+    {"metric": "power/100", "op": "<=", "value": 0.4, "label": "6-point regression caught with 100 labelled cases per version"},
+    {"metric": "power/1600", "op": ">=", "value": 0.9, "label": "6-point regression caught with 1,600 labelled cases per version"}
+  ],
+  "experiments": [
+    {"name": "no_length_bias", "args": ["--verbosity", "0"], "label": "judge with no length bias"},
+    {"name": "seed_2", "args": ["--seed", "2"], "label": "another random world (seed 2)"}
+  ]
+}

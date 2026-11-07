@@ -222,5 +222,12 @@
   "week": 5,
   "title": "FlashProve: a verifier whose exit code 0 is not the verdict, and what that teaches about gating on evals",
   "topic_key": "github:anthropics-flashprove-verifiable-inference-verifier-contract:evals-llm-observability"
+ },
+ {
+  "date": "2026-11-07",
+  "track": "build",
+  "week": 5,
+  "title": "Build: an eval harness that audits its own judge, or a trace-to-eval pipeline",
+  "topic_key": "build:judge-audit-harness-kappa-slices-label-budget-gate-power:evals-llm-observability"
  }
 ]

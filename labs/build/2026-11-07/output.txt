@@ -1,0 +1,25 @@
+3000 cases | human pass 0.679 | judge pass 0.665 | agreement 0.809 | kappa 0.568 | TPR 0.850 TNR 0.724
+
+judge pass rate by what the answer really is (humans: only 'correct' passes)
+  correct           0.850   n=2036
+  wrong_number      0.064   n=376
+  invented_promise  0.781   n=310
+  refusal           0.000   n=278
+  wrong answers of 30+ words pass 0.396, of under 12 words pass 0.013
+
+pairwise judge: the winner changed when the order was swapped in 0.092 of 400 pairs
+
+labels -> corrected pass rate (Rogan-Gladen), mean 95% interval width and mean absolute error over 30 draws
+    50 labels: width 0.463   error 0.057
+   100 labels: width 0.292   error 0.048
+   200 labels: width 0.194   error 0.033
+   400 labels: width 0.137   error 0.026
+
+with 150 labels: raw judge rate off by 0.013, corrected estimate 0.630 off by 0.049
+
+regression gate: B is truly 0.06 worse (0.679 -> 0.619); detection rate over 400 simulated nightly runs
+    100 labelled cases per version: caught 0.237
+    400 labelled cases per version: caught 0.573
+   1600 labelled cases per version: caught 0.968
+
+wrote /home/user/thevoyager.dev/labs/build/2026-11-07/results.json in 0.7s

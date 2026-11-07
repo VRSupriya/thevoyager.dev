@@ -1,41 +1,5 @@
 [
  {
-  "date": "2026-10-07",
-  "slot": "top",
-  "title": "OpenAI agents on Wikimedia projects",
-  "url": "https://wikimediafoundation.org/news/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/"
- },
- {
-  "date": "2026-10-07",
-  "slot": "models",
-  "title": "Mistral Large 4",
-  "url": "https://mistral.ai/news/mistral-large-4/"
- },
- {
-  "date": "2026-10-07",
-  "slot": "agents",
-  "title": "MCP Toolbox Java SDK v1.0",
-  "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-mcp-toolbox-java-sdk-v10-agentic-data-access-for-the-enterprise/"
- },
- {
-  "date": "2026-10-07",
-  "slot": "research",
-  "title": "Speculative execution for on-device voice agents",
-  "url": "https://huggingface.co/papers/2610.07641"
- },
- {
-  "date": "2026-10-07",
-  "slot": "people",
-  "title": "Simon Willison on EmbeddingGemma 2 licensing",
-  "url": "https://simonwillison.net/2026/Oct/6/hn-49983751/"
- },
- {
-  "date": "2026-10-07",
-  "slot": "architecture",
-  "title": "Spanner-backed Lakehouse runtime catalog",
-  "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-powered-by-spanner/"
- },
- {
   "date": "2026-10-08",
   "slot": "top",
   "title": "OpenAI 722 math manuscripts",
@@ -2092,5 +2056,101 @@
   "slot": "quick",
   "title": "Google agent skill optimizer AlphaEvolve Harbor",
   "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-an-agent-skill-optimizer-with-alphaevolve-and-harbor/"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "top",
+  "title": "Botpress internal breach exposes bot configurations",
+  "url": "https://botpress.com/blog/security-incident-disclosure-november-2026"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "models",
+  "title": "Thinking Machines Inkling 2 Small",
+  "url": "https://thinkingmachines.ai/news/inkling-2-small/"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "agents",
+  "title": "Amazon Bedrock AgentCore remote Claude Code sample",
+  "url": "https://aws.amazon.com/blogs/machine-learning/extend-claude-code-to-remote-sessions-on-amazon-bedrock-agentcore-with-security-controls/"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "research",
+  "title": "METR assessment of AI R&D acceleration at Anthropic",
+  "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "people",
+  "title": "LangChain async subagents",
+  "url": "https://www.langchain.com/blog/agents-are-going-async"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "architecture",
+  "title": "Edera object capability bounded authority",
+  "url": "https://edera.dev/stories/ocap-bounded-authority"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "regional",
+  "title": "Cashfree Checkout for Agents",
+  "url": "https://inc42.com/buzz/cashfree-launches-checkout-for-agents-to-enable-ai-led-payments/"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "Cactus Mirage",
+  "url": "https://cactuscompute.com/blog/mirage"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "Linum pjit-21k",
+  "url": "https://www.linum.ai/field-notes/pjit-21k"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "Stroq coding agent guard",
+  "url": "https://github.com/AGGIB/Stroq"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "OpenAI Codex Desktop Windows CVE-2026-110930",
+  "url": "https://github.com/advisories/GHSA-f2g3-r2rh-7h5f"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "Claude Desktop Dispatch extension risk",
+  "url": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "LiteLLM 1.108.0",
+  "url": "https://github.com/BerriAI/litellm/releases"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "GitHub Actions lockfiles",
+  "url": "https://github.blog/changelog/2026-10-28-github-actions-workflow-lockfiles-are-generally-available/"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "GitHub Copilot code review settings API",
+  "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "quick",
+  "title": "Google Cloud Z4M",
+  "url": "https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga/"
  }
 ]

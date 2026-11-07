@@ -1,0 +1,345 @@
+{
+ "date": "2026-11-07",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Botpress",
+   "event_date": "2026-11-06",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Access ran from 13 to 21 October, using an employee API credential",
+     "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
+     "quote": "Internal tool access ran October 13 to 21 (probing began October 12); attacker obtained a Botpress employee's API credential with admin access to customer workspaces",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "read bot configurations in 16 customer workspaces and changed integration settings in 2 others",
+     "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
+     "quote": "Bot configurations were read in 16 customer workspaces; integration settings changed in one integration in each of two other workspaces",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "authentication flaw fixed and credential revoked on 21 October",
+     "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
+     "quote": "authentication vulnerability was fixed on October 21 (about 16:25 UTC) and the employee credential was revoked",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated",
+     "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
+     "quote": "Searched whole page for severity/rating/CVSS: none present",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Stopgap: not stated",
+     "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
+     "quote": "Customers contacted directly were asked to \"treat every credential stored in the affected bots as exposed\"; no interim workaround page-wide",
+     "verdict": "VERIFIED",
+     "fix": "Acceptable; rotation is the only guidance and is already in the If compromised field"
+    },
+    {
+     "kind": "other",
+     "claim": "Source code, build pipelines, published packages and end-user conversations were not affected",
+     "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
+     "quote": "No evidence of changes to source code, build pipelines, or published packages; no evidence of access to end-user conversations",
+     "verdict": "CORRECTED",
+     "fix": "Botpress words it as 'no evidence of', not a flat 'not affected'; say 'Botpress found no evidence that ... were affected'"
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Thinking Machines",
+   "event_date": "2026-11-05",
+   "status": "Announced",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "594B total and 17B active parameters, image input",
+     "url": "https://thinkingmachines.ai/news/inkling-2-small/",
+     "quote": "594B total parameters, 17B active; supports image inputs",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "closed weights today, Apache 2.0 next week after external safety testing, available on Tinker",
+     "url": "https://thinkingmachines.ai/news/inkling-2-small/",
+     "quote": "initially be available through Tinker, with closed weights ... make the full weights available under an Apache 2.0 license next week",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "30.6 vs 24.9 AA index; 72.1% vs 60.0% DeepSWE v1.1; 16.1 vs 25.8 AA-Omniscience vs Muse Spark Open",
+     "url": "https://thinkingmachines.ai/news/inkling-2-small/",
+     "quote": "AA Index 30.6 vs 24.9; DeepSWE v1.1 72.1% vs 60.0%; AA-Omniscience v1.1 16.1 vs 25.8 (Muse Spark Open)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "8.4T tokens in 68 hours on GB300 NVL72 racks",
+     "url": "https://thinkingmachines.ai/news/inkling-2-small/",
+     "quote": "initial phase covered 8.4 trillion tokens; ran for 68 hours on NVIDIA GB300 NVL72 racks",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "AWS",
+   "event_date": "2026-11-06",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "other",
+     "claim": "each task gets its own AgentCore runtime session, a microVM; agent never merges",
+     "url": "https://aws.amazon.com/blogs/machine-learning/extend-claude-code-to-remote-sessions-on-amazon-bedrock-agentcore-with-security-controls/",
+     "quote": "runs every session in its own microVM; The agent opens pull requests but never merges them.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "GitHub token from AgentCore Identity expires after 8 hours",
+     "url": "https://aws.amazon.com/blogs/machine-learning/extend-claude-code-to-remote-sessions-on-amazon-bedrock-agentcore-with-security-controls/",
+     "quote": "a user-to-server token from Identity that expires after 8 hours and is refreshed automatically",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "private subnets with outbound HTTPS limited to GitHub and package registries",
+     "url": "https://aws.amazon.com/blogs/machine-learning/extend-claude-code-to-remote-sessions-on-amazon-bedrock-agentcore-with-security-controls/",
+     "quote": "security group allows only outbound HTTPS, with a NAT gateway for GitHub and package registries; suggests Network Firewall allowlist for production",
+     "verdict": "CORRECTED",
+     "fix": "The security group limits to outbound HTTPS generally; the GitHub/package-registry allowlist is only a suggested production Network Firewall addition, not the default"
+    },
+    {
+     "kind": "other",
+     "claim": "Guardrails screen the prompt before queueing but don't cover prompt injection via repo files or command output; 15-25 minutes to deploy; sample not product",
+     "url": "https://aws.amazon.com/blogs/machine-learning/extend-claude-code-to-remote-sessions-on-amazon-bedrock-agentcore-with-security-controls/",
+     "quote": "doesn't see prompt injection that arrives through repository files or command output; Deployment takes 15–25 minutes",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-05",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "about 2x its March 2024 to October 2025 rate (range 1.3-3x)",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+     "quote": "around twice the rate they did between March 2024 and October 2025 ... closer to 1.3x or 3x",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "about 80% of the gain attributed to AI",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+     "quote": "a majority (perhaps ≈80%) of the current (October 2026) acceleration is due to AI",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Staff self-reports around 12x, which METR calls very loose evidence",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+     "quote": "≈12x ... only very loose evidence",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Anthropic redacted most of the most informative evidence and dropped compute-allocation verification from scope",
+     "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+     "quote": "Anthropic redacted a majority of the evidence we found most informative; changed the scope of this project midway to exclude compute verification",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "LangChain",
+   "event_date": "2026-11-05",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Sydney Runkle and Thushanth Bengre wrote on 5 November",
+     "url": "https://www.langchain.com/blog/agents-are-going-async",
+     "quote": "Authors Sydney Runkle and Thushanth Bengre; November 5, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "update_strategy default \"interrupt\" stops the current run and restarts the subagent with the new instruction",
+     "url": "https://www.langchain.com/blog/agents-are-going-async",
+     "quote": "stops the current run and restarts the subagent with the new instruction",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Task notifications are in beta, so the API may change",
+     "url": "https://www.langchain.com/blog/agents-are-going-async",
+     "quote": "Task notifications are in beta, so the API may still change.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "a plain ReAct loop blocks on long tool calls",
+     "url": "https://www.langchain.com/blog/agents-are-going-async",
+     "quote": "each long tool call blocks the loop and every other task queues behind it",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Edera",
+   "event_date": "2026-11-05",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "\"Don't give the agent a credential and ask it to behave.\"",
+     "url": "https://edera.dev/stories/ocap-bounded-authority",
+     "quote": "Don't give the agent a credential and ask it to behave",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "capability such as github.write(repository=\"acme/payments\") enforced at the hypervisor level",
+     "url": "https://edera.dev/stories/ocap-bounded-authority",
+     "quote": "github.write(repository=\"acme/payments\"); page refers to 'microVM-based runtime' and 'MicroVM Isolation boundary'; searched for 'hypervisor': not found",
+     "verdict": "CORRECTED",
+     "fix": "Example verified; the word hypervisor does not appear on the page. Say 'enforced by the microVM isolation boundary' or drop 'at the hypervisor level'"
+    },
+    {
+     "kind": "status",
+     "claim": "InfoQ says scoped command execution and workload identity have shipped and credential-brokered API access is still to come; Edera's post calls capcurl a concept",
+     "url": "https://www.infoq.com/news/2026/11/ai-credentials-isolation/",
+     "quote": "Initial functionality, focused on scoped command execution and workload identity, was released; Edera's post: \"Edera's `capcurl` concept\"",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "The licence isn't confirmed",
+     "url": "https://edera.dev/stories/ocap-bounded-authority",
+     "quote": "Searched Edera post and InfoQ article for licence/open source/Apache: none; Edera page only has a Legal link to a software license agreement; no capcurl/capsudo repo links on Edera page",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Cactus Mirage",
+   "url": "https://cactuscompute.com/blog/mirage",
+   "event_date": "2026-11-06",
+   "quote": "51.3 million parameters; about 22 MB; 74 ms end to end on a Samsung Galaxy S26 NPU. Blog has no licence text; HF model card (huggingface.co/Cactus-Compute/mirage) says 'License: apache-2.0'",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Linum pjit-21k",
+   "url": "https://www.linum.ai/field-notes/pjit-21k",
+   "event_date": "2026-11-04",
+   "quote": "2B-parameter DiT; total $21,038; Research release · Apache 2.0; cannot write text",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Stroq",
+   "url": "https://github.com/AGGIB/Stroq",
+   "event_date": "2026-11-07",
+   "quote": "They deny `curl | sh` and outbound calls that carry a known secret; Apache-2.0; No account, no telemetry (event date not shown on page, date unverified)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Codex Desktop CVE-2026-110930",
+   "url": "https://github.com/advisories/GHSA-f2g3-r2rh-7h5f",
+   "event_date": "2026-11-05",
+   "quote": "High, CVSS 8.0; Published Nov 5, 2026; Affected versions: Unknown; Patched versions: Unknown; no workarounds listed",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Claude Desktop Dispatch",
+   "url": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
+   "event_date": "2026-11-06",
+   "quote": "Turn off cross-device Dispatch if you do not need it.; no fixed version or CVE; Anthropic said Dispatch would be retired",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "LiteLLM 1.108.0",
+   "url": "https://github.com/BerriAI/litellm/releases",
+   "event_date": "2026-11-04",
+   "quote": "1.108.0 (LTS); refactor(utils)!: delete prompt_token_calculator; fix(passthrough): stop leaking the caller's virtual key on credential-less Vertex passthrough",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub Actions lockfiles",
+   "url": "https://github.blog/changelog/2026-10-28-github-actions-workflow-lockfiles-are-generally-available/",
+   "event_date": "2026-10-28",
+   "quote": "generally available; .github/workflows/actions.lock; don’t determine whether a dependency is safe",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Copilot code review settings API",
+   "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates",
+   "event_date": "2026-11-06",
+   "quote": "don't support GitHub Apps or fine-grained personal access tokens (repository endpoints do)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google Cloud Z4M",
+   "url": "https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga/",
+   "event_date": "2026-11-07",
+   "quote": "generally available; 400 Gbps; up to 15.6 million random-read IOPS on Local SSD, up to 70% more than Z3",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Cashfree Checkout for Agents",
+   "url": "https://inc42.com/buzz/cashfree-launches-checkout-for-agents-to-enable-ai-led-payments/",
+   "event_date": "2026-11-06",
+   "quote": "has launched; without requiring any code changes; built on the open-source WebMCP; over 40%; no pricing or availability mentioned",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

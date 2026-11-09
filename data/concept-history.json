@@ -537,5 +537,17 @@
 "small & on-device models": 1,
 "voice agents": 1,
 "world models & robotics": 1
+},
+"2026-11-09": {
+"AI compute & data centres": 4,
+"agent memory": 1,
+"coding agents": 7,
+"distillation & synthetic data": 1,
+"enterprise agent adoption": 2,
+"guardrails & AI safety": 1,
+"inference optimisation": 1,
+"open-weight models": 1,
+"sovereign AI & data residency": 1,
+"voice agents": 2
 }
 }

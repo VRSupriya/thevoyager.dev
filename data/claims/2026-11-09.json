@@ -1,0 +1,433 @@
+{
+ "date": "2026-11-09",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Claude Code (Anthropic) / Apiiro research",
+   "event_date": "2026-11-07",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "104,185 copies across 103,617 public repositories; 1,122 hold a secret",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "Apiiro found 104,185 copies of the file in 103,617 repositories. 1,122 files hold at least one secret",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "1,379 distinct secrets (379 database passwords, 23 AWS keys); 215 files missed by both Gitleaks and TruffleHog",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "1,379 secrets; 379 ... database passwords, 23 are AWS keys; \"neither flagged 215.\"",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Reported by The Hacker News on 7 November",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "Publication date: Nov 07, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Built-in protection only adds the file to global git excludes, which does not travel with the project",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "adds the file to the user's global git excludes ... never adds the file to the project's own .gitignore",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "Same bug reported August 2025, closed by a bot as not planned in January",
+     "url": "https://github.com/anthropics/claude-code/issues/5544",
+     "quote": "Opened Aug 11, 2025; closed Jan 3, 2026 as not planned by github-actions bot after 60 days of inactivity (issue also locked Jan 10, 2026)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Apiiro did not test whether the secrets still work",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "did not test whether any still work (note: one notified company confirmed its key was live)",
+     "verdict": "CORRECTED",
+     "fix": "Add that one notified company confirmed its key was live."
+    },
+    {
+     "kind": "absence",
+     "claim": "Affected versions not stated",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "Searched THN article and issue #5544: no Claude Code version given; issue version field blank; article says only 'reproduced with the latest models, Opus 5.5 and Fable 5.1'",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Fixed in: no fix is stated in the report or in issue #5544",
+     "url": "https://github.com/anthropics/claude-code/issues/5544",
+     "quote": "Searched THN article (no fix, versions or severity) and issue #5544 (no maintainer reply, no linked PR, no official workaround; only a reporter's own planned sanitiser script)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated",
+     "url": "https://github.com/anthropics/claude-code/issues/5544",
+     "quote": "No severity stated; labels bug, area:security, area:tools, has repro, platform:macos",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: git rm --cached, repo .gitignore, secrets in env vars/manager, approve patterns like Bash(npm run:*)",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "Stop tracking the local file with git rm --cached .claude/settings.local.json ... add it to the repository's own .gitignore ... Approve patterns, such as Bash(npm run:*), instead of single commands",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: rotate every password, token and key the file has ever held before cleaning up",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "Rotate every password, token and key the files have ever held, before cleaning up",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Scanners miss it because secret sits after PGPASSWORD= or sshpass -p",
+     "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+     "quote": "a password after PGPASSWORD=, sshpass -p , or mysql -p looks like an ordinary word in an ordinary command line",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Apiiro primary post (apiiro.com) checked",
+     "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+     "quote": "HTTP 403 Forbidden",
+     "verdict": "REMOVED",
+     "fix": "Page could not be opened; claims rest on THN and the GitHub issue."
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "OpenRouter",
+   "event_date": "2026-11-06",
+   "status": "Vendor benchmark",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Launched 6 November: openrouter/auto-code next to rebuilt openrouter/auto",
+     "url": "https://openrouter.ai/blog/announcements/auto-and-auto-code-routers/",
+     "quote": "post is dated 11/6/2026; Auto Code is openrouter/auto-code, Auto Router is openrouter/auto",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Starts in higher cost tier, weighs speed heavily, penalises failures harder",
+     "url": "https://openrouter.ai/blog/announcements/auto-and-auto-code-routers/",
+     "quote": "starts in a higher cost tier ... gives speed extra weight ... penalizes failures more harshly",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "No router fee; pay the model that serves; response model field says which",
+     "url": "https://openrouter.ai/blog/announcements/auto-and-auto-code-routers/",
+     "quote": "no router fee; you pay the standard price of whichever model handles the request; the response's model field shows which model served",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "In line with Claude Opus 5.5 at 74% lower cost per task, five benchmarks incl. Terminal Bench 4.0 and Deep SWE",
+     "url": "https://openrouter.ai/blog/announcements/auto-and-auto-code-routers/",
+     "quote": "scores in line with Claude Opus 5.5 while \"costing 74% less per task\"; five benchmarks incl. Deep SWE, Terminal Bench 4.0, SWE-Atlas QA, tau3-bench Banking, MMMU Pro Vision",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "OpenAI Agents SDK",
+   "event_date": "2026-11-08",
+   "status": "Preview",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "version",
+     "claim": "0.24.0-alpha.7 pre-release published 8 November",
+     "url": "https://github.com/openai/openai-agents-python/releases",
+     "quote": "0.24.0-alpha.7 published 08 Nov by markstuart-oai",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Default reasoning effort low to medium for gpt-6-astra, gpt-6.1-sol, gpt-5.6-sol; set reasoning_effort low to keep old",
+     "url": "https://github.com/openai/openai-agents-python/releases",
+     "quote": "changes the default from low to medium for gpt-6-astra, gpt-6.1-sol, and gpt-5.6-sol ... model_settings={\"reasoning_effort\": \"low\"}",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "New Environments default write_policy=strict needing Linux/macOS executor; legacy restores previous remote policy incl. Windows",
+     "url": "https://github.com/openai/openai-agents-python/releases",
+     "quote": "New Environments default to write_policy=\"strict\", which requires a compatible Linux or macOS executor ... write_policy=\"legacy\" ... including on Windows executors (and writable_roots=None)",
+     "verdict": "CORRECTED",
+     "fix": "Add that legacy needs writable_roots=None."
+    },
+    {
+     "kind": "other",
+     "claim": "The Windows executor case will fail loudly",
+     "url": "https://github.com/openai/openai-agents-python/releases",
+     "quote": "Release notes say only: Local execution requires strict mode. No statement about failing loudly.",
+     "verdict": "REMOVED",
+     "fix": "Drop or mark as the writer's inference."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Neil Kakkar / Tano (The Pragmatic Engineer)",
+   "event_date": "2026-11-03",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Kakkar's essay won the publication's contest and ran 3 November",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-software-engineering-is-changing",
+     "quote": "published Nov 3, 2026; Neil Kakkar won the essay challenge (125 submissions)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "From roughly 8-20 merged PRs a month to 200+, approximately tenfold, at Tano",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-software-engineering-is-changing",
+     "quote": "roughly 8 to 20 PRs a month ... more than 200 ... \"approximately a tenfold increase\"",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Tano largely dropped mandatory human code review",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-software-engineering-is-changing",
+     "quote": "Code reviews are optional at Tano. An automated review agent handles most PRs, and \"There are no human PR reviews.\"",
+     "verdict": "CORRECTED",
+     "fix": "Say an automated review agent handles most PRs."
+    },
+    {
+     "kind": "price",
+     "claim": "He puts the cost at $8,000+ a month at API rates",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-software-engineering-is-changing",
+     "quote": "each person has one $200-tier Claude Max subscription; paying API rates would cost \"$8,000+ per month\" (hypothetical)",
+     "verdict": "CORRECTED",
+     "fix": "State that $8,000+ is a hypothetical API-rate estimate; actual spend is a $200 Max plan per person."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Microsoft Threat Intelligence",
+   "event_date": "2026-11-05",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Wrote on 5 November; GitHub secret-scanning queries from August; service-principal sign-ins from 28 October",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+     "quote": "November 5, 2026; Starting in August 2026 ... GitHub queries for secrets; Sign-ins began as early as October 28, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Actors took Key Vault and Storage data and abused Azure AI services",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+     "quote": "the agents exfiltrated secrets from the organization's Azure Key Vault; credential and data exfiltration, including from Azure Key Vaults and Storage Accounts; activity also reached Azure AI services",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Multitenant app credential at a vendor used against downstream tenants",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+     "quote": "A multitenant application credential was compromised at the source, a vendor-owned application, and then used to access multiple downstream tenants",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Affected: exposed app credentials/AI keys; Fixed in: not applicable, no product patch; Severity: not stated",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+     "quote": "No patch mentioned (credential exposure; remediation is revoke/rotate); 'The post doesn't assign a severity rating'",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: block 199.19.77.84 with Conditional Access for workload identities; needs Workload ID Premium",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+     "quote": "Block the exact IP as a named location in a Conditional Access policy for workload identities ... require Workload ID Premium licensing and cover only single-tenant apps",
+     "verdict": "CORRECTED",
+     "fix": "Add that these policies cover only single-tenant apps in your tenant; a second IP 199.19.77.18 (Tor exit node) is also listed."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Push protection, managed identities",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+     "quote": "GitHub Advanced Security for Azure DevOps can block supported secrets before they are pushed ... using managed identities for application authentication eliminates the possibility of secret exposure in code",
+     "verdict": "CORRECTED",
+     "fix": "Push protection is GitHub Advanced Security / Secret Protection for Azure DevOps."
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: revoke sessions, PATs, SSH keys, remove client secrets/certs/federated creds, rotate Key Vault contents; issued tokens stay valid until expiry",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+     "quote": "Tokens already issued remain valid until expiry. Rotate everything stored in Key Vaults the affected application could read; Revoke Entra sessions, Azure DevOps PATs, and SSH keys",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Qwen3.8-27B-DSpine",
+   "url": "https://huggingface.co/tencent/Qwen3.8-27B-DSpine-b16",
+   "event_date": "2026-11-07",
+   "quote": "Apache 2.0; 805.53 tokens/s vs 210.03 autoregressive, 3.84x on WorkBuddy Office, low reasoning. Page gives no release date; linked arXiv paper 'Published Sep 28'",
+   "verdict": "CORRECTED",
+   "fix": "Facts verified, but no release date on page; only source date is the Sep 28 paper (about six weeks old), so freshness is doubtful."
+  },
+  {
+   "name": "Arete-27B",
+   "url": "https://huggingface.co/NousResearch/Arete-27B",
+   "event_date": "2026-11-06",
+   "quote": "Apache-2.0; SFT of Qwen3.8-27B; 'cut answers containing propaganda from 22% to 0.9%'; Nous Propaganda Eval, 803 prompts, Grok 4.7 judge. No release date on page",
+   "verdict": "CORRECTED",
+   "fix": "Facts verified; event date not stated on page (UNVERIFIABLE). Could add that grader is an LLM judge."
+  },
+  {
+   "name": "HyperFlow H3 Flash",
+   "url": "https://github.com/Video-Rebirth/hyperflow-h3-flash",
+   "event_date": "2026-11-04",
+   "quote": "13.7B (fl2va) or 13.9B (ref2va); 6 default steps; MiniMax H3 Community License; 'does not cover use in the European Union, the United Kingdom, the Republic of Korea, or the United States' unless authorized. No release date on page",
+   "verdict": "CORRECTED",
+   "fix": "Facts verified; say 13.7B or 13.9B depending on variant; event date not stated (UNVERIFIABLE)."
+  },
+  {
+   "name": "K-EXAONE 2.5",
+   "url": "https://www.digitaltoday.co.kr/en/view/122771/lg-ai-research-opens-k-exaone-2-5-api-free-says-performance-up-70-percent",
+   "event_date": "2026-11-09",
+   "quote": "free from Nov. 9; 'improved performance by more than 70 percent versus the model released in August', 24 evaluation metrics; article does not mention open weights or Hugging Face (only Nvidia Dynamo is open source)",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Google Cloud agent security tools",
+   "url": "https://securitybrief.com.au/story/google-cloud-launches-new-security-tools-for-ai-agents",
+   "event_date": "2026-11-09",
+   "quote": "Auth Manager generally available; VPC Service Controls rules GA; Agent Identity JWT support Preview; CodeMender 'remains in preview'",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Cloudflare trusted agent delegation",
+   "url": "https://blog.cloudflare.com/trusted-agent-delegation",
+   "event_date": "2026-11-05",
+   "quote": "'(early access)'; 'every login and sign-up now shows whether a personal Agent made the request, and which one.' Account Abuse Protection condition not confirmed in fetched text",
+   "verdict": "CORRECTED",
+   "fix": "Early access and login/sign-up claim verified; 'for sites using Account Abuse Protection' was not returned by the fetch, recheck."
+  },
+  {
+   "name": "LangChain browser tools",
+   "url": "https://langchain.com/blog/how-we-optimized-browser-use-for-deep-agents",
+   "event_date": "2026-11-03",
+   "quote": "WebVoyager, 100 tasks, Claude Sonnet 5.5: Stagehand 90% for $1.98; Playwright MCP 78% for $26.71",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "Kimi K3.1 Pro on Bedrock",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/moonshot-ai-kimi-k3-1-pro-on-amazon-bedrock",
+   "event_date": "2026-11-06",
+   "quote": "'open-weight'; 'a 1-million-token context window'; all Regions via cross-Region inference; searched post body: no pricing or pricing link specific to the model",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "LoreKit agent-memory format",
+   "url": "https://www.lorekit.io/blog/open-agent-memory-format",
+   "event_date": "2026-11-07",
+   "quote": "'the field names aren't a proposal'; schema and on-disk format open source under MIT; 'Who should coordinate?'",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "GitHub Copilot weekly release",
+   "url": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2",
+   "event_date": "2026-11-06",
+   "quote": "'Local automations now support cron expressions and custom agents from your workspace.' / 'It now stays enabled while required checks or rules are pending.' VS Code 1.145 number not in fetched excerpt",
+   "verdict": "CORRECTED",
+   "fix": "Features verified; version 1.145 not shown in fetched text, recheck."
+  },
+  {
+   "name": "DEADLINE pull_request_target",
+   "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
+   "event_date": "2026-11-09",
+   "quote": "Brownouts Nov 9 and Nov 16, 16:00-18:00 UTC; default block Dec 2, 2026 in all public repositories",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "DEADLINE Bedrock Claude 3 EOL",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
+   "event_date": "2026-11-13",
+   "quote": "Claude 3 Haiku, 3 Sonnet, 3.5 Sonnet, 3.5 Sonnet v2, 3.7 Sonnet EOL November 13, 2026 in listed regions; ca-central-1 for 3 Haiku and 3 Sonnet is November 27, 2026",
+   "verdict": "CORRECTED",
+   "fix": "Add Claude 3.5 Sonnet v2; 13 Nov applies only to listed regions (ca-central-1 is 27 Nov). No replacement named on page."
+  },
+  {
+   "name": "DEADLINE Azure Foundry o-series",
+   "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
+   "event_date": "2026-11-19",
+   "quote": "o1, o1-pro, o3, o3-pro, o3-deep-research retire 2026-11-19 -> gpt-5.6-sol; o3-mini, o4-mini 2026-11-19 -> gpt-5.6-terra",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "DEADLINE claude-sonnet-4-5",
+   "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+   "event_date": "2026-11-30",
+   "quote": "claude-sonnet-4-5-20250929 retirement November 30, 2026; recommended replacement claude-sonnet-5-5",
+   "verdict": "VERIFIED",
+   "fix": ""
+  },
+  {
+   "name": "DEADLINE OpenAI removals",
+   "url": "https://developers.openai.com/api/docs/deprecations",
+   "event_date": "2026-12-11",
+   "quote": "gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-pro, o3, o3-pro shut down Dec 11, 2026; replacements gpt-5.6-sol / terra / luna",
+   "verdict": "VERIFIED",
+   "fix": ""
+  }
+ ]
+}

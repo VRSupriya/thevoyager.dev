@@ -126,6 +126,13 @@
   "added": "2026-11-02"
  },
  {
+  "date": "2027-01-08",
+  "what": "Amazon Bedrock end-of-life for Claude Opus 4.1 (us-east-1, us-east-2, us-west-2)",
+  "who": "Teams calling Claude Opus 4.1 through Bedrock",
+  "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
+  "added": "2026-11-09"
+ },
+ {
   "date": "2027-01-14",
   "what": "OpenAI removes GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini snapshots from the API",
   "who": "OpenAI API users on those models",

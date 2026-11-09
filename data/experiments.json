@@ -187,5 +187,12 @@
   "source_url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
   "hypothesis": "Agent and bot platform configs hold more third-party keys than teams expect; most could be scoped per bot or moved behind a gateway.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-09",
+  "title": "Audit agent permission files for literal secrets",
+  "source_url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+  "hypothesis": "At least one committed agent config file in the org (for example .claude/settings.local.json) holds a literal password or token inside an approved command.",
+  "status": "suggested"
  }
 ]

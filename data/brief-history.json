@@ -1,77 +1,5 @@
 [
  {
-  "date": "2026-10-08",
-  "slot": "top",
-  "title": "OpenAI 722 math manuscripts",
-  "url": "https://github.com/openai/math"
- },
- {
-  "date": "2026-10-08",
-  "slot": "models",
-  "title": "Claude Haiku 5.5",
-  "url": "https://www.anthropic.com/claude-haiku-5-5"
- },
- {
-  "date": "2026-10-08",
-  "slot": "agents",
-  "title": "Stacklok cloud-native agent harness",
-  "url": "https://www.latent.space/p/stacklok"
- },
- {
-  "date": "2026-10-08",
-  "slot": "research",
-  "title": "WebFovea",
-  "url": "https://huggingface.co/papers/2610.03036"
- },
- {
-  "date": "2026-10-08",
-  "slot": "people",
-  "title": "Kleppmann CCTI",
-  "url": "http://martin.kleppmann.com/2026/10/07/centre-for-cryptographic-trust-infrastructure.html"
- },
- {
-  "date": "2026-10-08",
-  "slot": "architecture",
-  "title": "Grab Counter Service on Aerospike",
-  "url": "https://engineering.grab.com/counter-service-storage-migration"
- },
- {
-  "date": "2026-10-09",
-  "slot": "top",
-  "title": "Anthropic 2026 Usage Policy update",
-  "url": "https://www.anthropic.com/news/2026-usage-policy-update"
- },
- {
-  "date": "2026-10-09",
-  "slot": "models",
-  "title": "GPT-6.1 Sol Ultrafast on Bedrock",
-  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-sol-ultrafast-amazon/"
- },
- {
-  "date": "2026-10-09",
-  "slot": "agents",
-  "title": "Spotify Ads multi-agent patterns",
-  "url": "https://www.infoq.com/presentations/spotify-multi-agent-ai-architecture/"
- },
- {
-  "date": "2026-10-09",
-  "slot": "research",
-  "title": "SparseDecoding",
-  "url": "https://huggingface.co/papers/2610.12327"
- },
- {
-  "date": "2026-10-09",
-  "slot": "people",
-  "title": "Sam Newman on resilient systems",
-  "url": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam"
- },
- {
-  "date": "2026-10-09",
-  "slot": "architecture",
-  "title": "Replit + Databricks Lakebase governed apps",
-  "url": "https://www.databricks.com/blog/how-build-governed-enterprise-apps-databricks-replit-and-lakebase"
- },
- {
   "date": "2026-10-10",
   "slot": "top",
   "title": "Anthropic unintended model actions",
@@ -2152,5 +2080,95 @@
   "slot": "quick",
   "title": "Google Cloud Z4M",
   "url": "https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga/"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "top",
+  "title": "Claude Code settings.local.json saved secrets",
+  "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "models",
+  "title": "OpenRouter Auto Code router",
+  "url": "https://openrouter.ai/blog/announcements/auto-and-auto-code-routers/"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "agents",
+  "title": "OpenAI Agents SDK 0.24.0-alpha.7 defaults",
+  "url": "https://github.com/openai/openai-agents-python/releases"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "people",
+  "title": "Pragmatic Engineer: Neil Kakkar on Tano 10x PRs",
+  "url": "https://newsletter.pragmaticengineer.com/p/how-software-engineering-is-changing"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "architecture",
+  "title": "Microsoft agentic tooling hunting exposed secrets",
+  "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "Tencent Qwen3.8-27B-DSpine",
+  "url": "https://huggingface.co/tencent/Qwen3.8-27B-DSpine-b16"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "Nous Research Arete-27B",
+  "url": "https://huggingface.co/NousResearch/Arete-27B"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "Video Rebirth HyperFlow H3 Flash",
+  "url": "https://github.com/Video-Rebirth/hyperflow-h3-flash"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "LG K-EXAONE 2.5",
+  "url": "https://www.digitaltoday.co.kr/en/view/122771/lg-ai-research-opens-k-exaone-2-5-api-free-says-performance-up-70-percent"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "Google Cloud agent security tools",
+  "url": "https://securitybrief.com.au/story/google-cloud-launches-new-security-tools-for-ai-agents"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "Cloudflare trusted agent delegation",
+  "url": "https://blog.cloudflare.com/trusted-agent-delegation"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "LangChain Stagehand browser tools for Deep Agents",
+  "url": "https://langchain.com/blog/how-we-optimized-browser-use-for-deep-agents"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "Kimi K3.1 Pro on Amazon Bedrock",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/moonshot-ai-kimi-k3-1-pro-on-amazon-bedrock"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "LoreKit agent-memory format",
+  "url": "https://www.lorekit.io/blog/open-agent-memory-format"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "quick",
+  "title": "GitHub Copilot weekly releases November 2",
+  "url": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2"
  }
 ]

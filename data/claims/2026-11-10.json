@@ -1,0 +1,384 @@
+{
+ "date": "2026-11-10",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Fireworks AI",
+   "event_date": "2026-11-09",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "In October Fireworks said attackers had reached only the secrets it stored for evaluation jobs.",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident",
+     "quote": "environment variables, including API keys and tokens stored as secrets, were captured in certain affected accounts",
+     "verdict": "CORRECTED",
+     "fix": "October bulletin says environment variables used in evaluation jobs, including API keys and tokens stored as secrets, were captured in certain accounts, and that it had 'not detected evidence of unauthorized access to customer models, datasets, training data' based on its investigation at this time, with review of other potential access ongoing. 'Only' is the brief's gloss, not Fireworks' word."
+    },
+    {
+     "kind": "other",
+     "claim": "Its update of 9 November says account and billing information was affected too, and for a limited set of accounts so were secrets, datasets and incomplete models.",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
+     "quote": "For a limited set of accounts, we also discovered impact to secrets, datasets, and incomplete models.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "a third-party cloud provider hosting its R&D machines was hit on 23 October and used to reach them on 24 October",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
+     "quote": "A third-party cloud provider that hosted Fireworks R&D machines experienced a security incident on October 23.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Fireworks links the activity to a financially motivated group that sells stolen LLM access",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
+     "quote": "a cybercriminal threat actor group, which is financially motivated and aimed at selling tokens",
+     "verdict": "VERIFIED",
+     "fix": "Source wording is 'selling tokens from unauthorized access to Large Language Models (LLMs) to illicit routing gateways' (LLMJacking); 'links' matches 'evidence indicates links'."
+    },
+    {
+     "kind": "status",
+     "claim": "Fireworks says Inference, Training SDK and Nexus, which are zero data retention by default, show no impact.",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
+     "quote": "We have not detected any impact to",
+     "verdict": "VERIFIED",
+     "fix": "Page lists Inference, Training SDK and Nexus as 'all zero data retention (ZDR) by default'."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: not applicable (Fireworks lists hardening steps and has disabled self-serve dataset uploads and downloads for Batch Inference and dataset-based training)",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
+     "quote": "we've disabled self-serve dataset uploads and downloads used by Batch Inference and dataset-based training",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated in the bulletin",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
+     "quote": "Searched whole update page for 'severity', 'CVE', 'high', 'Fixed': no severity rating; only 'close known critical vulnerabilities' under Further activity (a hardening step). October bulletin: no severity level, status 'Active monitoring'.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: the October bulletin says to create new API keys for revoked ones, rotate third-party credentials, and review access logs",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident",
+     "quote": "Replace revoked Fireworks API keys if you still need them.",
+     "verdict": "VERIFIED",
+     "fix": "Also 'Rotate third-party credentials identified in your notice' and work with issuing providers to review access logs."
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: reply to your incident notification email",
+     "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
+     "quote": "Reply to your incident notification email or contact",
+     "verdict": "VERIFIED",
+     "fix": "Update gives security-notice@fireworks.ai as alternative."
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Claude Fable",
+   "event_date": "2026-11-09",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Anthropic says Fable and Mythos 5.2 are the same underlying model.",
+     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+     "quote": "Claude Fable and Claude Mythos are the same underlying model.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Fable has stronger cyber and biology safeguards and is open to everyone; Mythos goes to vetted users through Anthropic's verification programs.",
+     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+     "quote": "Claude Mythos 5.2 is available to vetted organizations that work in these dual-use areas.",
+     "verdict": "CORRECTED",
+     "fix": "Anthropic says 'Fable has strong cybersecurity and biology safeguards' and that Mythos is 'the same underlying model as Fable 5.2 without certain cybersecurity or biology safeguards'; Fable is 'available to all users'. Say 'has cyber and biology safeguards that Mythos lacks' rather than 'stronger'."
+    },
+    {
+     "kind": "price",
+     "claim": "Fable costs $8 per million input tokens and $40 per million output",
+     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+     "quote": "$8 per million input tokens and $40 per million output tokens",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Artificial Analysis gives it 65 on its intelligence index, the highest so far.",
+     "url": "https://artificialanalysis.ai/models/claude-fable-5-2",
+     "quote": "scores 65 on the Artificial Analysis Intelligence Index",
+     "verdict": "CORRECTED",
+     "fix": "65 is correct and the page ranks it #1 / 74 in the Intelligence section, but its own summary text says 'amongst the leading models in intelligence'. Prefer 'ranked first of 74 models listed'."
+    },
+    {
+     "kind": "number",
+     "claim": "Anthropic's own numbers put it at 69.9% on FrontierSWE v2 against 62.3% for Opus 5.5",
+     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+     "quote": "Fable 5.2 scored 69.9% and Opus 5.5 scored 62.3%",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Anthropic still recommends Opus 5.5 as the daily driver for most coding and knowledge work",
+     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+     "quote": "For most coding and knowledge tasks, we recommend that users start with Claude Opus 5.5, our strongest daily driver,",
+     "verdict": "CORRECTED",
+     "fix": "Source says 'most coding and knowledge tasks' and 'start with Claude Opus 5.5'; change 'work' to 'tasks'."
+    },
+    {
+     "kind": "status",
+     "claim": "AWS says Fable 5.2 is a covered model, so by default its use requires retention for up to 30 days and human safety review.",
+     "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/",
+     "quote": "By default, its use requires retention for up to 30 days and human safety review.",
+     "verdict": "VERIFIED",
+     "fix": "Anthropic's own page says only 'For other customers, we have 30-day retention for safety monitoring' (eligible enterprises can use zero data retention); the 'covered model' and 'human review' wording is AWS's, as the brief attributes."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Kong",
+   "event_date": "2026-11-04",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Announced on 4 November, Token Vault adds per-user OAuth to Kong AI Gateway",
+     "url": "https://konghq.com/blog/product-releases/kong-token-vault",
+     "quote": "November 4, 2026",
+     "verdict": "VERIFIED",
+     "fix": "Page says 'per-user, 3 Legged OAuth'."
+    },
+    {
+     "kind": "other",
+     "claim": "an agent can call GitHub, Slack or Atlassian through MCP servers and APIs on behalf of a signed-in user",
+     "url": "https://konghq.com/blog/product-releases/kong-token-vault",
+     "quote": "including those from GitHub, Slack, Atlassian Rovo, Google and Datadog",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Kong says agents never receive the upstream access tokens, which are encrypted with a key only the gateway data planes hold, taken from your own secrets manager.",
+     "url": "https://konghq.com/blog/product-releases/kong-token-vault",
+     "quote": "The agent gets the response and never the token.",
+     "verdict": "VERIFIED",
+     "fix": "Key is 'only ever available to the Gateway data planes'."
+    },
+    {
+     "kind": "status",
+     "claim": "Kong says it's available today in the 2.3 release, included with all Kong Gateway subscriptions.",
+     "url": "https://konghq.com/blog/product-releases/kong-token-vault",
+     "quote": "Token Vault is available today as part of the 2.3 release of the Kong AI Gateway",
+     "verdict": "VERIFIED",
+     "fix": "Page also says 'included with all Kong Gateway subscriptions'; no tier limits mentioned."
+    },
+    {
+     "kind": "other",
+     "claim": "token refresh, storage and revocation out of agent code and out of the prompt, which is where Fireworks and WorkOS show credentials tend to leak",
+     "url": "https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident",
+     "quote": "escaped its isolated testing environment",
+     "verdict": "REMOVED",
+     "fix": "Fireworks lost environment-variable secrets held for evaluation jobs and WorkOS data was reached by a researcher's escaped agent; neither bulletin says credentials leaked from agent code or prompts. Reword to 'where credentials are exposed to agent or evaluation environments'."
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-06",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "A preprint submitted on 6 November",
+     "url": "https://arxiv.org/abs/2611.09721",
+     "quote": "Submitted on 6 Nov 2026",
+     "verdict": "VERIFIED",
+     "fix": "Title 'MemoryDojo: Benchmarking Poisoning Through LLM Agent Memory'; authors David H. Yang, Blake Bullwinkel, Amanda Minnich, Mohammad Mohammadi Amiri, Giorgio Severi (brief names no authors)."
+    },
+    {
+     "kind": "number",
+     "claim": "builds 155 multi-session trajectories across four domains and tests five memory systems, plus a memory-aware way to optimise the poison",
+     "url": "https://arxiv.org/abs/2611.09721",
+     "quote": "155 multi-session long-horizon trajectories covering four domains",
+     "verdict": "VERIFIED",
+     "fix": "Also 'supports five different memory systems' and a memory-aware poisoning optimization method."
+    },
+    {
+     "kind": "attribution",
+     "claim": "The abstract says all of the systems are susceptible.",
+     "url": "https://arxiv.org/abs/2611.09721",
+     "quote": "all memory systems are susceptible to memory poisoning",
+     "verdict": "VERIFIED",
+     "fix": "Searched abstract page; no Comments field present."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Simon Willison",
+   "event_date": "2026-11-09",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Most changes to Simon's projects now arrive as PRs opened by Claude Code or Codex, and the descriptions those agents write are accurate and comprehensive, which is also the problem: they overwhelm.",
+     "url": "https://simonwillison.net/2026/Nov/9/details-summary/",
+     "quote": "I'm not reading all of that.",
+     "verdict": "VERIFIED",
+     "fix": "Paraphrase of the post: accurate and thorough but tiring to read."
+    },
+    {
+     "kind": "attribution",
+     "claim": "His fix is a details/summary block, with the model name and often the effort level as the summary, under a short opener he writes himself; the opener represents his human judgement.",
+     "url": "https://simonwillison.net/2026/Nov/9/details-summary/",
+     "quote": "summary line names the model and effort level, such as 'Claude Opus 5.5 Medium'",
+     "verdict": "VERIFIED",
+     "fix": "The opener is described as his promise that the text reflects his judgment about what deserves the reader's time."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Google Cloud llm-d",
+   "event_date": "2026-11-10",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Google Cloud's 10 November map of an open AI stack on Kubernetes features llm-d",
+     "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents/",
+     "quote": "November 10, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "llm-d, which reached 1.0 on 20 October per Red Hat",
+     "url": "https://www.redhat.com/en/blog/crossing-threshold-dependable-open-source-ai-serving",
+     "quote": "Today, Red Hat and our community partners announced the release of llm-d 1.0.",
+     "verdict": "VERIFIED",
+     "fix": "Red Hat blog is dated October 20, 2026; the release date is implied by 'Today'. The blog makes no GA statement, so do not call it GA on this source."
+    },
+    {
+     "kind": "number",
+     "claim": "Google cites prefix-cache-aware routing lifting the KV cache hit rate from 35% to 70% and cutting median time-to-first-token by 70–85% on multi-turn agent workloads",
+     "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents/",
+     "quote": "doubled KV cache hit rates from 35% to 70% and cut median time-to-first-token (TTFT) by 70-85% on multi-turn agent workloads",
+     "verdict": "VERIFIED",
+     "fix": "Google says 'in production deployments'; figures link to llm-d and Google posts, not an independent test (brief already says so)."
+    },
+    {
+     "kind": "attribution",
+     "claim": "On InfoQ, Red Hat's Edoardo Vacchi says plain Kubernetes load balancing suits LLMs poorly, because a conversation does better staying on one vLLM instance, and vLLM doesn't do automatic flow control, which llm-d adds.",
+     "url": "https://www.infoq.com/podcasts/distributed-llm-inference-kubernetes/",
+     "quote": "VLLM does not do automatic flow control",
+     "verdict": "VERIFIED",
+     "fix": "Vacchi is on the Red Hat llm-d team per the intro; 'You want to stick for as much time as possible to the same VLLM instance'; 'llm-d gives you control over quality of service and prioritization of HTTP requests'. Podcast dated Nov 09, 2026."
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Meta Muse Ember",
+   "url": "https://research.meta.ai/blog/muse-ember",
+   "event_date": "2026-11-09",
+   "quote": "Muse Ember scores 40.9 versus 39.2 for Claude Haiku 5.5. $0.10 per million input tokens and $0.50 per million output tokens for prompts up to 200K tokens.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Amazon Bedrock AgentCore Web Search API",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-web-search-api/",
+   "event_date": "2026-11-10",
+   "quote": "Web Search API queries are billed at $7 per 1,000 queries",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Tiger Data pg_vectorsearch",
+   "url": "https://www.infoq.com/news/2026/11/postgresql-vector-search/",
+   "event_date": "2026-11-07",
+   "quote": "PRISM built an index in 1 hour and 40 minutes on a machine with 128 GB of memory, while HNSW took 42 hours on a machine with 512 GB of memory (Tiger Data internal tests, not independently validated; currently in alpha; requires PostgreSQL 18 or later)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "WorkOS",
+   "url": "https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident",
+   "event_date": "2026-11-06",
+   "quote": "escaped its isolated testing environment; researcher running evaluations with ARTEX; confirmed they deleted all WorkOS data obtained by their agent",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Varonis NotC2",
+   "url": "https://www.varonis.com/blog/notc2-ai-powered-c2-channel",
+   "event_date": "2026-11-06",
+   "quote": "NotC2 assumes the attacker already holds AWS credentials. (Page shows no publication date, so 6 November is unconfirmed.)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Bedrock managed knowledge base",
+   "url": "https://aws.amazon.com/blogs/machine-learning/single-shot-and-agentic-retrieval-with-amazon-bedrock-managed-knowledge-base/",
+   "event_date": "2026-11-09",
+   "quote": "This is single-shot RAG: one retrieval, then one answer. (0 = one retrieval, no model invoked; 2 to 5 = agentic mode)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GKE Dynamic Slicing",
+   "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-dynamic-slicing-on-tpus/",
+   "event_date": "2026-11-09",
+   "quote": "reduces AI workload startup times by up to 5x and workload recovery by 4.5x ... supported exclusively in TPU All Capacity under reservation mode.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google TPU 8tx",
+   "url": "https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max/",
+   "event_date": "2026-11-09",
+   "quote": "delivering up to 2x lower latency compared to TPU 8t with a near-zero performance penalty",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Azure Content Understanding agentic mode",
+   "url": "https://devblogs.microsoft.com/foundry/when-one-pass-isnt-enough-agentic-mode-in-azure-content-understanding/",
+   "event_date": "2026-11-09",
+   "quote": "Agentic mode uses more model tokens and typically takes longer for the same document. (now in preview; 'multiple passes' does not appear, page describes a reasoning loop that uses tools to revisit evidence)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Anthropic on agent memory",
+   "url": "https://www.anthropic.com/research/components-of-agent-memory",
+   "event_date": "2026-11-06",
+   "quote": "Dreaming gives Claude a way to test its notes against the original transcripts.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Abu Dhabi's AI-native government pilot",
+   "url": "https://www.thenationalnews.com/future/technology/2026/11/06/openai-deal-to-cut-abu-dhabi-government-processing-times-from-days-to-minutes/",
+   "event_date": "2026-11-06",
+   "quote": "The first pilot is already operating at the Abu Dhabi Agriculture and Food Safety Authority. ... world's first AI-native government by the end of 2027 ... All government and citizen data will be processed within the UAE.",
+   "verdict": "CORRECTED"
+  }
+ ]
+}

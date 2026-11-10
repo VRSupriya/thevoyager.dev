@@ -1,41 +1,5 @@
 [
  {
-  "date": "2026-10-10",
-  "slot": "top",
-  "title": "Anthropic unintended model actions",
-  "url": "https://www.anthropic.com/research/investigating-unintended-model-actions"
- },
- {
-  "date": "2026-10-10",
-  "slot": "models",
-  "title": "Gemini 4 Argon",
-  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
- },
- {
-  "date": "2026-10-10",
-  "slot": "agents",
-  "title": "Netflix ontology-driven observability",
-  "url": "https://www.infoq.com/presentations/netflix-observability-aiops-ontology-scale/"
- },
- {
-  "date": "2026-10-10",
-  "slot": "research",
-  "title": "Ai2 impactful GPU scheduling",
-  "url": "https://huggingface.co/blog/allenai/impactful-scheduling"
- },
- {
-  "date": "2026-10-10",
-  "slot": "people",
-  "title": "Simon Willison on Deno joining Cloudflare",
-  "url": "https://simonwillison.net/2026/Oct/9/deno-is-joining-cloudflare/"
- },
- {
-  "date": "2026-10-10",
-  "slot": "architecture",
-  "title": "Valkey evolution",
-  "url": "https://www.infoq.com/news/2026/10/valkey-evolution/"
- },
- {
   "date": "2026-10-11",
   "slot": "top",
   "title": "Google Gemini agent coworker agents",
@@ -2170,5 +2134,107 @@
   "slot": "quick",
   "title": "GitHub Copilot weekly releases November 2",
   "url": "https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "top",
+  "title": "Fireworks AI breach widened to datasets and model weights",
+  "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "models",
+  "title": "Claude Fable 5.2 and Mythos 5.2",
+  "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "agents",
+  "title": "Kong Token Vault for agent OAuth",
+  "url": "https://konghq.com/blog/product-releases/kong-token-vault"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "research",
+  "title": "MemoryDojo memory poisoning benchmark",
+  "url": "https://arxiv.org/abs/2611.09721"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "people",
+  "title": "Simon Willison: agent PR descriptions in details tag",
+  "url": "https://simonwillison.net/2026/Nov/9/details-summary/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "architecture",
+  "title": "Google Cloud llm-d cache-aware routing on Kubernetes",
+  "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "regional",
+  "title": "Abu Dhabi AI-native government pilot",
+  "url": "https://www.thenationalnews.com/future/technology/2026/11/06/openai-deal-to-cut-abu-dhabi-government-processing-times-from-days-to-minutes/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Meta Muse Ember",
+  "url": "https://research.meta.ai/blog/muse-ember"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Amazon Bedrock AgentCore Web Search API",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-web-search-api/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Tiger Data pg_vectorsearch",
+  "url": "https://www.infoq.com/news/2026/11/postgresql-vector-search/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "WorkOS ARTEX researcher attribution",
+  "url": "https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Varonis NotC2",
+  "url": "https://www.varonis.com/blog/notc2-ai-powered-c2-channel"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Amazon Bedrock managed knowledge base agentic retrieval",
+  "url": "https://aws.amazon.com/blogs/machine-learning/single-shot-and-agentic-retrieval-with-amazon-bedrock-managed-knowledge-base/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Google GKE Dynamic Slicing",
+  "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-dynamic-slicing-on-tpus/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Google TPU 8tx",
+  "url": "https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Microsoft Azure Content Understanding agentic mode",
+  "url": "https://devblogs.microsoft.com/foundry/when-one-pass-isnt-enough-agentic-mode-in-azure-content-understanding/"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "quick",
+  "title": "Anthropic agent memory components",
+  "url": "https://www.anthropic.com/research/components-of-agent-memory"
  }
 ]

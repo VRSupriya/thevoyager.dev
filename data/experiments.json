@@ -194,5 +194,12 @@
   "source_url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
   "hypothesis": "At least one committed agent config file in the org (for example .claude/settings.local.json) holds a literal password or token inside an approved command.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-10",
+  "title": "Prefix-aware routing vs round-robin for multi-turn agents",
+  "source_url": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents/",
+  "hypothesis": "Prefix-cache-aware routing raises KV cache hit rate and lowers median time-to-first-token on your own multi-turn agent traffic compared with round-robin.",
+  "status": "suggested"
  }
 ]

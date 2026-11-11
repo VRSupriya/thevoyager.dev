@@ -1,47 +1,5 @@
 [
  {
-  "date": "2026-10-11",
-  "slot": "top",
-  "title": "Google Gemini agent coworker agents",
-  "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
- },
- {
-  "date": "2026-10-11",
-  "slot": "models",
-  "title": "Decision models: OpenAI Decisions API and Cloudflare Clef",
-  "url": "https://letsdatascience.com/news/openai-opens-decisions-api-public-beta-b69a1e40"
- },
- {
-  "date": "2026-10-11",
-  "slot": "agents",
-  "title": "Copilot local sandboxing GA",
-  "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5"
- },
- {
-  "date": "2026-10-11",
-  "slot": "research",
-  "title": "Evidence-Grounded Behavior Graph for agent oversight",
-  "url": "https://arxiv.org/abs/2610.06406"
- },
- {
-  "date": "2026-10-11",
-  "slot": "people",
-  "title": "LangChain model router in the harness",
-  "url": "https://www.langchain.com/blog/how-to-build-a-model-router-in-the-harness"
- },
- {
-  "date": "2026-10-11",
-  "slot": "architecture",
-  "title": "Cloudflare Traces open beta",
-  "url": "https://www.infoq.com/news/2026/10/cloudflare-traces-open-beta/"
- },
- {
-  "date": "2026-10-11",
-  "slot": "regional",
-  "title": "TII Falcon-ASR",
-  "url": "https://www.zawya.com/en/press-release/companies-news/tii-launches-falcon-emirati-alongside-new-arabic-ai-models-for-speech-and-visual-text-understanding-1523900"
- },
- {
   "date": "2026-10-12",
   "slot": "top",
   "title": "AgentCore SDK install_packages flaws",
@@ -2236,5 +2194,95 @@
   "slot": "quick",
   "title": "Anthropic agent memory components",
   "url": "https://www.anthropic.com/research/components-of-agent-memory"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "top",
+  "title": "Railway breach: attackers decrypted variables for AI provider keys",
+  "url": "https://blog.railway.com/p/incident-report-october-security-incident"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "models",
+  "title": "Google Gemini 4 Carbon general availability",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "agents",
+  "title": "Teleport Beams GA for agents",
+  "url": "https://goteleport.com/about/newsroom/press-releases/teleport-beams-trusted-runtime-ai-agents-general-availability/"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "research",
+  "title": "Microsoft Research Lazarus dormant-neuron agent backdoor",
+  "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "architecture",
+  "title": "NVIDIA Snapshot GPU checkpoint and restore",
+  "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "Zyphra ZONOS3-Mini",
+  "url": "https://huggingface.co/Zyphra/ZONOS3-Mini"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "GoogleChrome modern-web-guidance",
+  "url": "https://github.com/GoogleChrome/modern-web-guidance"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "MiniMax H3-Image open weights",
+  "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "Near AI SGLang breach",
+  "url": "https://near.ai/blog/security-incident-report-sglang-vulnerability"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "Australia mandatory AI breach reporting",
+  "url": "https://www.abc.net.au/news/2026-11-10/openai-medicare-hack-government-loophole/107368330"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "GitHub secret scanning in Actions logs",
+  "url": "https://github.blog/changelog/2026-11-09-secret-scanning-detects-secrets-in-github-actions-workflow-logs/"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "GitHub Dependabot alerts pause on inactive repos",
+  "url": "https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories/"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "Amazon Bedrock AgentCore Runtime V2 updates",
+  "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "Google agent distraction",
+  "url": "https://developers.googleblog.com/agent-distraction/"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "quick",
+  "title": "Google DeepMind AlphaProof Code",
+  "url": "https://deepmind.google/blog/introducing-alphaproof-code/"
  }
 ]

@@ -1,0 +1,335 @@
+{
+ "date": "2026-11-11",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Railway",
+   "event_date": "2026-11-10",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Railway estimates unauthorized spend on the stolen keys at about $740,000.",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "Unauthorized spend on the stolen keys was estimated to reach ~$740,000.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "at most 1.85% (about 100,000) of workspaces could have had variables decrypted",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "obtain and decrypt a subset of customer variables, for at most, 1.85% (~100,000) of workspaces",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "used a previously unknown flaw in its build infrastructure to get out of isolation on 20 October, then decrypted variables, 'prioritizing AI provider keys'",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "At 07:28 UTC on October 20th the attacker exploited a previously unknown vulnerability ... partially escape filesystem isolation; the attacker was specifically prioritizing AI provider keys in their queries",
+     "verdict": "CORRECTED",
+     "fix": "Isolation escape was a 'partial' filesystem-isolation escape. The page says 'prioritizing AI provider keys in their queries' (brief's quoted words are a fragment, fine)."
+    },
+    {
+     "kind": "other",
+     "claim": "Stolen keys got spent in hours (opening line)",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "Searched whole page for 'hours': the word does not appear; no interval between theft and spend is given. Only 'The unauthorized usage we have observed since ranges from coding agents to AI training pipelines.'",
+     "verdict": "REMOVED",
+     "fix": "Drop 'in hours'; say 'Stolen keys were used for about $740,000 of unauthorized spend'."
+    },
+    {
+     "kind": "status",
+     "claim": "Fixed in: Railway says all exploited vulnerabilities are remediated and builds now run on ephemeral VMs",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "Each of the attack vectors used during the incident has been remediated. ... Each build now gets a dedicated ephemeral virtual machine",
+     "verdict": "CORRECTED",
+     "fix": "Say 'each of the attack vectors used has been remediated' (report calls its improvement list 'by no means an exhaustive list'); ephemeral-VM claim is correct."
+    },
+    {
+     "kind": "absence",
+     "claim": "Fixed in: no versions stated; Severity: not stated in the report",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "Searched whole page for 'severity', 'CVE', versions: 'severity' and 'CVE' do not appear; no software versions. 'critical' appears only as 'customers with critical workloads' and 'in critical areas'.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: rotate credentials stored on Railway, especially AI provider keys",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "When possible, we suggested that customers attempt credential rotation manually via SSH.",
+     "verdict": "CORRECTED",
+     "fix": "Report never explicitly tells customers to rotate AI provider keys; it says Railway suggested credential rotation and advised high-risk customers to turn off deployments. Present rotation (esp. AI keys) as the brief's own advice, not Railway's."
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: report charges you didn't make via the form in the report",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "report charges that they didn't make (linked Google form)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: redeploy the latest commit and reconnect GitHub",
+     "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+     "quote": "Only in a sidebar teaser for a different post: 'Redeploy the latest commit, reconnect GitHub, and recreate CLI and CI credentials to get your services deploying again.'",
+     "verdict": "REMOVED",
+     "fix": "Not part of the report body; remove or cite the separate Railway post. 'Rotate everything' is also not stated."
+    },
+    {
+     "kind": "number",
+     "claim": "BleepingComputer: ~$740,000 in fraudulent AI charges",
+     "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
+     "quote": "The stolen credentials were subsequently used to generate approximately $740,000 in unauthorized AI usage.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Google Gemini",
+   "event_date": "2026-11-10",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "Gemini 4 Carbon goes GA (headline) / out of limited release",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+     "quote": "Today, we're making Gemini 4 Carbon available to developers, enterprises, scientists, and consumers. (Searched page for 'generally available', 'general availability', 'GA', 'limited': none appear)",
+     "verdict": "REMOVED",
+     "fix": "Google says 'now available' via API in Google AI Studio and Gemini for business 'for all paying developers and enterprises'; it never says GA. Headline should say 'is now available' not 'goes GA'."
+    },
+    {
+     "kind": "date",
+     "claim": "after a first release to cyber defenders about two weeks earlier",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+     "quote": "Two weeks ago, we released Carbon to a set of cybersecurity defenders.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "$2/$10 per million tokens introductory, rising to $4/$20 after 30 November",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+     "quote": "$2 per million input tokens and $10 per million output tokens ... the price of $4 per 1M input tokens and $20 per 1M output tokens will apply after November 30, 2026",
+     "verdict": "VERIFIED",
+     "fix": "Access is 'for all paying developers and enterprises'."
+    },
+    {
+     "kind": "number",
+     "claim": "ranks first on CursorBench 4.0 at more than 2X lower cost per task than the next best external model",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+     "quote": "ranks #1 ... at more than 2X lower cost per task compared to the next best external model",
+     "verdict": "VERIFIED",
+     "fix": "Vendor benchmark, as the brief says."
+    },
+    {
+     "kind": "number",
+     "claim": "attack breach rate fell from 3.1% on Gemini 4 Argon to 0.8%",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+     "quote": "lowered the per-attempt breach rate to just 0.8% (down from 3.1% on Argon)",
+     "verdict": "VERIFIED",
+     "fix": "Measured in simulated cyberattack testing (Google's)."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Teleport",
+   "event_date": "2026-11-09",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Teleport made Beams generally available on 9 November",
+     "url": "https://goteleport.com/about/newsroom/press-releases/teleport-beams-trusted-runtime-ai-agents-general-availability/",
+     "quote": "Teleport Beams is generally available as of November 9, 2026 (dateline: OAKLAND, CA - November 10, 2026)",
+     "verdict": "VERIFIED",
+     "fix": "Press release is dated 10 November; GA as of 9 November."
+    },
+    {
+     "kind": "other",
+     "claim": "ephemeral micro-VM with traffic captured; secretless access to cloud accounts, Kubernetes, PostgreSQL and MCP servers",
+     "url": "https://goteleport.com/about/newsroom/press-releases/teleport-beams-trusted-runtime-ai-agents-general-availability/",
+     "quote": "ephemeral micro-VMs ... captures all protocol traffic in the audit record ... no secrets or passwords in the agent's environment",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "no standing privileges until a human or an LLM judge approves its execution plan; global kill switch",
+     "url": "https://goteleport.com/about/newsroom/press-releases/teleport-beams-trusted-runtime-ai-agents-general-availability/",
+     "quote": "zero standing privileges ... A human or an LLM judge reviews and revises each plan.",
+     "verdict": "CORRECTED",
+     "fix": "Source says the judge 'reviews and revises' each plan; 'approves' is the brief's wording. Kill switch: teams can halt all agent activity at once (not literally named 'global')."
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "Microsoft Research",
+   "event_date": "2026-11-10",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": "Research disclosure on model provenance; Microsoft was a main item on 9 Nov",
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "rewriting fewer than 10 dormant neurons, with no retraining, is enough to backdoor any agent built on it",
+     "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+     "quote": "weight-reprogramming fewer than 10 dormant neurons in an LLM, is enough to backdoor an agent built on it. These backdoors can be inserted without retraining the model.",
+     "verdict": "CORRECTED",
+     "fix": "Source says 'an agent built on it', not 'any agent'. Research claim; page does not say peer-reviewed or independently verified."
+    },
+    {
+     "kind": "other",
+     "claim": "passes standard evaluations until a trigger such as a date change",
+     "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+     "quote": "still passing standard safety evaluations ... The trigger can be as mundane as a date change.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Reliable detection needs the original, unmodified weights",
+     "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+     "quote": "Reliable detection requires diff'ing against the original, unmodified weights.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Microsoft says signed models and weight scanning are planned, not shipped",
+     "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+     "quote": "Also being planned is having models be signed with verifiable provenance and tamper-proof audits.",
+     "verdict": "VERIFIED",
+     "fix": "Page separately describes 'AI-powered weight scanning' as a planned defense."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "NVIDIA",
+   "event_date": "2026-11-10",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "licence",
+     "claim": "open-source checkpoint and restore tool for GPU workloads on Kubernetes",
+     "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/",
+     "quote": "open-source checkpoint and restore system for GPU workloads on Kubernetes",
+     "verdict": "VERIFIED",
+     "fix": "Blog states no licence terms; brief gives none."
+    },
+    {
+     "kind": "number",
+     "claim": "On B200 GPUs it restored models in 3.6 to 42.7 seconds, 8 to 36 times faster than a cold start",
+     "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/",
+     "quote": "3.6 to 42.7 seconds ... roughly 8x to 36x faster than cold starts",
+     "verdict": "VERIFIED",
+     "fix": "NVIDIA's own numbers."
+    },
+    {
+     "kind": "number",
+     "claim": "the largest MoE models take 6 to 19 minutes cold; tested on vLLM, SGLang and TensorRT-LLM",
+     "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/",
+     "quote": "cold starts of \"6 to 19 minutes\" (MoE models with checkpoints up to 1 TB across eight GPUs); engines: vLLM, SGLang, TensorRT LLM",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Restores need the same GPU model and driver as the checkpoint",
+     "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/",
+     "quote": "Restores must run on a node with the same GPU model and driver.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Zyphra ZONOS3-Mini",
+   "url": "https://huggingface.co/Zyphra/ZONOS3-Mini",
+   "event_date": "2026-11-10",
+   "quote": "Model weights are released under Apache 2.0. ... 800M parameters total, about 100M active per token ... supports 43 languages ... runs entirely on your own GPU through WebGPU. (Page gives no release date, only 'month = nov', so 10 November is unconfirmed.)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GoogleChrome modern-web-guidance",
+   "url": "https://github.com/GoogleChrome/modern-web-guidance",
+   "event_date": "2026-11-10",
+   "quote": "Apache-2.0 license; npx modern-web-guidance@latest install; 'a set of skills that embed web platform expertise ... directly into your coding agents'. (No dates on page; 'steer from legacy JavaScript patterns to native APIs' not checked in the unread final 21k characters.)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "MiniMax-H3-Image",
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",
+   "event_date": "2026-11-10",
+   "quote": "33.1B parameters ... about 16 megapixels ... MiniMax-H3-Image Community License Agreement; written authorization via application form (Section IV). (No date on page.)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Near AI SGLang breach",
+   "url": "https://near.ai/blog/security-incident-report-sglang-vulnerability",
+   "event_date": "2026-11-09",
+   "quote": "exploited a remote code execution vulnerability in SGLang; 18 agents on a legacy deployment; Two Cloud customers had NEAR AI Cloud API keys exposed in logs.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Australia's AI breach reporting",
+   "url": "https://www.abc.net.au/news/2026-11-10/openai-medicare-hack-government-loophole/107368330",
+   "event_date": "2026-11-10",
+   "quote": "accepted all 18 recommendations from the review ... will also pursue mandatory reporting of incidents involving AI; planned AI safety body with 'significant penalties'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub secret scanning in Actions logs",
+   "url": "https://github.blog/changelog/2026-11-09-secret-scanning-detects-secrets-in-github-actions-workflow-logs/",
+   "event_date": "2026-11-09",
+   "quote": "available in public preview ... The policy is disabled by default ... existing logs aren't backfilled. (Eligibility: GHE Cloud with Secret Protection or Advanced Security.)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub Dependabot",
+   "url": "https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories/",
+   "event_date": "2026-11-10",
+   "quote": "Starting December 8, 2026 ... no activity in the past year ... Any push to the repository automatically turns Dependabot alerts back on.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Amazon Bedrock AgentCore Runtime V2",
+   "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html",
+   "event_date": "2026-11-01",
+   "quote": "agents on platform version V2 can now hold up to 250 concurrent connections per session ... The previous limit was 8 connections per vCPU, or 16 connections for a 2-vCPU session. (Entries dated only 'November 2026'.)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Google agent distraction",
+   "url": "https://developers.googleblog.com/agent-distraction/",
+   "event_date": "2026-11-06",
+   "quote": "13% of sessions exposed the agent to inline TODO(bug/...) or FIXME(bug/...) bug references; unprompted bug detours added '70% more steps' ... '77% more tokens'; todo cleaner removed 'thousands of actually obsolete references'.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "DeepMind AlphaProof Code",
+   "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+   "event_date": "2026-11-10",
+   "quote": "over six million lines of Lean ... Signal protocol ... just four weeks ... powered by Gemini Carbon. Experts worked with models to turn security goals into formal specifications and reviewed each one.",
+   "verdict": "CORRECTED"
+  }
+ ]
+}

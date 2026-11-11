@@ -152,5 +152,12 @@
   "who": "Vertex AI users on gemini-3.7-flash",
   "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
   "added": "2026-11-02"
+ },
+ {
+  "date": "2026-12-08",
+  "what": "GitHub pauses Dependabot alerts on repositories with no activity in the past year (alerts archived, restored by a push or re-enabling)",
+  "who": "Owners of dormant repos on github.com and GHE Cloud with data residency",
+  "url": "https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories/",
+  "added": "2026-11-11"
  }
 ]

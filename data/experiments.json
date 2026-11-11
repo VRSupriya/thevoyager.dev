@@ -201,5 +201,12 @@
   "source_url": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents/",
   "hypothesis": "Prefix-cache-aware routing raises KV cache hit rate and lowers median time-to-first-token on your own multi-turn agent traffic compared with round-robin.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-11",
+  "title": "NVIDIA Snapshot restore vs cold start for your largest model",
+  "source_url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/",
+  "hypothesis": "Restoring a checkpointed GPU workload with Snapshot is at least 8x faster than cold-starting your largest model on the same node.",
+  "status": "suggested"
  }
 ]

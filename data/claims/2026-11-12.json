@@ -1,0 +1,397 @@
+{
+ "date": "2026-11-12",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Grok Build/SpaceXSI",
+   "event_date": "2026-11-10",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Claroc tried 43,551 Grok app addresses; 37,571 online; 35,578 opened with no sign-in",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "We tried 43,551 Grok app addresses. ... 37,571 ... 35,578 (94.7%) opened for anyone with no sign-in.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "post dated 10 November",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "Nov 10, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "In the paid account it tested, the publish panel started on 'Anyone with the link'",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "with Anyone with the link already selected ... in our account, publishing needed a paid one",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "hospital group's staff roster of more than 3,500 people; ICU patient's labs; SpaceXSI onboarding plan",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "a hospital group's staff event app with a searchable roster of more than 3,500 employees",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "SpaceXSI says apps are private until their creator shares them; removed the 24 apps built by its own and X staff",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "Grok apps are private until their creator chooses to share one. ... 24 open apps were built by SpaceXSI and X staff. SpaceXSI took these down",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: no fix stated",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "The authors asked SpaceXSI to \"make Only you the default\"; SpaceXSI has not addressed apps left open by other Grok users",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Severity: no CVE; about 2% of open apps high or critical",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "roughly 2% of open apps held material \"serious enough to rate high or critical\"; no CVE assigned",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: set sharing to Only you or require sign-in, and unpublish apps nobody owns",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "A Grok app holding anything internal should say Invited users or Only you.",
+     "verdict": "CORRECTED",
+     "fix": "Source advises Invited users or Only you for internal apps, plus finding staff-used builders, checking access settings, testing sign-in from outside and reviewing script files for credentials. 'Unpublish apps nobody owns' is not in the source (editorial addition)."
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: Claroc says it is notifying affected organisations",
+     "url": "https://blog.claroc.io/ghostshares-grok-build-apps/",
+     "quote": "notifying the affected organizations ourselves ... By publication, they had emailed three",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "NaiveAI",
+   "event_date": "2026-11-10",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "peaked at about 2,100 tokens a second on one 8-GPU Blackwell node; 'an upper bound, not a typical rate'",
+     "url": "https://latent.space/p/naiveai/",
+     "quote": "Treat this as an upper bound, not a typical rate. ... a single eight-GPU Blackwell node",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "open-weights, builds on Xiaomi's MiMo-V2.5",
+     "url": "https://latent.space/p/naiveai/",
+     "quote": "an evolution of Xiaomi's MiMo-V2.5 ... a new open-weights model built for AI coding tasks",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "target price $0.10 in, $0.40 out per million",
+     "url": "https://latent.space/p/naiveai/",
+     "quote": "target prices are $0.10 per million input tokens, $0.40 per million output tokens",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "71.9 NL2Repo vs 68.2; 67.8 DeepSWE v1.1 vs 77.0; benchmarks are NaiveAI's own",
+     "url": "https://latent.space/p/naiveai/",
+     "quote": "benchmark scores reported in the official model cards and technical blog posts of the respective models",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "median response 3.1s vs 5.3 (GLM) vs 10.1 (DeepSeek), 10 questions per difficulty level, accuracy not graded",
+     "url": "https://latent.space/p/naiveai/",
+     "quote": "10 randomly sampled ... questions at each of three difficulty levels ... we did not grade answer accuracy",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "United Airlines",
+   "event_date": "2026-11-11",
+   "status": "Policy",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "announced on 11 November",
+     "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+     "quote": "Nov. 11, 2026 ... made the announcement on Wednesday",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "will 'prohibit use by unauthorized, third-party personal AI agents or assistants', CBS reports",
+     "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+     "quote": "prohibit use by unauthorized, third-party personal AI agents or assistants",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "reasons as CBS quotes them",
+     "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+     "quote": "sharing account credentials with personal, third-party, AI assistants can expose sensitive information ... may result in unintended purchases, account changes, or use of MileagePlus miles",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Engadget: CEO Scott Kirby 'I don't want to create another middleman'",
+     "url": "https://www.engadget.com/2314121/united-is-restricting-ai-agents-from-booking-flights/",
+     "quote": "To be honest, I don't want to create another middleman",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "This is the first big consumer brand to say no in plain words",
+     "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+     "quote": "The article doesn't say United was first.",
+     "verdict": "REMOVED",
+     "fix": "Neither CBS nor Engadget says United is the first brand; delete or soften to 'United is the first named in these reports' (Engadget only says it is the first brand named). CBS notes Southwest takes the opposite approach, exposing inventory to ChatGPT."
+    },
+    {
+     "kind": "other",
+     "claim": "an official API or delegated-access flow is the route that survives",
+     "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+     "quote": "Neither article mentions an official API or delegated-access program.",
+     "verdict": "REMOVED",
+     "fix": "Mark as the brief's own inference, not from the sources."
+    },
+    {
+     "kind": "absence",
+     "claim": "United's own statement wasn't available to read",
+     "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+     "quote": "None. The article links to other CBS News stories ... but not to United's statement itself.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-07",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "preprint submitted on 7 November",
+     "url": "https://arxiv.org/abs/2611.12956",
+     "quote": "Submitted on 7 Nov 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "indexer can take over half of prefill GPU time at long context",
+     "url": "https://arxiv.org/abs/2611.12956",
+     "quote": "the indexer alone can account for more than 50% of total prefill GPU time at long context lengths",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "kernel speedups up to 6.22x prefill, 3.40x decode at 256K; 1.54x end-to-end at 128K; LongBench, LongBench v2, RULER",
+     "url": "https://arxiv.org/abs/2611.12956",
+     "quote": "kernel speedups of up to 6.22x and 3.40x ... at a context length of 256K ... 1.54x at 128K ... LongBench, LongBench v2, and RULER",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "tested DeepSeek-V3.2 and GLM-5.1, implemented in SGLang on NVIDIA B300 GPUs",
+     "url": "https://arxiv.org/pdf/2611.12956",
+     "quote": "We implement ADIndex in SGLang [23] and conduct model evaluations on NVIDIA B300 GPUs.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "The paper doesn't link code",
+     "url": "https://arxiv.org/pdf/2611.12956",
+     "quote": "Searched abstract page (Comments: '27 pages,13 figures'; no repository link) and full PDF text for github, code, open-source, release, publicly, http: only reference URLs (aclanthology, arxiv, openreview, proceedings) found; no code link.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Workday (LangChain)",
+   "event_date": "2026-11-10",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "team started at 4 people, now roughly 30",
+     "url": "https://www.langchain.com/blog/how-workday-built-an-enterprise-scale-ai-agent-platform-with-langgraph-and-langsmith",
+     "quote": "The team, which started at 4 people, has now grown to roughly 30 members",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "prototype in staging in under a day; previously 4 to 5 months",
+     "url": "https://www.langchain.com/blog/how-workday-built-an-enterprise-scale-ai-agent-platform-with-langgraph-and-langsmith",
+     "quote": "a prototype running in a staging environment in under a day ... Previously, building a prototype agent took 4 to 5 months",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "previously 4 to 5 months 'with no guarantee of reaching production'",
+     "url": "https://www.langchain.com/blog/how-workday-built-an-enterprise-scale-ai-agent-platform-with-langgraph-and-langsmith",
+     "quote": "Previously, building a prototype agent took 4 to 5 months",
+     "verdict": "CORRECTED",
+     "fix": "Source quote found only supports 4 to 5 months; 'no guarantee of reaching production' not confirmed in fetched text."
+    },
+    {
+     "kind": "other",
+     "claim": "LangGraph, LangSmith, Workday SDK via internal LLM gateway, auth/security built in",
+     "url": "https://www.langchain.com/blog/how-workday-built-an-enterprise-scale-ai-agent-platform-with-langgraph-and-langsmith",
+     "quote": "Workday LangChain: a Python SDK ... routes them through Workday's internal services, including an LLM gateway ... authentication and security requirements baked in",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "post doesn't say how many agents are in production",
+     "url": "https://www.langchain.com/blog/how-workday-built-an-enterprise-scale-ai-agent-platform-with-langgraph-and-langsmith",
+     "quote": "Searched whole page: no count; only a goal of \"agents in production by the end of 2026.\"",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Amazon Bedrock",
+   "event_date": "2026-11-11",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "AWS guide dated 11 November",
+     "url": "https://aws.amazon.com/blogs/machine-learning/openai-codex-on-amazon-bedrock/",
+     "quote": "11 NOV 2026 (AWS Machine Learning Blog post date)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "three paths: native AWS access (IAM Identity Center), AgentCore Gateway, own LLM gateway",
+     "url": "https://aws.amazon.com/blogs/machine-learning/openai-codex-on-amazon-bedrock/",
+     "quote": "compares Native AWS Access, AgentCore Gateway, and LLM Gateway, with a custom integration as an advanced version of the LLM Gateway pattern",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "recommended default",
+     "url": "https://aws.amazon.com/blogs/machine-learning/openai-codex-on-amazon-bedrock/",
+     "quote": "Start with Native AWS Access for a small, least-privilege pilot.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "hard budgets and rate limits need gateway policy; Codex still runs on the developer workstation",
+     "url": "https://aws.amazon.com/blogs/machine-learning/openai-codex-on-amazon-bedrock/",
+     "quote": "hard budgets or rate limits ... Codex still runs on the developer workstation",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Gemini Decisions API",
+   "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+   "event_date": "2026-11-11",
+   "quote": "priced at $0.10 per 1M input tokens and $0 for output tokens ... up to 1,000 yes/no, choice, and rubric-scoring questions ... 150-250 ms end-to-end latency",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "AWS Emulator",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/",
+   "event_date": "2026-11-11",
+   "quote": "published under the CC0 1.0 Universal public domain dedication ... Operations it doesn't yet support return 501 Not Implemented ... no deployments or AWS account required",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "AntiFox",
+   "url": "https://thehackernews.com/2026/11/antifox-ai-pentesting-platform-linked.html",
+   "event_date": "2026-11-11",
+   "quote": "Alibaba Cloud systems hosting AntiFox interfaces were associated with confirmed malicious actions ... a successful GetSecretValue request against a production secret",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "New York RAISE Act",
+   "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+   "event_date": "2026-11-10",
+   "quote": "The state opened a registration portal Tuesday ... more than $500 million in annual revenue ... register by January 1, 2027 ... report critical safety incidents within 72 hours",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "IBM and Microsoft Imagine Enterprise",
+   "url": "https://newsroom.ibm.com/2026-11-10-ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation",
+   "event_date": "2026-11-10",
+   "quote": "Imagine Enterprise is available to clients by engaging IBM Consulting ... more than 6,000 AI agents and assets",
+   "verdict": "CORRECTED",
+   "fix": "Not generally 'available now': available to clients by engaging IBM Consulting."
+  },
+  {
+   "name": "Databricks Genie Ontology",
+   "url": "https://www.databricks.com/blog/genie-genie-ontology-delivers-16-accuracy-less-half-tokens",
+   "event_date": "2026-11-11",
+   "quote": "Genie Ontology is now Generally Available ... Genie 91.0%, Agent A 45.0%, Agent B 58.0%",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Salesforce SFR-AutoR&D",
+   "url": "https://www.salesforce.com/news/stories/agents-that-improve-ai-models/",
+   "event_date": "2026-11-11",
+   "quote": "about 80 hours ... nDCG@10 score rose by 6.13 points ... Evaluated against 10 public retrieval tasks in MTEB",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

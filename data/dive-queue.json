@@ -6,5 +6,12 @@
   "url": "https://github.com/anthropics/FlashProve",
   "why": "Major lab with code released; changes how third-party inference could be audited (covered by AINews, Rundown, HN)",
   "used": "2026-11-06"
+ },
+ {
+  "date": "2026-11-12",
+  "kind": "paper",
+  "title": "ADIndex: layer-adaptive sparse attention indexing",
+  "url": "https://arxiv.org/abs/2611.12956",
+  "why": "changes how long-context serving is built; B300/SGLang numbers on DeepSeek-V3.2 and GLM-5.1"
  }
 ]

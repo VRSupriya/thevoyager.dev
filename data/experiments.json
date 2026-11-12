@@ -208,5 +208,12 @@
   "source_url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/",
   "hypothesis": "Restoring a checkpointed GPU workload with Snapshot is at least 8x faster than cold-starting your largest model on the same node.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-12",
+  "title": "Naive-N0.5-Flash wall-clock per accepted patch vs your current coder",
+  "source_url": "https://latent.space/p/naiveai/",
+  "hypothesis": "A very fast coding model cuts wall-clock per accepted patch by half versus your current coder on your own repo tasks, with pass rate within 5 points.",
+  "status": "suggested"
  }
 ]

@@ -215,5 +215,12 @@
   "source_url": "https://latent.space/p/naiveai/",
   "hypothesis": "A very fast coding model cuts wall-clock per accepted patch by half versus your current coder on your own repo tasks, with pass rate within 5 points.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-13",
+  "title": "Gemini 4 Hydrogen cost per accepted result vs your current agent model",
+  "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+  "hypothesis": "Hydrogen matches your current mid-tier agent model within 5 points pass rate on your own tasks at lower cost per accepted result.",
+  "status": "suggested"
  }
 ]

@@ -643,5 +643,25 @@
 "sovereign AI & data residency": 1,
 "voice agents": 5,
 "world models & robotics": 3
+},
+"2026-11-13": {
+"AI compute & data centres": 4,
+"RL post-training": 2,
+"agent harnesses": 1,
+"agent protocols (MCP/A2A)": 3,
+"agent skills": 1,
+"agentic commerce & payments": 1,
+"coding agents": 9,
+"enterprise agent adoption": 3,
+"guardrails & AI safety": 4,
+"inference cost & routing": 3,
+"inference optimisation": 2,
+"multi-agent systems": 1,
+"open-weight models": 1,
+"prompt injection": 2,
+"sandboxing": 1,
+"small & on-device models": 1,
+"sovereign AI & data residency": 1,
+"voice agents": 1
 }
 }

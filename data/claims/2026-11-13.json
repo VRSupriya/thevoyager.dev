@@ -1,0 +1,389 @@
+{
+ "date": "2026-11-13",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "wfx campaign",
+   "event_date": "2026-11-10",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "campaign began on 10 November",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "The campaign began on 10 November 2026.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "more than 8,900 repos with payload evidence and at least 1,806 where credentials were exfiltrated",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "More than 8,900 repositories have payload evidence (8,926 in the latest update). At least 1,806 have had credentials exfiltrated.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "stealer collects keys for OpenAI, Anthropic, Gemini, Hugging Face, Cursor and Copilot",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "Include keys for OpenAI, Anthropic, Gemini, Hugging Face, Cursor, and Copilot",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "version",
+     "claim": "Packagist digitalelvis/neuronai-studio 3.14.3; Go docker-env v1.0.278 and v1.0.280 malicious",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "Packagist: digitalelvis/neuronai-studio 3.14.3; Go: github.com/onuragtas/docker-env v1.0.278 and v1.0.280",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "npm, PyPI and crates exposed through hijacked publisher accounts, with no confirmed malicious versions there yet",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "Packagist and Go have confirmed malicious versions. ... npm, PyPI and crates are exposed through hijacked publisher accounts. (searched whole page: no malicious npm/PyPI/crates version named)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: not stated beyond pinning neuronai-studio 3.14.2 or earlier",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "Endor page: '3.14.2' does not appear; no fixed version named. The Hacker News (second linked source): 'Users should block v3.14.3 and pin v3.14.2 or earlier.'",
+     "verdict": "CORRECTED",
+     "fix": "The pin-3.14.2 advice is from The Hacker News, not the Endor page; Endor only says remove 3.14.3. Attribute it to THN."
+    },
+    {
+     "kind": "other",
+     "claim": "Severity: Critical (Endor)",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "Critical. Full secret exfiltration from CI, cloud privilege escalation and persistent backdoors.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: code-owner review on workflow files, read-only default tokens, short-lived OIDC credentials, npm ci --ignore-scripts",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "Require code-owner review for .github/workflows/**; Set the default GITHUB_TOKEN to read-only.; Run npm ci --ignore-scripts in CI where possible",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "assume every reachable secret exposed; rotate repo, cloud, registry and AI-provider keys, remove cloud backdoors, rotation alone not enough",
+     "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale",
+     "quote": "Rotating keys is necessary but not enough. ... remove role trust policies that allow \"AWS\": \"*\" ... remove federated identity credentials named wfx-ci-*",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Gemini 4 Hydrogen",
+   "event_date": "2026-11-12",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": "new model in the Gemini 4 family, major release",
+   "claims": [
+    {
+     "kind": "price",
+     "claim": "$1.50 per million input, $7.50 per million output, flat across 1M-token context",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+     "quote": "priced flat across its entire 1 million-token context window ... $1.50 per million input tokens and $7.50 per million output tokens",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "released 12 November",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+     "quote": "Nov 12, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "rolling out in the Gemini API and AI Studio",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+     "quote": "rolling out globally across our developer, enterprise, and consumer surfaces",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "51 on Artificial Analysis Intelligence Index vs 50 for Gemini 4 Argon (Google's own numbers)",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+     "quote": "scores 51 on the Artificial Analysis Intelligence Index, versus 50 for Gemini 4 Argon",
+     "verdict": "CORRECTED",
+     "fix": "Figure is as Google reports it; the index itself is run by Artificial Analysis, so 'Google's own numbers' means Google's citation, not Google's own benchmark. Wording acceptable if kept as 'Google says'."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "NVIDIA Agent Substrate",
+   "event_date": "2026-11-10",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": "new open-source runtime donated to CNCF, not the Snapshot product",
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "published 10 November",
+     "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/",
+     "quote": "Nov 10, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "licence",
+     "claim": "open-source runtime in CNCF Sandbox",
+     "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/",
+     "quote": "an open-source, security-hardened, zero-trust runtime for sandboxed agents ... now donated to the Cloud Native Computing Foundation (CNCF) Sandbox",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "many sessions on small pool of warm Kubernetes pods; checkpoints memory and filesystem",
+     "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/",
+     "quote": "over a small pool of warm Kubernetes worker Pods ... Idle sessions are checkpointed, memory and filesystem included.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "NVIDIA claims 10x the density of standard containers",
+     "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/",
+     "quote": "with 10x higher density than standard containers",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "project says its APIs are still changing",
+     "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/",
+     "quote": "Its APIs are still changing",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-11",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Hugging Face post by Tom Aarsen on 11 November",
+     "url": "https://huggingface.co/blog/token-pooling",
+     "quote": "Tom Aarsen; Published November 11, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "ModernBERT-base, 120k MS MARCO triplets; pool factor 4 kept 97.8% vs 94.6% ordinary loss",
+     "url": "https://huggingface.co/blog/token-pooling",
+     "quote": "raises that retention to 97.8% ... retains 94.6% ... the same 120,000 MS MARCO triplets",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "74.8% fewer document vectors",
+     "url": "https://huggingface.co/blog/token-pooling",
+     "quote": "74.8% fewer document vectors than unpooled retrieval",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Training and evaluation scripts and two checkpoints are released",
+     "url": "https://huggingface.co/blog/token-pooling",
+     "quote": "a complete training script, an evaluation script, and two example checkpoints",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Simon Willison",
+   "event_date": "2026-11-10",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Willison quoted the guide on 10 November",
+     "url": "https://simonwillison.net/2026/Nov/10/",
+     "quote": "Tuesday, 10 November 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "consolidation from under 10% of runs to about 75%, small coding tasks",
+     "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2#say-who-owns-the-code",
+     "quote": "consolidated duplicated code in under 10 percent of runs without the sentence and in about 75 percent of runs with it",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "output tokens rose 70 to 80%, unrequested changes such as new tests and docs; PR summary often missed small changes",
+     "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2#say-who-owns-the-code",
+     "quote": "output tokens rose by about 70 to 80 percent and the model made changes nobody had asked for, many of them new tests and documentation ... often left out small changes",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "sentence: owner and long-term maintainer of the codebase",
+     "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2#say-who-owns-the-code",
+     "quote": "You are the owner and long-term maintainer of this codebase, and its design is up to you.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Amazon Bedrock AgentCore",
+   "event_date": "2026-11-12",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": "major new runtime release (4x size, under 2 s starts)",
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "announced 12 November, available now",
+     "url": "https://aws.amazon.com/blogs/machine-learning/run-agents-securely-and-efficiently-with-the-next-generation-agentcore-runtime/",
+     "quote": "12 NOV 2026; available today in AWS Regions across North America, South America, Europe, and Asia Pacific",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "8 vCPU and 32 GB, four times previous; 10 GB images",
+     "url": "https://aws.amazon.com/blogs/machine-learning/run-agents-securely-and-efficiently-with-the-next-generation-agentcore-runtime/",
+     "quote": "Sessions now scale 4x compared to the previous version, up to 8 vCPUs and 32 GB ... container images up to 10 GB",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "starts under 2 seconds regardless of image size and concurrency (AWS says)",
+     "url": "https://aws.amazon.com/blogs/machine-learning/run-agents-securely-and-efficiently-with-the-next-generation-agentcore-runtime/",
+     "quote": "Sessions start in under 2 seconds, independent of image size and concurrency.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "idle agents scale to zero",
+     "url": "https://aws.amazon.com/blogs/machine-learning/run-agents-securely-and-efficiently-with-the-next-generation-agentcore-runtime/",
+     "quote": "an idle agent scales to zero",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "per-session storage scoping promised by re:Invent",
+     "url": "https://aws.amazon.com/blogs/machine-learning/run-agents-securely-and-efficiently-with-the-next-generation-agentcore-runtime/",
+     "quote": "By re:Invent, per-session scoping will bind each session to its own storage folder",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "TPU Sync",
+   "url": "https://github.com/google/tpu-sync",
+   "event_date": "2026-11-09",
+   "quote": "Page: Apache-2.0 license; 'only .dev nightlies exist'. No open-sourcing date, no Qwen3 235B or 230 ms figure on the repo page or releases page ('There aren't any releases here'); weights movement only as 'tensor weight and activation migrations' between RL trainers and samplers. Web search (The New Stack, not openable): 230 ms is a Google benchmark.",
+   "verdict": "CORRECTED",
+   "fix": "Apache-2.0 and nightly-only verified; 9 November date and 230 ms Qwen3 figure NOT IN SOURCE on the linked repo (cite The New Stack for 230 ms as Google's number); 'weights between TPU memory, host DRAM and network' overstated, KV cache is what bridges HBM/host DRAM/remote nodes."
+  },
+  {
+   "name": "Apache HTTP Server 2.4.71",
+   "url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+   "event_date": "2026-11-11",
+   "quote": "CVE-2026-119618 (critical): mod_http2 ... RCE; This issue affects Apache HTTP Server: from 2.4.55 through 2.4.70; finder: Anthropic's OSS Scanner; finder: ... Google Cloud Vulnerability Research; Update 2.4.71 released 2026-11-11",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "LiteLLM proxy",
+   "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-2rwg-2wh4-7c4f",
+   "event_date": "2026-11-13",
+   "quote": "low-privilege authenticated user can read environment variables of the proxy process; CVSS 7.7; fixed in 1.106.9, 1.108.6, 1.109.1, 1.110.0-rc.2. Advisory limits it to Azure models (azure/, azure_ai/) lacking AZURE_API_KEY/AZURE_OPENAI_API_KEY env vars; master key readable on a 'typical deployment'.",
+   "verdict": "CORRECTED",
+   "fix": "add the condition (Azure model without those env vars set) and 'typical deployment' hedge. Advisory date not confirmed from page."
+  },
+  {
+   "name": "Notion and Fireworks AI",
+   "url": "https://notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+   "event_date": "2026-11-13",
+   "quote": "incident impacting fewer than 1% of Notion workspaces; we recommend rotating them right away",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Chainstack breach",
+   "url": "https://chainstack.com/security-incident-nov-2026/",
+   "event_date": "2026-11-03",
+   "quote": "The attacker used ARTEX, an open-source framework that orchestrates LLM agents to automate intrusions. ... internet-exposed Grafana instance ... default administrator credentials had never been changed. Created Nov 3, 2026; header Updated Nov 11, 2026; in-body note 'Update, November 10, 2026'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "llm 0.37.2",
+   "url": "https://simonwillison.net/2026/Nov/11/llm/",
+   "event_date": "2026-11-11",
+   "quote": "could accidentally send your configured OpenAI API key to one of those providers",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google Cloud Organization Policy",
+   "url": "https://cloud.google.com/blog/products/identity-security/ai-powered-cloud-governance-whats-new-in-organization-policy/",
+   "event_date": "2026-11-12",
+   "quote": "we are introducing the general availability of our Organization Policy Model Context Protocol (MCP) server and natural-language constraint authoring powered by Gemini",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI fuzzy-robustness red teaming",
+   "url": "https://alignment.openai.com/fuzzy-robustness/",
+   "event_date": "2026-11-12",
+   "quote": "On cyber, GPT-6 Astra answered 91.5% safely, compared with 59% for GPT-5.6 Sol. (post: measures robustness without production safeguards, fixed dataset of prior jailbreaks generated against GPT-5.4 and 5.5)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI inference residency in India",
+   "url": "https://developers.openai.com/api/docs/guides/your-data",
+   "event_date": "2026-11-12",
+   "quote": "In Australia, India, and Japan, organizations with active Zero Data Retention can use gpt-6-luna for regional processing. ... These regions support Standard pay-as-you-go only. ... Hosted tools are unavailable for regional processing",
+   "verdict": "CORRECTED",
+   "fix": "ZDR, pay-as-you-go, no hosted tools, gpt-6-luna verified; the 12 November announcement date is NOT IN SOURCE on this docs page (in.api.openai.com not re-confirmed by the fetch summary)."
+  },
+  {
+   "name": "e& UAE AI Marketing Hub",
+   "url": "https://www.eand.ae/en/smb/products/ai-solutions/ai-marketing-hub.html",
+   "event_date": "2026-11-12",
+   "quote": "Create, launch, and optimize ads across Meta, Google, and TikTok with AI technology. Starter AED 0 for three months; Builder AED 350 and Pro AED 750 per month, exclusive of the 5% VAT. 'The Free Trial plan is valid for three months and will be automatically cancelled unless another plan is selected.' No mention of Pixis, 'agentic', or an unveiling date.",
+   "verdict": "CORRECTED",
+   "fix": "Meta/Google/TikTok and prices verified (AED 350 / 750 before 5% VAT); 12 November date, 'built by Pixis' and 'agentic' are NOT IN SOURCE (page says 'AI-powered advertising platform'); trial is cancelled automatically unless a plan is chosen, not 'then' billed; 'e& UAE business customers' only implied by SMB page."
+  }
+ ]
+}

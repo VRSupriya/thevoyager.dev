@@ -1,71 +1,5 @@
 [
  {
-  "date": "2026-10-12",
-  "slot": "top",
-  "title": "AgentCore SDK install_packages flaws",
-  "url": "https://www.infosecurity-magazine.com/news/aws-agentcore-sdk-flaws-ai/"
- },
- {
-  "date": "2026-10-12",
-  "slot": "models",
-  "title": "Anthropic OSS Scanner (Cyber Mission)",
-  "url": "https://www.anthropic.com/news/anthropic-cyber-mission"
- },
- {
-  "date": "2026-10-12",
-  "slot": "agents",
-  "title": "Gremlin Foresight AI GA",
-  "url": "https://www.infoq.com/news/2026/10/gremlin-foresight-ai/"
- },
- {
-  "date": "2026-10-12",
-  "slot": "research",
-  "title": "Context Language Models",
-  "url": "https://www.infoq.com/news/2026/10/context-language-models/"
- },
- {
-  "date": "2026-10-12",
-  "slot": "architecture",
-  "title": "EventBridge enhanced custom event buses",
-  "url": "https://www.infoq.com/news/2026/10/aws-enhanced-eventbridge-buses/"
- },
- {
-  "date": "2026-10-13",
-  "slot": "top",
-  "title": "Anthropic Managed Agents flows",
-  "url": "https://www.latent.space/p/claude-dynamic-workflows"
- },
- {
-  "date": "2026-10-13",
-  "slot": "models",
-  "title": "Flo Health open-model post-training",
-  "url": "https://www.databricks.com/blog/how-flo-health-built-safer-more-useful-open-models-databricks-ai-runtime"
- },
- {
-  "date": "2026-10-13",
-  "slot": "agents",
-  "title": "GitLab 19.4 /goal agents",
-  "url": "https://www.infoq.com/news/2026/10/gitlab-19-4-goal-driven-agents/"
- },
- {
-  "date": "2026-10-13",
-  "slot": "research",
-  "title": "SWE-Duel",
-  "url": "https://arxiv.org/abs/2610.12569"
- },
- {
-  "date": "2026-10-13",
-  "slot": "people",
-  "title": "Simon Willison web-edit",
-  "url": "https://simonwillison.net/2026/Oct/12/web-edit/"
- },
- {
-  "date": "2026-10-13",
-  "slot": "architecture",
-  "title": "Spotify AI quality controls",
-  "url": "https://www.infoq.com/news/2026/10/spotify-ai-quality-controls/"
- },
- {
   "date": "2026-10-14",
   "slot": "top",
   "title": "Gemini 4 Argon",
@@ -2362,5 +2296,101 @@
   "slot": "quick",
   "title": "Salesforce SFR-AutoR&D",
   "url": "https://www.salesforce.com/news/stories/agents-that-improve-ai-models/"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "top",
+  "title": "wfx CI secret-stealer campaign hijacks GitHub accounts",
+  "url": "https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "models",
+  "title": "Google Gemini 4 Hydrogen",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "agents",
+  "title": "NVIDIA Agent Substrate",
+  "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "research",
+  "title": "Hugging Face token pooling-aware multi-vector training",
+  "url": "https://huggingface.co/blog/token-pooling"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "people",
+  "title": "Simon Willison: ownership sentence in Fable 5.2 prompting",
+  "url": "https://simonwillison.net/2026/Nov/10/"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "architecture",
+  "title": "Amazon Bedrock AgentCore next-gen runtime",
+  "url": "https://aws.amazon.com/blogs/machine-learning/run-agents-securely-and-efficiently-with-the-next-generation-agentcore-runtime/"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "regional",
+  "title": "OpenAI India inference residency",
+  "url": "https://developers.openai.com/api/docs/guides/your-data"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "regional",
+  "title": "e& UAE AI Marketing Hub",
+  "url": "https://www.eand.ae/en/smb/products/ai-solutions/ai-marketing-hub.html"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "quick",
+  "title": "Google TPU Sync",
+  "url": "https://github.com/google/tpu-sync"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "quick",
+  "title": "Apache HTTP Server 2.4.71 mod_http2 RCE",
+  "url": "https://httpd.apache.org/security/vulnerabilities_24.html"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "quick",
+  "title": "LiteLLM proxy Azure parameter secret exposure",
+  "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-2rwg-2wh4-7c4f"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "quick",
+  "title": "Notion Fireworks AI chat transcript exposure",
+  "url": "https://notion.com/help/security-incident-involving-a-third-party-ai-vendor"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "quick",
+  "title": "Chainstack breach via ARTEX agent framework",
+  "url": "https://chainstack.com/security-incident-nov-2026/"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "quick",
+  "title": "Simon Willison llm 0.37.2 key fix",
+  "url": "https://simonwillison.net/2026/Nov/11/llm/"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "quick",
+  "title": "Google Cloud Organization Policy MCP server",
+  "url": "https://cloud.google.com/blog/products/identity-security/ai-powered-cloud-governance-whats-new-in-organization-policy/"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "quick",
+  "title": "OpenAI fuzzy-robustness red teaming",
+  "url": "https://alignment.openai.com/fuzzy-robustness/"
  }
 ]

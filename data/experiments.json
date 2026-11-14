@@ -222,5 +222,12 @@
   "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
   "hypothesis": "Hydrogen matches your current mid-tier agent model within 5 points pass rate on your own tasks at lower cost per accepted result.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-14",
+  "title": "Quantized-build flip rate versus restart noise",
+  "source_url": "https://arxiv.org/abs/2611.15671",
+  "hypothesis": "Your quantized model's output flip rate against BF16 is mostly serving noise; measure the same-build restart baseline first.",
+  "status": "suggested"
  }
 ]

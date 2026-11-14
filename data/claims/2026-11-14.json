@@ -1,0 +1,370 @@
+{
+ "date": "2026-11-14",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Anthropic",
+   "event_date": "2026-11-12",
+   "status": "Announced",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "other",
+     "claim": "you run the server, PostgreSQL 16+ and the sandboxes; model at Anthropic or a provider you choose (Bedrock, Google Cloud, Microsoft Foundry, own gateway)",
+     "url": "https://platform.claude.com/docs/en/managed-agents/self-hosted",
+     "quote": "Database: PostgreSQL 16 or later. ... Amazon Bedrock, Claude Models on Google Cloud (Google managed), Microsoft Foundry, or your own model gateway",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Access goes through your Anthropic account team",
+     "url": "https://platform.claude.com/docs/en/managed-agents/self-hosted",
+     "quote": "To request access to self-hosted Claude Managed Agents, contact your Anthropic account team.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "licence is dated 12 November",
+     "url": "https://www.anthropic.com/legal/self-hosted-managed-agents-license",
+     "quote": "Nov 12, 2026 (listed under Effective); Section 1 says terms take effect when the licensee first downloads the Binary",
+     "verdict": "CORRECTED",
+     "fix": "Source shows 'Effective Nov 12, 2026' for the licence page; terms bind from first download. Wording 'dated 12 November' is acceptable as 'effective 12 November'."
+    },
+    {
+     "kind": "number",
+     "claim": "must disable or roll back in every deployment within 8 hours after written notice of a safety, security or misuse risk",
+     "url": "https://www.anthropic.com/legal/self-hosted-managed-agents-license",
+     "quote": "Licensee will disable that feature or roll back that version in each Deployment within 8 hours after the notice.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Safety Updates deployed within 1 business day",
+     "url": "https://www.anthropic.com/legal/self-hosted-managed-agents-license",
+     "quote": "Licensee will deploy each Safety Update in each Deployment within 1 business day after Anthropic delivers it.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "agent incidents reported within 48 hours of confirming them",
+     "url": "https://www.anthropic.com/legal/self-hosted-managed-agents-license",
+     "quote": "notify Anthropic promptly and without undue delay, and in any event within 48 hours after confirming it (Agent Incident = safety feature triggered or other anomalous agent behavior, per thresholds agreed in writing)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "no price or general release stated (private note: licence says access via account team)",
+     "url": "https://platform.claude.com/docs/en/managed-agents/self-hosted",
+     "quote": "searched whole self-hosted page and licence: no price, no GA/beta/preview label found; only 'contact your Anthropic account team'",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Edge0",
+   "event_date": "2026-11-11",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "appeared on Hugging Face on 11 November",
+     "url": "https://huggingface.co/Edge0/Edge0-145B-NVFP4",
+     "quote": "createdAt: 2026-11-11T05:22:51.000Z (model page itself shows no date)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "145B sparse MoE, 10.12B active per token, 256K context, trained natively at 4 bits on Qwen3.8-Flash-Next",
+     "url": "https://huggingface.co/Edge0/Edge0-145B-NVFP4",
+     "quote": "145B; 10.12 B active per token; 256K; trained natively at 4 bits; base model Qwen3.8-Flash-Next (model tree)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "98.3 tokens a second agent decode on one RTX 5090 D 24 GB",
+     "url": "https://huggingface.co/Edge0/Edge0-145B-NVFP4",
+     "quote": "98.3 tok/s agent decode ... Throughput measured on RTX 5090 D 24 GB · NVFP4",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "86.5 on Terminal-Bench 2.1",
+     "url": "https://huggingface.co/Edge0/Edge0-145B-NVFP4",
+     "quote": "Terminal-Bench 2.1 score 86.5",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "both are the publisher's own numbers",
+     "url": "https://huggingface.co/Edge0/Edge0-145B-NVFP4",
+     "quote": "Page does not say whether numbers are self-reported; they are on the publisher's own card. Searched card for footnotes.",
+     "verdict": "CORRECTED",
+     "fix": "Fine as 'the card claims'; the card itself does not label them self-reported."
+    },
+    {
+     "kind": "licence",
+     "claim": "custom Edge0 community licence, Qwen licence still applying to Qwen materials",
+     "url": "https://huggingface.co/Edge0/Edge0-145B-NVFP4",
+     "quote": "Qwen materials remain subject to the Qwen Community License 1.0. Edge0-specific contributions are provided under the Edge0 Community Model License 1.0",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Corelight",
+   "event_date": "2026-11-10",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Corelight published on 10 November",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "Nov 10, 2026 (Help Net Security coverage dated Nov 13)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "one pinned server ran 15 dependency sets over five weeks; 23 of 69 packages changed, incl. cryptography library and MCP SDK",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "Over five weeks it ran with 15 different sets of dependencies. 23 of its 69 packages changed versions underneath a release that looked pinned.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "of 35 servers reviewed, 23 recommended an install pulling from a public registry",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "Of the 35 MCP servers we reviewed ... 23 had a recommended install",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "five frozen servers kept identical package lists across 457 starts",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "five servers frozen ... started 457 times over two weeks; package list matched install day",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "freeze once: hash-pinned lock file, launch directly, re-lock on a schedule; scope each server's credentials",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "Install from a hash-pinned lock file ... launch the installed server directly ... owner re-locks on a schedule ... each server its own account with only the access its tools need",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Affected: none named",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "Searched whole article: refers only to 'one community server' and unnamed vendor catalogs; no server named",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Fixed in: not stated, there is no patch",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "Searched article: no patch or fixed version for the drift issue; remedy is freezing the environment. Only a 2025 MCP proxy flaw is mentioned, unrelated.",
+     "verdict": "CORRECTED",
+     "fix": "Not a vulnerability in one product; say 'no patch applies; Corelight's remedy is freezing the environment'. 'there is no patch' is an inference, the page just names none."
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "Searched: no severity rating or CVE for the drift finding (CVSS 9.6 cited only for a 2025 proxy flaw)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "If compromised: not stated",
+     "url": "https://corelight.com/blog/mcp-server-supply-chain-risk",
+     "quote": "Searched: article reports no compromised server and gives no incident-response steps; only says exposure depends on whether anything is rebuilt in the malicious window",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-11",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "preprint submitted on 11 November",
+     "url": "https://arxiv.org/abs/2611.15671",
+     "quote": "Submitted on 11 Nov 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "2,400 public decisions, two decision models, NVIDIA GB10; non-quantization sources 0 to 0.92%",
+     "url": "https://arxiv.org/abs/2611.15671",
+     "quote": "the same 2,400 public decisions for two of Cloudflare's decision models on an NVIDIA GB10 ... Sources that are not quantization move between 0 and 0.92% of decisions.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "8-bit 0.88% to 2.12%; 4-bit 3.50% to 5.79%",
+     "url": "https://arxiv.org/abs/2611.15671",
+     "quote": "0.88% and 1.04% at Q8_0, 2.12% and 1.62% at FP8, 5.79% and 3.50% at Q4_K_M, and 5.79% and 5.67% at NVFP4",
+     "verdict": "CORRECTED",
+     "fix": "Ranges are the min/max across formats, but 4-bit max across both models is 5.79% and min is 3.50%; 8-bit min is 0.88% and max 2.12% - arithmetic holds. Say 'across Q8_0/FP8 and Q4_K_M/NVFP4' for precision."
+    },
+    {
+     "kind": "other",
+     "claim": "Code and data are released",
+     "url": "https://arxiv.org/abs/2611.15671",
+     "quote": "We release the code, quantization recipes, per-record outputs and the pre-registration. Repo README: 'The private operational sets aren't released. They appear only as aggregates.' Six tasks as records, six as IDs.",
+     "verdict": "CORRECTED",
+     "fix": "Code, recipes and per-record outputs released; six of the datasets are released only as IDs (rebuildable) and the private operational sets only as aggregates. Say 'code released; data partly'."
+    },
+    {
+     "kind": "other",
+     "claim": "models are small decision models",
+     "url": "https://arxiv.org/abs/2611.15671",
+     "quote": "two of Cloudflare's decision models (size not checked)",
+     "verdict": "CORRECTED",
+     "fix": "Abstract does not state model size."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Netflix",
+   "event_date": "2026-11-13",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "InfoQ reported on 13 November",
+     "url": "https://www.infoq.com/news/2026/11/netflix-ai-driven-observability/",
+     "quote": "Nov 13, 2026, by Craig Risi",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Netflix says more than 2 billion requests a day and about 38 million logging events a second",
+     "url": "https://www.infoq.com/news/2026/11/netflix-ai-driven-observability/",
+     "quote": "more than 2 billion requests daily ... upwards of 38 million real-time logging events every second (reported as Netflix's claim)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Netflix says a typical regression investigation takes around four hours",
+     "url": "https://www.infoq.com/news/2026/11/netflix-ai-driven-observability/",
+     "quote": "around four hours for a typical application regression (no source named in article)",
+     "verdict": "CORRECTED",
+     "fix": "InfoQ states the figure without naming a source; say 'InfoQ reports'."
+    },
+    {
+     "kind": "other",
+     "claim": "LLM-assisted enrichers propose triples under strict validation; correlation engine ranks causal hypotheses across 13 signal types",
+     "url": "https://www.infoq.com/news/2026/11/netflix-ai-driven-observability/",
+     "quote": "enrichers ... subject-predicate-object triples; correlation engine examines 13 types of signals (strict validation not separately checked)",
+     "verdict": "CORRECTED",
+     "fix": "Enrichers, triples and 13 signal types supported; 'under strict validation' and 'ranks causal hypotheses' not confirmed in my read; re-check or soften."
+    },
+    {
+     "kind": "other",
+     "claim": "humans keep approval authority",
+     "url": "https://www.infoq.com/news/2026/11/netflix-ai-driven-observability/",
+     "quote": "humans retaining approval authority (stated intention)",
+     "verdict": "CORRECTED",
+     "fix": "It is Netflix's stated intention, not a described fact."
+    },
+    {
+     "kind": "absence",
+     "claim": "the post's own code isn't released as far as InfoQ says",
+     "url": "https://www.infoq.com/news/2026/11/netflix-ai-driven-observability/",
+     "quote": "Searched whole article: no statement either way on code release; it links a GitHub documentation page for QuipuDB, 'a distributed RDF database built on Rust's redb'",
+     "verdict": "CORRECTED",
+     "fix": "InfoQ is silent on code release; say 'InfoQ does not say whether any of it is released' (and it links QuipuDB docs on GitHub)."
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Google AQuA",
+   "url": "https://github.com/google/adk-recipes/tree/main/core/python/ambient-quality-agent",
+   "event_date": "2026-11-13",
+   "quote": "Repo LICENSE: Apache License Version 2.0 (repo-level, not on the recipe page). README: reads ADK BigQuery plugin, Cloud Trace via BigQuery link, cloud_logging; recurring problems tracked NEW/RECURRING/RESOLVED; no 'verify' wording; no statement about pull requests; no release date on page (event_date approximate)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Microsoft 365 and Copilot outage",
+   "url": "https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/",
+   "event_date": "2026-11-12",
+   "quote": "discovered a core process on affected servers was becoming overwhelmed, resulting in a loss of capacity; found no indication that the outage was caused by malicious or cyber activity; MO1550821; no post-incident report mentioned",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub Copilot model retirements",
+   "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+   "event_date": "2026-11-13",
+   "quote": "deprecated on December 14, 2026; Claude Fable 5, Claude Haiku 4.5*, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6, Kimi K3; *Claude Haiku 4.5 will remain available to individual GitHub Copilot subscribers on annual plans",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "JioHotstar benchmark",
+   "url": "https://www.infoq.com/news/2026/11/jiohotstar-codingagent-retrieval/",
+   "event_date": "2026-11-11",
+   "quote": "Sourcebot, Graphify, CocoIndex Code, Repowise and an in-house RAG pipeline vs a filesystem baseline; baseline 'remained competitive on concrete tasks'; Sourcebot 'performed better than the baseline' on harder SWE-bench Verified tasks while costing less; no single approach best across all tasks",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Copilot retires six models (deadline)",
+   "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+   "event_date": "2026-12-14",
+   "quote": "deprecated on December 14, 2026 across all GitHub Copilot experiences; Haiku 4.5 exception for individual annual-plan subscribers; Kimi K3 replacement 'to be announced'",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "HUMAIN and Infra financing",
+   "url": "https://www.gdnonline.com/Details/1412389/Infra,-Humain-ink-$667m-financing-deals-for-Saudi-AI-infrastructure",
+   "event_date": "2026-11-09",
+   "quote": "two financing agreements totaling up to SAR2.5 billion ($667 million); GPU financing facility and critical power infrastructure; first transactions announced under Infra's AI Data Center Financing Program; signed in Riyadh; Mon, 09 Nov 2026",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "LongCat-2.5",
+   "url": "https://huggingface.co/meituan-longcat/LongCat-2.5",
+   "event_date": "2026-11-04",
+   "quote": "The model weights are released under the MIT License. ... Terminal Bench v2.1 88.4",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

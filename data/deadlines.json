@@ -1,26 +1,5 @@
 [
  {
-  "date": "2026-11-09",
-  "what": "GitHub pull_request_target brownout in public repos (16:00-18:00 UTC, repeated 2026-11-16): blocked workflows fail",
-  "who": "Public repos on Free, Team and Enterprise Cloud using pull_request_target",
-  "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
-  "added": "2026-11-03"
- },
- {
-  "date": "2026-11-13",
-  "what": "Amazon Bedrock end-of-life for Claude 3 Haiku, Claude 3 Sonnet, Claude 3.5 Sonnet (v1 and v2) and Claude 3.7 Sonnet in the regions the legacy page lists",
-  "who": "Teams calling those models through Bedrock",
-  "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
-  "added": "2026-11-02"
- },
- {
-  "date": "2026-11-13",
-  "what": "Conductor Cloud goes read-only (shuts down 2026-11-20); export data or transfer workspaces to local",
-  "who": "Teams using Conductor Cloud coding agents",
-  "url": "https://www.conductor.build/changelog/0.93.0-conductor-is-joining-meta",
-  "added": "2026-11-05"
- },
- {
   "date": "2026-11-16",
   "what": "Legacy GitHub app in Microsoft Teams retired (renamed 'GitHub (deprecated)')",
   "who": "Teams using GitHub notifications or Copilot in Teams",
@@ -112,11 +91,25 @@
   "added": "2026-11-03"
  },
  {
+  "date": "2026-12-08",
+  "what": "GitHub pauses Dependabot alerts on repositories with no activity in the past year (alerts archived, restored by a push or re-enabling)",
+  "who": "Owners of dormant repos on github.com and GHE Cloud with data residency",
+  "url": "https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories/",
+  "added": "2026-11-11"
+ },
+ {
   "date": "2026-12-11",
   "what": "OpenAI removes gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-pro, o3 and o3-pro from the API",
   "who": "OpenAI API users on those models",
   "url": "https://developers.openai.com/api/docs/deprecations",
   "added": "2026-10-26"
+ },
+ {
+  "date": "2026-12-14",
+  "what": "GitHub Copilot retires Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6 and Kimi K3",
+  "who": "Teams with Copilot workflows pinned to those models",
+  "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+  "added": "2026-11-14"
  },
  {
   "date": "2027-01-06",
@@ -152,12 +145,5 @@
   "who": "Vertex AI users on gemini-3.7-flash",
   "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
   "added": "2026-11-02"
- },
- {
-  "date": "2026-12-08",
-  "what": "GitHub pauses Dependabot alerts on repositories with no activity in the past year (alerts archived, restored by a push or re-enabling)",
-  "who": "Owners of dormant repos on github.com and GHE Cloud with data residency",
-  "url": "https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories/",
-  "added": "2026-11-11"
  }
 ]

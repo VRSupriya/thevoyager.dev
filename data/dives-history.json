@@ -229,5 +229,12 @@
   "week": 5,
   "title": "Build: an eval harness that audits its own judge, or a trace-to-eval pipeline",
   "topic_key": "build:judge-audit-harness-kappa-slices-label-budget-gate-power:evals-llm-observability"
+ },
+ {
+  "date": "2026-11-14",
+  "track": "recap",
+  "week": 6,
+  "title": "Module 1 recap: five weeks of agent and LLM app core, in one page",
+  "topic_key": "recap:M1-agent-and-llm-app-core"
  }
 ]

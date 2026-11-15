@@ -1,41 +1,5 @@
 [
  {
-  "date": "2026-10-15",
-  "slot": "top",
-  "title": "Workday Trusted Agent Platform headless",
-  "url": "https://www.prnewswire.com/news-releases/workdays-trusted-agent-platform-now-delivers-headless-access-to-hr-and-finance-letting-customers-build-and-run-lawful-ai-agents-302906696.html"
- },
- {
-  "date": "2026-10-15",
-  "slot": "models",
-  "title": "Meta Muse Wonder",
-  "url": "https://research.meta.ai/blog/muse-wonder"
- },
- {
-  "date": "2026-10-15",
-  "slot": "agents",
-  "title": "DigitalOcean Agent Learning and Data Services",
-  "url": "https://digitalocean.com/blog/introducing-agent-data-services"
- },
- {
-  "date": "2026-10-15",
-  "slot": "research",
-  "title": "Skill LLMs customer support workflow benchmark",
-  "url": "https://arxiv.org/abs/2610.14346"
- },
- {
-  "date": "2026-10-15",
-  "slot": "people",
-  "title": "Pragmatic Engineer: Uber's AI infra",
-  "url": "https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside"
- },
- {
-  "date": "2026-10-15",
-  "slot": "architecture",
-  "title": "BigQuery generative AI token quotas GA",
-  "url": "https://cloud.google.com/blog/products/data-analytics/using-bigquerys-generative-ai-cost-management-features/"
- },
- {
   "date": "2026-10-16",
   "slot": "top",
   "title": "Meta Muse Spark Open",
@@ -2416,5 +2380,95 @@
   "slot": "regional",
   "title": "HUMAIN Infra SAR 2.5B AI data centre financing",
   "url": "https://www.gdnonline.com/Details/1412389/Infra,-Humain-ink-$667m-financing-deals-for-Saudi-AI-infrastructure"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "top",
+  "title": "Cursor breach via Fireworks access key and malicious Claude Code extension",
+  "url": "https://cursor.com/blog/security-incident-update"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "models",
+  "title": "IBM Granite 4.1 LLMON preview injection-resistant models",
+  "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "agents",
+  "title": "OpenAI ChatGPT Wallet for agent purchases",
+  "url": "https://openai.com/index/introducing-chatgpt-wallet"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "research",
+  "title": "CoReMem cost-internalizing memory for coding agents",
+  "url": "https://arxiv.org/abs/2611.17316"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "people",
+  "title": "Harrison Chase: LangChain goal engineering",
+  "url": "https://www.langchain.com/blog/goal-engineering"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "architecture",
+  "title": "Block Buzz agent workspace with Databricks Unity Gateway",
+  "url": "https://www.databricks.com/blog/how-block-powers-collaborative-ai-agents-buzz-and-unity-gateway"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "regional",
+  "title": "HUMAIN December AI stack and 3T open-weight model",
+  "url": "https://arabnews.com/saudi-arabia/humain-ceo-unveils-december-ai-stack-rollout-humain-launch-plans-for-2027-3011422"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "quick",
+  "title": "Nex-AGI Nex-N2.6",
+  "url": "https://huggingface.co/nex-agi/Nex-N2.6"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "quick",
+  "title": "PyPI provenance warnings on project pages",
+  "url": "https://blog.pypi.org/posts/2026-11-06-ui-updates-complete/"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "quick",
+  "title": "Google Gemini 4 Carbon and Argon price doubling",
+  "url": "https://aistudio.google.com/docs/pricing"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "quick",
+  "title": "llama.cpp and ggml v1.0.0",
+  "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "quick",
+  "title": "Replit Agent commerce",
+  "url": "https://replit.com/blog/replit-agent-ads-commerce"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "quick",
+  "title": "Google Compute Engine API date-based versions",
+  "url": "https://www.infoq.com/news/2026/11/compute-engine-api-versioning/"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "quick",
+  "title": "UniPat SPU wet-lab prediction benchmark",
+  "url": "https://github.com/UniPat-AI/SPU"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "quick",
+  "title": "Anthropic building strong safety evaluations",
+  "url": "https://www.anthropic.com/research/building-strong-safety-evaluations"
  }
 ]

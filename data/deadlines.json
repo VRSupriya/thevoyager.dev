@@ -77,6 +77,13 @@
   "added": "2026-10-29"
  },
  {
+  "date": "2026-12-01",
+  "what": "Gemini 4 Carbon and Argon standard paid-tier prices double ($2.00/$10.00 to $4.00/$20.00 per 1M input/output tokens)",
+  "who": "Gemini API users on Gemini 4 Carbon or Argon",
+  "url": "https://aistudio.google.com/docs/pricing",
+  "added": "2026-11-15"
+ },
+ {
   "date": "2026-12-02",
   "what": "EU AI Act: Article 50(2) steps due for generative systems placed on market before 2 Aug 2026; new prohibitions on non-consensual intimate imagery and CSAM apply",
   "who": "Providers of generative AI systems in the EU",

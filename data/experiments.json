@@ -229,5 +229,12 @@
   "source_url": "https://arxiv.org/abs/2611.15671",
   "hypothesis": "Your quantized model's output flip rate against BF16 is mostly serving noise; measure the same-build restart baseline first.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-15",
+  "title": "Injection resistance of IBM LLMON preview vs your current small model",
+  "source_url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+  "hypothesis": "Granite 4.1 8B LLMON preview ignores planted instructions in documents more often than your current small model without losing task accuracy.",
+  "status": "suggested"
  }
 ]

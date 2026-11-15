@@ -1,0 +1,400 @@
+{
+ "date": "2026-11-15",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Cursor",
+   "event_date": "2026-11-13",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "the breach started with an access key Cursor had issued to Fireworks; Fireworks exposed it",
+     "url": "https://cursor.com/blog/security-incident-update",
+     "quote": "The key was [exposed by Fireworks]",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "attacker copied coding-agent traces from a shared read-only bucket, some with unredacted credentials",
+     "url": "https://cursor.com/blog/security-incident-update",
+     "quote": "a read-only storage bucket we used to share data with them ... A small number of those traces contained credentials that had not been redacted.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "2.1.312 and 2.1.313 up for about 11 hours, at most 5,000 users",
+     "url": "https://cursor.com/blog/security-incident-update",
+     "quote": "was available for approximately 11 hours before we removed it ... At most 5,000 users",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "tampered extension of 29 October",
+     "url": "https://cursor.com/blog/security-incident-update",
+     "quote": "October 29 ... malicious copies ... available for approximately 11 hours before we removed it",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Fixed in / Severity: not stated in the advisory",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Searched update post and Oct notice: no severity rating, CVE or fixed-version statement ('We have no evidence that other versions ... are affected').",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Stopgap: uninstalling the extension alone may not be enough",
+     "url": "https://cursor.com/blog/security-incident-update",
+     "quote": "Uninstalling the extension alone may not be enough.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Cursor rebuilt its marketplace and moved inference off Fireworks",
+     "url": "https://cursor.com/blog/security-incident-update",
+     "quote": "Moved all inference traffic off Fireworks, deactivated the key we had issued to it.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "follow Cursor's 30 October notice",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Notice post dated 'Oct 29, 2026', updated 'Oct 30, 2026, 11:30 am PT'; update post says 'On October 30, we published a security notice'.",
+     "verdict": "CORRECTED",
+     "fix": "Link works. Say 'Cursor's security notice (published 29 October, updated 30 October)'."
+    },
+    {
+     "kind": "remediation",
+     "claim": "rotate the keys Cursor lists for you",
+     "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+     "quote": "Rotate credentials and sessions accessible from affected hosts, from a trusted system.",
+     "verdict": "CORRECTED",
+     "fix": "Notice says rotate credentials/sessions reachable from affected hosts and remove the unauthorized SSH key and persistence (LaunchAgent com.apple.sysmond.plist, task SysMon); it does not list keys to rotate. Notice also lists IOCs (SHA-256s, IP 134.209.82.225)."
+    },
+    {
+     "kind": "other",
+     "claim": "BleepingComputer corroborates",
+     "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
+     "quote": "the attack began when hackers obtained an access key stored on Fireworks AI",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "IBM",
+   "event_date": "2026-11-12",
+   "status": "Preview",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "47% more attacks avoided than best frontier model, 95% more than best open model, on OPI",
+     "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+     "quote": "47% more attacks relative to the best frontier model that we tested ... 95% more than the best open-source model",
+     "verdict": "VERIFIED",
+     "fix": "Wording 'best open-source model'; trivial."
+    },
+    {
+     "kind": "status",
+     "claim": "IBM calls both 'experimental preview models', not for production",
+     "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+     "quote": "an experimental preview, ready for exploration and evaluation but not for production",
+     "verdict": "CORRECTED",
+     "fix": "Blog says 'an experimental preview' (singular); the exact phrase 'experimental preview models' is not on the page. Drop the quote marks or quote 'an experimental preview'."
+    },
+    {
+     "kind": "licence",
+     "claim": "8B card lists Apache 2.0",
+     "url": "https://huggingface.co/ibm-granite/granite-4.1-8b-llmon-preview",
+     "quote": "License: Apache 2.0",
+     "verdict": "VERIFIED",
+     "fix": "Blog page itself does not mention a licence; card does. 3B licence not checked."
+    },
+    {
+     "kind": "other",
+     "claim": "IBM says adaptive multi-turn attacks are still being worked on",
+     "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+     "quote": "actively working on also improving adaptive attacks which unfold over many chat turns",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "3B and 8B Granite 4.1 preview models published 12 Nov",
+     "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+     "quote": "Published November 12, 2026.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "OpenAI",
+   "event_date": "2026-11-13",
+   "status": "Beta",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "OpenAI launched ChatGPT Wallet on 13 November",
+     "url": "https://openai.com/index/introducing-chatgpt-wallet",
+     "quote": "Introducing ChatGPT Wallet ... pubDate Fri, 13 Nov 2026 15:00:00 GMT",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "announcement calls it 'a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval', working with existing card protections",
+     "url": "https://openai.com/index/introducing-chatgpt-wallet",
+     "quote": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections.",
+     "verdict": "VERIFIED",
+     "fix": "Quote is accurate, but CNBC names only dots; The420.in/GadgetReview/help-centre summaries say currently dots only. Consider 'agents (dots)' or note scope is unclear."
+    },
+    {
+     "kind": "status",
+     "claim": "limited rollout to US ChatGPT Pro users",
+     "url": "https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html",
+     "quote": "ChatGPT Wallet is initially available to OpenAI's Pro subscribers in the U.S. who are over 18 years old.",
+     "verdict": "VERIFIED",
+     "fix": "CNBC (reputable) confirms; also TechCrunch/9to5Mac results. Better link than datastudios."
+    },
+    {
+     "kind": "other",
+     "claim": "network-issued payment token so the agent never sees the printed card number",
+     "url": "https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html",
+     "quote": "payment networks provide the dot with a 'payment token' ... the agents never access the user's actual card details",
+     "verdict": "VERIFIED",
+     "fix": "CNBC confirms (token from the payment networks). datastudios.org is a blog; replace link with CNBC."
+    },
+    {
+     "kind": "other",
+     "claim": "datastudios.org write-up as source",
+     "url": "https://www.datastudios.org/post/chatgpt-wallet-dots-agent-purchases-us-pro-users-visa-mastercard-amex",
+     "quote": "rolling out first to ChatGPT Pro subscribers in the United States who are 18 or older",
+     "verdict": "REMOVED",
+     "fix": "Blog, not a reputable outlet; swap the 'Launch write-up' link to https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html"
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-12",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "preprint submitted on 12 November",
+     "url": "https://arxiv.org/abs/2611.17316",
+     "quote": "Submitted on 12 Nov 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "27B actor resolve rate 21.0% to 25.7% on ChainSWE",
+     "url": "https://arxiv.org/abs/2611.17316",
+     "quote": "raises the 27B actor's resolve rate from 21.0% to 25.7%",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "17% fewer steps and 11% fewer total tokens, memory-module calls included, against same actor without memory",
+     "url": "https://arxiv.org/abs/2611.17316",
+     "quote": "11% fewer total cache-aware tokens, including memory-module calls, relative to the untrained actor model without memory",
+     "verdict": "VERIFIED",
+     "fix": "Source says 'cache-aware tokens'; 'untrained actor' baseline. Acceptable; could say 'cache-aware tokens'."
+    },
+    {
+     "kind": "absence",
+     "claim": "no code mentioned (not claimed in brief)",
+     "url": "https://arxiv.org/abs/2611.17316",
+     "quote": "Searched abs page: no Comments field, no code link.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "LangChain",
+   "event_date": "2026-11-14",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Chase and two colleagues from Actively AI",
+     "url": "https://www.langchain.com/blog/goal-engineering",
+     "quote": "Harrison Chase, with Mihir Garimella and Anshul Gupta of Actively AI",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "quote: The bottleneck for agents performing is often them learning from feedback.",
+     "url": "https://www.langchain.com/blog/goal-engineering",
+     "quote": "The bottleneck for agents performing is often them learning from feedback.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "v1 agent per account; v2 motions on Deep Agents, one per job type",
+     "url": "https://www.langchain.com/blog/goal-engineering",
+     "quote": "had an agent per account ... A motion is a particular job to be done.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "LangChain post of 14 November",
+     "url": "https://www.langchain.com/blog/goal-engineering",
+     "quote": "November 14, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Block",
+   "event_date": "2026-11-12",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "licence",
+     "claim": "Buzz is Apache 2.0",
+     "url": "https://github.com/block/buzz",
+     "quote": "Apache 2.0 · Built by Block, Inc.",
+     "verdict": "VERIFIED",
+     "fix": "Licence is from the repo, not the Databricks post (which names none)."
+    },
+    {
+     "kind": "attribution",
+     "claim": "Databricks write-up of 12 Nov says Unity Gateway is the model-access layer; frontier or open-weight models through one integration",
+     "url": "https://www.databricks.com/blog/how-block-powers-collaborative-ai-agents-buzz-and-unity-gateway",
+     "quote": "Unity Gateway provides the model access layer for this experience. ... all accessible through a single integration",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "one relay single source of truth; signed events in one log; Postgres, Redis, S3-compatible storage; per-agent key and audit trail",
+     "url": "https://github.com/block/buzz",
+     "quote": "every message, reaction, workflow step, review approval, and git event is a signed event in one log ... Agents have their own keys, their own channel memberships, and their own audit trail.",
+     "verdict": "CORRECTED",
+     "fix": "README lists Postgres, Redis and 'S3/MinIO' object storage; 'S3-compatible' is a fair paraphrase but not the README's wording."
+    },
+    {
+     "kind": "status",
+     "claim": "repo says approval gates are still being wired up",
+     "url": "https://github.com/block/buzz",
+     "quote": "Workflow approval gates (infra exists, glue still drying)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Nex-N2.6",
+   "url": "https://huggingface.co/nex-agi/Nex-N2.6",
+   "event_date": "2026-11-10",
+   "quote": "License: apache-2.0; approximately 321B parameters; built on GLM-5.3-Flash; OSWorld 83.0 vs 78.0; Terminal-Bench 2.1 84.1 vs 84.3. Card states no release date; repo's first commit is 10 Nov 2026, last 11 Nov.",
+   "verdict": "VERIFIED",
+   "fix": "No stated release date; event_date 2026-11-10 is the HF repo initial commit."
+  },
+  {
+   "name": "PyPI provenance warnings",
+   "url": "https://blog.pypi.org/posts/2026-11-06-ui-updates-complete/",
+   "event_date": "2026-11-06",
+   "quote": "We're pleased to share that this work is now complete and live on PyPI. Loss of Provenance: a project that previously published with attestations has changed to uploading release files without them.",
+   "verdict": "CORRECTED",
+   "fix": "Page has no stated date (6 Nov only from URL/image name) and does not explicitly say the Security tab is 'per release' (it shows release provenance states and per-file attestations). Flags are Inconsistent / Change of / Loss of provenance; brief's 'lost, changed or inconsistent' is fine."
+  },
+  {
+   "name": "Gemini 4 Carbon and Argon",
+   "url": "https://aistudio.google.com/docs/pricing",
+   "event_date": "2026-12-01",
+   "quote": "Standard: input $2.00 to $4.00, output $10.00 to $20.00 per 1M tokens, through Nov 30 / from Dec 1, 2026 (both models)",
+   "verdict": "VERIFIED",
+   "fix": "Searched first 100k of 111k chars only."
+  },
+  {
+   "name": "llama.cpp and ggml v1.0.0",
+   "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+   "event_date": "2026-11-13",
+   "quote": "Moving forward, both llama.cpp and ggml will reflect API and ABI incompatibilities with major-version bumps.",
+   "verdict": "CORRECTED",
+   "fix": "Page does not say v1.0.0 is 'the first release under semantic versioning' (searched for versioning history; none). Say 'v1.0.0; from now on major bumps signal API/ABI breaks'. 'Breaking C API' is in the semver rules text."
+  },
+  {
+   "name": "Replit Agent commerce",
+   "url": "https://replit.com/blog/replit-agent-ads-commerce",
+   "event_date": "2026-11-12",
+   "quote": "Agentic Commerce is available for Core and Pro users, starting in the US and limited to one-time purchases. ... stops at the checkout for approval ... Link ... Visa",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Compute Engine API versions",
+   "url": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-compute-engine-api-multi-versioning-predictable-evolution-without-breaking-production/",
+   "event_date": "2026-11-14",
+   "quote": "The first is 2026-09-01 ... X-Goog-Api-Version header ... continue to use the /compute/v1/ base URL path ... /v1 remains fully supported ... existing applications ... continue to work without modification. GA across all regions.",
+   "verdict": "VERIFIED",
+   "fix": "Google blog loads and confirms; can cite it directly, and status is GA. Event date from InfoQ byline Nov 14; Google post date not shown. Note: opting into a dated version changes some behaviour (partial results, error bodies)."
+  },
+  {
+   "name": "UniPat SPU",
+   "url": "https://github.com/UniPat-AI/SPU",
+   "event_date": "2026-11-11",
+   "quote": "built from 85 papers in 11 Nature Portfolio journals ... the best mean is below 0.5 on a scale where a perfect ranking scores 1 and random rankings average 0",
+   "verdict": "VERIFIED",
+   "fix": "Date: earliest commit 11 Nov 2026."
+  },
+  {
+   "name": "Anthropic on safety evals",
+   "url": "https://www.anthropic.com/research/building-strong-safety-evaluations",
+   "event_date": "2026-11-13",
+   "quote": "have humans label a sample of the transcripts without seeing the grader's verdicts ... report uncertainty around every estimate",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Deadline: Gemini 4 repricing 2026-12-01",
+   "url": "https://aistudio.google.com/docs/pricing",
+   "event_date": "2026-12-01",
+   "quote": "From Dec 1, 2026: $4.00 input / $20.00 output per 1M tokens (from $2.00 / $10.00)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "HUMAIN's December stack",
+   "url": "https://arabnews.com/saudi-arabia/humain-ceo-unveils-december-ai-stack-rollout-humain-launch-plans-for-2027-3011422",
+   "event_date": "2026-11-12",
+   "quote": "the world's largest open-weight model, 3 trillion parameters model, will be available in Saudi (Arabia) ... The complete stack, December 15, is not far away. ... ready to be consumed by any builder, enterprise, government",
+   "verdict": "CORRECTED",
+   "fix": "Article dated 12 Nov but Amin spoke on a Wednesday evening (11 Nov); say 'told a Riyadh event on 11 November' or 'Arab News reported on 12 November'. Source says the model 'will be available in Saudi Arabia in December' (I did not find the words 'by December'); do not put 'by December' in quote marks. No prices stated (absence verified; article only claims '88 percent less cost and token consumptions than available models outside of the country')."
+  }
+ ]
+}

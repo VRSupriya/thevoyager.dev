@@ -695,5 +695,22 @@
 "small & on-device models": 1,
 "voice agents": 2,
 "world models & robotics": 3
+},
+"2026-11-15": {
+"AI compute & data centres": 2,
+"AI governance & regulation": 1,
+"RL post-training": 2,
+"agent memory": 1,
+"agentic commerce & payments": 1,
+"coding agents": 3,
+"computer & browser agents": 1,
+"enterprise agent adoption": 2,
+"guardrails & AI safety": 1,
+"inference optimisation": 1,
+"mixture of experts": 1,
+"open-weight models": 2,
+"prompt injection": 1,
+"sandboxing": 1,
+"world models & robotics": 1
 }
 }

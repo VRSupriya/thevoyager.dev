@@ -236,5 +236,12 @@
   "week": 6,
   "title": "Module 1 recap: five weeks of agent and LLM app core, in one page",
   "topic_key": "recap:M1-agent-and-llm-app-core"
+ },
+ {
+  "date": "2026-11-15",
+  "track": "radar",
+  "week": 6,
+  "title": "Learning Radar, November 2026: a retired AI exam, a new AWS professional exam, and three short courses for data foundations",
+  "topic_key": "radar:2026-11:aws-genai-dev-pro-ai102-retired-pmle:courses-qdrant-deepagents-hf-context"
  }
 ]

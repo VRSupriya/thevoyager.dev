@@ -243,5 +243,12 @@
   "week": 6,
   "title": "Learning Radar, November 2026: a retired AI exam, a new AWS professional exam, and three short courses for data foundations",
   "topic_key": "radar:2026-11:aws-genai-dev-pro-ai102-retired-pmle:courses-qdrant-deepagents-hf-context"
+ },
+ {
+  "date": "2026-11-16",
+  "track": "models-agentic",
+  "week": 7,
+  "title": "Gemini 4 Hydrogen reads your PDFs for $1.50 per million tokens. Whether it should is a pipeline question",
+  "topic_key": "models-agentic:gemini-4-hydrogen-ga-pdf-handling:ingestion-document-pipelines"
  }
 ]

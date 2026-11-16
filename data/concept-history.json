@@ -712,5 +712,24 @@
 "prompt injection": 1,
 "sandboxing": 1,
 "world models & robotics": 1
+},
+"2026-11-16": {
+"RL post-training": 1,
+"agent harnesses": 2,
+"agent protocols (MCP/A2A)": 1,
+"agent skills": 1,
+"agentic commerce & payments": 1,
+"coding agents": 1,
+"computer & browser agents": 1,
+"enterprise agent adoption": 1,
+"evals & LLM-as-judge": 1,
+"guardrails & AI safety": 1,
+"inference cost & routing": 1,
+"mixture of experts": 1,
+"observability & tracing": 1,
+"sandboxing": 1,
+"small & on-device models": 1,
+"sovereign AI & data residency": 2,
+"voice agents": 2
 }
 }

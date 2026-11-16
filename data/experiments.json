@@ -236,5 +236,12 @@
   "source_url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
   "hypothesis": "Granite 4.1 8B LLMON preview ignores planted instructions in documents more often than your current small model without losing task accuracy.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-16",
+  "title": "Inventory peripheral internet-facing apps for weak auth",
+  "source_url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+  "hypothesis": "Partner portals, mobile backends and admin interfaces include some with no auth or shared admin passwords; count them against the FBI's ARTEX list of initial-access weaknesses.",
+  "status": "suggested"
  }
 ]

@@ -1,47 +1,5 @@
 [
  {
-  "date": "2026-10-16",
-  "slot": "top",
-  "title": "Meta Muse Spark Open",
-  "url": "https://huggingface.co/blog/meta-muse-spark-open"
- },
- {
-  "date": "2026-10-16",
-  "slot": "models",
-  "title": "IBM Granite Switch 4.1",
-  "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1"
- },
- {
-  "date": "2026-10-16",
-  "slot": "agents",
-  "title": "Temporal Serverless Workers on Cloud Run",
-  "url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/"
- },
- {
-  "date": "2026-10-16",
-  "slot": "research",
-  "title": "SWE-at-Scale",
-  "url": "https://arxiv.org/abs/2610.21359"
- },
- {
-  "date": "2026-10-16",
-  "slot": "people",
-  "title": "LangChain Deep Agents context engineering",
-  "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember"
- },
- {
-  "date": "2026-10-16",
-  "slot": "architecture",
-  "title": "VPC Service Controls folder perimeters",
-  "url": "https://cloud.google.com/blog/products/identity-security/introducing-new-scalable-perimeter-options-with-vpc-service-controls/"
- },
- {
-  "date": "2026-10-16",
-  "slot": "regional",
-  "title": "NVIDIA Nemotron Indic pretraining",
-  "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining"
- },
- {
   "date": "2026-10-17",
   "slot": "top",
   "title": "Perplexity SPACE open-source sandbox",
@@ -2470,5 +2428,77 @@
   "slot": "quick",
   "title": "Anthropic building strong safety evaluations",
   "url": "https://www.anthropic.com/research/building-strong-safety-evaluations"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "top",
+  "title": "FBI FLASH on ARTEX open-source AI intrusion agent",
+  "url": "https://www.ic3.gov/CSA/2026/261113.pdf"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "agents",
+  "title": "Uber secure AI framework for agents",
+  "url": "https://www.uber.com/us/en/blog/securing-ai-agents/"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "research",
+  "title": "Ai2 XYBench misconception benchmark",
+  "url": "https://huggingface.co/blog/allenai/xybench"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "people",
+  "title": "Sebastian Raschka positional embeddings",
+  "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "architecture",
+  "title": "Google BigQuery agent observability",
+  "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "regional",
+  "title": "Chariot TTS multilingual",
+  "url": "https://chariot.in/"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "quick",
+  "title": "Tencent LoopForge",
+  "url": "https://github.com/Tencent/LoopForge"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "quick",
+  "title": "Andrew Ng OpenWorker",
+  "url": "https://github.com/andrewyng/openworker"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "quick",
+  "title": "Vercel UI SDK",
+  "url": "https://github.com/vercel-labs/ui"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "quick",
+  "title": "GitHub AI Scan REST API",
+  "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "quick",
+  "title": "Amazon Bedrock AgentCore Identity OAuth 2.0 discovery",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/bedrock-agentcore-oauth2-discovery/"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "quick",
+  "title": "Amazon Bedrock cost attribution by IAM principal",
+  "url": "https://aws.amazon.com/blogs/machine-learning/cost-attribution-and-controls-for-ai-developer-and-productivity-tools-on-amazon-bedrock/"
  }
 ]

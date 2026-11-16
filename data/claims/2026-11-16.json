@@ -1,0 +1,395 @@
+{
+ "date": "2026-11-16",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "ARTEX (FBI FLASH)",
+   "event_date": "2026-11-13",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "3 hours from first targeting to privileged access in some intrusions (FBI)",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "some intrusions progressing from initial targeting to privileged access in under three hours.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "1,600+ publicly exposed ARTEX consoles found by researchers by early November",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "As of early November 2026, researchers identified over 1,600 publicly exposed ARTEX console instances",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "the FBI says DeepSeek Flash models dominate what it saw",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "Chinese models are most prevalent, with DeepSeek Flash family models dominating usage",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "developer pulled the repository on 8 October; forks and commercial ARTEX PRO keep it around",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "made the repository unavailable on October 8, 2026 ... community forks, localized variations, archived copies, and a commercial version (ARTEX PRO)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "no model of its own; plugs into Claude, GPT, DeepSeek, GLM, Grok or Kimi; used since at least August 2026",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "ARTEX does not include its own SI model but integrates with external LLM providers, including ... (Anthropic Claude, OpenAI GPT) ... (DeepSeek, GLM, Grok, Kimi)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Affected: the FLASH names no vulnerable product versions",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "Searched whole FLASH text for CVE, version, vulnerab, patch, update: no product versions. But the FLASH does name affected parties: 'a supply chain compromise affecting ConnectWise Cloud Backup customers that enabled access to more than 2,250 downstream tenants'",
+     "verdict": "CORRECTED",
+     "fix": "True that no vulnerable product versions or CVEs are named, but Affected omits the FLASH-named ConnectWise Cloud Backup / Microsoft 365 tenant exposure (2,250+ downstream tenants) and the sectors targeted (financial services, government, technology, defense, semiconductor, energy, healthcare, manufacturing, telecom, legal). Add that."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: no patch applies",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "FLASH contains no mention of 'patch' or CVE (grep of full text); it never says 'no patch applies'",
+     "verdict": "CORRECTED",
+     "fix": "Reword as the FLASH's own position: it describes a tool, not a vulnerability, lists no patch or fixed version, and gives mitigations only. 'no patch applies' is the brief's inference."
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated in the FLASH",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "Searched full text for severity, CVSS, critical, high-risk: no severity rating (only 'Your feedback regarding this product is critical')",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: restrict cloud admin, Kudu/SCM and other management interfaces to trusted networks, rate-limit sensitive APIs, scan pipelines for embedded secrets",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "Restrict cloud administration, network device management, application publishing interfaces (Kudu/SCM endpoints), hypervisors, backup platforms ... to trusted networks ... apply rate limits to affected endpoints ... implement continuous scanning of repositories, container images, build artifacts, pipelines for exposed secrets",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: revoke unnecessary permissions and rotate credentials, preserve sign-in and audit logs, and report to local FBI field office or ic3.gov",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "If suspicious activity is confirmed, revoke unnecessary permissions and rotate credentials. ... Preserve available Microsoft Entra sign-in and audit records ... report ... to their local FBI field office ... or the FBI Internet Crime Complaint Center (IC3) at www.ic3.gov",
+     "verdict": "CORRECTED",
+     "fix": "Broadly supported, but the revoke/rotate step is Microsoft Entra-specific and conditional on confirmed activity, and the FLASH adds: keep affected ConnectWise application connections disabled until ConnectWise gives restoration instructions, do not delete enterprise applications first, review activity from at least 1 Oct 2026 for ConnectWise-related activity, and remove unauthorized credentials only after preserving evidence. Mention these."
+    },
+    {
+     "kind": "other",
+     "claim": "FBI says agents do best against overlooked systems: partner portals, mobile backends, legacy services",
+     "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
+     "quote": "ARTEX excels at identifying and exploiting peripheral systems receiving less security attention than flagship applications, including partner and supplier portals, mobile backends, employee applications, sales-support systems, legacy services",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "BleepingComputer corroboration of 3 hours, 1,600 consoles, 8 October removal",
+     "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
+     "quote": "initial targeting to privileged access in under three hours; more than 1,600 publicly exposed ARTEX consoles; October 8",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Uber",
+   "event_date": "2026-11-06",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Uber's engineering post of 6 November",
+     "url": "https://www.uber.com/us/en/blog/securing-ai-agents/",
+     "quote": "November 6, 2026 Securing AI Agents: Lessons From Real-World Deployment",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "three layers: validation at registration, runtime enforcement, continuous assurance",
+     "url": "https://www.uber.com/us/en/blog/securing-ai-agents/",
+     "quote": "across three integrated layers: provisioning-time validation, runtime enforcement, and continuous assurance",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "AI Registry, Argus, AI Guards, Agent Guard, LangFx named",
+     "url": "https://www.uber.com/us/en/blog/securing-ai-agents/",
+     "quote": "Argus: automated agent security analysis platform; AI Guard (policy decision point); Agent Guard: runtime interception and enforcement; LangFx and the AI Guard SDK provide standard integration paths",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "unified execution trace that can replay interactions",
+     "url": "https://www.uber.com/us/en/blog/securing-ai-agents/",
+     "quote": "A unified execution trace connects agent actions, tool calls, and guardrail decisions ... Recorded interactions can subsequently be replayed against candidate guardrails",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "the post gives no block rates or latency figures",
+     "url": "https://www.uber.com/us/en/blog/securing-ai-agents/",
+     "quote": "Searched full article text for latency, block, %, ms: only qualitative ('strict latency budgets', 'reduced latency and inference cost', 'false blocks'); no numbers",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-13",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "8,115 questions drawn from Stack Overflow, Stack Exchange, manual curation and WikiHow guides",
+     "url": "https://huggingface.co/blog/allenai/xybench",
+     "quote": "XYBench is an Ai2 benchmark of 8,115 questions ... from Stack Overflow, Stack Exchange, manual curation, and WikiHow-based examples",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "two human reviewers checked 500 model responses to validate the automated judge",
+     "url": "https://huggingface.co/blog/allenai/xybench",
+     "quote": "automated judge, Claude Sonnet 4.5, was checked against two human reviewers on 500 responses",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "code and dataset are released; post says it won Best Resource Paper award at EMNLP 2026",
+     "url": "https://huggingface.co/blog/allenai/xybench",
+     "quote": "The dataset and code are publicly released, and the paper won the Best Resource Paper Award at EMNLP 2026.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "Hugging Face post of 13 November",
+     "url": "https://huggingface.co/blog/allenai/xybench",
+     "quote": "November 13, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "-",
+   "event_date": "2026-11-15",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "GPT-2 Medium position table 0.30% of weights at 1,024 positions, >22% at 100k context",
+     "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+     "quote": "the positional embedding layer weights only make up 0.30% of the total weights at 1,024 positions; at 100k context exceeds 22%",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "MiniMax-M3 rotates 64 of 128 head dimensions",
+     "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+     "quote": "partial RoPE, rotating 64 of the 128 dimensions in each head",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "SmolLM3 skips RoPE in one of every four layers",
+     "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+     "quote": "applies RoPE in three layers and skips it in the fourth, repeating across its 36 layers",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "post of 15 November",
+     "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+     "quote": "Nov 15, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Google Cloud",
+   "event_date": "2026-11-14",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "conversation logging in BigQuery, Conversational Analytics API (VPC-SC, CMEK, data residency), A2A access to BigQuery data agents in Gemini Enterprise, and agent monitoring dashboards are GA",
+     "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/",
+     "quote": "GA: Conversation logging in BigQuery; Conversational Analytics API incl. VPC Service Controls, CMEK, regional/multi-regional data residency; A2A workflows to BigQuery data agents in Gemini Enterprise; Agent monitoring dashboards in BigQuery Studio",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "native BigQuery evaluations and per-project/user/agent daily token quotas are in preview",
+     "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/",
+     "quote": "Preview: Daily input and output token quotas per project, user, or agent; Native BigQuery agent evaluations",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "logs record input, output, thought, cached, total tokens per turn plus latency",
+     "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/",
+     "quote": "Each turn records input, output, thought, cached, and total token counts, plus total turn latency",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "post mentions only 'promotional trial pricing' with no end date",
+     "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/",
+     "quote": "With promotional trial pricing currently available for Conversational Analytics ... (searched raw page for price/pricing/cost/trial: no end date or amounts; it also mentions the big_query_max_billed_bytes cost cap and ingestion/storage costs generally)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "post of 14 November",
+     "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/",
+     "quote": "Nov 14, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "LoopForge",
+   "url": "https://github.com/Tencent/LoopForge",
+   "event_date": "2026-11-16",
+   "quote": "all on your own infrastructure under the MIT license; Codex, Claude Code, CodeBuddy supported; 'Docker socket access grants control of the host daemon' ... not built to isolate mutually untrusted tenants",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenWorker",
+   "url": "https://github.com/andrewyng/openworker",
+   "event_date": "2026-11-16",
+   "quote": "MIT - see LICENSE. The OpenWorker Desktop App is in open beta and supports automatic updates.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Vercel UI SDK",
+   "url": "https://github.com/vercel-labs/ui",
+   "event_date": "2026-11-16",
+   "quote": "Apache-2.0; adapters React, Vue, Svelte, Solid, Web Components; 'UI SDK is in beta.'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub AI Scan REST API",
+   "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api",
+   "event_date": "2026-11-13",
+   "quote": "public preview ... /orgs/{org}/code-scanning/ai-scan and /repos/{owner}/{repo}/code-scanning/ai-scan; Enabling it does not start a scan; Each scan consumes GitHub Code Security AI credits",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bedrock AgentCore Identity",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/bedrock-agentcore-oauth2-discovery/",
+   "event_date": "2026-11-13",
+   "quote": "accepts OAuth 2.0 authorization server discovery URLs, not only OIDC ... at no additional cost",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bedrock cost attribution",
+   "url": "https://aws.amazon.com/blogs/machine-learning/cost-attribution-and-controls-for-ai-developer-and-productivity-tools-on-amazon-bedrock/",
+   "event_date": "2026-11-13",
+   "quote": "line_item_iam_principal; up to 48 hours to see them in CUR 2.0 and Cost Explorer; Activation is not retroactive.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Azure Foundry retirements",
+   "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
+   "event_date": "2026-11-19",
+   "quote": "o1, o1-pro, o3, o3-deep-research, o3-pro -> gpt-5.6-sol; o3-mini, o4-mini -> gpt-5.6-terra; all retirement date 2026-11-19",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Claude Sonnet 4.5 retirement",
+   "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+   "event_date": "2026-11-30",
+   "quote": "November 30, 2026 | claude-sonnet-4-5-20250929 | claude-sonnet-5-5",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI Evals and Agent Builder shutdown",
+   "url": "https://developers.openai.com/api/docs/deprecations",
+   "event_date": "2026-11-30",
+   "quote": "Nov 30, 2026 Evals dashboard, API, and graders for eval workflows Read-only Migrate to Promptfoo; Nov 30, 2026 Agent Builder Deprecated Agents SDK or ChatGPT Workspace Agents",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "OpenAI gpt-5 family retirement",
+   "url": "https://developers.openai.com/api/docs/deprecations",
+   "event_date": "2026-12-11",
+   "quote": "Dec 11, 2026 gpt-5 -> gpt-6.1-sol; gpt-5-mini -> gpt-6.1-terra; gpt-5-nano -> gpt-6-luna; gpt-5-pro, o3-pro -> gpt-6.1-sol (reasoning.mode: pro); o3 -> gpt-6.1-sol",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Chariot-1-TTS-Multilingual",
+   "url": "https://chariot.in/",
+   "event_date": "2026-11-12",
+   "quote": "Text to speech in 11 Indic languages and English; 50+ voices; code-mixing, instant voice cloning; one of the four teams selected under the IndiaAI Mission; sign up at platform.chariot.in; page states no pricing",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bengaluru Tech Summit",
+   "url": "https://www.bengalurutechsummit.com",
+   "event_date": "2026-11-17",
+   "quote": "17-19 November 2026, Bengaluru",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Dubai Future Week",
+   "url": "https://www.dubaifuture.ae",
+   "event_date": "2026-11-18",
+   "quote": "18 to 21 November 2026; Emirates Towers and the Museum of the Future",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GITEX Global",
+   "url": "https://gitex.com",
+   "event_date": "2026-12-07",
+   "quote": "7-11 December 2026, Dubai; Summit 7 December; Expo 8-11 December",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

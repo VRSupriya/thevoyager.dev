@@ -250,5 +250,12 @@
   "week": 7,
   "title": "Gemini 4 Hydrogen reads your PDFs for $1.50 per million tokens. Whether it should is a pipeline question",
   "topic_key": "models-agentic:gemini-4-hydrogen-ga-pdf-handling:ingestion-document-pipelines"
+ },
+ {
+  "date": "2026-11-17",
+  "track": "research",
+  "week": 7,
+  "title": "Your multi-agent system beat a single call. Did it beat five single calls for the same tokens?",
+  "topic_key": "research:pace-parity-aware-compute-evaluation-multi-agent-vs-matched-baselines:ingestion-document-pipelines"
  }
 ]

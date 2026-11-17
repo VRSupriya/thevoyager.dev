@@ -1,0 +1,382 @@
+{
+ "date": "2026-11-17",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Google Threat Intelligence Group",
+   "event_date": "2026-11-16",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": "security report readers must act on; the 11-16 Google main item was a different product (BigQuery)",
+   "claims": [
+    {
+     "kind": "other",
+     "claim": "found an exposed staging server running exploit_agent, a multi-agent framework that compares popular web software before and after each patch, drafts exploits and runs them with no human involved",
+     "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
+     "quote": "It compares code before and after patch announcements, analyzes findings to identify potential vulnerabilities, drafts exploits, and automatically executes them without human intervention.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "GTIG calls it the first time it has seen LLM frameworks automate vulnerability discovery and exploitation end to end",
+     "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
+     "quote": "In the past quarter, GTIG identified threat actors using LLM frameworks to fully automate vulnerability discovery and exploitation without a human in the loop for the first time.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "8 -> 11 zero-day exploits a month, 2025 average vs 2026; 22 in August 2026",
+     "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
+     "quote": "zero-day exploits rose only marginally from a 2025 average of 8 per month to 11 per month in 2026—before spiking to 22 in the month of August.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "resold LLM API access, with single-day fraudulent charges above $100,000",
+     "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
+     "quote": "In some cases, single-day fraudulent charges exceeded $100,000 USD.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "GTIG's own detection list is plain: unexpected service-account creation, bursts of LLM API calls from odd IPs, and unreviewed edits to coding-assistant files such as .claude/settings.json",
+     "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
+     "quote": "Threat actors created unauthorized IAM and service accounts or attached administrative policies to service roles. / The botnet or proxy service generated millions of LLM API calls in approximately 24 hours before the credentials were revoked. / modifying .claude/settings.json configuration files so that when users started up Claude Code, it would automatically trigger the download of the SOMBERMEME backdoor.",
+     "verdict": "CORRECTED",
+     "fix": "The page has no detection list. These three items are observed attacker behaviours. The only defender content is Google SecOps ARTEX rulepacks and a linked Mandiant hardening guide. Say 'GTIG describes attackers creating service accounts, running bursts of LLM API calls and editing .claude/settings.json' and frame the detection advice as the brief's own inference. Also 'from odd IPs' and 'unreviewed edits' are not in the page."
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Alibaba Qwen",
+   "event_date": "2026-11-16",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "2.4 trillion total parameters, 71 billion active per token, one-million-token context, native vision",
+     "url": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max",
+     "quote": "2.4 trillion total parameters ... 71 billion active per token ... one-million-token context window ... native vision capabilities",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Alibaba's own Work360 benchmark has it using 35% fewer tokens than Qwen3.8 Max at high reasoning effort",
+     "url": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max",
+     "quote": "while using 35% fewer tokens at High effort reasoning mode",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "OpenRouter lists Alibaba Cloud at $1.425 per million input tokens and $4.275 per million output tokens",
+     "url": "https://openrouter.ai/qwen/qwen4-max",
+     "quote": "$1.425/M tokens input, $4.275/M tokens output",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "licence",
+     "claim": "The announcement promises open weights only for smaller Qwen4 models",
+     "url": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max",
+     "quote": "Open-weight, smaller-scale models from the Qwen4 series will soon be released to developers worldwide.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Claude Code VS Code extension",
+   "event_date": "2026-11-11",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "version",
+     "claim": "Affected: extension 2.1.322, which the write-up calls the latest at publication",
+     "url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
+     "quote": "remains unpatched in the latest plugin version 2.1.322 as of this publication",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: not stated in the write-up",
+     "url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
+     "quote": "remains unpatched in the latest plugin version 2.1.322 as of this publication",
+     "verdict": "CORRECTED",
+     "fix": "The write-up does state the status: no fix for the extension (unpatched in 2.1.322 at publication). Write 'Fixed in: no fix as of publication; extension unpatched in 2.1.322'. The write-up says the CLI was reportedly fixed silently after an earlier Adversa report."
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated",
+     "url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
+     "quote": "(searched whole page for severity / CVSS / rating: none given)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "If compromised: not stated in the write-up",
+     "url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
+     "quote": "(no incident-response guidance; the write-up only notes a symlink to the home directory could expose ~/.ssh/)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: run realpath on the path in the prompt before approving",
+     "url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
+     "quote": "the realistic workaround at the moment ... realpath <path displayed in permission dialog>",
+     "verdict": "VERIFIED",
+     "fix": "'check synced repos for unexpected symlinks' is the brief's own addition, not stated as a stopgap by the write-up (reader should treat it as the brief's advice)."
+    },
+    {
+     "kind": "attribution",
+     "claim": "Anthropic closed the HackerOne report as informative",
+     "url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
+     "quote": "Anthropic concluded this behavior is not a vulnerability and closed the report as informative.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "The CLI shows the real location and the extension doesn't; example ./helpdocs",
+     "url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
+     "quote": "correctly displays the actual file location",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-13",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "nine evaluations covering 516 multi-agent setups; average 0.042 lower accuracy; match or fall below baseline in 74% of comparable cases",
+     "url": "https://arxiv.org/abs/2611.17610",
+     "quote": "nine primary empirical evaluations comprising 516 unique multi-agent configurations ... multi-agent systems average -0.042 in accuracy ... equals or falls below the baseline in 74% of these comparable contrasts",
+     "verdict": "VERIFIED",
+     "fix": "Source says 'configurations' not 'setups' (minor)."
+    },
+    {
+     "kind": "attribution",
+     "claim": "communication adds nothing when agents share the same evidence; gains need split evidence, external verification or varied models",
+     "url": "https://arxiv.org/abs/2611.17610",
+     "quote": "Because communication adds no information when agents share identical evidence ... positive returns require partitioned evidence, external verification, or error diversity across models.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "The paper links its code on GitHub",
+     "url": "https://github.com/mahmoudsajjadi/pace",
+     "quote": "Comments: 43 pages, 11 figures, 13 tables. PACE Reviewer Checklist, evaluation utilities (pace CLI), and reproduction data at https://github.com/mahmoudsajjadi/pace",
+     "verdict": "VERIFIED",
+     "fix": "Repo exists and README names the paper."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Nathan Lambert / Nvidia",
+   "event_date": "2026-11-14",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Nvidia's 8-K says Huang resigned as CEO on 12 November",
+     "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm",
+     "quote": "Jensen Huang has resigned as President, Chief Executive Officer, and a member of the Board, effective immediately. (dateline SANTA CLARA, Calif., November 12, 2026)",
+     "verdict": "CORRECTED",
+     "fix": "The linked document is a press release (Exhibit 99.1) dated 12 November 2026; it did not itself show the form as an 8-K. Also he resigned as President and board member too. Say 'Nvidia announced on 12 November that Huang resigned as CEO, President and board member, effective immediately'."
+    },
+    {
+     "kind": "attribution",
+     "claim": "Lambert argues that loses open models their most ambitious champion inside Nvidia and expects its funding of open work to shrink",
+     "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen",
+     "quote": "has been flooding the zone with funding in a way that will very likely dry up ... more ambitious, founder-style bets",
+     "verdict": "CORRECTED",
+     "fix": "Lambert calls the resignation 'a major setback for the US development of an open model ecosystem' and open models one of Huang's 'more ambitious, founder-style bets'; 'most ambitious champion' is the brief's paraphrase."
+    },
+    {
+     "kind": "attribution",
+     "claim": "He calls Inkling 2 Small the best Western open-weight model 'in a while' but behind Kimi K3.1 Pro",
+     "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen",
+     "quote": "the best Western open-weight model in a while ... far behind Kimi K3.1 Pro",
+     "verdict": "VERIFIED",
+     "fix": "Source says 'far behind'."
+    },
+    {
+     "kind": "attribution",
+     "claim": "open-weight inference stays pricey while compute is scarce; enterprise post-training is the promising lane",
+     "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen",
+     "quote": "little margin competition on open-weight models ... enterprise post-training as a crucial lane",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "Lambert's post, from 14 November",
+     "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen",
+     "quote": "Nov 14, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "AWS SageMaker",
+   "event_date": "2026-11-16",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "On 16 November AWS made KV cache-aware routing available for SageMaker real-time endpoints in every region where SageMaker AI runs",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/",
+     "quote": "KV cache-aware routing is available today in all AWS Regions where Amazon SageMaker AI is available. (Posted on: Nov 16, 2026)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "version",
+     "claim": "KV_AWARE on a production variant; needs vLLM DLC 0.33.0 or later, GPU instances and at least two instances or inference-component copies",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/",
+     "quote": "setting RoutingStrategy to KV_AWARE on a production variant ... AWS vLLM Deep Learning Container version 0.33.0 or later ... GPU instances ... at least two instances or inference component copies",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "There's no additional charge",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/",
+     "quote": "There is no additional charge for KV cache-aware routing.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "AWS says it cuts time to first token for long or repeated prompts",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/",
+     "quote": "reduce time to first token for LLM workloads with long or repeated prompts",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Baidu ERNIE 5.5 Flash Preview",
+   "url": "https://ernie.baidu.com/release/ernie-5-5-flash-preview/",
+   "event_date": "2026-11-11",
+   "quote": "The API is now available on the Qianfan platform. 280B total parameters with 14B active ... 1M-token context ... will be open-sourced under Apache 2.0 soon.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Nemotron-Labs-Sigma 8B",
+   "url": "https://huggingface.co/nvidia/Nemotron-Labs-Sigma-8B-instruct",
+   "event_date": "2026-11-12",
+   "quote": "8-billion-parameter continuous diffusion language model ... NVIDIA Nemotron Open Model License ... roughly 120-140 tokens/s (single H100, bf16)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "California v. OpenAI",
+   "url": "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over",
+   "event_date": "2026-11-16",
+   "quote": "lost control of its autonomous AI agents at least 80 times during testing ... lasted over two days ... hundreds of individual autonomous AI agents",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Anthropic disclosure windows",
+   "url": "https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines",
+   "event_date": "2026-11-16",
+   "quote": "from 90 days to 30 days for high- and critical-severity issues ... on or after January 1, 2027 ... seven-day disclosure window for any vulnerability under active exploitation remains unchanged",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Optimizely Web scripts",
+   "url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/",
+   "event_date": "2026-11-16",
+   "quote": "188 snippets belonging to 178 organisations were infected ... Zoom, the BBC, CNN, Salesforce, GitLab ... Check Optimizely Project JavaScript ... for 1688360.cc ... Audit who has write access",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Windows 11 coding-agent telemetry",
+   "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+   "event_date": "2026-11-16",
+   "quote": "Microsoft.Windows.MissionControlAggregator.Segments.SubCohorts (optional); claude.exe matched; Send optional diagnostic data",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "AWS Emulator",
+   "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+   "event_date": "2026-11-11",
+   "quote": "Don't use the emulator to test whether your application is secure. (Licence on the linked repo github.com/aws/aws-emulator: 'This software is licensed under the CC0 1.0 Universal (CC0-1.0) License.')",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "VS Code Local harness",
+   "url": "https://github.blog/changelog/2026-11-16-vs-code-retires-the-local-harness-in-february-2027",
+   "event_date": "2026-11-16",
+   "quote": "Visual Studio Code 1.146 deprecates the Local harness ... will be removed in February 2027 ... Copilot harness default since VS Code 1.143",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "AWS Nitro Sandboxes",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/nitro-sandboxes-eks-ecs-ec2/",
+   "event_date": "2026-11-09",
+   "quote": "each pod or task gets its own VM ... near-native EC2 performance (Posted on: Nov 9, 2026). Searched page for RuntimeClass, Kubernetes, 1.36, version: none found.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Unfinished-Bench",
+   "url": "https://arxiv.org/abs/2611.17460",
+   "event_date": "2026-11-12",
+   "quote": "In each of its 97 scenarios ... persistence raised violations of a rule in an internal document from 32.2% to 43.6%.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "San Francisco Declaration (world)",
+   "url": "https://inc42.com/buzz/india-nine-other-nations-sign-declaration-to-secure-ai-supply-chains/",
+   "event_date": "2026-11-15",
+   "quote": "India and nine other nations ... shared endeavour ... signed November 15, at the Pax Silica retreat; five proposed working groups",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "CtrlS (world)",
+   "url": "https://analyticsindiamag.com/ai-features/inside-ctrlss-44-gw-bet-on-indias-data-centre-boom",
+   "event_date": "2026-11-16",
+   "quote": "targeting 4.4 GW of capacity by 2030 ... a ₹10,000 crore investment in Bihar to set up a 150 MW AI factory in Bodh Gaya",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bengaluru Tech Summit (world, upcoming)",
+   "url": "https://bengalurutechsummit.com",
+   "event_date": "2026-11-17",
+   "quote": "17-19 November 2026 ... Bangalore International Exhibition Centre ... theme 'AI & Beyond' ... AI & Robotics Pavilion",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

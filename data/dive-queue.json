@@ -20,5 +20,12 @@
   "title": "NVIDIA Agent Substrate",
   "url": "https://github.com/agent-substrate/substrate",
   "why": "changes how agent runtimes are built (checkpoint/restore sessions on warm Kubernetes pods); donated to CNCF Sandbox"
+ },
+ {
+  "date": "2026-11-17",
+  "kind": "paper",
+  "title": "More Agents, More Samples, or More Thinking? (PACE)",
+  "url": "https://arxiv.org/abs/2611.17610",
+  "why": "changes how agent systems are built: multi-agent setups rarely beat matched-budget baselines; code released (github.com/mahmoudsajjadi/pace)"
  }
 ]

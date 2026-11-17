@@ -1,47 +1,5 @@
 [
  {
-  "date": "2026-10-17",
-  "slot": "top",
-  "title": "Perplexity SPACE open-source sandbox",
-  "url": "https://github.com/perplexityai/space"
- },
- {
-  "date": "2026-10-17",
-  "slot": "models",
-  "title": "Reflection Beam",
-  "url": "https://huggingface.co/blog/reflection-beam"
- },
- {
-  "date": "2026-10-17",
-  "slot": "agents",
-  "title": "Google Cloud agent plugin eval lessons",
-  "url": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons/"
- },
- {
-  "date": "2026-10-17",
-  "slot": "research",
-  "title": "Apple MLX distributed inference on Mac Studio",
-  "url": "https://machinelearning.apple.com/research/mlx-distributed-inference"
- },
- {
-  "date": "2026-10-17",
-  "slot": "people",
-  "title": "Claude Code team on continuous review",
-  "url": "https://simonwillison.net/2026/Oct/16/code-review/"
- },
- {
-  "date": "2026-10-17",
-  "slot": "architecture",
-  "title": "Wiz Runtime Sensor add-on for GKE",
-  "url": "https://cloud.google.com/blog/products/identity-security/wiz-sensor-for-gke-turnkey-threat-detection-for-kubernetes/"
- },
- {
-  "date": "2026-10-17",
-  "slot": "regional",
-  "title": "Jais 3 Arabic models",
-  "url": "https://gulfnews.com/uae/uae-launches-jais-3-arabic-native-ai-for-speech-writing-and-agents-1.500711935"
- },
- {
   "date": "2026-10-18",
   "slot": "top",
   "title": "DeepSeek V4.1-Flash-1017",
@@ -2500,5 +2458,113 @@
   "slot": "quick",
   "title": "Amazon Bedrock cost attribution by IAM principal",
   "url": "https://aws.amazon.com/blogs/machine-learning/cost-attribution-and-controls-for-ai-developer-and-productivity-tools-on-amazon-bedrock/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "top",
+  "title": "Google GTIG agentic threat activity crosses a threshold",
+  "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "models",
+  "title": "Alibaba Qwen4 Max",
+  "url": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "agents",
+  "title": "Anthropic Claude Code VS Code extension symlink prompt",
+  "url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "research",
+  "title": "More agents, more samples, or more thinking multi-agent baselines",
+  "url": "https://arxiv.org/abs/2611.17610"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "people",
+  "title": "Nathan Lambert open-source AI without Jensen",
+  "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "architecture",
+  "title": "Amazon SageMaker KV cache-aware routing",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "regional",
+  "title": "San Francisco Declaration AI supply chain",
+  "url": "https://inc42.com/buzz/india-nine-other-nations-sign-declaration-to-secure-ai-supply-chains/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "regional",
+  "title": "CtrlS 4.4 GW data centre plan",
+  "url": "https://analyticsindiamag.com/ai-features/inside-ctrlss-44-gw-bet-on-indias-data-centre-boom"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "Baidu ERNIE 5.5 Flash Preview",
+  "url": "https://ernie.baidu.com/release/ernie-5-5-flash-preview/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "Nvidia Nemotron-Labs-Sigma 8B",
+  "url": "https://huggingface.co/nvidia/Nemotron-Labs-Sigma-8B-instruct"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "California v. OpenAI agent incidents",
+  "url": "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "Anthropic disclosure windows 30 days",
+  "url": "https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "Optimizely Web injected scripts",
+  "url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "Windows 11 coding-agent telemetry",
+  "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "AWS Emulator",
+  "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "GitHub VS Code Local harness retirement",
+  "url": "https://github.blog/changelog/2026-11-16-vs-code-retires-the-local-harness-in-february-2027"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "AWS Nitro Sandboxes",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/nitro-sandboxes-eks-ecs-ec2/"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "quick",
+  "title": "Unfinished-Bench persistent agent rule violations",
+  "url": "https://arxiv.org/abs/2611.17460"
  }
 ]

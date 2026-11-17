@@ -243,5 +243,12 @@
   "source_url": "https://www.ic3.gov/CSA/2026/261113.pdf",
   "hypothesis": "Partner portals, mobile backends and admin interfaces include some with no auth or shared admin passwords; count them against the FBI's ARTEX list of initial-access weaknesses.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-17",
+  "title": "Symlinks pointing outside repo roots",
+  "source_url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
+  "hypothesis": "Some of your repos contain symlinks that point outside the repo root, which the Claude Code VS Code permission prompt would display as workspace paths.",
+  "status": "suggested"
  }
 ]

@@ -257,5 +257,12 @@
   "week": 7,
   "title": "Your multi-agent system beat a single call. Did it beat five single calls for the same tokens?",
   "topic_key": "research:pace-parity-aware-compute-evaluation-multi-agent-vs-matched-baselines:ingestion-document-pipelines"
+ },
+ {
+  "date": "2026-11-18",
+  "track": "system",
+  "week": 7,
+  "title": "Invoices and claims packets for an insurer: where the parser stops, the model starts, and a person signs",
+  "topic_key": "system:invoice-and-claims-processing-insurance:ingestion-document-pipelines"
  }
 ]

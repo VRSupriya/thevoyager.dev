@@ -1,0 +1,479 @@
+{
+ "date": "2026-11-18",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "OpenJDK (found by Calif with Codex)",
+   "event_date": "2026-11-17",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "other",
+     "claim": "CVE-2026-114938, rated 9.2 (CVSS 4.0) by Calif, disclosed on 17 November",
+     "url": "https://calif.io/java4shell/",
+     "quote": "CVE-2026-114938 ... 9.2 out of 10 (CRITICAL) ... 1:00pm PT on Nov 17, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "less than $200 in tokens; about an hour to find, two more hours to build the first exploit; 62 bytes past the output array",
+     "url": "https://calif.io/java4shell/",
+     "quote": "less than $200 ... two more hours ... 62 bytes past the end of the array",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "researcher Quang Luong pointed OpenAI Codex at HotSpot",
+     "url": "https://calif.io/java4shell/",
+     "quote": "write-up is by Quang Luong ... was found and reported by Calif.io",
+     "verdict": "VERIFIED",
+     "fix": "Page confirms Luong as author and Calif as finder; the Codex-on-HotSpot detail was not separately re-quoted."
+    },
+    {
+     "kind": "version",
+     "claim": "Affected: OpenJDK 17.0.6 or newer, x86-64 with AVX-512 VBMI; ARM64 not affected",
+     "url": "https://calif.io/java4shell/",
+     "quote": "OpenJDK from version 17.0.6 or newer ... ARM64 CPUs are not affected.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Fixed in: Calif's write-up gives no fixed build numbers",
+     "url": "https://calif.io/java4shell/",
+     "quote": "(searched whole page: lists affected Oracle builds 17.0.21.0.3, 21.0.13.0.3 etc.; points to OpenJDK advisory and an Oracle patch; no fixed build numbers)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "version",
+     "claim": "Endor Labs lists Oracle Java SE 17.0.21.1 and 21.0.13.1 as fixed",
+     "url": "https://www.endorlabs.com/learn/java4shell-unauthenticated-rce-reported-in-openjdk-17-cve-2026-114938",
+     "quote": "Oracle Java SE 17: \"17.0.21.1,\" reportedly. Oracle Java SE 21: \"21.0.13.1,\" reportedly.",
+     "verdict": "CORRECTED",
+     "fix": "Endor says 'reportedly', says Oracle's list is not a per-CVE scope, and that the public OpenJDK 17u/21u/25u repos did not yet carry the fix on 17 November (confirm JDK-8393212). Add that caveat."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: -XX:-UseBASE64Intrinsics, or -XX:UseAVX=2 on x86-64 only",
+     "url": "https://calif.io/java4shell/",
+     "quote": "\"-XX:-UseBASE64Intrinsics\" ... \"-XX:UseAVX=2\" disables AVX-512 and should be applied only on x86-64 hosts",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "If compromised: not stated in Calif's write-up",
+     "url": "https://calif.io/java4shell/",
+     "quote": "(searched whole page: 'Check your servers' section only links to the affected products list; no incident-response guidance)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Calif says there's no universal exploit and each target needs its own work",
+     "url": "https://calif.io/java4shell/",
+     "quote": "there is no universal exploit ... not a universal point-and-shoot",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "OpenAI",
+   "event_date": "2026-11-17",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "price",
+     "claim": "Astra is $8 per million input and $40 output, 1,050,000-token window",
+     "url": "https://developers.openai.com/api/docs/models/gpt-6.2-astra",
+     "quote": "Input: $8 Output: $40 ... 1,050,000 context window",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "input above 272K doubles the input rate and raises output to 1.5x for the whole request",
+     "url": "https://developers.openai.com/api/docs/models/gpt-6.2-astra",
+     "quote": "For requests with more than 272K input tokens, input and cache rates double ... output costs 1.5 times the short-context rate for the full request",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "Sol is $2 and $10 on OpenRouter",
+     "url": "https://openrouter.ai/openai/gpt-6.2-sol",
+     "quote": "OpenAI: $2/M tokens input, $10/M tokens output",
+     "verdict": "VERIFIED",
+     "fix": "Other providers/routes list higher prices (Azure $2.20-$2.40 in, $11-$12 out; OpenAI $4-$6 tiers); developers.openai.com Sol page also shows $2/$10."
+    },
+    {
+     "kind": "date",
+     "claim": "released on 17 November",
+     "url": "https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available",
+     "quote": "November 17, 2026",
+     "verdict": "VERIFIED",
+     "fix": "OpenAI model pages give no release date; the date rests on the GitHub changelog."
+    },
+    {
+     "kind": "status",
+     "claim": "GitHub Copilot has both rolling out on Pro+, Max, Business and Enterprise plans",
+     "url": "https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available",
+     "quote": "available to Copilot Pro+, Max, Business, and Enterprise users ... Rollout will be gradual.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "GPT-6.2 Sol, a lighter everyday model",
+     "url": "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
+     "quote": "Our go-to model for everyday work, from coding to powering agents at scale.",
+     "verdict": "CORRECTED",
+     "fix": "OpenAI calls Sol its 'go-to model for everyday work'; it does not call it lighter (it has the same 1,050,000 window and is cheaper). Say 'cheaper everyday model'."
+    },
+    {
+     "kind": "attribution",
+     "claim": "one investor calling the pair 'essentially unusable' and another reviewer calling it uneven and hard to steer",
+     "url": "https://officechai.com/ai/gpt-6-2-astra-early-tester-harsh-reviews/",
+     "quote": "\"They were essentially unusable.\" (Matt Shumer) ... \"very uneven & weird\" ... \"harder to steer & work with than other models\" (Ethan Mollick)",
+     "verdict": "VERIFIED",
+     "fix": "Shumer is called an investor by the article; the quote is about early versions/testers, check context before saying 'the pair'."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Runta",
+   "event_date": "2026-11-17",
+   "status": "Vendor benchmark",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "22 harness configurations, five open models, 62 terminal tasks, 27,280 runs, served by Baseten",
+     "url": "https://runta.com/blog/introducing-frontierharness-eval-v1-1/",
+     "quote": "22 harnesses × 5 models × 62 tasks × 4 attempts ... 83B tokens across 27,280 agent runs ... partnered with Baseten",
+     "verdict": "VERIFIED",
+     "fix": "Page says '22 configurations across 18 harnesses'."
+    },
+    {
+     "kind": "number",
+     "claim": "harness changes cost by 1.8 to 5.0 times with the model fixed",
+     "url": "https://runta.com/blog/introducing-frontierharness-eval-v1-1/",
+     "quote": "With the Model Fixed, the Harness Changes the Cost by 1.8 to 5.0 Times",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "DeepSeek V4.1 Flash: Cline CLI cost 5.0 times OpenCode v1 for 2.0 more points of pass rate",
+     "url": "https://runta.com/blog/introducing-frontierharness-eval-v1-1/",
+     "quote": "The largest is with DeepSeek: Cline CLI cost 5.0 times as much as OpenCode v1, for 2.0 more points.",
+     "verdict": "VERIFIED",
+     "fix": "Model is DeepSeek-V4.1-Flash-1017."
+    },
+    {
+     "kind": "number",
+     "claim": "model explains 92.8% of cost-per-task variance against 2.3% for the harness",
+     "url": "https://runta.com/blog/introducing-frontierharness-eval-v1-1/",
+     "quote": "The model explains 92.8% of the variance of cost per task.",
+     "verdict": "VERIFIED",
+     "fix": "2.3% harness share also on the page."
+    },
+    {
+     "kind": "other",
+     "claim": "costs are list-price estimates; pass-rate intervals about +/-10 points",
+     "url": "https://runta.com/blog/introducing-frontierharness-eval-v1-1/",
+     "quote": "All costs are inference estimates at list prices ... 95% interval of about ±10 points",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "MBZUAI IFM",
+   "event_date": "2026-11-16",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "six models from 0.9B dense to a 375B-A23B MoE; published 16 November",
+     "url": "https://arxiv.org/abs/2611.21003",
+     "quote": "a fleet of six fully open language models, from a 0.9B dense model to a 375B-A23B MoE ... Submitted on 16 Nov 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "licence",
+     "claim": "model card tags it Apache 2.0; 512K context",
+     "url": "https://huggingface.co/IFM/K2-Horizon-375B-A23B",
+     "quote": "License: apache-2.0 ... 512K context window",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "model card says training data, recipe, code and intermediate checkpoints are public",
+     "url": "https://huggingface.co/IFM/K2-Horizon-375B-A23B",
+     "quote": "Training data/recipe and the training code are public. ... Intermediate checkpoints are released",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "with FP8 and NVFP4 builds on Hugging Face",
+     "url": "https://huggingface.co/IFM/K2-Horizon-375B-A23B",
+     "quote": "(model card page and file tree: no mention of FP8, NVFP4 or quantized variants) / paper HTML model table: \"FP8, NVFP4\" with links to Hugging Face builds",
+     "verdict": "CORRECTED",
+     "fix": "FP8 and NVFP4 builds are listed in the paper's model table, not on the model card. Attribute to the paper."
+    },
+    {
+     "kind": "attribution",
+     "claim": "the paper says the 375B ranks first or second on most agentic and coding benchmarks against four open peers, leading them on Toolathlon-Verified at 65.3",
+     "url": "https://arxiv.org/html/2611.21003v1",
+     "quote": "ranks first or second on most agentic and coding benchmarks ... leads all four on Toolathlon-Verified (65.3)",
+     "verdict": "VERIFIED",
+     "fix": "Claim is in the paper's Introduction, not the abstract (abstract says 'lead or are competitive'). Peers: GLM-5.2, MiniMax M3, Nemotron 3 Ultra, Inkling."
+    },
+    {
+     "kind": "number",
+     "claim": "Terminal-Bench 2.1: 70.2 against a best of 80.9",
+     "url": "https://huggingface.co/IFM/K2-Horizon-375B-A23B",
+     "quote": "K2-Horizon 70.2; best 80.9 (GPT 5.6 Luna (max))",
+     "verdict": "VERIFIED",
+     "fix": "'Behind closed models on most of its table' not checked row by row."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Simon Willison / Prime Radiant",
+   "event_date": "2026-11-17",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "On 17 November Willison linked a Prime Radiant post on external sandboxes",
+     "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
+     "quote": "[External sandboxes for coding agents](https://blog.primeradiant.com/external-sandboxes-for-coding-agents/)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "agent stays outside, code it runs executes in a dedicated sandbox",
+     "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
+     "quote": "where code executed by the agent runs inside a dedicated sandbox while the agent itself lives outside of that sandbox",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "three demonstration servers (WebAssembly, Apple Containers, QEMU), same localhost API",
+     "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
+     "quote": "Each of these implementations offers the same localhost API.",
+     "verdict": "VERIFIED",
+     "fix": "Prime Radiant calls them 'three prototype sandbox implementations ... experimental prototypes'; the three implementations are listed on Willison's page. Brief could add 'experimental'."
+    },
+    {
+     "kind": "other",
+     "claim": "optional allow-list proxy and credential-replacement mechanism",
+     "url": "https://blog.primeradiant.com/external-sandboxes-for-coding-agents/",
+     "quote": "Each sandbox can be configured to allow HTTP and HTTPS network access via a proxy. / Credential replacement allows code running inside the sandbox to make authenticated calls to web APIs.",
+     "verdict": "VERIFIED",
+     "fix": "The words 'allow-list' and 'optional' are on Willison's page (optional HTTP/HTTPS allow-list proxy)."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "agent-framework (PyPI)",
+   "event_date": "2026-11-17",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "1.26.1 (20:35 UTC) and 1.26.2 (21:08 UTC) appeared on PyPI; both removed by about 21:20",
+     "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+     "quote": "At 20:35 UTC, version 1.26.1 appeared ... At 21:08 UTC, version 1.26.2 was published ... By 21:20 UTC both versions had been removed.",
+     "verdict": "VERIFIED",
+     "fix": "Endor times: 20:35:20 and 21:08:39; Endor says removal time isn't stated."
+    },
+    {
+     "kind": "other",
+     "claim": ".pth startup file runs a stealer on every Python start; collects env secrets and Azure DevOps and managed-identity tokens; 1.26.2 adds GitHub Actions OIDC; sent to webhook.site",
+     "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+     "quote": "GitHub Actions OIDC theft: no in 1.26.1, yes in 1.26.2. ... webhook[.]site",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "how the attacker got publishing access isn't known yet",
+     "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+     "quote": "How they got those credentials isn't known yet.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "about 190,000 downloads a month",
+     "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+     "quote": "The package sees about 190,000 downloads a month.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "about 45 minutes on PyPI (share text)",
+     "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+     "quote": "even a 45-minute window adds up",
+     "verdict": "VERIFIED",
+     "fix": "Timestamps (20:35 to 21:20) give about 45 minutes for the combined window."
+    },
+    {
+     "kind": "version",
+     "claim": "Affected includes loose requirements such as agent-framework>=1.26; 1.26.0 is the last clean version",
+     "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+     "quote": "whether directly or through a loose requirement like `agent-framework>=1.26` ... Pin `agent-framework==1.26.0`",
+     "verdict": "VERIFIED",
+     "fix": "Endor: 1.26.0 released November 12, 2026."
+    },
+    {
+     "kind": "other",
+     "claim": "Aikido rates it 100/100 critical; no CVE assigned",
+     "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+     "quote": "This will surface as a 100/100 critical issue",
+     "verdict": "VERIFIED",
+     "fix": "No CVE mentioned on Aikido or Endor pages ('no CVE assigned' is an absence of mention)."
+    },
+    {
+     "kind": "remediation",
+     "claim": "rotate every reachable secret including Azure DevOps PATs and service connections, Azure service principals, GitHub, npm, PyPI and Hugging Face tokens",
+     "url": "https://www.endorlabs.com/learn/agent-framework-compromised-software-supply-chain-attack",
+     "quote": "Azure DevOps: self-hosted agent registrations, PATs, service connection secrets ... npm, PyPI, Docker registry, git, and Hugging Face credentials",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "two fake Microsoft agent-framework releases",
+     "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes",
+     "quote": "Microsoft's `agent-framework` package on PyPI was compromised.",
+     "verdict": "CORRECTED",
+     "fix": "They are malicious releases of Microsoft's real package published with valid publishing credentials, not a lookalike package; 'fake' in the heading could mislead. Say 'two malicious releases of Microsoft's agent-framework'."
+    },
+    {
+     "kind": "other",
+     "claim": "removing the package doesn't undo data already sent; no patched release",
+     "url": "https://www.endorlabs.com/learn/agent-framework-compromised-software-supply-chain-attack",
+     "quote": "Don't run python or pip in affected environments, since the payload runs on every interpreter start.",
+     "verdict": "CORRECTED",
+     "fix": "Brief's remediation omits Endor's warning not to run python/pip in affected environments (remove payload files without launching the interpreter, or rebuild from a clean image)."
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "MAI Code 2 and Code 2 Flash",
+   "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+   "event_date": "2026-11-17",
+   "quote": "MAI Code 2 and Code 2 Flash are available in GitHub Copilot. ... gives you 98% of the performance of GPT 6.1 Sol ... at 40% of the cost ... shown at its 50% promotional price",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "OVHcloud Olala mini",
+   "url": "https://corporate.ovhcloud.com/en/newsroom/news/ovh-olala-mini/",
+   "event_date": "2026-11-17",
+   "quote": "7-billion-parameter architecture (7B), with one billion active parameters spread across 256 experts per layer ... under the Apache 2.0 licence ... as little as 8 GB of memory ... official launch ... 19 November (no benchmark results given)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bitdefender booby-trapped GitHub repos",
+   "url": "https://www.bitdefender.com/en-us/blog/labs/how-ai-agents-become-new-targets-in-github-malware-campaign",
+   "event_date": "2026-11-17",
+   "quote": "22 malicious GitHub links ... run node scripts/setup.js automatically without asking for confirmation ... Session-start hooks in .claude/settings.json",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "MLflow SSRF",
+   "url": "https://github.com/mlflow/mlflow/security/advisories/GHSA-mr9f-g8qf-4w4j",
+   "event_date": "2026-11-13",
+   "quote": "Nov 13, 2026 ... 8.2 ... Patched 3.18.0 ... Versions 3.17.0 through 3.17.2 fix the paths described above but remain exposed to this bypass.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub Copilot Evals",
+   "url": "https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview",
+   "event_date": "2026-11-17",
+   "quote": "in public preview for Copilot Individual, Copilot Business, and Copilot Enterprise plans ... Compare runs from before and after a customization change",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Perplexity Monitor API",
+   "url": "https://www.perplexity.ai/hub/blog/introducing-perplexitys-monitor-api",
+   "event_date": "2026-11-16",
+   "quote": "available today through the API and the API Console ... Web monitors cost $1 per 1,000 successful runs ... Track changes to up to 10 specified pages",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Replit Missions",
+   "url": "https://replit.com/blog/introducing-replit-missions",
+   "event_date": "2026-11-17",
+   "quote": "49,000 traces/second with DataCat (Postgres), versus 9,800 for the Claude Code build ... one run per setup ... built within a $3,000 capped budget",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bedrock AgentCore Memory",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-memory-10-year-retention",
+   "event_date": "2026-11-17",
+   "quote": "keep short-term memory events for up to 10 years, up from one year ... existing events keep their original retention ... Standard short-term memory storage charges apply",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Karnataka AI skilling MoUs (world)",
+   "url": "https://thefederal.com/category/states/south/karnataka/karnataka-sign-mou-five-tech-firms-ai-training-63200-students-263237",
+   "event_date": "2026-11-17",
+   "quote": "a proposed target of training over 63,000 students and engineers across the state ... have proposed specialised skilling programmes",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Sarvam Token Factory (world)",
+   "url": "https://www.sarvam.ai/token-factory",
+   "event_date": "2026-11-18",
+   "quote": "Model inference runs on Sarvam-operated GPUs in India ... requests are not forwarded to the original model developer's overseas API ... Introductory pricing ... INR per 1M tokens (DeepSeek V4.1 Flash 1017 14.00 / 55.00); 12 models in pricing, no GA/beta label",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google agentic assistant in India (world)",
+   "url": "https://inc42.com/buzz/google-begins-rolling-out-personal-ai-assistant-tasks-in-india/",
+   "event_date": "2026-11-18",
+   "quote": "rolling out free of charge ... six markets ... did not specify whether its card network partnerships extend to India ... no clarity on this front",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Dubai Future Week (world, upcoming)",
+   "url": "https://www.dubaifuture.ae",
+   "event_date": "2026-11-18",
+   "quote": "18–21 November 2026 ... Emirates Towers & the Museum of the Future, Dubai",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

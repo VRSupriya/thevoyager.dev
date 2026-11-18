@@ -1,53 +1,5 @@
 [
  {
-  "date": "2026-10-18",
-  "slot": "top",
-  "title": "DeepSeek V4.1-Flash-1017",
-  "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
- },
- {
-  "date": "2026-10-18",
-  "slot": "models",
-  "title": "DeepSeek flash alias repointed to 1017",
-  "url": "https://api-docs.deepseek.com/news/news1017"
- },
- {
-  "date": "2026-10-18",
-  "slot": "agents",
-  "title": "REA MCP server for reverse engineering",
-  "url": "https://github.com/morluto/rea"
- },
- {
-  "date": "2026-10-18",
-  "slot": "research",
-  "title": "Google VERID wet-lab agents",
-  "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/"
- },
- {
-  "date": "2026-10-18",
-  "slot": "people",
-  "title": "Nathan Lambert: Meta shakes up the frontiers",
-  "url": "https://www.interconnects.ai/p/meta-shakes-up-the-frontiers-open"
- },
- {
-  "date": "2026-10-18",
-  "slot": "architecture",
-  "title": "Databricks multi-table transactions GA",
-  "url": "https://www.databricks.com/blog/transactions-are-generally-available-advancing-warehousing-lakehouse"
- },
- {
-  "date": "2026-10-18",
-  "slot": "regional",
-  "title": "Mashreq pilots IBM Bob",
-  "url": "https://www.zawya.com/en/press-release/companies-news/mashreq-pilots-ibm-bob-to-advance-agentic-ai-for-integration-engineering-1589075"
- },
- {
-  "date": "2026-10-18",
-  "slot": "regional",
-  "title": "Abu Dhabi TAMM Global",
-  "url": "https://www.kucoin.com/news/flash/abu-dhabi-launches-tamm-global-to-license-ai-government-platform"
- },
- {
   "date": "2026-10-19",
   "slot": "top",
   "title": "CERT-In advisory on AI agents reaching live systems",
@@ -2566,5 +2518,107 @@
   "slot": "quick",
   "title": "Unfinished-Bench persistent agent rule violations",
   "url": "https://arxiv.org/abs/2611.17460"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "top",
+  "title": "OpenJDK Java4Shell CVE-2026-114938 found with Codex",
+  "url": "https://calif.io/java4shell/"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "models",
+  "title": "OpenAI GPT-6.2 Astra and Sol",
+  "url": "https://developers.openai.com/api/docs/models/gpt-6.2-astra"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "agents",
+  "title": "Runta FrontierHarness Eval v1.1 harness cost",
+  "url": "https://runta.com/blog/introducing-frontierharness-eval-v1-1/"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "research",
+  "title": "MBZUAI K2-Horizon open 375B model",
+  "url": "https://arxiv.org/abs/2611.21003"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "people",
+  "title": "Simon Willison: external sandboxes for coding agents",
+  "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "architecture",
+  "title": "Microsoft agent-framework malicious PyPI releases",
+  "url": "https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "regional",
+  "title": "Karnataka AI skilling MoUs",
+  "url": "https://thefederal.com/category/states/south/karnataka/karnataka-sign-mou-five-tech-firms-ai-training-63200-students-263237"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "regional",
+  "title": "Sarvam Token Factory",
+  "url": "https://www.sarvam.ai/token-factory"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "regional",
+  "title": "Google agentic assistant India rollout",
+  "url": "https://inc42.com/buzz/google-begins-rolling-out-personal-ai-assistant-tasks-in-india/"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "quick",
+  "title": "Microsoft MAI Code 2 and Code 2 Flash",
+  "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "quick",
+  "title": "OVHcloud Olala mini",
+  "url": "https://corporate.ovhcloud.com/en/newsroom/news/ovh-olala-mini/"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "quick",
+  "title": "Bitdefender poisoned GitHub repos targeting coding agents",
+  "url": "https://www.bitdefender.com/en-us/blog/labs/how-ai-agents-become-new-targets-in-github-malware-campaign"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "quick",
+  "title": "MLflow SSRF advisory GHSA-mr9f-g8qf-4w4j",
+  "url": "https://github.com/mlflow/mlflow/security/advisories/GHSA-mr9f-g8qf-4w4j"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "quick",
+  "title": "GitHub Copilot Evals",
+  "url": "https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "quick",
+  "title": "Perplexity Monitor API",
+  "url": "https://www.perplexity.ai/hub/blog/introducing-perplexitys-monitor-api"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "quick",
+  "title": "Replit Missions",
+  "url": "https://replit.com/blog/introducing-replit-missions"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "quick",
+  "title": "Amazon Bedrock AgentCore Memory 10-year retention",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-memory-10-year-retention"
  }
 ]

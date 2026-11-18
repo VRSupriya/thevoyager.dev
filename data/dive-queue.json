@@ -28,5 +28,12 @@
   "url": "https://arxiv.org/abs/2611.17610",
   "why": "changes how agent systems are built: multi-agent setups rarely beat matched-budget baselines; code released (github.com/mahmoudsajjadi/pace)",
   "used": "2026-11-17"
+ },
+ {
+  "date": "2026-11-18",
+  "kind": "paper",
+  "title": "K2-Horizon: A Frontier Fleet of Open Source Language Models",
+  "url": "https://arxiv.org/abs/2611.21003",
+  "why": "from a major lab with code and weights released (MBZUAI IFM; weights, training code and data links on Hugging Face)"
  }
 ]

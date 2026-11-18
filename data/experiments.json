@@ -250,5 +250,12 @@
   "source_url": "https://ultrastrike.io/2026/11/claude-code-vscode-plugin-workspace-escape-via-misleading-permission-prompt/",
   "hypothesis": "Some of your repos contain symlinks that point outside the repo root, which the Claude Code VS Code permission prompt would display as workspace paths.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-18",
+  "title": "Java4Shell exposure across JVM hosts",
+  "source_url": "https://calif.io/java4shell/",
+  "hypothesis": "Some of your JVM hosts run OpenJDK 17.0.6 or newer on CPUs with AVX-512 VBMI and are exposed to CVE-2026-114938; counting them with Calif's /proc/cpuinfo check shows where the -XX:-UseBASE64Intrinsics stopgap is needed until patched builds land.",
+  "status": "suggested"
  }
 ]

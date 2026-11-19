@@ -1,35 +1,5 @@
 [
  {
-  "date": "2026-10-19",
-  "slot": "top",
-  "title": "CERT-In advisory on AI agents reaching live systems",
-  "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02"
- },
- {
-  "date": "2026-10-19",
-  "slot": "agents",
-  "title": "OpenCode 2 changelog",
-  "url": "https://opencode.ai/changelog"
- },
- {
-  "date": "2026-10-19",
-  "slot": "research",
-  "title": "Hybrid Reasoning Agents",
-  "url": "https://arxiv.org/abs/2610.18861"
- },
- {
-  "date": "2026-10-19",
-  "slot": "people",
-  "title": "Latent Space: Crossing the Threshold",
-  "url": "https://www.latent.space/p/crossing-the-threshold"
- },
- {
-  "date": "2026-10-19",
-  "slot": "architecture",
-  "title": "OpenCode Console breach",
-  "url": "https://xenospectrum.com/en/opencode-console-breach-api-key-management/"
- },
- {
   "date": "2026-10-20",
   "slot": "top",
   "title": "GitHub Copilot model retirements and model policy API",
@@ -2620,5 +2590,113 @@
   "slot": "quick",
   "title": "Amazon Bedrock AgentCore Memory 10-year retention",
   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-bedrock-agentcore-memory-10-year-retention"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "top",
+  "title": "vLLM unauthenticated DoS advisories fixed in 0.33.0",
+  "url": "https://github.com/advisories/GHSA-cf32-wrp7-cjrw"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "models",
+  "title": "Google Gemini 4 Neon",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "agents",
+  "title": "Coral open gateway for agent code",
+  "url": "https://github.com/withcoral/coral"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "research",
+  "title": "NVIDIA Nemotron 3.5 Super LoRA RL on expert tasks",
+  "url": "https://arxiv.org/abs/2611.22161"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "people",
+  "title": "Cloudflare System One small models (Latent Space)",
+  "url": "https://latent.space/p/cloudflare/"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "architecture",
+  "title": "Datadog Online Experiments for agent observability",
+  "url": "https://www.infoq.com/news/2026/11/datadog-ai-agent-observability/"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "regional",
+  "title": "Neysa AMD MI350X cluster Mumbai",
+  "url": "https://analyticsindiamag.com/ai-news/neysa-deploys-amd-gpu-cluster-in-mumbai-for-ai-training-and-inference"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "regional",
+  "title": "Dubai Municipality D.Mind",
+  "url": "https://gulfnews.com/uae/dubai-unveils-ai-platform-dmind-to-tackle-residents-complaints-with-quick-solutions-1.500752049"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "Tencent Hy4 flash open weights",
+  "url": "https://huggingface.co/tencent/Hy4-flash-FP8"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "RadixArk DaisyRose-27B",
+  "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "RunAnywhere TrnRT Trainium engine",
+  "url": "https://github.com/RunanywhereAI/trnrt"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "Microsoft MAI Licensed Weights",
+  "url": "https://microsoft.ai/news/introducing-mai-licensed-weights/"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "SGLang LoRA adapter authorization advisory",
+  "url": "https://github.com/advisories/GHSA-m386-99gj-pq7p"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "Supergateway WebSocket Origin advisory",
+  "url": "https://github.com/advisories/GHSA-cp8r-6jmm-c5qw"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "Obot MCP OAuth metadata SSRF advisory",
+  "url": "https://github.com/advisories/GHSA-x4wv-wh23-vxjx"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "SGLang Consortium",
+  "url": "https://www.lmsys.org/blog/2026-11-12-sglang-consortium"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "Microsoft Foundry hosted agents egress controls",
+  "url": "https://devblogs.microsoft.com/foundry/hosted-agents-foundry-agent-service-ignite-2026/"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "quick",
+  "title": "Google Cloud Envoy agentic stack",
+  "url": "https://cloud.google.com/blog/products/networking/the-envoy-agentic-stack-routing-models-tokens-and-mcp/"
  }
 ]

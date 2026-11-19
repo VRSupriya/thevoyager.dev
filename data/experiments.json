@@ -257,5 +257,12 @@
   "source_url": "https://calif.io/java4shell/",
   "hypothesis": "Some of your JVM hosts run OpenJDK 17.0.6 or newer on CPUs with AVX-512 VBMI and are exposed to CVE-2026-114938; counting them with Calif's /proc/cpuinfo check shows where the -XX:-UseBASE64Intrinsics stopgap is needed until patched builds land.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-19",
+  "title": "vLLM servers below 0.33.0 reachable by untrusted callers",
+  "source_url": "https://github.com/advisories/GHSA-cf32-wrp7-cjrw",
+  "hypothesis": "Some of your vLLM servers are below 0.33.0 and reachable by untrusted callers.",
+  "status": "suggested"
  }
 ]

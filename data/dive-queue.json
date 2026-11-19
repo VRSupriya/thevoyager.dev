@@ -35,5 +35,12 @@
   "title": "K2-Horizon: A Frontier Fleet of Open Source Language Models",
   "url": "https://arxiv.org/abs/2611.21003",
   "why": "from a major lab with code and weights released (MBZUAI IFM; weights, training code and data links on Hugging Face)"
+ },
+ {
+  "date": "2026-11-19",
+  "kind": "repo",
+  "title": "Coral execution rails for agents",
+  "url": "https://github.com/withcoral/coral",
+  "why": "Covered on the Hacker News front page (Show HN) with real architecture: V8 isolate per program, policy-checked tool calls, credential injection outside the sandbox."
  }
 ]

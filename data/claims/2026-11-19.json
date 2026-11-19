@@ -1,0 +1,367 @@
+{
+ "date": "2026-11-19",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "vLLM",
+   "event_date": "2026-11-18",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Two High advisories published on 18 November (CVSS v4 8.7 each)",
+     "url": "https://github.com/advisories/GHSA-cf32-wrp7-cjrw",
+     "quote": "Published: Nov 18, 2026; Severity High; CVSS v4 8.7",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "version",
+     "claim": "Affected 0.28.0 to before 0.33.0 (token IDs, with --skip-tokenizer-init); fixed in 0.33.0",
+     "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-q9v9-qpjp-fc24",
+     "quote": "Affected versions: >= 0.28.0, < 0.33.0; Patched version: 0.33.0",
+     "verdict": "VERIFIED",
+     "fix": "Linked GitHub advisory pages list affected/patched as Unknown; confirmed in the vLLM project advisory."
+    },
+    {
+     "kind": "version",
+     "claim": "0.6.0 to before 0.33.0 (media budget)",
+     "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-5r3c-5x4v-8gjh",
+     "quote": ">= 0.6.0, < 0.33.0",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "token IDs sent to /v1/completions, /v1/embeddings or /pooling crash the shared engine",
+     "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-q9v9-qpjp-fc24",
+     "quote": "The same gap reopens the /v1/embeddings and /pooling paths",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Moderate advisory (CVSS v4 5.3) leaks another checkpoint's tokenizer vocabulary through /detokenize",
+     "url": "https://github.com/advisories/GHSA-9f95-xfwr-j77p",
+     "quote": "read another local checkpoint's tokenizer vocabulary through unauthenticated /detokenize requests",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: not stated in the advisories; If compromised: not stated",
+     "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-5r3c-5x4v-8gjh",
+     "quote": "The advisory doesn't list any workarounds (searched all 3 linked GHSA pages and both project advisories; none lists a workaround or compromise step)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Stopgap: not stated in the advisories; If compromised: not stated in the advisories",
+     "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-5r3c-5x4v-8gjh",
+     "quote": "Searched the full text of GHSA-5r3c-5x4v-8gjh, GHSA-q9v9-qpjp-fc24, GHSA-rqcj-6434-qfch, GHSA-cf32-wrp7-cjrw and GHSA-9f95-xfwr-j77p: no workaround section and no compromise guidance appear.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Google Gemini",
+   "event_date": "2026-11-18",
+   "status": "Announced",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "price",
+     "claim": "$3 per million input, $15 output, cached input $0.15, 95% discount",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "$0.15 per million cached input tokens, a 95% discount",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "1M-token context window",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "1 million tokens",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "61 on AA Intelligence Index (third); 58.6 on Coding Agent Index (first)",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "61, ranked #3 ... 58.6, ranked #1",
+     "verdict": "VERIFIED",
+     "fix": "Rank #3 is at xhigh thinking level."
+    },
+    {
+     "kind": "status",
+     "claim": "rolling out 18 November; paid tier in AI Studio, Android Studio, Antigravity for Pro and Ultra",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+     "quote": "rolling out today",
+     "verdict": "CORRECTED",
+     "fix": "Page does not label it GA or preview; status 'GA' in this file is an assumption. Say 'rolling out'."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Coral",
+   "event_date": "2026-11-16",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "surfaced on Show HN on 16 November",
+     "url": "https://github.com/withcoral/coral",
+     "quote": "Show HN: Coral – Open-source gateway where agents write their own tools (52 points, 24 comments; digest 2026-11-16)",
+     "verdict": "CORRECTED",
+     "fix": ""
+    },
+    {
+     "kind": "licence",
+     "claim": "Apache 2.0, about 5,000 stars",
+     "url": "https://github.com/withcoral/coral",
+     "quote": "Coral is licensed under the Apache License 2.0. / 5.0k stars",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "V8 isolate, no network access and no credentials; allow/ask/block policy",
+     "url": "https://github.com/withcoral/coral",
+     "quote": "Each program runs in a fresh V8 isolate with no network access, no credentials, and no imports.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "shared server needs OIDC IdP and TLS reverse proxy; enterprise tier (SSO, SCIM, audit log) coming soon",
+     "url": "https://github.com/withcoral/coral",
+     "quote": "Coral Enterprise is coming soon under its own license.",
+     "verdict": "CORRECTED",
+     "fix": "Page does not use the exact labels SSO/SCIM; describes single sign-on, user provisioning, audit log."
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-17",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "preprint submitted on 17 November",
+     "url": "https://arxiv.org/abs/2611.22161",
+     "quote": "Submitted on 17 Nov 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Nemotron 3.5 Super 120B total, 12B active; rank-32 LoRA, CISPO, Tinker, no supervised stage",
+     "url": "https://arxiv.org/abs/2611.22161",
+     "quote": "Each run trains a fresh rank-32 LoRA adapter with CISPO on Tinker, with no supervised stage",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "gains of 4.5 to 13.8 points across 12 headline benchmarks; Terminal-Bench 2.1 63.9 to 70.3; AutomationBench 14.8 to 27.5",
+     "url": "https://arxiv.org/abs/2611.22161",
+     "quote": "+4.5 points (IFBench) to +13.8 (GDP_pdf); Terminal-Bench 2.1: 63.9% to 70.3%; AutomationBench: 14.8% to 27.5%",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "The abstract page links no code or weights yet",
+     "url": "https://arxiv.org/abs/2611.22161",
+     "quote": "Searched abstract, Comments field ('18 pages, 2 figures, 9 tables'), and link sidebar: no GitHub/Hugging Face/code/weights link",
+     "verdict": "VERIFIED",
+     "fix": "PDF/HTML body not searched."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Cloudflare",
+   "event_date": "2026-11-17",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Cloudflare calls itself a 'neolab' (Michelle Chen's talk, AI Engineer Code Summit, 17 Nov)",
+     "url": "https://latent.space/p/cloudflare/",
+     "quote": "turning into a neolab",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Clairic launched last month, extraction in a single forward pass",
+     "url": "https://latent.space/p/cloudflare/",
+     "quote": "extract a typed value — like a number — from unstructured data, in one forward pass",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Clef, a decision model, took about two weeks to build",
+     "url": "https://latent.space/p/cloudflare/",
+     "quote": "Cloudflare built Clef in about two weeks",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "The write-up gives no benchmarks",
+     "url": "https://latent.space/p/cloudflare/",
+     "quote": "Searched whole page: no benchmarks or evals; only financial figures ($782 million Q3 revenue)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Datadog",
+   "event_date": "2026-11-17",
+   "status": "Announced",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "other",
+     "claim": "Online Experiments in Agent Observability; feature flags set the split",
+     "url": "https://www.infoq.com/news/2026/11/datadog-ai-agent-observability/",
+     "quote": "\"Feature Flags\" manage traffic allocation",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "newer model 44.3% less estimated cost; quality 3.84 vs 3.86 on 1-to-5",
+     "url": "https://www.infoq.com/news/2026/11/datadog-ai-agent-observability/",
+     "quote": "44.3% reduction in estimated cost ... close at 3.84 and 3.86",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "invalid tool parameters more often; confidence intervals too broad",
+     "url": "https://www.infoq.com/news/2026/11/datadog-ai-agent-observability/",
+     "quote": "the confidence intervals were too broad to establish definitive regressions",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "announced around 17 November",
+     "url": "https://www.infoq.com/news/2026/11/datadog-ai-agent-observability/",
+     "quote": "Nov 17, 2026",
+     "verdict": "VERIFIED",
+     "fix": "InfoQ article date; Datadog's own announcement date not checked."
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Tencent Hy4 flash",
+   "url": "https://huggingface.co/tencent/Hy4-flash-FP8",
+   "event_date": "2026-11-18",
+   "quote": "released under the Tencent Hy License; 220B; about 12B per token; up to 1M tokens",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "DaisyRose-27B",
+   "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin",
+   "event_date": "2026-11-18",
+   "quote": "available under Apache 2.0 ... built on Qwen3.8-27B ... from 5.6% to 12.0%",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "TrnRT",
+   "url": "https://github.com/RunanywhereAI/trnrt",
+   "event_date": "2026-11-18",
+   "quote": "GLM-5.3-Flash is the first supported model; more open models are on the way.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "MAI Licensed Weights",
+   "url": "https://microsoft.ai/news/introducing-mai-licensed-weights/",
+   "event_date": "2026-11-17",
+   "quote": "coming soon through Microsoft's Frontier Company engagements; contact your Microsoft account team",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "SGLang advisory",
+   "url": "https://github.com/advisories/GHSA-m386-99gj-pq7p",
+   "event_date": "2026-11-18",
+   "quote": "SGLang through 0.5.23 ... fixed in commit 7b5fb39",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Supergateway",
+   "url": "https://github.com/advisories/GHSA-cp8r-6jmm-c5qw",
+   "event_date": "2026-11-18",
+   "quote": "Supergateway 2.4.0 through 4.2.2 ... missing Origin header validation; Patched versions: Unknown",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Obot",
+   "url": "https://github.com/advisories/GHSA-x4wv-wh23-vxjx",
+   "event_date": "2026-11-18",
+   "quote": "Obot from 0.8.0 before 0.27.0 ... Power User accounts to reach internal hosts; CVSS 8.3",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "SGLang Consortium",
+   "url": "https://www.lmsys.org/blog/2026-11-12-sglang-consortium",
+   "event_date": "2026-11-12",
+   "quote": "SGLang's maintainers keep responsibility for technical decisions and code acceptance.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Foundry hosted agents",
+   "url": "https://devblogs.microsoft.com/foundry/hosted-agents-foundry-agent-service-ignite-2026/",
+   "event_date": "2026-11-18",
+   "quote": "Network egress controls for hosted agents are now generally available. / Recovery reruns your handler",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Envoy for AI traffic",
+   "url": "https://cloud.google.com/blog/products/networking/the-envoy-agentic-stack-routing-models-tokens-and-mcp/",
+   "event_date": "2026-11-19",
+   "quote": "rejecting subsequent over-quota requests with an HTTP 429 before they reach the inference cluster (no release status stated)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Neysa AMD cluster, Mumbai",
+   "url": "https://analyticsindiamag.com/ai-news/neysa-deploys-amd-gpu-cluster-in-mumbai-for-ai-training-and-inference",
+   "event_date": "2026-11-18",
+   "quote": "The 8,192-GPU cluster is now operational",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Dubai Municipality D.Mind",
+   "url": "https://gulfnews.com/uae/dubai-unveils-ai-platform-dmind-to-tackle-residents-complaints-with-quick-solutions-1.500752049",
+   "event_date": "2026-11-18",
+   "quote": "It has already been put to use on drainage issues during rain",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

@@ -271,5 +271,12 @@
   "week": 7,
   "title": "Forward Deployed Engineer, coding: write the function that keeps a vector index in step with a document store",
   "topic_key": "interview:coding:aws:forward-deployed-engineer:incremental-reindex-chunk-id-diff-write-order:ingestion-document-pipelines"
+ },
+ {
+  "date": "2026-11-20",
+  "track": "github",
+  "week": 7,
+  "title": "Agent Substrate: parking a request while a sleeping agent is restored onto someone else's pod",
+  "topic_key": "github:agent-substrate-substrate-actor-snapshot-resume-request-parking:ingestion-document-pipelines"
  }
 ]

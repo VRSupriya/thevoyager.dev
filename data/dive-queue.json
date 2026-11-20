@@ -19,7 +19,8 @@
   "kind": "repo",
   "title": "NVIDIA Agent Substrate",
   "url": "https://github.com/agent-substrate/substrate",
-  "why": "changes how agent runtimes are built (checkpoint/restore sessions on warm Kubernetes pods); donated to CNCF Sandbox"
+  "why": "changes how agent runtimes are built (checkpoint/restore sessions on warm Kubernetes pods); donated to CNCF Sandbox",
+  "used": "2026-11-20"
  },
  {
   "date": "2026-11-17",

@@ -1,41 +1,5 @@
 [
  {
-  "date": "2026-10-20",
-  "slot": "top",
-  "title": "GitHub Copilot model retirements and model policy API",
-  "url": "https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026"
- },
- {
-  "date": "2026-10-20",
-  "slot": "agents",
-  "title": "Pi Durable resumable agent harness",
-  "url": "https://github.com/earendil-works/pi/tree/main/packages/durable"
- },
- {
-  "date": "2026-10-20",
-  "slot": "research",
-  "title": "AuditKIT evaluation library",
-  "url": "https://arxiv.org/abs/2610.22511"
- },
- {
-  "date": "2026-10-20",
-  "slot": "people",
-  "title": "Simon Willison: My obituary for programming",
-  "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
- },
- {
-  "date": "2026-10-20",
-  "slot": "architecture",
-  "title": "AWS vLLM bi-directional KV transfer",
-  "url": "https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/"
- },
- {
-  "date": "2026-10-20",
-  "slot": "regional",
-  "title": "Birla AI Labs Yug forecasting model",
-  "url": "https://huggingface.co/birlaailabs/yug"
- },
- {
   "date": "2026-10-21",
   "slot": "top",
   "title": "DeepSeek DeepInfer inference engine",
@@ -2698,5 +2662,95 @@
   "slot": "quick",
   "title": "Google Cloud Envoy agentic stack",
   "url": "https://cloud.google.com/blog/products/networking/the-envoy-agentic-stack-routing-models-tokens-and-mcp/"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "top",
+  "title": "LiteLLM guardrail sandbox escape CVE-2026-40217 in CISA KEV",
+  "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "models",
+  "title": "SenseNova-Loop-9B looped-layer open model",
+  "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "agents",
+  "title": "AWS Marketplace agentic payments with AgentCore x402",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/marketplace-agentic-payments-agentcore/"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "research",
+  "title": "AnyS1 Thinking Fast confidence-gated System-1",
+  "url": "https://huggingface.co/papers/2611.23751"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "people",
+  "title": "LangChain LangSmith Tool Gateway",
+  "url": "https://www.langchain.com/blog/langsmith-tool-gateway"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "architecture",
+  "title": "Booking.com ML and data platform evolution",
+  "url": "https://www.infoq.com/presentations/bookingcom-ml-data-platform-evolution/"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "Kitten TTS 2 mini",
+  "url": "https://huggingface.co/KittenML/kitten-tts-2-mini"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "harness-hub Qwen3.8-27B OpenCode adapter",
+  "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-opencode-adapted"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "Python MCP SDK OAuth credential leak GHSA-qx49-fqc8-xw99",
+  "url": "https://osv.dev/vulnerability/GHSA-qx49-fqc8-xw99"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "vLLM systemone chat template advisory GHSA-xgh8-qwjh-q853",
+  "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-xgh8-qwjh-q853"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "vLLM 0.34.0 release",
+  "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "OpenAI Agents SDK 0.25.0",
+  "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.25.0"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "PostgreSQL 19 WAIT FOR LSN",
+  "url": "https://simonwillison.net/2026/Nov/19/postgresql-19/"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "GitHub Copilot new connectors preview",
+  "url": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "quick",
+  "title": "Microsoft Foundry Dev Pack GA",
+  "url": "https://devblogs.microsoft.com/foundry/the-foundry-dev-pack-is-here-build-foundry-agents-your-way/"
  }
 ]

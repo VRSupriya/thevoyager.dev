@@ -1,0 +1,438 @@
+{
+ "date": "2026-11-20",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "LiteLLM (BerriAI)",
+   "event_date": "2026-11-18",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "CISA added CVE-2026-40217 to KEV on 18 November",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+     "quote": "Date Added: 2026-11-18",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "date",
+     "claim": "due date of 2 December for federal agencies",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+     "quote": "Due Date: 2026-12-02",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "CISA describes arbitrary code execution through bytecode rewriting at /guardrails/test_custom_code",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+     "quote": "bytecode rewriting at the /guardrails/test_custom_code URI",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "date",
+     "claim": "LiteLLM's own advisory dates from May",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
+     "quote": "Published May 7, 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Affected LiteLLM >= 1.81.8 and < 1.83.10",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
+     "quote": ">= 1.81.8, < 1.83.10",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "version",
+     "claim": "Fixed in 1.83.11 (Patches section); header lists 1.83.10 or later",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
+     "quote": "Fixed in 1.83.11. Upgrade to 1.83.11 or later. (header: >= 1.83.10)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Severity Moderate, CVSS v4 5.9",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
+     "quote": "Moderate; CVSS v4 5.9; CVSS:4.0/AV:N/AC:H/AT:N/PR:H/UI:N/VC:L/VI:L/VA:H/SC:N/SI:N/SA:N",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: block POST /guardrails/test_custom_code at reverse proxy or API gateway",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
+     "quote": "If upgrading is not immediately possible, block POST /guardrails/test_custom_code at your reverse proxy or API gateway.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "If compromised: not stated in the advisory",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
+     "quote": "Searched whole advisory (header, Impact, Patches, Workarounds, References): no compromise indicators and no credential rotation guidance; only remediation is upgrade to 1.83.11+. It does note the endpoint 'requires a proxy-admin credential in default configurations'.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "SenseNova-Loop-9B (SenseTime)",
+   "event_date": "2026-11-17",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "official release 17 November, preview 31 October",
+     "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+     "quote": "official SenseNova-Loop-9B was released on November 17 (2026); Preview ... October 31 (2026). HF API createdAt 2026-11-17T10:16:41Z",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "licence",
+     "claim": "Apache-2.0",
+     "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+     "quote": "Apache License 2.0 (HF API license: apache-2.0)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "about 9B parameters, layers 4 to 27 run twice, about 14.6B inference-equivalent",
+     "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+     "quote": "about 9B total parameters, or about 14.6B inference-equivalent; layers 4 through 27 form a shared block that runs twice",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "text and images, 512K context, NL2Repo 41.36 vs 44.60 for Qwen3.8-27B",
+     "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+     "quote": "Text and images as input; up to 512K tokens; NL2Repo 41.36 vs 44.60",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "status",
+     "claim": "vLLM and SGLang support sits in unmerged pull requests",
+     "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+     "quote": "SGLang PR #47281 and vLLM PR #64832; neither supported in mainline release",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "status",
+     "claim": "repo is gated behind accepting its conditions",
+     "url": "https://huggingface.co/sensenova/SenseNova-Loop-9B",
+     "quote": "you must log in or sign up and accept the access conditions to download the files (API gated: auto)",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "AWS (Bedrock AgentCore / Marketplace)",
+   "event_date": "2026-11-19",
+   "status": "Announced",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "On 19 November AWS said ...",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/marketplace-agentic-payments-agentcore/",
+     "quote": "Posted on: Nov 19, 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "buy select Marketplace products per request in US dollars via x402 through Bedrock AgentCore payments",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/marketplace-agentic-payments-agentcore/",
+     "quote": "pay per request in US dollars ... through AgentCore payments, part of Amazon Bedrock AgentCore; over the x402 protocol; select products",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "charges on existing AWS bill, no crypto wallet",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/marketplace-agentic-payments-agentcore/",
+     "quote": "settle on the customer's current AWS bill, with no crypto wallet required",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "sellers integrate x402 SDK; buyers enable payment connector; find listings via AgentCore Gateway",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/marketplace-agentic-payments-agentcore/",
+     "quote": "integrate the AWS Marketplace x402 SDK; Customers enable the AWS Marketplace payment connector in AgentCore payments; find listings through the AWS Marketplace connector in AgentCore Gateway",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "spending limits, approved sellers, guardrails; CloudTrail and Cost Explorer",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/marketplace-agentic-payments-agentcore/",
+     "quote": "customers can set spending limits, approved sellers and guardrails before agents transact; transactions appear in CloudTrail and Cost Explorer",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "The announcement doesn't list fees or which products qualify",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/marketplace-agentic-payments-agentcore/",
+     "quote": "Searched the whole announcement page: fees not mentioned; says only 'select products' and points to AWS Marketplace listings for details; GA/preview status also not stated (brief does not claim one).",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-18",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "preprint from USTC and NTU; LoRA on Qwen3.5-4B-Base",
+     "url": "https://huggingface.co/papers/2611.23751",
+     "quote": "Rui Li, Zhenya Huang, Qi Liu (University of Science and Technology of China); Zheng Zhang (Nanyang Technological University); rank-16 LoRA on Qwen3.5-4B-Base",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "86-91% of episode cost saved (89% on average) across SOPBench, ALFWorld and WebShop",
+     "url": "https://huggingface.co/papers/2611.23751",
+     "quote": "raises the average saving to 89% (86-91% across benchmarks) [arXiv PDF, DeepSeek-V4.1-Flash as System-2, relative to uncompiled System-2 agent]. Abstract states 75-91% across distinct System-2 families.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "at +0.5 points of task performance",
+     "url": "https://huggingface.co/papers/2611.23751",
+     "quote": "while matching All-S2 reliability on average (+0.5 avg. pt) [arXiv PDF 2611.23751]",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "System-1 scores a decision in 21.8-31.7 ms against 1.51-1.78 s for System-2",
+     "url": "https://huggingface.co/papers/2611.23751",
+     "quote": "about 21.8 to 31.7 ms, compared with 1.51 to 1.78 s for a System-2 call",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "without the gate ALFWorld success falls from 96.3% to 40.3%",
+     "url": "https://huggingface.co/papers/2611.23751",
+     "quote": "Removing the confidence gate (All-S1) drops ALFWorld success from 96.3% to 40.3%",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "several ablations use a single seed",
+     "url": "https://arxiv.org/abs/2611.23751",
+     "quote": "Figure caption: '(b) three-seed decision accuracy ... (c) single-seed offline accuracy, ECE and gated agreement'; Comments: '16 pages, 8 figures, 7 tables.'",
+     "verdict": "CORRECTED",
+     "fix": "Only one ablation (Table 3c, calibration objective) is single-seed; Tables 3b and 4 use three seeds. Say 'one ablation uses a single seed'."
+    },
+    {
+     "kind": "date",
+     "claim": "preprint date",
+     "url": "https://arxiv.org/abs/2611.23751",
+     "quote": "Submitted on 18 Nov 2026 (HF paper page lists 19 Nov 2026)",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "LangChain (LangSmith)",
+   "event_date": "2026-11-19",
+   "status": "Beta",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "public beta on 19 November",
+     "url": "https://www.langchain.com/blog/langsmith-tool-gateway",
+     "quote": "November 19, 2026; Launched in Public Beta",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "single URL handling identity, access, logging; works with any MCP client",
+     "url": "https://www.langchain.com/blog/langsmith-tool-gateway",
+     "quote": "a single URL; any MCP client",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "six servers with built-in OAuth (Google, Microsoft, Salesforce, GitHub, Linear, LinkedIn)",
+     "url": "https://www.langchain.com/blog/langsmith-tool-gateway",
+     "quote": "Google, Microsoft, Salesforce, GitHub, Linear, LinkedIn",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "seven more use an API key or are public",
+     "url": "https://www.langchain.com/blog/langsmith-tool-gateway",
+     "quote": "Parallel search, Exa, Tavily, Apollo, Ashby, Pylon, web page reading",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "calls can run as the user or as the agent",
+     "url": "https://www.langchain.com/blog/langsmith-tool-gateway",
+     "quote": "Each tool call can run as the user or as the agent",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "status",
+     "claim": "audit log is on Enterprise plans",
+     "url": "https://www.langchain.com/blog/langsmith-tool-gateway",
+     "quote": "Audit log: Available on Enterprise plans",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Booking.com",
+   "event_date": "2026-11-18",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "QCon London talk by Principal Engineer Jabez Eliezer Manuel posted by InfoQ on 18 November",
+     "url": "https://www.infoq.com/presentations/bookingcom-ml-data-platform-evolution/",
+     "quote": "Booking.com's ML and data platform evolution (QCon London 2026, Jabez Eliezer Manuel, Principal Engineer); date line 'Nov 18, 2026' under 'Recorded at'",
+     "verdict": "CORRECTED",
+     "fix": "Page shows Nov 18, 2026 beside the 'Recorded at' heading, so it may be the recording rather than the posting date; say 'InfoQ page dated 18 November' or confirm."
+    },
+    {
+     "kind": "number",
+     "claim": "about 190,000 Hadoop tables and 7,000+ workflows",
+     "url": "https://www.infoq.com/presentations/bookingcom-ml-data-platform-evolution/",
+     "quote": "about 190,000 Hadoop tables and over 7,000 workflows",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "92% of workflows failed a business-criticality test and were dropped",
+     "url": "https://www.infoq.com/presentations/bookingcom-ml-data-platform-evolution/",
+     "quote": "92% failed a business-criticality review and were dropped",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "480-plus models, about 400 billion predictions a day, under 20 ms average latency",
+     "url": "https://www.infoq.com/presentations/bookingcom-ml-data-platform-evolution/",
+     "quote": "over 480 models ... about 400 billion predictions per day, with an average latency under 20 ms",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "experiment success just under 25% across 150,000+ experiments",
+     "url": "https://www.infoq.com/presentations/bookingcom-ml-data-platform-evolution/",
+     "quote": "over 150,000 experiments, and its success rate is just under 25%",
+     "verdict": "VERIFIED"
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Kitten TTS 2 mini",
+   "url": "https://huggingface.co/KittenML/kitten-tts-2-mini",
+   "event_date": "2026-11-13",
+   "quote": "82M parameters; Apache-2.0; 16 languages; 118 voices; int8 weights 82.7 MB; CPU, no PyTorch needed. HF API createdAt 2026-11-13T03:34:38Z, lastModified 2026-11-18",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Qwen3.8-27B OpenCode adapter",
+   "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-opencode-adapted",
+   "event_date": "2026-11-16",
+   "quote": "LoRA adapter for Qwen/Qwen3.8-27B, rank 32; SWE-bench Pro hard 51: 35.3% to 51.0% under OpenCode; 'the numbers above are the corrected ones'. HF API createdAt 2026-11-16, lastModified 2026-11-18",
+   "verdict": "CORRECTED",
+   "fix": "Brief says numbers are 'still being corrected'; the card says the reruns are done and the figures are the corrected ones (base was 31.4% before reruns). Better: 'corrected after infrastructure reruns; checkpoint (step 150) was picked on SWE-bench Pro scores, so treat as optimistic'."
+  },
+  {
+   "name": "Python MCP SDK OAuth leak: fixed versions",
+   "url": "https://osv.dev/vulnerability/GHSA-qx49-fqc8-xw99",
+   "event_date": "2026-11-19",
+   "quote": "Fixed versions: 1.30.0 (1.x) and 2.2.0 (2.x). Published November 19, 2026 (NVD published November 16, 2026). Affected 1.9.1 through 1.29.1; 2.0.0 through 2.1.1 in some conditions.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Python MCP SDK OAuth leak: no workaround claim",
+   "url": "https://osv.dev/vulnerability/GHSA-qx49-fqc8-xw99",
+   "event_date": "2026-11-19",
+   "quote": "On earlier versions there is no workaround other than connecting OAuth-enabled clients only to MCP servers you trust. (Same advisory also lists: set issuer= on ClientCredentialsOAuthProvider/PrivateKeyJWTOAuthProvider, migrate off RFC7523OAuthClientProvider, clear stored OAuth client info, rotate/revoke secrets and tokens.)",
+   "verdict": "CORRECTED",
+   "fix": "'No workaround' applies only to earlier (unpatched) versions. Advisory has post-upgrade steps the brief omits: set issuer= on the two providers (upgrading alone does not change their behaviour), clear stored client registrations once, rotate the client secret and revoke tokens if a client may have met an untrusted server. Not affected: servers built with the SDK, stdio clients, clients that attach their own tokens."
+  },
+  {
+   "name": "vLLM /v1/systemone bypass: 0.34.0 fixes",
+   "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-xgh8-qwjh-q853",
+   "event_date": "2026-11-18",
+   "quote": "Patched version: 0.34.0; published Nov 18, 2026; accepted request-level chat_template_kwargs without calling validate_chat_template()",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "vLLM advisory: 0.33.0 still affected",
+   "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-xgh8-qwjh-q853",
+   "event_date": "2026-11-18",
+   "quote": "Description: 'vLLM 0.32.0rc0 through 0.33.0'; metadata range says '>= 0.32.0rc0, <= 0.34.0'",
+   "verdict": "CORRECTED",
+   "fix": "Description supports 0.33.0 affected, but the metadata range also lists 0.34.0 as affected while patched is 0.34.0 (advisory is internally inconsistent); say so or cite the description."
+  },
+  {
+   "name": "vLLM 0.33.0 'the DoS-fix release'",
+   "url": "https://github.com/vllm-project/vllm/releases/tag/v0.33.0",
+   "event_date": "2026-11-01",
+   "quote": "Release page: 'vLLM v0.33.0 ... tagged 01 Nov'. No mention of denial of service or any security fix on the page or in the linked advisory; web search found no 0.33.0 DoS advisory.",
+   "verdict": "CORRECTED",
+   "fix": "Drop 'the DoS-fix release' or cite the advisory that names 0.33.0 as the fix. Also note 0.33.0 was tagged 1 Nov."
+  },
+  {
+   "name": "vLLM 0.34.0",
+   "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0",
+   "event_date": "2026-11-16",
+   "quote": "Model Runner V1 is gone. default --block-size changed from 16 to 64. llama3_json no longer streams tool arguments incrementally. Published 16 November.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI Agents SDK 0.25.0",
+   "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.25.0",
+   "event_date": "2026-11-17",
+   "quote": "Applications that share checkpoints across workers should upgrade readers first. ... RunState schema 1.22. removes the beta Runloop sandbox provider. (changelog 2026-11-17, published 18 Nov 00:22)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "PostgreSQL 19",
+   "url": "https://simonwillison.net/2026/Nov/19/postgresql-19/",
+   "event_date": "2026-11-19",
+   "quote": "PostgreSQL 19 Released; read-your-writes consistency with the new WAIT FOR LSN command; If you set [a timeout] and the replica doesn't catch up in time, the command returns an error.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub Copilot connectors",
+   "url": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot",
+   "event_date": "2026-11-18",
+   "quote": "Box, Buildkite, Calendly, ClickUp, Mixpanel, Supabase, Webflow, Wix; in public preview for all Copilot plans; admin must enable the 'Editor preview features' policy; add new connectors to allowlists that name connectors one by one",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Microsoft Foundry Dev Pack",
+   "url": "https://devblogs.microsoft.com/foundry/the-foundry-dev-pack-is-here-build-foundry-agents-your-way/",
+   "event_date": "2026-11-18",
+   "quote": "is now generally available; combines the Foundry CLI (azd ai) and Microsoft Foundry Skill; install Azure Developer CLI 1.37.0 or later; Python 3.13 or later",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "BHASHINI and NIELIT MoU (🌍)",
+   "url": "https://aninews.in/news/business/digital-india-bhashini-division-nielit-sign-mou-to-advance-multilingual-ai-and-technology-education20261119180321/",
+   "event_date": "2026-11-19",
+   "quote": "WebFetch and curl both returned HTTP 403 Forbidden; URL timestamp 20261119180321 suggests 19 Nov 2026. Web searches found no BHASHINI-NIELIT report (only other BHASHINI MoUs, e.g. SEBI on 5 Nov).",
+   "verdict": "REMOVED",
+   "fix": "Could not open the article or find a second source for the MoU, its date, or the 'education partnership, not a product' framing. Find a PIB/MeitY/NIELIT release or a second outlet before publishing, or drop the item."
+  }
+ ]
+}

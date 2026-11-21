@@ -1,0 +1,271 @@
+{
+ "lab": "labs/build/2026-11-21",
+ "ran_at": "2026-11-21T03:21:41+00:00",
+ "seconds": 0.8,
+ "passed": true,
+ "gates": [
+  {
+   "metric": "trust_parser/wrong_rate",
+   "op": ">=",
+   "value": 0.02,
+   "label": "share of invoices with a wrong invoice number or total when you trust the parser",
+   "observed": 0.0443,
+   "passed": true
+  },
+  {
+   "metric": "gate/review_rate",
+   "op": "between",
+   "value": [
+    0.04,
+    0.15
+   ],
+   "label": "share of invoices the checks send to review",
+   "observed": 0.0867,
+   "passed": true
+  },
+  {
+   "metric": "gate/caught_of_wrong",
+   "op": ">=",
+   "value": 0.5,
+   "label": "share of wrong extractions the checks stop",
+   "observed": 0.639,
+   "passed": true
+  },
+  {
+   "metric": "gate/silent_wrong_on_invoice_no",
+   "op": ">=",
+   "value": 0.9,
+   "label": "share of accepted-but-wrong invoices whose error is in the invoice number (the field no check covers)",
+   "observed": 1.0,
+   "passed": true
+  },
+  {
+   "metric": "embed_ratio_insert_fixed_over_para",
+   "op": ">=",
+   "value": 5,
+   "label": "chunks re-embedded after one inserted paragraph: fixed windows over paragraph chunks",
+   "observed": 9.6,
+   "passed": true
+  },
+  {
+   "metric": "embed_share/para/hash/change_word",
+   "op": "<=",
+   "value": 0.12,
+   "label": "share of an edited document's chunks re-embedded after a one-word edit, paragraph chunks with content hashes",
+   "observed": 0.083,
+   "passed": true
+  },
+  {
+   "metric": "crash/delete_first/fewer_chunks_than_before_after_crash",
+   "op": ">=",
+   "value": 1,
+   "label": "crashed documents left with fewer searchable chunks than before the update (delete first)",
+   "observed": 80,
+   "passed": true
+  },
+  {
+   "metric": "crash/insert_first/extra_chunks_after_retry",
+   "op": ">=",
+   "value": 100,
+   "label": "duplicate chunks left after a retry (insert first, fresh ids)",
+   "observed": 740,
+   "passed": true
+  },
+  {
+   "metric": "crash/reconcile/extra_chunks_after_retry",
+   "op": "==",
+   "value": 0,
+   "label": "duplicate chunks left after a retry (reconcile)",
+   "observed": 0,
+   "passed": true
+  },
+  {
+   "metric": "crash/reconcile/fewer_chunks_than_before_after_crash",
+   "op": "==",
+   "value": 0,
+   "label": "crashed documents with fewer searchable chunks than before (reconcile)",
+   "observed": 0,
+   "passed": true
+  }
+ ],
+ "metrics": {
+  "seconds": 0.8,
+  "docs": 3000,
+  "scan_share": 0.401,
+  "trust_parser/wrong_rate": 0.0443,
+  "gate/review_rate": 0.0867,
+  "gate/silent_wrong_rate": 0.016,
+  "gate/silent_wrong_on_invoice_no": 1.0,
+  "gate/silent_wrong_on_total": 0.0,
+  "gate/caught_of_wrong": 0.639,
+  "digital/wrong_rate": 0.0,
+  "embed_share/fixed/position/change_word": 0.25,
+  "embed_share/fixed/position/insert": 0.71,
+  "embed_share/fixed/position/delete": 0.7,
+  "embed_share/fixed/hash/change_word": 0.25,
+  "embed_share/fixed/hash/insert": 0.74,
+  "embed_share/fixed/hash/delete": 0.6,
+  "embed_share/para/hash/change_word": 0.083,
+  "embed_share/para/hash/insert": 0.077,
+  "embed_share/para/hash/delete": 0.0,
+  "embed_ratio_insert_fixed_over_para": 9.6,
+  "crash/delete_first/crashed_docs": 80,
+  "crash/delete_first/empty_after_crash": 2,
+  "crash/delete_first/fewer_chunks_than_before_after_crash": 80,
+  "crash/delete_first/extra_chunks_after_retry": 0,
+  "crash/insert_first/crashed_docs": 80,
+  "crash/insert_first/empty_after_crash": 0,
+  "crash/insert_first/fewer_chunks_than_before_after_crash": 0,
+  "crash/insert_first/extra_chunks_after_retry": 740,
+  "crash/reconcile/crashed_docs": 80,
+  "crash/reconcile/empty_after_crash": 0,
+  "crash/reconcile/fewer_chunks_than_before_after_crash": 0,
+  "crash/reconcile/extra_chunks_after_retry": 0
+ },
+ "config": {
+  "seed": 7,
+  "noise": 0.02,
+  "invoices": 3000,
+  "scan_share": 0.4,
+  "docs": 400,
+  "python": "3.11.18"
+ },
+ "curve": [],
+ "experiments": [
+  {
+   "name": "no_scan_noise",
+   "label": "perfect scans: what the checks cost when nothing is wrong",
+   "args": [
+    "--noise",
+    "0"
+   ],
+   "exit_code": 0,
+   "seconds": 0.9,
+   "metrics": {
+    "seconds": 0.8,
+    "docs": 3000,
+    "scan_share": 0.413,
+    "trust_parser/wrong_rate": 0.0,
+    "gate/review_rate": 0.0,
+    "gate/silent_wrong_rate": 0.0,
+    "gate/silent_wrong_on_invoice_no": 0.0,
+    "gate/silent_wrong_on_total": 0.0,
+    "gate/caught_of_wrong": 1.0,
+    "digital/wrong_rate": 0.0,
+    "embed_share/fixed/position/change_word": 0.25,
+    "embed_share/fixed/position/insert": 0.68,
+    "embed_share/fixed/position/delete": 0.625,
+    "embed_share/fixed/hash/change_word": 0.25,
+    "embed_share/fixed/hash/insert": 0.54,
+    "embed_share/fixed/hash/delete": 0.575,
+    "embed_share/para/hash/change_word": 0.083,
+    "embed_share/para/hash/insert": 0.077,
+    "embed_share/para/hash/delete": 0.0,
+    "embed_ratio_insert_fixed_over_para": 7.0,
+    "crash/delete_first/crashed_docs": 80,
+    "crash/delete_first/empty_after_crash": 3,
+    "crash/delete_first/fewer_chunks_than_before_after_crash": 80,
+    "crash/delete_first/extra_chunks_after_retry": 0,
+    "crash/insert_first/crashed_docs": 80,
+    "crash/insert_first/empty_after_crash": 0,
+    "crash/insert_first/fewer_chunks_than_before_after_crash": 0,
+    "crash/insert_first/extra_chunks_after_retry": 787,
+    "crash/reconcile/crashed_docs": 80,
+    "crash/reconcile/empty_after_crash": 0,
+    "crash/reconcile/fewer_chunks_than_before_after_crash": 0,
+    "crash/reconcile/extra_chunks_after_retry": 0
+   }
+  },
+  {
+   "name": "seed_2",
+   "label": "another random world (seed 2)",
+   "args": [
+    "--seed",
+    "2"
+   ],
+   "exit_code": 0,
+   "seconds": 0.8,
+   "metrics": {
+    "seconds": 0.8,
+    "docs": 3000,
+    "scan_share": 0.398,
+    "trust_parser/wrong_rate": 0.0507,
+    "gate/review_rate": 0.0837,
+    "gate/silent_wrong_rate": 0.0177,
+    "gate/silent_wrong_on_invoice_no": 1.0,
+    "gate/silent_wrong_on_total": 0.0,
+    "gate/caught_of_wrong": 0.651,
+    "digital/wrong_rate": 0.0,
+    "embed_share/fixed/position/change_word": 0.25,
+    "embed_share/fixed/position/insert": 0.68,
+    "embed_share/fixed/position/delete": 0.562,
+    "embed_share/fixed/hash/change_word": 0.25,
+    "embed_share/fixed/hash/insert": 0.73,
+    "embed_share/fixed/hash/delete": 0.65,
+    "embed_share/para/hash/change_word": 0.083,
+    "embed_share/para/hash/insert": 0.077,
+    "embed_share/para/hash/delete": 0.0,
+    "embed_ratio_insert_fixed_over_para": 9.5,
+    "crash/delete_first/crashed_docs": 80,
+    "crash/delete_first/empty_after_crash": 4,
+    "crash/delete_first/fewer_chunks_than_before_after_crash": 80,
+    "crash/delete_first/extra_chunks_after_retry": 0,
+    "crash/insert_first/crashed_docs": 80,
+    "crash/insert_first/empty_after_crash": 0,
+    "crash/insert_first/fewer_chunks_than_before_after_crash": 0,
+    "crash/insert_first/extra_chunks_after_retry": 745,
+    "crash/reconcile/crashed_docs": 80,
+    "crash/reconcile/empty_after_crash": 0,
+    "crash/reconcile/fewer_chunks_than_before_after_crash": 0,
+    "crash/reconcile/extra_chunks_after_retry": 0
+   }
+  },
+  {
+   "name": "heavy_noise",
+   "label": "bad scans: 5% of digits damaged",
+   "args": [
+    "--noise",
+    "0.05"
+   ],
+   "exit_code": 0,
+   "seconds": 0.8,
+   "metrics": {
+    "seconds": 0.8,
+    "docs": 3000,
+    "scan_share": 0.409,
+    "trust_parser/wrong_rate": 0.1127,
+    "gate/review_rate": 0.1913,
+    "gate/silent_wrong_rate": 0.0373,
+    "gate/silent_wrong_on_invoice_no": 1.0,
+    "gate/silent_wrong_on_total": 0.0,
+    "gate/caught_of_wrong": 0.669,
+    "digital/wrong_rate": 0.0,
+    "embed_share/fixed/position/change_word": 0.25,
+    "embed_share/fixed/position/insert": 0.72,
+    "embed_share/fixed/position/delete": 0.675,
+    "embed_share/fixed/hash/change_word": 0.25,
+    "embed_share/fixed/hash/insert": 0.63,
+    "embed_share/fixed/hash/delete": 0.738,
+    "embed_share/para/hash/change_word": 0.083,
+    "embed_share/para/hash/insert": 0.077,
+    "embed_share/para/hash/delete": 0.0,
+    "embed_ratio_insert_fixed_over_para": 8.2,
+    "crash/delete_first/crashed_docs": 80,
+    "crash/delete_first/empty_after_crash": 3,
+    "crash/delete_first/fewer_chunks_than_before_after_crash": 80,
+    "crash/delete_first/extra_chunks_after_retry": 0,
+    "crash/insert_first/crashed_docs": 80,
+    "crash/insert_first/empty_after_crash": 0,
+    "crash/insert_first/fewer_chunks_than_before_after_crash": 0,
+    "crash/insert_first/extra_chunks_after_retry": 769,
+    "crash/reconcile/crashed_docs": 80,
+    "crash/reconcile/empty_after_crash": 0,
+    "crash/reconcile/fewer_chunks_than_before_after_crash": 0,
+    "crash/reconcile/extra_chunks_after_retry": 0
+   }
+  }
+ ],
+ "environment": {
+  "runner_python": "3.11.18"
+ }
+}

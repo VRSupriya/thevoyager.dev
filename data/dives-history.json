@@ -278,5 +278,12 @@
   "week": 7,
   "title": "Agent Substrate: parking a request while a sleeping agent is restored onto someone else's pod",
   "topic_key": "github:agent-substrate-substrate-actor-snapshot-resume-request-parking:ingestion-document-pipelines"
+ },
+ {
+  "date": "2026-11-21",
+  "track": "build",
+  "week": 7,
+  "title": "Build: an ingestion pipeline that checks its own parser and survives a crash, or a change-data-capture indexer",
+  "topic_key": "build:ingestion-validation-gate-chunk-scheme-embed-share-crash-safe-reconcile-cdc-outbox:ingestion-document-pipelines"
  }
 ]

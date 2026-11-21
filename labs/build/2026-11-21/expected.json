@@ -1,0 +1,23 @@
+{
+  "title": "Build: an ingestion pipeline with a validation gate and a crash-safe re-index (synthetic insurance invoices)",
+  "post": "build/2026-11-21",
+  "command": ["run.py"],
+  "timeout_minutes": 10,
+  "gates": [
+    {"metric": "trust_parser/wrong_rate", "op": ">=", "value": 0.02, "label": "share of invoices with a wrong invoice number or total when you trust the parser"},
+    {"metric": "gate/review_rate", "op": "between", "value": [0.04, 0.15], "label": "share of invoices the checks send to review"},
+    {"metric": "gate/caught_of_wrong", "op": ">=", "value": 0.5, "label": "share of wrong extractions the checks stop"},
+    {"metric": "gate/silent_wrong_on_invoice_no", "op": ">=", "value": 0.9, "label": "share of accepted-but-wrong invoices whose error is in the invoice number (the field no check covers)"},
+    {"metric": "embed_ratio_insert_fixed_over_para", "op": ">=", "value": 5, "label": "chunks re-embedded after one inserted paragraph: fixed windows over paragraph chunks"},
+    {"metric": "embed_share/para/hash/change_word", "op": "<=", "value": 0.12, "label": "share of an edited document's chunks re-embedded after a one-word edit, paragraph chunks with content hashes"},
+    {"metric": "crash/delete_first/fewer_chunks_than_before_after_crash", "op": ">=", "value": 1, "label": "crashed documents left with fewer searchable chunks than before the update (delete first)"},
+    {"metric": "crash/insert_first/extra_chunks_after_retry", "op": ">=", "value": 100, "label": "duplicate chunks left after a retry (insert first, fresh ids)"},
+    {"metric": "crash/reconcile/extra_chunks_after_retry", "op": "==", "value": 0, "label": "duplicate chunks left after a retry (reconcile)"},
+    {"metric": "crash/reconcile/fewer_chunks_than_before_after_crash", "op": "==", "value": 0, "label": "crashed documents with fewer searchable chunks than before (reconcile)"}
+  ],
+  "experiments": [
+    {"name": "no_scan_noise", "args": ["--noise", "0"], "label": "perfect scans: what the checks cost when nothing is wrong"},
+    {"name": "seed_2", "args": ["--seed", "2"], "label": "another random world (seed 2)"},
+    {"name": "heavy_noise", "args": ["--noise", "0.05"], "label": "bad scans: 5% of digits damaged"}
+  ]
+}

@@ -1,0 +1,19 @@
+[1] 3000 invoices, 40% scanned, noise 0.02
+    trust the parser: 4.43% wrong (0.00% on digital PDFs)
+    with checks: 8.67% to review, 1.60% wrong and accepted (100% of those in the invoice number)
+[2] 20 of 400 documents edited; chunks re-embedded (share of the edited documents' chunks)
+    fixed/position/change_word embeds   20 deletes    0 share 25%
+    fixed/position/insert      embeds   71 deletes    0 share 71%
+    fixed/position/delete      embeds   56 deletes    0 share 70%
+    fixed/hash/change_word     embeds   20 deletes   20 share 25%
+    fixed/hash/insert          embeds   74 deletes   54 share 74%
+    fixed/hash/delete          embeds   48 deletes   48 share 60%
+    para/hash/change_word      embeds   20 deletes   20 share 8%
+    para/hash/insert           embeds   20 deletes    0 share 8%
+    para/hash/delete           embeds    0 deletes   20 share 0%
+[3] worker dies mid-update on 20% of documents, restarts and retries the same message
+    delete_first {'crashed_docs': 80, 'empty_after_crash': 2, 'fewer_chunks_than_before_after_crash': 80, 'extra_chunks_after_retry': 0}
+    insert_first {'crashed_docs': 80, 'empty_after_crash': 0, 'fewer_chunks_than_before_after_crash': 0, 'extra_chunks_after_retry': 740}
+    reconcile  {'crashed_docs': 80, 'empty_after_crash': 0, 'fewer_chunks_than_before_after_crash': 0, 'extra_chunks_after_retry': 0}
+
+wrote /home/user/thevoyager.dev/labs/build/2026-11-21/results.json in 0.8s

@@ -271,5 +271,12 @@
   "source_url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
   "hypothesis": "Some LiteLLM proxies run 1.81.8 to 1.83.9 and answer POST /guardrails/test_custom_code from outside the admin network; count them; patch if above zero.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-21",
+  "title": "Canary tokens in agent context to detect leaking LLM routers",
+  "source_url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+  "hypothesis": "Prompts from our agents pass through routers or resellers that log or copy them; a seeded canary will be fetched if so.",
+  "status": "suggested"
  }
 ]

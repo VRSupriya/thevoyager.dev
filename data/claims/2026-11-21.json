@@ -1,0 +1,365 @@
+{
+ "date": "2026-11-21",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Dragos (HD Moore)",
+   "event_date": "2026-11-19",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "HD Moore at Dragos sent about two million prompts over five months",
+     "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+     "quote": "HD Moore, Chief Research Officer at Dragos; 'nearly two million' (intro) / 'approximately two million' (body); July through November 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Data from at least three providers turned up where it shouldn't; none knew until Dragos told them",
+     "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+     "quote": "at least three AI providers; 'none of the three providers knew about their breach until we notified them'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "a couple of hundred AWS keys taken in a few windows in late October, including from requests rejected before any model ran",
+     "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+     "quote": "'A couple hundred' AWS keys; 'a few short windows in late October'; requests 'the provider rejected before a model ever ran'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "a privacy flag only binds the first hop; routers/resellers inherit downstream logging",
+     "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+     "quote": "Marketplace resellers could view and retain prompts through standard logging, 'without exploiting a vulnerability or bypassing platform controls'; some stolen requests were marked Zero Data Retention (two breaches)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Affected: three AI providers, not named in the post",
+     "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+     "quote": "Searched whole post: breached providers are not named; SurplusIntelligence, OpenRouter, Anthropic appear only in a Figure 7 caption, ARTEX is the attacker tool",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Fixed in / Severity: not stated in the post",
+     "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+     "quote": "Searched whole post: no severity rating. Fix status: Dragos is working with 'about a dozen providers'; 'One provider has published a preliminary security notice'; another 'has still not publicly disclosed the incident'",
+     "verdict": "CORRECTED",
+     "fix": "Severity is indeed not stated. 'Fixed in' is not a version question but the post does give remediation status: one provider has published a preliminary security notice, another has not disclosed, and stolen keys/URLs were still being accessed months later. Say that instead of 'not stated'."
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: go direct to first-tier provider, choose upstream providers yourself, avoid reseller marketplaces, enable secret filtering",
+     "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+     "quote": "'Use a first-tier provider'; 'Choose upstream providers yourself, verify that privacy settings change request routing, and avoid reseller marketplaces'; secret filtering 'not a panacea'; also self-host ('only option where no one else reads your prompts')",
+     "verdict": "CORRECTED",
+     "fix": "Also add: self-host if hardware allows, add user agents artex-agent and artex-judge-r121 to detections, and note secret filtering is 'not a panacea'."
+    },
+    {
+     "kind": "absence",
+     "claim": "If compromised: not stated in the post as a procedure",
+     "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+     "quote": "Searched whole post: no credential-rotation or incident-response procedure; only 'Seed your own canaries' and 'treat any use as an incident'",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Thinking Machines (Inkling 2 Mini)",
+   "event_date": "2026-11-20",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Released on 20 November with open weights",
+     "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+     "quote": "Nov 20, 2026; 'is released with open weights'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "licence",
+     "claim": "Apache 2.0",
+     "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+     "quote": "License: Apache 2.0 (the news post itself does not name a licence)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "26.4B total, 3.4B active, 1M-token context, text and image input",
+     "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+     "quote": "26.4B, 3.4B active; 'supports a context window of up to 1M tokens'; 'accepts text and image inputs and generates text outputs'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "5.4B effective active parameters per token because it loops some layers three times",
+     "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+     "quote": "'there are 5.4B effective active parameters per token'; 'The middle 12 layers run three times with shared weights'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "79.2% SWE-bench Verified and 71.6% Terminal Bench v2.1 (maker's own numbers)",
+     "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+     "quote": "SWE-bench Verified 79.2% (bash only); Terminal Bench v2.1 71.6% (pi v0.83.0). In the same table Qwen3.8-27B scores 77.8% and 73.0% respectively",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Ollama runs it on Macs with at least 32GB RAM at launch, GGUF via Unsloth and llama.cpp",
+     "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+     "quote": "'At launch we support Inkling 2 Mini running on any Mac system (MacBook, Mac Mini) with at least 32GB RAM via Ollama.' 'Quantized GGUF versions are available via Unsloth and llama.cpp'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "no inference provider hosts it yet",
+     "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+     "quote": "HF model card: 'This model isn't deployed by any Inference Provider.' But the Thinking Machines post says it is available 'for inference and fine-tuning on Tinker' and lists 'Open source inference ... on SGLang, vLLM, Ollama, Unsloth, NVIDIA Dynamo, TokenSpeed, and Llama App'",
+     "verdict": "CORRECTED",
+     "fix": "Say 'no Hugging Face Inference Provider hosts it yet, though Thinking Machines offers it on its own Tinker platform and engines such as vLLM and SGLang support it'."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Hugging Face (harness-hub adapters)",
+   "event_date": "2026-11-20",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "LoRA adapters for Qwen3.8-27B, one per harness (Pi, Hermes Agent, OpenCode), RL inside each harness as shipped",
+     "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+     "quote": "'Here the harness runs exactly as it ships, and the trainer learns from the exact tokens it produced.' One LoRA 'per agent harness (pi, Hermes Agent, OpenCode)'. Blog dated November 20, 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Pi 39% to 55% pass rate on Terminal-Bench 2.1; tokens per task about 2.9K to 1.5K",
+     "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+     "quote": "baseline 'is 39% which uses on average 2.9K tokens per task'; adapter reaches '55% pass@1, with average token usage of 1.5K' (detailed table lists the Pi adapter at 56.5%)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "merged super-adapter lifted mean pass@1 from 39.5% to 49.0% across six pairs",
+     "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+     "quote": "'mean pass@1 39.5% → 49.0%' with thinking off, across six harness-benchmark pairs",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "OOD results on AutomationBench mostly within noise; authors flag reasoning leakage before tool calls",
+     "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+     "quote": "'The differences are within noise, except perhaps Hermes.' Model 'tends to generate some short text before proposing a tool call' ('reasoning leakage')",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Adapters collection link",
+     "url": "https://huggingface.co/collections/harness-hub/qwen38-27b-harness-adapters",
+     "quote": "Collection lists Qwen3.8-27B pi-adapted, hermes-adapted, opencode-adapted, super-adapter and GGUF variants",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-18",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Preprint 'Forget Freely, Grep Later' keeps full history as plain-text log searched by regex; no embedding, index or extraction step",
+     "url": "https://arxiv.org/abs/2611.25123",
+     "quote": "Ziyan Yang, Taiwei Shi, Jieyu Zhao; submitted 18 Nov 2026; append-only plain-text log with regular-expression search; 'requires no embeddings, retrieval index, or extra models'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Qwen3.5-9B trained by RL; 95-97% on ContextBench vs at most 21% for lossy baselines",
+     "url": "https://arxiv.org/abs/2611.25123",
+     "quote": "'GrepMem achieves 95-97% accuracy on ContextBench, versus at most 21% for lossy baselines'; 'We train Qwen3.5-9B with reinforcement learning under five context management strategies'. HTML: 97.4% KV Store, 95.3% Log Triage; best lossy baseline Masking 20.7%",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "research results from one small model",
+     "url": "https://arxiv.org/html/2611.25123v1",
+     "quote": "Limitations: 'Our evaluation focuses on controlled benchmarks and a single model'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "(Telegram radar) GrepMem-style memory: Watch until code appears",
+     "url": "https://github.com/limenlp/GrepMem",
+     "quote": "Paper Ethics Statement: 'we will release our code, prompts, and trained model checkpoints'; HTML header links github.com/limenlp/GrepMem; repo exists (MIT, 1 commit) and README says 'code and reproduction instructions are included' and 'Public paper and trained-checkpoint links are not yet available'. The arXiv abs page itself shows no code link; Comments field: '17 pages, 6 figures, 6 tables. Ziyan Yang and Taiwei Shi contributed equally'",
+     "verdict": "CORRECTED",
+     "fix": "Code is already public at github.com/limenlp/GrepMem (trained checkpoints not yet). Change to 'Watch until trained checkpoints and independent replication appear' or 'Investigate: code is available'."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "ChatPRD (Claire Vo) via Simon Willison",
+   "event_date": "2026-11-20",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "Simon Willison flagged a video by Claire Vo of ChatPRD about a flood of 'token fraud'",
+     "url": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
+     "quote": "Link post dated 20 Nov 2026; Vo describes a 'flood of token fraud'; ChatPRD is 'an AI platform that helps product managers'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "people looping free trials and promo codes, tunnelling through her agent; some resell tokens, others run commercial work on top",
+     "url": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
+     "quote": "'run a loop of free trials and promo codes and then tunnel to my agent'; 'resell tokens or run other commercial enterprises on top of the ChatPRD agent'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "She's ending free trials entirely, and Willison agrees",
+     "url": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
+     "quote": "Vo is 'winding down her free trials entirely'; Willison: 'sadly looks like the right decision in the face of this abuse'",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Signal",
+   "event_date": "2026-11-20",
+   "status": "Policy",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "other",
+     "claim": "On iOS 27 it blocks screenshots in the app",
+     "url": "https://signal.org/blog/protecting-your-privacy/",
+     "quote": "'preventing screenshots in the app on iOS 27'; post dated 20 Nov 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "On Android it turns on 'Screen security' when it detects an assistant reading the screen",
+     "url": "https://signal.org/blog/protecting-your-privacy/",
+     "quote": "'We automatically enable the \"Screen security\" setting in Signal Android when this type of access is detected.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "On macOS it can only ask users to exclude Signal in System Settings",
+     "url": "https://signal.org/blog/protecting-your-privacy/",
+     "quote": "'add Signal to the Excluded Apps section in System Settings > Siri'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Signal calls its own remedy incomplete because agents can still reach the filesystem",
+     "url": "https://signal.org/blog/protecting-your-privacy/",
+     "quote": "'restricting screenshots does not address other more sneaky ways AI agents could potentially access application data' (filesystem given as example)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Signal is asking Apple, Google and Microsoft for a standard opt-out",
+     "url": "https://signal.org/blog/protecting-your-privacy/",
+     "quote": "'Developers should have an easy and well-documented way to opt their app out of AI data access and processing.'",
+     "verdict": "VERIFIED"
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Perplexity Orchestrator",
+   "url": "https://www.perplexity.ai/hub/blog/orchestrator-one-api-for-reliable-inference",
+   "event_date": "2026-11-17",
+   "quote": "Nov 17, 2026; 'retries on another deployment of that model'; perplexity/auto 'an optional feature available in preview'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "AWS CLI Agent Orchestrator",
+   "url": "https://github.com/awslabs/cli-agent-orchestrator",
+   "event_date": "2026-11-21",
+   "quote": "'This project is licensed under the Apache License 2.0'; supervisor delegates to specialist agents in 'isolated terminal sessions' (tmux). No release or date shown on the page; event date could not be determined (placeholder)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Cairn zero-day: Amazon says ~11 minutes",
+   "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+   "event_date": "2026-11-20",
+   "quote": "AWS page body would not load via WebFetch (only title and navigation). VentureBeat (Nov 20): agents wrote files outside the intended storage directory 'in about 11 minutes'; Amazon 'assesses a China nexus with moderate confidence'; article 'doesn't mention API mapping'",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "MONAI Label advisory: critical, <= 0.8.5, no patch, auth stopgap",
+   "url": "https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94",
+   "event_date": "2026-11-18",
+   "quote": "Severity 'Critical'; affected '<= 0.8.5'; patched versions 'None' (fix in PR #1915, unreleased); workarounds: turn on authentication (MONAI_LABEL_AUTH_ENABLE defaults to False), keep server off untrusted networks, run unprivileged with write access limited to datastore; published Nov 18, 2026",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "OpenAI adversarial distillation",
+   "url": "https://openai.com/index/combatting-adversarial-distillation",
+   "event_date": "2026-11-20",
+   "quote": "Attack success 'dropped from 54.0% on GPT-6 Astra with its original safeguards to 0.2% on GPT-6.2 Astra with updated safeguards'; 'an internal adaptive evaluation'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Gemini Tool Retrieval",
+   "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+   "event_date": "2026-11-19",
+   "quote": "'Tool Retrieval is now in preview in the Gemini Interactions API'; 'Tool Retrieval has no separate charge' (billed at regular token rates, small fixed input-token block added); requires a tool_search tool; defer_loading flag",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Ray 2.58.2",
+   "url": "https://github.com/ray-project/ray/releases",
+   "event_date": "2026-11-18",
+   "quote": "aiohttp 3.14.4, Brotli 1.2.1, idna >= 3.15; 'The eMudhra intermediate CA keys were reported compromised on October 20, 2026'; certifi 2026.10.19 floor",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Language Models Can Rewrite Their Own Weights",
+   "url": "https://arxiv.org/abs/2611.21885",
+   "event_date": "2026-11-16",
+   "quote": "Submitted 16 Nov 2026 (v1), revised 18 Nov (v2); 27B open model edits its own weights, no gradients, +6.6 points on unseen problems; searched page: no Comments field and no code/GitHub link (only generic alphaXiv/CatalyzeX/DagsHub/HF toggles and TeX source)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Dubai City AI Agent",
+   "url": "https://gulfnews.com/uae/dubai-launches-city-ai-agent-to-understand-residents-needs-and-revolutionise-services-1.500752633",
+   "event_date": "2026-11-18",
+   "quote": "Approved Wednesday Nov 18, 2026 at the AI Retreat; '93 specialised agents' across '85 government entities'; no rollout date in the article",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Microsoft agent-framework PyPI compromise (ESRP certificate)",
+   "url": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi",
+   "event_date": "2026-11-19",
+   "quote": "appears to have compromised a client certificate and private key for Microsoft ESRP. How the credentials were obtained is not yet known.",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

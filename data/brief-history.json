@@ -1,83 +1,5 @@
 [
  {
-  "date": "2026-10-21",
-  "slot": "top",
-  "title": "DeepSeek DeepInfer inference engine",
-  "url": "https://github.com/deepseek-ai/DeepInfer"
- },
- {
-  "date": "2026-10-21",
-  "slot": "models",
-  "title": "Mistral Voxtral 3 voice agent stack",
-  "url": "https://mistral.ai/news/voxtral-3"
- },
- {
-  "date": "2026-10-21",
-  "slot": "agents",
-  "title": "Eon MCP gateway on Amazon Bedrock AgentCore",
-  "url": "https://aws.amazon.com/blogs/machine-learning/how-eon-built-multi-cloud-investigation-with-an-mcp-gateway-on-amazon-bedrock-agentcore/"
- },
- {
-  "date": "2026-10-21",
-  "slot": "research",
-  "title": "The Window Is in the Reasoning (prompt injection)",
-  "url": "https://arxiv.org/abs/2610.24048"
- },
- {
-  "date": "2026-10-21",
-  "slot": "people",
-  "title": "Hamel Husain: decision models for evals",
-  "url": "https://hamel.dev/blog/posts/decision-model-evals/"
- },
- {
-  "date": "2026-10-21",
-  "slot": "architecture",
-  "title": "llm-d 1.0 distributed inference",
-  "url": "https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference/"
- },
- {
-  "date": "2026-10-21",
-  "slot": "quick",
-  "title": "Tencent Hy-Memory-30B-A3B",
-  "url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B"
- },
- {
-  "date": "2026-10-21",
-  "slot": "quick",
-  "title": "Inception Mercury 3",
-  "url": "https://openrouter.ai/inception/mercury-3/api"
- },
- {
-  "date": "2026-10-21",
-  "slot": "quick",
-  "title": "vLLM 0.32.0",
-  "url": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0"
- },
- {
-  "date": "2026-10-21",
-  "slot": "quick",
-  "title": "Google TorchTPU open source",
-  "url": "https://cloud.google.com/blog/topics/ai-infrastructure/torchtpu-is-now-open-source-run-native-pytorch-on-tpus/"
- },
- {
-  "date": "2026-10-21",
-  "slot": "quick",
-  "title": "AWS TorchNeuron public beta",
-  "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-native-pytorch-support-trainium"
- },
- {
-  "date": "2026-10-21",
-  "slot": "quick",
-  "title": "Databricks Agent Memory",
-  "url": "https://www.databricks.com/blog/introducing-agent-memory-databricks"
- },
- {
-  "date": "2026-10-21",
-  "slot": "quick",
-  "title": "AWS Well-Architected Agent",
-  "url": "https://www.infoq.com/news/2026/10/aws-well-architected-agent/"
- },
- {
   "date": "2026-10-22",
   "slot": "top",
   "title": "Google Cloud brings OpenAI GPT-6 models",
@@ -2752,5 +2674,89 @@
   "slot": "quick",
   "title": "Microsoft Foundry Dev Pack GA",
   "url": "https://devblogs.microsoft.com/foundry/the-foundry-dev-pack-is-here-build-foundry-agents-your-way/"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "top",
+  "title": "Dragos canary study: AI providers leak prompts",
+  "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "models",
+  "title": "Thinking Machines Inkling 2 Mini",
+  "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "agents",
+  "title": "Hugging Face harness adapters for Qwen3.8-27B",
+  "url": "https://huggingface.co/blog/harness-adapters-at-scale"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "research",
+  "title": "GrepMem: Forget Freely, Grep Later agent memory",
+  "url": "https://arxiv.org/abs/2611.25123"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "people",
+  "title": "Simon Willison: token fraud",
+  "url": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "architecture",
+  "title": "Signal restricts OS-level AI agents",
+  "url": "https://signal.org/blog/protecting-your-privacy/"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "quick",
+  "title": "Perplexity Orchestrator API",
+  "url": "https://www.perplexity.ai/hub/blog/orchestrator-one-api-for-reliable-inference"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "quick",
+  "title": "AWS CLI Agent Orchestrator",
+  "url": "https://github.com/awslabs/cli-agent-orchestrator"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "quick",
+  "title": "Amazon Cairn AI agents zero-day, MONAI Label",
+  "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "quick",
+  "title": "Microsoft agent-framework ESRP certificate",
+  "url": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "quick",
+  "title": "OpenAI adversarial distillation",
+  "url": "https://openai.com/index/combatting-adversarial-distillation"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "quick",
+  "title": "Google Gemini Tool Retrieval",
+  "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "quick",
+  "title": "Ray 2.58.2",
+  "url": "https://github.com/ray-project/ray/releases"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "quick",
+  "title": "Language Models Can Rewrite Their Own Weights",
+  "url": "https://arxiv.org/abs/2611.21885"
  }
 ]

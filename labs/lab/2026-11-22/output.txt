@@ -1,0 +1,36 @@
+params 816,128 | starting val 4.223 | final train 1.7164 val 1.8701 | 62s
+cache exact: tokens identical=True max |logit diff|=4.77e-06 | position bug: max diff=11.10, first different token at step 1, 12% of tokens still match
+generate  64 tokens: recompute 0.09s | cached 0.05s | 1.7x
+generate 128 tokens: recompute 0.24s | cached 0.10s | 2.4x
+generate 256 tokens: recompute 0.71s | cached 0.22s | 3.2x
+generate 512 tokens: recompute 2.71s | cached 0.57s | 4.7x
+greedy     valid words 100.0% | unique words 0.2% | self-NLL 1.141 | distinct samples 1/200
+T=0.5      valid words 87.6% | unique words 23.6% | self-NLL 1.263 | distinct samples 200/200
+T=0.8      valid words 74.8% | unique words 38.4% | self-NLL 1.535 | distinct samples 200/200
+T=1.0      valid words 63.0% | unique words 51.0% | self-NLL 1.791 | distinct samples 200/200
+T=1.3      valid words 46.8% | unique words 66.6% | self-NLL 2.289 | distinct samples 200/200
+top-k=5    valid words 80.4% | unique words 30.7% | self-NLL 1.416 | distinct samples 200/200
+top-p=0.9  valid words 74.7% | unique words 39.6% | self-NLL 1.551 | distinct samples 200/200
+{
+ "params": 816128,
+ "init_val_loss": 4.2231,
+ "val_loss": 1.8701432871818542,
+ "train_val_gap": 0.1537,
+ "cache_tokens_identical": 1,
+ "cache_max_logit_diff": 4.768e-06,
+ "pos_bug_max_logit_diff": 11.095,
+ "pos_bug_first_diff_step": 1,
+ "pos_bug_token_match": 0.125,
+ "speedup_256": 3.2,
+ "speedup_512": 4.7,
+ "kv_bytes_per_token": 4096,
+ "valid_words_T05": 0.8757,
+ "valid_words_T13": 0.4676,
+ "valid_word_gap_T05_T13": 0.4081,
+ "greedy_distinct_samples": 1,
+ "train_seconds": 61.7
+}
+
+--- stderr ---
+/root/.cache/voyager-labs/cb4c768c4b63fc20/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:368: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))

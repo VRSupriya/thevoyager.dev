@@ -285,5 +285,12 @@
   "week": 7,
   "title": "Build: an ingestion pipeline that checks its own parser and survives a crash, or a change-data-capture indexer",
   "topic_key": "build:ingestion-validation-gate-chunk-scheme-embed-share-crash-safe-reconcile-cdc-outbox:ingestion-document-pipelines"
+ },
+ {
+  "date": "2026-11-22",
+  "track": "lab",
+  "week": 7,
+  "title": "Lab, Step 1 (part 5): the KV cache is a bookkeeping trick, and sampling is where the quality lives",
+  "topic_key": "lab:step1:part5:kv-cache-exactness-position-bug-timing-temperature-top-k-top-p"
  }
 ]

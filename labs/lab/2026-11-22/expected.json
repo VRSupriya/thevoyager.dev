@@ -1,0 +1,16 @@
+{
+  "title": "Lab, Step 1 (part 5): generate, cache and sample from the small GPT",
+  "post": "lab/2026-11-22",
+  "command": ["run.py"],
+  "timeout_minutes": 15,
+  "gates": [
+    {"metric": "val_loss", "op": "<=", "value": 1.95, "label": "baseline val loss after 2,000 steps"},
+    {"metric": "cache_tokens_identical", "op": "==", "value": 1, "label": "cached and uncached greedy decoding give identical tokens"},
+    {"metric": "cache_max_logit_diff", "op": "<=", "value": 0.0001, "label": "largest logit difference, cached vs recomputed"},
+    {"metric": "speedup_512", "op": ">=", "value": 2.0, "label": "cached speedup at 512 tokens"},
+    {"metric": "valid_word_gap_T05_T13", "op": ">=", "value": 0.1, "label": "share of real words at T=0.5 minus T=1.3"}
+  ],
+  "experiments": [
+    {"name": "seed_2", "args": ["--seed", "2"], "label": "same lab, seed 2 (how much do the numbers move?)"}
+  ]
+}

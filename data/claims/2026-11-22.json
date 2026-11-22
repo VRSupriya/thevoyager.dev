@@ -1,0 +1,284 @@
+{
+ "date": "2026-11-22",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "OpenRouter / Together AI",
+   "event_date": "2026-11-22",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Off-boarded three providers, removed 125 endpoints from ZDR eligibility, notified affected customers",
+     "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
+     "quote": "Off-boarded three providers from OpenRouter, based on the results of our investigations. / Removed 125 endpoints from Zero Data Retention (ZDR) eligibility. / Notified all potentially affected customers.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "OpenRouter says it will run the researchers' canary-style tests on an ongoing basis",
+     "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
+     "quote": "adapting the researchers' testing approach so we can run these checks on an ongoing basis (the word 'canary' appears only in the link to the Dragos report)",
+     "verdict": "CORRECTED",
+     "fix": "Say OpenRouter is 'adapting the researchers' testing approach' to run checks on an ongoing basis; it does not call them canary tests."
+    },
+    {
+     "kind": "date",
+     "claim": "Together posted on 21 November: AI coding agent committed a credential; opened private HF repo of prompt samples from June and July; unauthorized party downloaded them",
+     "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026",
+     "quote": "Published 11/21/2026. 'an AI coding agent committed a credential that provided access to the private Hugging Face repository' (while developing public GitHub repo xorl); 'an unauthorized party obtained the credential and used it to download the stored prompt samples'; requests from June and July 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Affected: MiniMax M3, GLM-5.2, Kimi K2.6; stopgap enable ZDR in account settings; contact security@together.ai; affected customers contacted directly",
+     "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026",
+     "quote": "Affected models: MiniMax M3, GLM-5.2, and Kimi K2.6. 'turn on zero data retention (ZDR) in their account settings'. 'We will contact affected customers directly as needed'. security@together.ai",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated",
+     "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026",
+     "quote": "Searched both posts: Together gives no formal severity rating (apologises, data still under review); OpenRouter gives none and says 'These findings did not show any breach or unauthorized access of OpenRouter.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Fixed in: not applicable, hosted service; no customer steps beyond stopgap",
+     "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
+     "quote": "OpenRouter post gives no specific customer steps; ZDR restored only after 'appropriate assurances and validation'. Together: commit reverted after automated scanning detected it.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "date",
+     "claim": "OpenRouter said a day later (22 Nov)",
+     "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
+     "quote": "OpenRouter · 11/22/2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: enable ZDR in account settings; affected customers are contacted directly; security@together.ai",
+     "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026",
+     "quote": "Customers handling sensitive prompt data should enable ZDR in their account settings. If you have questions about this incident or its potential impact on your organization, contact security@together.ai.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "OpenAI (GPT-Live-1.1)",
+   "event_date": "2026-11-19",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Released 19 November; improves pronunciation and accent consistency in multilingual conversations",
+     "url": "https://developers.openai.com/api/docs/changelog",
+     "quote": "GPT-Live-1.1 (Nov 19, 2026) 'improves pronunciation, accent consistency, and transcription in multilingual voice conversations.' Model page lists no release date.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "It listens while it speaks",
+     "url": "https://developers.openai.com/api/docs/models/gpt-live-1.1",
+     "quote": "GPT-Live-1.1 can listen while it speaks. (Full-duplex voice model for multilingual conversations)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "price",
+     "claim": "$0.05 a minute active, $0.02 standby; standby applies to WebRTC sessions while inference is paused; backend model and tool use billed separately",
+     "url": "https://developers.openai.com/api/docs/models/gpt-live-1.1",
+     "quote": "Active $0.05/min, Standby $0.02/min. 'The lower standby rate applies to WebRTC sessions while inference is paused.' 'Backend model and tool usage is billed separately.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Standby isn't new: configurable for GPT-Live-1 as well",
+     "url": "https://developers.openai.com/api/docs/changelog",
+     "quote": "Changelog Nov 19: standby applies 'for GPT-Live-1 and GPT-Live-1.1 WebRTC sessions to pause inference during inactivity and resume when someone speaks.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Own endpoint v1/live/sessions; Realtime, Responses, Chat Completions not supported",
+     "url": "https://developers.openai.com/api/docs/models/gpt-live-1.1",
+     "quote": "v1/live/sessions is the supported Live endpoint; unsupported list includes Chat Completions, Responses, Realtime",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Microsoft (VS Code Copilot harness)",
+   "event_date": "2026-11-18",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Announced 18 Nov; Copilot harness (Copilot SDK) default for new agent sessions",
+     "url": "https://code.visualstudio.com/blogs/2026/11/18/copilot-harness",
+     "quote": "Nov 18, 2026; 'is now the default for new agent sessions in VS Code'; uses the Copilot SDK",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "date",
+     "claim": "Local harness goes in February 2027 unless organization restricts it",
+     "url": "https://code.visualstudio.com/blogs/2026/11/18/copilot-harness",
+     "quote": "remains available during a three-month transition period; removal in February 2027 '(unless your organization restricts its use)'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "14.2% fewer tokens per active device, 9.6% lower estimated processing cost, Business/Enterprise rollout; Microsoft's numbers",
+     "url": "https://code.visualstudio.com/blogs/2026/11/18/copilot-harness",
+     "quote": "'used 14.2% fewer tokens per active device'; '9.6% lower estimated processing cost'; 'Copilot Business and Enterprise users on VS Code Stable in October'; estimated from token usage",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Graham Dumpleton (Muru) via Simon Willison",
+   "event_date": "2026-11-21",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "17 posts since 4 November",
+     "url": "https://simonwillison.net/2026/Nov/21/muru/",
+     "quote": "List on the page runs 2026-11-04 to 2026-11-21 with 18 entries (04,05,07,08,09,10,11,11,12,13,14,15,16,17,18,19,20,21)",
+     "verdict": "CORRECTED",
+     "fix": "Say 18 posts (as of 21 November)."
+    },
+    {
+     "kind": "attribution",
+     "claim": "Dumpleton started mod_wsgi; AI-assisted Rust server for WSGI and ASGI",
+     "url": "https://simonwillison.net/2026/Nov/21/muru/",
+     "quote": "Graham Dumpleton started mod_wsgi 20 years ago... Muru is his new, AI-assisted Rust server ... running ASGI and WSGI Python apps",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "He says the AI does much of the typing while deciding what isn't good enough stays with him",
+     "url": "https://simonwillison.net/2026/Nov/21/muru/",
+     "quote": "The AI may be doing a lot of the work on the surface, but deciding what isn't good enough yet is still down to me",
+     "verdict": "CORRECTED",
+     "fix": "Source says 'a lot of the work on the surface', not 'typing'; reword to that."
+    },
+    {
+     "kind": "licence",
+     "claim": "Apache-2.0, alpha, 0.1.0 pre-releases on PyPI; feedback rule: don't send a patch, describe the problem",
+     "url": "https://github.com/muruhq/muru",
+     "quote": "Repo licensed 'Apache-2.0'; 'Muru is in alpha'; 0.1.0 pre-releases on PyPI; contributions 'as requirements, not as code' (open an issue describing the problem). Read via WebFetch; direct fetch returned 403 and PyPI page needed JS, so PyPI not independently confirmed.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Valkey (Linux Foundation)",
+   "event_date": "2026-11-19",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "Valkey 9.2 GA, announced 19 November",
+     "url": "https://www.linuxfoundation.org/press/valkey-9.2-lowers-cost-of-ai-workloads-on-existing-infrastructure-alongside-new-distributed-kv-caching-capability",
+     "quote": "November 19, 2026; 'today announced the general availability of Valkey 9.2'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Built on LMCache, wired to vLLM and SGLang with a config change",
+     "url": "https://www.linuxfoundation.org/press/valkey-9.2-lowers-cost-of-ai-workloads-on-existing-infrastructure-alongside-new-distributed-kv-caching-capability",
+     "quote": "'plugs into engines like vLLM and SGLang using a single configuration change'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Up to 40% lower inference cost, up to 80% lower TTFT (release's own claims)",
+     "url": "https://www.linuxfoundation.org/press/valkey-9.2-lowers-cost-of-ai-workloads-on-existing-infrastructure-alongside-new-distributed-kv-caching-capability",
+     "quote": "costs drop by 'up to 40%'; time-to-first-token falls 'by up to 80%'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Multiverse Computing reports 50% more requests on same GPUs",
+     "url": "https://www.linuxfoundation.org/press/valkey-9.2-lowers-cost-of-ai-workloads-on-existing-infrastructure-alongside-new-distributed-kv-caching-capability",
+     "quote": "Ennio Pastore, Director of AI Platform at Multiverse Computing: 'we processed 50% more requests on the same GPUs'",
+     "verdict": "VERIFIED"
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Stitch Loop",
+   "url": "https://www.producthunt.com/products/stitch-loop",
+   "event_date": "2026-11-21",
+   "quote": "proposes fixes, builds them in a cloud sandbox and opens a pull request; Nothing merges without human review; worldwide waitlist; 'Launching today' (URL dated Nov 21, 2026)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Microsoft Aion-1.0-Instruct-2.3B",
+   "url": "https://huggingface.co/microsoft/Aion-1.0-Instruct-2.3B",
+   "event_date": "2026-11-21",
+   "quote": "MIT License; 32,768 tokens; ~2.29B; 'will become the Windows OS SLM by the end of January 2027'. Page gives no release date (event_date is a placeholder)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub security advisory permissions",
+   "url": "https://github.blog/changelog/2026-11-20-security-advisory-permissions-are-now-generally-available",
+   "event_date": "2026-11-20",
+   "quote": "Security advisory permissions are now generally available; 'You no longer have to make them repository administrators'; assign per repo",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Foundry Managed Compute",
+   "url": "https://devblogs.microsoft.com/foundry/managed-compute-ga/",
+   "event_date": "2026-11-20",
+   "quote": "'the general availability of Managed Compute'; 'we provision the GPUs, maintain the containers, and operate the serving runtime'; 'US and EU Data Zones'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Soket AI EKA-1",
+   "url": "https://analyticsindiamag.com/ai-news/soket-ai-secures-usd-4-million-as-it-rolls-out-its-eka-1-model",
+   "event_date": "2026-11-20",
+   "quote": "26-billion-parameter foundation model; math, code, and reasoning; 100+ languages; Finserv Intelligence ~$2M + Pennant Technologies $2M = $4M. Searched for licence, open-source, weights, access, API: nothing (absence claim holds)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Week in review: OpenRouter rankings",
+   "url": "https://openrouter.ai/rankings",
+   "event_date": "2026-11-22",
+   "quote": "openrouter.ai/rankings: MiniMax M3.1 Flash 442% (4.2T), Claude Opus 5.5 49% (7.06T), GPT-6 Luna 34% (8.51T), DeepSeek V4.1 Flash 1017 63.3T (+15%); brief pages 2026-11-18..21 exist",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Amazon SageMaker AI endpoint monitoring",
+   "url": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-now-detects-latency-drift-idle-gpus-and-missed-optimizations-on-your-inference-endpoints/",
+   "event_date": "2026-11-19",
+   "quote": "Monitoring is on by default for SageMaker AI inference endpoints using vLLM serving containers and GPU instances... It does not read your requests or responses.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Genie ZeroOps",
+   "url": "https://www.databricks.com/blog/genie-zeroops-now-public-beta-autonomous-agent-fixes-data-pipelines-lessons-80000-customer",
+   "event_date": "2026-11-19",
+   "quote": "Today, Genie ZeroOps is available in Public Beta, and your workspace admin can turn it on from the workspace Previews page.",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

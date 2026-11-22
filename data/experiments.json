@@ -278,5 +278,12 @@
   "source_url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
   "hypothesis": "Prompts from our agents pass through routers or resellers that log or copy them; a seeded canary will be fetched if so.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-22",
+  "title": "Shared Valkey KV cache tier for multi-turn agent traffic",
+  "source_url": "https://www.linuxfoundation.org/press/valkey-9.2-lowers-cost-of-ai-workloads-on-existing-infrastructure-alongside-new-distributed-kv-caching-capability",
+  "hypothesis": "A shared Valkey KV tier cuts p95 TTFT on multi-turn agent traffic versus a local prefix cache.",
+  "status": "suggested"
  }
 ]

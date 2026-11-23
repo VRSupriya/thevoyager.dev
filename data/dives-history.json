@@ -292,5 +292,12 @@
   "week": 7,
   "title": "Lab, Step 1 (part 5): the KV cache is a bookkeeping trick, and sampling is where the quality lives",
   "topic_key": "lab:step1:part5:kv-cache-exactness-position-bug-timing-temperature-top-k-top-p"
+ },
+ {
+  "date": "2026-11-23",
+  "track": "models-agentic",
+  "week": 8,
+  "title": "GPT-6.2 Astra gets cheaper by 20%. Your retrieval bill still depends on the index you picked",
+  "topic_key": "models-agentic:openai-gpt-6-2-astra-sol:vector-hybrid-graph-retrieval"
  }
 ]

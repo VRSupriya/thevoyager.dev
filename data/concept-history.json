@@ -912,5 +912,17 @@
 "small & on-device models": 1,
 "voice agents": 1,
 "world models & robotics": 1
+},
+"2026-11-23": {
+"RAG & retrieval": 1,
+"agent harnesses": 1,
+"coding agents": 3,
+"enterprise agent adoption": 1,
+"guardrails & AI safety": 2,
+"mixture of experts": 1,
+"open-weight models": 1,
+"sandboxing": 2,
+"sovereign AI & data residency": 1,
+"voice agents": 3
 }
 }

@@ -285,5 +285,12 @@
   "source_url": "https://www.linuxfoundation.org/press/valkey-9.2-lowers-cost-of-ai-workloads-on-existing-infrastructure-alongside-new-distributed-kv-caching-capability",
   "hypothesis": "A shared Valkey KV tier cuts p95 TTFT on multi-turn agent traffic versus a local prefix cache.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-23",
+  "title": "Sarvam-105B-1711 NVFP4 on a single Blackwell-class GPU for support agents",
+  "source_url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+  "hypothesis": "Sarvam's NVFP4 build serves a support-agent workload on one card within 3 points of the current model's task success.",
+  "status": "suggested"
  }
 ]

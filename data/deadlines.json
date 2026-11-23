@@ -1,26 +1,5 @@
 [
  {
-  "date": "2026-11-16",
-  "what": "Legacy GitHub app in Microsoft Teams retired (renamed 'GitHub (deprecated)')",
-  "who": "Teams using GitHub notifications or Copilot in Teams",
-  "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
-  "added": "2026-10-25"
- },
- {
-  "date": "2026-11-19",
-  "what": "Azure Foundry retires o1, o1-pro, o3, o3-pro, o3-deep-research (replacement gpt-5.6-sol) and o3-mini, o4-mini (replacement gpt-5.6-terra)",
-  "who": "Azure OpenAI users on those models",
-  "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
-  "added": "2026-11-02"
- },
- {
-  "date": "2026-11-19",
-  "what": "Vertex AI retires gemini-3.6-flash; replacement gemini-3.8-flash",
-  "who": "Vertex AI users on gemini-3.6-flash",
-  "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
-  "added": "2026-11-02"
- },
- {
   "date": "2026-11-27",
   "what": "TRAI comments and counter-comments due on draft guidelines for responsible use of AI in telecom networks and services",
   "who": "Telecom licensees and vendors serving India",
@@ -119,11 +98,25 @@
   "added": "2026-11-16"
  },
  {
+  "date": "2026-12-18",
+  "what": "GitHub Copilot deprecates MAI-Code-1.1-Flash across all experiences (replacement: latest MAI Code Flash model)",
+  "who": "Copilot users and admins on MAI-Code-1.1-Flash",
+  "url": "https://github.blog/changelog/2026-11-17-upcoming-deprecation-of-mai-code-1-1-flash-in-december/",
+  "added": "2026-11-23"
+ },
+ {
   "date": "2027-01-06",
   "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts variants (replacement gpt-realtime-2.1-mini) and ends new self-serve fine-tuning jobs",
   "who": "Teams using OpenAI TTS or fine-tuning",
   "url": "https://developers.openai.com/api/docs/deprecations",
   "added": "2026-11-02"
+ },
+ {
+  "date": "2027-01-06",
+  "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts (replacement gpt-realtime-2.1-mini); self-serve fine-tuning job creation restricted",
+  "who": "API users of OpenAI TTS and fine-tuning",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "added": "2026-11-23"
  },
  {
   "date": "2027-01-08",

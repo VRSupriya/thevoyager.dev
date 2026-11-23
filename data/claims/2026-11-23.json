@@ -1,0 +1,304 @@
+{
+ "date": "2026-11-23",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Sarvam AI",
+   "event_date": "2026-11-22",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Sarvam published a new open-weight checkpoint on 22 November",
+     "url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+     "quote": "Publication date: Nov 22, 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "licence",
+     "claim": "Apache-2.0, 10.3B active parameters, 131,072-token context",
+     "url": "https://huggingface.co/sarvamai/sarvam-105b-1711",
+     "quote": "License: apache-2.0; '105B-parameter mixture-of-experts model with 10.3B active parameters'; 'context window 131,072 tokens for Sarvam-105B-1711'. Sarvam blog itself says 'extend the model's context to 160K tokens' and does not state licence or active params.",
+     "verdict": "CORRECTED",
+     "fix": "Fine against the HF card; note the blog says 160K context while the card says 131,072. Cite the card for these three facts."
+    },
+    {
+     "kind": "number",
+     "claim": "65 GB NVFP4 checkpoint fits one 96 GB RTX PRO 6000 Blackwell",
+     "url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+     "quote": "'a 65 GB NVFP4 version that runs on a single workstation GPU'; 'the only one that fits on a single 96 GB RTX PRO 6000 Blackwell'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "99 tok/s for one user on a 10K-token prompt (Sarvam's own test)",
+     "url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+     "quote": "99 tokens per second per user, measured with a 10K-token prompt and one concurrent request (Table 3)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "price",
+     "claim": "$0.15 blended per million tokens on Token Factory, against $0.44 for the February release",
+     "url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+     "quote": "price cut 'from $0.44 to $0.15 per million tokens' (blended). $0.15 is attributed to Token Factory; $0.44 is labelled only blended, not Token Factory or explicitly the February release.",
+     "verdict": "CORRECTED",
+     "fix": "Say price fell from $0.44 to $0.15 blended per million tokens; drop 'on Token Factory' for the $0.44 and 'for the February release' unless the page ties them."
+    },
+    {
+     "kind": "number",
+     "claim": "Agent eight-benchmark average 42.6 to 73.9 vs its February checkpoint",
+     "url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+     "quote": "'rose from 42.6 to 73.9' across eight conversational agent benchmarks. Comparison baseline named as February checkpoint was not separately confirmed in the extract.",
+     "verdict": "CORRECTED",
+     "fix": "Numbers and eight benchmarks verified; confirm the baseline is the February checkpoint before keeping that phrase."
+    },
+    {
+     "kind": "status",
+     "claim": "Kernel fix is an open vLLM pull request; pinned to vLLM 0.33.0",
+     "url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+     "quote": "Blog: change for PR #54013 is 'proposed upstream'; HF card: 'Tested with vLLM 0.33.0.' GitHub vllm-project/vllm#54013 '[Bugfix] Drop num_stages for MLA decode with fp8 KV cache on small-smem GPUs' shows Open badge, needs-rebase, opened Aug 27 2026, last comment Nov 16 2026 from pushkar-sarvam. The HF card has no PR mention.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Cloudflare",
+   "event_date": "2026-11-18",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Cloudflare announced on 18 November that Clairic (27B) and Clairic-flash (9B) are open-weight",
+     "url": "https://blog.cloudflare.com/open-clairic",
+     "quote": "publish date 2026-11-18T22:00:00.000Z; 'Both Clairic models are now open-weight on Hugging Face.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "licence",
+     "claim": "Apache-2.0 and a Qwen3.8-27B base",
+     "url": "https://huggingface.co/cloudflare/clairic",
+     "quote": "License: apache-2.0; 'Base model: Qwen3.8-27B'. (Card metadata lists 28B params; text says 27B.)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "price",
+     "claim": "$0.10 per million input tokens until 1 December (Clairic $0.24 after)",
+     "url": "https://blog.cloudflare.com/open-clairic",
+     "quote": "Until December 1, 2026 'both Clairic and Clairic-flash will cost $0.10 per M input tokens'; after that 'pricing will resume at $0.24 per M input tokens.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "96 fresh-text requests: 335/336 fields vs 328; p50 358 ms vs 155 ms",
+     "url": "https://blog.cloudflare.com/open-clairic",
+     "quote": "'Fresh text fields, 96 requests'; Clairic 335/336, flash 328/336; p50 '358 / 736 ms' (Clairic) and '155 / 328 ms' (flash)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Post says there are no public extraction benchmarks yet; API schemas unchanged from preview",
+     "url": "https://blog.cloudflare.com/open-clairic",
+     "quote": "'There are no public extraction benchmarks yet.' 'full API schemas, which remain unchanged from our preview endpoint.'",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-16",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Preprint submitted on 16 November",
+     "url": "https://arxiv.org/abs/2611.20455",
+     "quote": "Submitted: 16 Nov 2026 (v1).",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Repo-Premium: six languages, a preregistered pool of 91 repos",
+     "url": "https://arxiv.org/abs/2611.20455",
+     "quote": "six languages (Python, JavaScript, TypeScript, Go, Rust, Java); 'a preregistered test pool of over 91 repositories'",
+     "verdict": "CORRECTED",
+     "fix": "Say 'over 91 repositories'."
+    },
+    {
+     "kind": "other",
+     "claim": "Generate-then-grep helps BM25 more than dense, matching dense in every Python pool",
+     "url": "https://arxiv.org/abs/2611.20455",
+     "quote": "'helps BM25 much more than dense retrieval. BM25 matches dense retrieval on every Python pool'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "No method predicts which retriever wins per query",
+     "url": "https://arxiv.org/abs/2611.20455",
+     "quote": "\"No method we tried predicts which retriever will win on a given query.\" Searched abstract and Comments field (Comments only links HF dataset hq-bench/repo-premium).",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "AWS (Lambda)",
+   "event_date": "2026-11-18",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "AWS announced on 18 November Lambda Managed Instances now run on EC2 G-series GPU instances",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-gpu-managed-instances/",
+     "quote": "Posted November 18, 2026: 'AWS Lambda now supports GPU-accelerated Event Functions on Lambda Managed Instances using EC2 G-series instances.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "One GPU per execution environment; concurrency default 4, max 48",
+     "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-managed-instances-gpu.html",
+     "quote": "'PerExecutionEnvironmentMaxConcurrency | Default 4, maximum 48'; 'One GPU per execution environment'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "One copy of the model serves every concurrent invocation while the server batches them; vLLM/SGLang images expose an OpenAI-compatible API with no handler code",
+     "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-managed-instances-gpu.html",
+     "quote": "Docs: 'Lambda runs multiple invocations concurrently in each execution environment'; base images with vLLM and SGLang. 'one copy of the model', batching and 'OpenAI-compatible API with no handler code' not found in the fetched page.",
+     "verdict": "REMOVED",
+     "fix": "Say each execution environment runs multiple invocations concurrently on one GPU and that base images include vLLM and SGLang; drop the OpenAI-compatible/no-handler-code and one-copy wording unless sourced from the scaling or base-images pages."
+    },
+    {
+     "kind": "price",
+     "claim": "EC2 On-Demand price plus 9.75% management fee and $0.20 per million requests",
+     "url": "https://aws.amazon.com/lambda/pricing/",
+     "quote": "'$0.20 per million requests'; 9.75% applies to GPU G-series instance types (CPU types 15%), as a premium on EC2 On-Demand price.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Default EC2 quota for G instances is 0 vCPUs",
+     "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-managed-instances-gpu.html",
+     "quote": "'The default value for this quota is 0 vCPUs for On-Demand G and VT instances, so you must request a quota increase before you can deploy GPU-accelerated functions.'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "GPUs top out at 48 GB (L40S), so a 65 GB checkpoint won't fit",
+     "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-managed-instances-gpu.html",
+     "quote": "Supported GPU table: 'G6e | NVIDIA L40S | 48 GB' is the largest; 'AcceleratorMemorySize | 3 GB to 48 GB'. Searched Supported GPU instances, Limits and Understanding accelerator memory sections; no larger GPU listed.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "AWS Emulator",
+   "url": "https://www.infoq.com/news/2026/11/aws-emulator-local-testing/",
+   "event_date": "2026-11-20",
+   "quote": "InfoQ dated Nov 20, 2026: launched 'about a week before'; CC0 waiver; free; 200+ services; single Rust binary, port 9297; AWS says 'thousands of autonomous AI agents wrote every line of code'; AWS: 'Don't use the emulator to test whether your application is secure'; doesn't evaluate IAM policies. Launch date approx 13 Nov.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Pandex",
+   "url": "https://github.com/pandex-io/pandex-mcp",
+   "event_date": "2026-11-22",
+   "quote": "Streamable HTTP server at https://api.pandex.io/mcp; free key 1,000 requests/day (50 without); texts 'are not the authentic versions'. Page does not say 'beta' or 'third-party'; calls content 'Official European law'. Date not on page (placeholder).",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "EU AI Act Art. 50(2)",
+   "url": "https://artificialintelligenceact.eu/implementation-timeline/",
+   "event_date": "2026-12-02",
+   "quote": "Systems placed on market before 2 August 2026 must comply with Article 50(2) by 2 December 2026 (Art. 111(4)).",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google API-key guide",
+   "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-fix-your-teams-api-keys/",
+   "event_date": "2026-11-21",
+   "quote": "'The role for calling models is roles/aiplatform.user'; ADC via gcloud auth application-default login; service account; 'delete every AI Studio key that has ever left a laptop'. Date not on page (placeholder).",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "llm-gemini 0.38.1",
+   "url": "https://simonwillison.net/2026/Nov/20/llm-gemini/",
+   "event_date": "2026-11-20",
+   "quote": "0.38.1 adds the missing xhigh reasoning level for Gemini 4 Hydrogen and Gemini 4 Neon; Carbon supports only low/medium/high.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Web Search on Amazon Bedrock",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/web-search-amazon-bedrock/",
+   "event_date": "2026-11-21",
+   "quote": "'five new languages, plus non-US English'; optional country field biases results; 'Queries are processed in the Region you call.'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Thinking Harder Doesn't Lead to Better Choices",
+   "url": "https://arxiv.org/abs/2611.22033",
+   "event_date": "2026-11-17",
+   "quote": "Submitted 17 Nov 2026; 'extra thinking buys confidence rather than correctness'; ten frontier models; three product-choice benchmarks (WebShop, SQID, WANDS).",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Claude Sonnet 4.5 retirement",
+   "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+   "event_date": "2026-11-30",
+   "quote": "claude-sonnet-4-5-20250929 retirement November 30, 2026; replacement claude-sonnet-5-5.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI Evals/Agent Builder",
+   "url": "https://developers.openai.com/api/docs/deprecations",
+   "event_date": "2026-11-30",
+   "quote": "Shutdown Nov 30, 2026: Evals dashboard/API/graders read-only; Agent Builder deprecated (replacement Agents SDK or ChatGPT Workspace Agents); /v1/prompts deprecated, move prompt content into app code.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub pull_request_target",
+   "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2/",
+   "event_date": "2026-12-02",
+   "quote": "'Starting December 2, 2026, GitHub Actions will block pull_request_target events by default in all public repositories'; Actions event policy can permit it.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "OpenAI gpt-5 removals",
+   "url": "https://developers.openai.com/api/docs/deprecations",
+   "event_date": "2026-12-11",
+   "quote": "Shutdown Dec 11, 2026: gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-pro, o3, o3-pro, with replacements listed.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub Enterprise Cloud India residency",
+   "url": "https://analyticsindiamag.com/ai-news/github-now-lets-indian-enterprises-store-code-locally-ahead-of-dpdp-deadline",
+   "event_date": "2026-11-19",
+   "quote": "Dedicated GHE.com subdomain; Enterprise Managed Users; 'The article does not give a date for when these options become available.' Article published 19 Nov 2026. Article says GitHub 'will offer' options, so 'can store' in the brief is slightly stronger.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "GITEX Global 2026",
+   "url": "https://gitex.com",
+   "event_date": "2026-12-07",
+   "quote": "Summit 7 Dec 2026 (Sheikh Maktoum Hall, DWTC); Expo 8-11 Dec 2026 (Dubai Exhibition Centre, Expo City). 'region's biggest tech show' not on the page.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "OpenAI gpt-image removals",
+   "url": "https://developers.openai.com/api/docs/deprecations",
+   "event_date": "2026-12-01",
+   "quote": "gpt-image-1-mini, gpt-image-1.5, gpt-image-1.5-2025-12-16 and chatgpt-image-latest Deprecated; replacement gpt-image-2.6-sunburst or gpt-image-2.6-flare (relayed by deadline agent from the OpenAI deprecations page)",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

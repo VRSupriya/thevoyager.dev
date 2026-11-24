@@ -299,5 +299,12 @@
   "week": 8,
   "title": "GPT-6.2 Astra gets cheaper by 20%. Your retrieval bill still depends on the index you picked",
   "topic_key": "models-agentic:openai-gpt-6-2-astra-sol:vector-hybrid-graph-retrieval"
+ },
+ {
+  "date": "2026-11-24",
+  "track": "research",
+  "week": 8,
+  "title": "Half your 128K prefill is the indexer choosing tokens. A new paper lets 16 queries share one scan",
+  "topic_key": "research:adindex-layer-adaptive-sparse-attention-indexing-group-distillation:vector-hybrid-graph-retrieval"
  }
 ]

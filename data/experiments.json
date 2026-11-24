@@ -292,5 +292,12 @@
   "source_url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
   "hypothesis": "Sarvam's NVFP4 build serves a support-agent workload on one card within 3 points of the current model's task success.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-24",
+  "title": "Claude Approvals in observe mode on one low-risk repo",
+  "source_url": "https://claude.com/resources/articles/introducing-claude-ship",
+  "hypothesis": "Claude Approvals in observe mode agrees with human reviewers on most low-risk PRs.",
+  "status": "suggested"
  }
 ]

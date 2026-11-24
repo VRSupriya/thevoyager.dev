@@ -1,0 +1,366 @@
+{
+ "date": "2026-11-24",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Anthropic (Claude Ship)",
+   "event_date": "2026-11-23",
+   "status": "Beta",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Anthropic launched Claude Ship on 23 November",
+     "url": "https://claude.com/resources/articles/introducing-claude-ship",
+     "quote": "Publication date: November 23, 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "status",
+     "claim": "Code Review is generally available; PR Steward and Claude Approvals are in public beta",
+     "url": "https://code.claude.com/docs/en/claude-ship",
+     "quote": "Code Review is generally available. PR Steward and Claude Approvals are in public beta.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Team and Enterprise only, GitHub only, billed on tokens, not available with Zero Data Retention",
+     "url": "https://claude.com/resources/articles/introducing-claude-ship",
+     "quote": "Claude Ship is available on Claude Team and Enterprise plans for repositories on GitHub. / Claude Ship usage is billed on tokens ... / not available to organizations with Zero Data Retention.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "The docs say PR Steward is designed not to approve or merge, but warn that auto-merge or a merge queue with no human requirement can still land a change nobody looked at",
+     "url": "https://code.claude.com/docs/en/claude-ship",
+     "quote": "Steward is designed not to approve or merge pull requests. / If you use GitHub auto-merge or a merge queue with a policy that doesn't require a person's approval, a change can merge without anyone acting.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Approvals can post an approving review where a policy file in your repo allows it; observe mode exists",
+     "url": "https://code.claude.com/docs/en/claude-ship",
+     "quote": "You write its policy file, which can set how many people have to approve changes to a path, and where Claude can post an approving review. / Start in observe mode, where the Claude Approvals check reports what your policy would decide. Observe mode is billed.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "(share field) Claude Ship has three parts ... billed on tokens; (try-this) baseline is human review time and revert rate",
+     "url": "https://code.claude.com/docs/en/claude-ship",
+     "quote": "Each agent is billed on token usage through your organization's usage credits. Also unmentioned in the brief: not available with HIPAA configuration or customer-managed encryption keys; PR Steward has no spend limit of its own until you set one.",
+     "verdict": "CORRECTED",
+     "fix": "Accurate as far as it goes. Optionally add that observe mode is billed and PR Steward has no default spend limit; the brief lists only ZDR as an exclusion but docs also exclude HIPAA configuration and customer-managed keys."
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Z.ai (GLM-5.4)",
+   "event_date": "2026-11-23",
+   "status": "Announced",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "28 layers of the GLM-5 base model reused across two iterations; 1M-token context; 128K max output; first Loop Transformer",
+     "url": "https://docs.z.ai/guides/llm/glm-5.4",
+     "quote": "reuses 28 layers of the GLM-5 base model across two iterations; context 1M; max output 128K; 'the first built on the Loop Transformer architecture'",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "status",
+     "claim": "Model API arrives 'upon completion of the security assessment'; for now reachable through a Coding Plan",
+     "url": "https://docs.z.ai/guides/llm/glm-5.4",
+     "quote": "The Model API will be made available upon completion of the security assessment. / GLM-5.4 is now available to all GLM Coding Plan users",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Simon Willison notes it isn't open weights, at least not yet",
+     "url": "https://simonwillison.net/2026/Nov/23/glm-54/",
+     "quote": "GLM 5.4 is not (yet?) available as open weights.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "No weights and no price",
+     "url": "https://docs.z.ai/guides/llm/glm-5.4",
+     "quote": "Searched the docs page: no pricing figures, no mention of open weights, open source or Hugging Face. Simon Willison: 'not (yet?) available as open weights'; 'I had to sign up for their Coding Plan subscription because 5.4 cannot currently be accessed through the regular API.' Z.ai pricing page not checked.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "The trade is clear even without benchmarks; 'until someone publishes numbers you can check'",
+     "url": "https://docs.z.ai/guides/llm/glm-5.4",
+     "quote": "The page has a win-rate chart (image, no numbers in text) and states: 'average output length drops by 10-14%, mostly from shorter chains of thought' on benchmarks such as GPQA-Diamond and MMLU-Pro. Quota 1.5x that of GLM-5.3 for weekly-quota plans.",
+     "verdict": "CORRECTED",
+     "fix": "Say the docs give no benchmark scores (only a win-rate chart image and a 10-14% drop in average output length), rather than 'without benchmarks'."
+    },
+    {
+     "kind": "other",
+     "claim": "More compute per token from the same parameter count, plus the cache design to go with it; Thinking Machines' looped models",
+     "url": "https://docs.z.ai/guides/llm/glm-5.4",
+     "quote": "the second loop reuses the sparse KV selected in the first pass; an extra loop only costs one sliding window of KV cache rather than a full context cache. Willison: Inkling 2 Mini from Thinking Machines Lab on November 20th is 'a looped transformer'.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Netflix",
+   "event_date": "2026-11-23",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "At QCon SF, Netflix's Mark Khuzam described rebuilding the SDLC for coding agents, as InfoQ reports",
+     "url": "https://www.infoq.com/news/2026/11/netflix-sdlc-ai-coding-agents/",
+     "quote": "Mark Khuzam, senior software engineer at Netflix; QCon San Francisco 2026; published Nov 23, 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "45 ADRs for both people and agents; more than 300 other documents discoverable",
+     "url": "https://www.infoq.com/news/2026/11/netflix-sdlc-ai-coding-agents/",
+     "quote": "The team wrote 45 architecture decision records, each \"written for people and for agents.\" / To keep those records and more than 300 other documents findable",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "AGENTS.md file in repos \"like robots.txt for agents\" (in quotation marks)",
+     "url": "https://www.infoq.com/news/2026/11/netflix-sdlc-ai-coding-agents/",
+     "quote": "An AGENTS.md file, the project instructions file that coding agents read before anything else, plays the part of robots.txt.",
+     "verdict": "CORRECTED",
+     "fix": "The quoted words 'like robots.txt for agents' do not appear; InfoQ says AGENTS.md 'plays the part of robots.txt'. Paraphrase without quotation marks or quote the InfoQ wording."
+    },
+    {
+     "kind": "number",
+     "claim": "First AI reviewer left 23 comments on one PR; now posts only verified blockers with evidence and the rule they break",
+     "url": "https://www.infoq.com/news/2026/11/netflix-sdlc-ai-coding-agents/",
+     "quote": "Its first version left 23 comments on a single PR ... It now posts only verified blockers, each with evidence, a fix and the ADR rule it breaks.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Developer NPS for the internal framework -3 to +25 over three quarters; 32% more PRs year over year; 'None of this is new...' quote",
+     "url": "https://www.infoq.com/news/2026/11/netflix-sdlc-ai-coding-agents/",
+     "quote": "Developer NPS rose from -3 to +25 over three quarters. / 32% more pull requests year over year. / None of this is new. It's good engineering, built for a new reader.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "(share field) Netflix says its agent-ready docs and ADRs took developer NPS from -3 to +25",
+     "url": "https://www.infoq.com/news/2026/11/netflix-sdlc-ai-coding-agents/",
+     "quote": "Developer NPS rose from -3 to +25 over three quarters. (InfoQ reports the rise alongside the whole SDLC rebuild; no statement isolating docs and ADRs as the cause was found.)",
+     "verdict": "CORRECTED",
+     "fix": "Say NPS rose from -3 to +25 over three quarters after the SDLC rebuild, per the speaker; do not attribute the rise to docs and ADRs alone. The main text 'The speaker's own results' is fine."
+    },
+    {
+     "kind": "other",
+     "claim": "Result is a vendor/speaker self-report",
+     "url": "https://www.infoq.com/news/2026/11/netflix-sdlc-ai-coding-agents/",
+     "quote": "Results are presented by the speaker (InfoQ conference report); no independent measurement cited.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-19",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "(event date) preprint PreRun",
+     "url": "https://arxiv.org/abs/2611.26875",
+     "quote": "Submitted on 19 Nov 2026 (v1, Thu, 19 Nov 2026 22:40:56 UTC)",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "64 configurations, three launches each",
+     "url": "https://arxiv.org/abs/2611.26875",
+     "quote": "64 text-generation configurations measured in three separate program launches",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Open-weight LLMs underestimated latency by 90-99% on held-out configurations zero-shot",
+     "url": "https://arxiv.org/abs/2611.26875",
+     "quote": "On 16 held-out generation configurations, the open-weight LLMs underestimate latency by 90-99% on average without examples.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Claude's zero-shot error was 4.5 times that of a Random Forest trained on 32 configurations; five examples helped Claude a lot",
+     "url": "https://arxiv.org/abs/2611.26875",
+     "quote": "Claude's zero-shot mean absolute error is 4.5 times that of a Random Forest fit on 32 configurations. / Five labeled examples substantially reduce Claude's generation error (benefit varies by timing target).",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "Data and pipeline will be open-sourced upon acceptance, so no tool to install yet",
+     "url": "https://arxiv.org/abs/2611.26875",
+     "quote": "We will open-source our data and evaluation pipeline upon acceptance. Searched abstract and Comments field ('25 pages, 2 figures'); no repo link.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Eugene Yan",
+   "event_date": "2026-11-22",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "Went through twelve public evals and found evidence in eight that the grader failed work that should have passed",
+     "url": "https://eugeneyan.com/writing/public-evals",
+     "quote": "In eight of twelve public evals studied, there's evidence the grader failed work that should have passed.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "attribution",
+     "claim": "Average pass rate hides a large difference in production; a cheap failure can look efficient on a leaderboard while costing engineers review time",
+     "url": "https://eugeneyan.com/writing/public-evals",
+     "quote": "Most evals report average pass rate—this hides a huge difference in production. / Agents that fail or give up often can look cost-effective on a leaderboard while stalling on real work. / token-wise and attention-foolish if an engineer has to spend days reviewing outputs.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "(telegram/share) graders fail good work in 8 of 12 evals / Eugene Yan found grader failures in 8 of 12 public evals",
+     "url": "https://eugeneyan.com/writing/public-evals",
+     "quote": "there's evidence the grader failed work that should have passed",
+     "verdict": "CORRECTED",
+     "fix": "Source says 'evidence' of grader failure in 8 of 12; say 'evidence of grader failures in 8 of 12 public evals'."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "LiteLLM",
+   "event_date": "2026-11-23",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Advisory published on 23 November",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wpm4-hgr2-xjwr",
+     "quote": "published GHSA-wpm4-hgr2-xjwr Nov 23, 2026",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "number",
+     "claim": "Moderate, CVSS 3.1 5.4, no CVE",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wpm4-hgr2-xjwr",
+     "quote": "Severity Moderate; CVSS v3.1 5.4, CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L; No known CVE",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "version",
+     "claim": "Affected >=1.80.15, <1.108.0; fixed in 1.108.0; check on by default from 1.108.0",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wpm4-hgr2-xjwr",
+     "quote": "Affected versions >=1.80.15, < 1.108.0; Patched versions 1.108.0; check enabled by default starting in 1.108.0",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "remediation",
+     "claim": "From 1.100.0 you can turn on general_settings.enforce_fallback_model_access",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wpm4-hgr2-xjwr",
+     "quote": "Versions 1.100.0 through 1.106.x are protected only if general_settings.enforce_fallback_model_access was turned on",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "other",
+     "claim": "Team and key router_settings fallbacks can route requests to models the caller isn't allowed to use",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wpm4-hgr2-xjwr",
+     "quote": "Stored fallbacks were applied after that check, so they were never validated ... router_settings ... can be stored on a key. Team admins (not proxy admins) could use models outside their team's allowed list.",
+     "verdict": "VERIFIED"
+    },
+    {
+     "kind": "absence",
+     "claim": "If compromised: not stated in the advisory",
+     "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wpm4-hgr2-xjwr",
+     "quote": "Searched the whole advisory: no Patches/Workarounds/Resources/Credits sections, and no mention of compromise, rotation, audit logs or indicators.",
+     "verdict": "VERIFIED"
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Shirudo (Cisco and OpenAI)",
+   "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-and-openai-launch-shirudo-a-new-project-to-safeguard-agentic-ai.html",
+   "event_date": "2026-11-23",
+   "quote": "Cisco page: 'an open source project built on industry-leading eBPF'; 'Every shield is cryptographically signed'; protects 'without a reboot while teams roll out a patch'. Page does NOT state BSD-2-Clause or pre-release. Repo README (github.com/shirudo-dev/shirudo): 'shirudo is licensed under the BSD-2-Clause License'; 'shirudo is pre-release.'",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "TML-d24-varloop-research",
+   "url": "https://huggingface.co/thinkingmachines/TML-d24-varloop-research",
+   "event_date": "2026-11-20",
+   "quote": "License: Apache 2.0; 26.4B, 3.4B active; 'the number of loops can be chosen at inference time'; 'We do not intend TML-d24-varloop-research for production use.'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Jupyter MCP Server CVE-2026-77359",
+   "url": "https://blog.ostorlab.co/jupyter-mcp-server-dns-rebinding-hijack-cve-2026-77359.html",
+   "event_date": "2026-11-22",
+   "quote": "CVE-2026-77359 (DNS-rebinding path) 9.3 Critical (CVSS v4.0); only streamable-http affected; earlier than 1.0.3; 'Upgrade to 1.0.3 or later and restart the server.'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Fake Codex and Claude Code installers",
+   "url": "https://hackread.com/google-ads-mac-malware-fake-codex-claude-code/",
+   "event_date": "2026-11-23",
+   "quote": "Cato Networks researchers; malicious Google ads for fake Codex, Claude Code and Homebrew downloads; ClickFix: visitors asked to paste a command into macOS Terminal. Article lists no formal recommendations; 'download from vendor site' is the brief's own advice.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "US banks tighten agent controls",
+   "url": "https://www.thestar.com.my/tech/tech-news/2026/11/23/exclusive-some-us-banks-tighten-ai-agent-controls-on-concern-about-models-escaping-safeguards",
+   "event_date": "2026-11-23",
+   "quote": "Reuters (Nupur Anand): banks capping how long agents operate, 'separating them from critical systems', reviewing 'kill switches'; no banks tightening controls are named (JPMorgan named only for a Dimon remark about outside agents). Source says 'some' banks; brief says 'several'.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Databricks npm study",
+   "url": "https://www.databricks.com/blog/what-5400-malicious-npm-packages-reveal-about-software-supply-chain-risk-2026",
+   "event_date": "2026-11-23",
+   "quote": "'Compromised legitimate packages constitute 7% of the set and over 99% of downloads'; about 5,400 malicious packages; 'a registry proxy applying an allowlist or minimum-age policy'.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Hugging Face agentic-eval guide",
+   "url": "https://huggingface.co/blog/agentic-evals",
+   "event_date": "2026-11-23",
+   "quote": "'Our shortcut returned the expected defect ratio on all eight tasks without fitting the spectra.' A verifier checking only the ratio would have scored it perfectly.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "AWS WAF AI Security",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/waf-ai-endpoint-discovery-protection/",
+   "event_date": "2026-11-23",
+   "quote": "'Automated AI endpoint discovery and protection are now generally available.' AWS WAF AI Security managed rule group; MCP and A2A endpoints; 'Amazon Bedrock charges separately for content inspection calls.'",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Sarvam Dictate",
+   "url": "https://sarvam.ai/blogs/sarvam-dictate",
+   "event_date": "2026-11-23",
+   "quote": "'in English and 22 Indian languages'; price Rs 0.50 per minute of audio ($0.33 per hour); comparisons are Sarvam's own tests on dictations from its Kivi app (English: Dictate 4.2% vs Gemini 3.5 Transcribe 7.0% vs AssemblyAI 5.3%); 'available today' for developers; no mention of regional restriction or availability outside India.",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

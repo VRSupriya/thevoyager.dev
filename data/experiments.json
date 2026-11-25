@@ -299,5 +299,12 @@
   "source_url": "https://claude.com/resources/articles/introducing-claude-ship",
   "hypothesis": "Claude Approvals in observe mode agrees with human reviewers on most low-risk PRs.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-25",
+  "title": "Foundry hosted-agent egress controls in Audit mode on one agent",
+  "source_url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+  "hypothesis": "One week of Audit mode shows the agent reaches few unexpected domains, so Enforce is safe to turn on.",
+  "status": "suggested"
  }
 ]

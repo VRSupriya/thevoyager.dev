@@ -1,0 +1,324 @@
+{
+ "date": "2026-11-25",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Microsoft Foundry",
+   "event_date": "2026-11-24",
+   "status": "GA",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "hosted-agent network egress controls are GA",
+     "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+     "quote": "We announced three GA capabilities for hosted agents: shared subnet IPs, configurable idle timeouts, and network egress controls.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "start in Audit mode before Enforce",
+     "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+     "quote": "Start in Audit mode to see what would be blocked, then switch to Enforce.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Cost controls in public preview; do not cover tool charges, hosted-agent compute or provisioned throughput",
+     "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+     "quote": "Cost controls currently cover supported GPT and o-series model tokens, not tool charges, hosted-agent compute, or provisioned throughput.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Agent controls in public preview; service only returns a decision, host must enforce",
+     "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+     "quote": "the service returns decisions that your agent host must enforce",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "budget block is HTTP 429, not to be retried as throttling",
+     "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+     "quote": "Treat that as a budget issue, not a transient rate limit to retry.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Aleph Alpha Kolibri 1.1",
+   "event_date": "2026-11-23",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "licence",
+     "claim": "Apache 2.0, weights and config files only",
+     "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+     "quote": "The rights granted thereunder only apply to the weights and configuration files published in this repository.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "75B total, 3.44B active, 262,144 native up to 1,048,576 context",
+     "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+     "quote": "262,144 tokens native, up to 1,048,576 tokens",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "70.4 SWE-Bench Verified, 93.0 Tau2-Bench Telecom; Qwen3.8 Flash Next 80.1 vs 73.2 overall",
+     "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+     "quote": "Overall row: Kolibri 1.1 73.2, Qwen3.8 Flash Next 80.1",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "needs about 77.6 GB, for example two H100s",
+     "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+     "quote": "Model memory footprint: ~77.6 GB. Minimum: 2x H100 SXM5",
+     "verdict": "CORRECTED",
+     "fix": "Two H100 SXM5 is the stated minimum; the card recommends 4x H100 SXM5. Say so."
+    },
+    {
+     "kind": "other",
+     "claim": "text only",
+     "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+     "quote": "The training corpus was text-only; card mentions no vision or image input (no explicit modality field)",
+     "verdict": "CORRECTED",
+     "fix": "Card describes it as a German/English text model; no explicit modality field. Say 'a text model per its card' or drop 'text only' as a stated spec."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "iFood",
+   "event_date": "2026-11-24",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "15,000 repositories, 25,000+ runs, 27 billion tokens, US$0.04 per run",
+     "url": "https://openai.com/business/customer-stories/ifood",
+     "quote": "The platform has completed more than 25,000 tasks, consuming more than 27 billion tokens, at an average cost of US$0.04 per run.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "runs on GPT-5.6 Luna; inspired by Batch API",
+     "url": "https://openai.com/business/customer-stories/ifood",
+     "quote": "All runs use GPT-5.6 Luna; drew a lot of inspiration from OpenAI's APIs, both the Batch API and the Agents API",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "story doesn't give dollar savings",
+     "url": "https://openai.com/business/customer-stories/ifood",
+     "quote": "Searched full page body for 'sav', 'cost', 'dollar': only per-run cost and '2x+ as many vulnerabilities fixed'; no dollar savings stated",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-21",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "9B reader, 63.0 F1 on MuSiQue vs prior best 59.2 with 20B, HippoRAG 2 protocol, builds no index",
+     "url": "https://arxiv.org/abs/2611.28519",
+     "quote": "With a 9B reader under the HippoRAG~2 protocol, SupportChain reaches 63.0 F1 on MuSiQue, above the best earlier result of 59.2, which used a 20B reader",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "reliability model needs only 100 answered training questions",
+     "url": "https://arxiv.org/abs/2611.28519",
+     "quote": "The reliability model needs only 100 answered training questions.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "submitted 21 November, single author",
+     "url": "https://arxiv.org/abs/2611.28519",
+     "quote": "Submitted on 21 Nov 2026; Authors: Zhexi Gu",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "no code linked",
+     "url": "https://arxiv.org/abs/2611.28519",
+     "quote": "Searched abstract page, Comments field (empty) and links: only third-party code-finder tabs, no repo",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Simon Willison",
+   "event_date": "2026-11-24",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "post on 24 November",
+     "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+     "quote": "Today, November 24th 2026, is the one year anniversary of the release of Claude Opus 4.5.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Opus 4.5 first model where default result in Claude Code was generally right",
+     "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+     "quote": "Opus 4.5 was the first model I had used with Claude Code where the default result was generally the right thing.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Fable-class models that can brute-force a problem once they have a clear goal and tools",
+     "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+     "quote": "Give it a goal, give it the right tools, and watch it cook.",
+     "verdict": "CORRECTED",
+     "fix": "Source says 'Give it a goal, give it the right tools, and watch it cook' and describes Fable as 'relentlessly proactive'; 'brute-force' is not his wording."
+    },
+    {
+     "kind": "attribution",
+     "claim": "Opus 5.5 playtested and rebalanced his strategy game over 12 hours; unsure if Fable 5.2 is a fourth",
+     "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+     "quote": "after Opus spent 12 hours playtesting new features and rebalancing the gameplay; I'm still trying to decide if Fable 5.2 represents a new inflection point",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "JPMorganChase",
+   "event_date": "2026-11-24",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "3-year TCO $16M to $20M for 64 B200s, rough estimate not what bank paid",
+     "url": "https://www.infoq.com/presentations/enterprise-ai-inference-architecture-costs/",
+     "quote": "$16 million to $20 million. This doesn't mean that this is what JPMorgan paid by any means.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Cast AI report of 5% GPU utilization",
+     "url": "https://www.infoq.com/presentations/enterprise-ai-inference-architecture-costs/",
+     "quote": "only 5% utilization of the GPUs that they had",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "RTX 5080 laptop; variation 41% cloud vs 5.2% on-prem; metric not defined",
+     "url": "https://www.infoq.com/presentations/enterprise-ai-inference-architecture-costs/",
+     "quote": "The variation for when doing the call on cloud was 41%. The variation when running on-prem was 5.2%.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "metric not defined precisely",
+     "url": "https://www.infoq.com/presentations/enterprise-ai-inference-architecture-costs/",
+     "quote": "Searched transcript: no formula for 'variation' given; earlier 3s avg/1s/6s example does not reproduce it",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Ternary Bonsai 2.5 27B",
+   "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+   "event_date": "2026-11-01",
+   "quote": "PTQ1_0 file is 5.93 GB; SWE-bench Verified 75.6 vs 80.6 FP16; Apache 2.0 (page gives only 'November 2026')",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Ling-3.2-air",
+   "url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+   "event_date": "2026-11-23",
+   "quote": "Total 124B, Activated 5.5B; License: mit; 733 downloads last month, 183 likes (no exact release date on page)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "nginx HTTP/2 CVEs",
+   "url": "https://nginx.org/en/security_advisories.html",
+   "event_date": "2026-11-24",
+   "quote": "CVE-2026-123007 Severity: major; CVE-2026-123633 Severity: medium; Not vulnerable: 1.31.9+, 1.30.7+. Page has no 'http2 off', 'workaround' or 'mitigat' text",
+   "verdict": "CORRECTED",
+   "fix": "Severity and fixed versions verified. 'http2 off is a stated mitigation' is not on nginx.org; it may be in the linked F5 advisories (not accessible). Drop it or cite F5."
+  },
+  {
+   "name": "MCP in Claude",
+   "url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more",
+   "event_date": "2026-11-24",
+   "quote": "Tasks and Elicitation are generally available; Skills over MCP is in public beta; over 700 million monthly SDK downloads",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Bedrock Trusted Access API",
+   "url": "https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/",
+   "event_date": "2026-11-23",
+   "quote": "Today we are announcing the general availability of the trusted access program API on Amazon Bedrock ... public preview of the first two offerings ... EFS and EDC",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Google Workspace MCP servers",
+   "url": "https://cloud.google.com/blog/products/identity-security/deploying-agents-safely-in-your-enterprise/",
+   "event_date": "2026-11-24",
+   "quote": "AI agents must use Workspace MCP servers or the Workspace CLI rather than existing REST APIs. Technical enforcement begins on February 1, 2027",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "CNCF VM survey",
+   "url": "https://www.infoq.com/news/2026/11/cncf-vm-ai-workloads/",
+   "event_date": "2026-11-24",
+   "quote": "VMs host an average of 53% of production applications; 492 practitioners; 34% cite AI and agentic workloads",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Muted Distillation",
+   "url": "https://arxiv.org/abs/2611.28445",
+   "event_date": "2026-11-21",
+   "quote": "reduces output tokens per episode by 57% and 53% compared with standard OPD; Comments: Ongoning work",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

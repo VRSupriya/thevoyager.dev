@@ -1,156 +1,163 @@
 [
- {
-  "date": "2026-11-27",
-  "what": "TRAI comments and counter-comments due on draft guidelines for responsible use of AI in telecom networks and services",
-  "who": "Telecom licensees and vendors serving India",
-  "url": "https://www.trai.gov.in/",
-  "added": "2026-11-06"
- },
- {
-  "date": "2026-11-30",
-  "what": "Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) retires on the Claude API; replacement claude-sonnet-5-5",
-  "who": "Claude API users on Sonnet 4.5",
-  "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
-  "added": "2026-10-26"
- },
- {
-  "date": "2026-11-30",
-  "what": "OpenAI shuts down Evals dashboard and API, v1/prompts API and Agent Builder",
-  "who": "Teams using OpenAI Evals, stored prompts or Agent Builder",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-10-26"
- },
- {
-  "date": "2026-11-30",
-  "what": "OpenAI shuts down Agent Builder; migrate to the Agents SDK or ChatGPT Workspace Agents",
-  "who": "Teams with workflows built in Agent Builder",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-11-04"
- },
- {
-  "date": "2026-12-01",
-  "what": "OpenAI removes gpt-image-1-mini, gpt-image-1.5 and chatgpt-image-latest from the API",
-  "who": "Image generation API users",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-10-26"
- },
- {
-  "date": "2026-12-01",
-  "what": "Foundry Agent Service starts billing Copilot harness runtime and sandbox usage ($0.0994 per vCPU-hour, $0.0118 per GiB-hour)",
-  "who": "Teams using the Copilot harness in Foundry Agent Service",
-  "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
-  "added": "2026-10-29"
- },
- {
-  "date": "2026-12-01",
-  "what": "Gemini 4 Carbon and Argon standard paid-tier prices double ($2.00/$10.00 to $4.00/$20.00 per 1M input/output tokens)",
-  "who": "Gemini API users on Gemini 4 Carbon or Argon",
-  "url": "https://aistudio.google.com/docs/pricing",
-  "added": "2026-11-15"
- },
- {
-  "date": "2026-12-01",
-  "what": "Gemini API: gemini-2.5-flash requests auto-route to gemini-3.5-flash-lite and gemini-2.5-pro to gemini-3.8-flash",
-  "who": "Gemini API users still on 2.5 models",
-  "url": "https://aistudio.google.com/docs/deprecations",
-  "added": "2026-11-16"
- },
- {
-  "date": "2026-12-02",
-  "what": "EU AI Act: Article 50(2) steps due for generative systems placed on market before 2 Aug 2026; new prohibitions on non-consensual intimate imagery and CSAM apply",
-  "who": "Providers of generative AI systems in the EU",
-  "url": "https://artificialintelligenceact.eu/implementation-timeline/",
-  "added": "2026-10-26"
- },
- {
-  "date": "2026-12-02",
-  "what": "GitHub Actions blocks pull_request_target by default in public repos unless an Actions event policy allows it",
-  "who": "Public repos on Free, Team and Enterprise Cloud",
-  "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
-  "added": "2026-11-03"
- },
- {
-  "date": "2026-12-08",
-  "what": "GitHub pauses Dependabot alerts on repositories with no activity in the past year (alerts archived, restored by a push or re-enabling)",
-  "who": "Owners of dormant repos on github.com and GHE Cloud with data residency",
-  "url": "https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories/",
-  "added": "2026-11-11"
- },
- {
-  "date": "2026-12-11",
-  "what": "OpenAI removes gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-pro, o3 and o3-pro from the API",
-  "who": "OpenAI API users on those models",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-10-26"
- },
- {
-  "date": "2026-12-14",
-  "what": "GitHub Copilot retires Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6 and Kimi K3",
-  "who": "Teams with Copilot workflows pinned to those models",
-  "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
-  "added": "2026-11-14"
- },
- {
-  "date": "2026-12-18",
-  "what": "Gemini API shuts down gemini-2.5-flash-preview-tts, gemini-2.5-pro-preview-tts and gemini-3.1-flash-tts-preview (earliest possible date); replacements gemini-3.8-flash-tts or gemini-3.8-flash-lite-tts",
-  "who": "Teams using those Gemini TTS previews",
-  "url": "https://aistudio.google.com/docs/deprecations",
-  "added": "2026-11-16"
- },
- {
-  "date": "2026-12-18",
-  "what": "GitHub Copilot deprecates MAI-Code-1.1-Flash across all experiences (replacement: latest MAI Code Flash model)",
-  "who": "Copilot users and admins on MAI-Code-1.1-Flash",
-  "url": "https://github.blog/changelog/2026-11-17-upcoming-deprecation-of-mai-code-1-1-flash-in-december/",
-  "added": "2026-11-23"
- },
- {
-  "date": "2027-01-06",
-  "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts variants (replacement gpt-realtime-2.1-mini) and ends new self-serve fine-tuning jobs",
-  "who": "Teams using OpenAI TTS or fine-tuning",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-11-02"
- },
- {
-  "date": "2027-01-06",
-  "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts (replacement gpt-realtime-2.1-mini); self-serve fine-tuning job creation restricted",
-  "who": "API users of OpenAI TTS and fine-tuning",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-11-23"
- },
- {
-  "date": "2027-01-08",
-  "what": "Amazon Bedrock end-of-life for Claude Opus 4.1 (us-east-1, us-east-2, us-west-2)",
-  "who": "Teams calling Claude Opus 4.1 through Bedrock",
-  "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
-  "added": "2026-11-09"
- },
- {
-  "date": "2027-01-14",
-  "what": "OpenAI removes GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini snapshots from the API",
-  "who": "OpenAI API users on those models",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-10-26"
- },
- {
-  "date": "2027-01-20",
-  "what": "OpenAI removes gpt-realtime, gpt-4o-realtime, gpt-audio and related audio models (replacements gpt-realtime-2.1, gpt-audio-1.5)",
-  "who": "Voice-agent teams on OpenAI realtime/audio models",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-11-02"
- },
- {
-  "date": "2027-01-28",
-  "what": "Vertex AI retires gemini-3.7-flash; replacement gemini-3.8-flash",
-  "who": "Vertex AI users on gemini-3.7-flash",
-  "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
-  "added": "2026-11-02"
- },
- {
-  "date": "2027-02-10",
-  "what": "OpenAI retires gpt-image-2 and gpt-image-2-2026-04-21 (replacements gpt-image-2.6-sunburst or gpt-image-2.6-flare)",
-  "who": "Image API users",
-  "url": "https://developers.openai.com/api/docs/deprecations",
-  "added": "2026-11-16"
- }
+  {
+    "date": "2026-11-27",
+    "what": "TRAI comments and counter-comments due on draft guidelines for responsible use of AI in telecom networks and services",
+    "who": "Telecom licensees and vendors serving India",
+    "url": "https://www.trai.gov.in/",
+    "added": "2026-11-06"
+  },
+  {
+    "date": "2026-11-30",
+    "what": "Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) retires on the Claude API; replacement claude-sonnet-5-5",
+    "who": "Claude API users on Sonnet 4.5",
+    "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+    "added": "2026-10-26"
+  },
+  {
+    "date": "2026-11-30",
+    "what": "OpenAI shuts down Evals dashboard and API, v1/prompts API and Agent Builder",
+    "who": "Teams using OpenAI Evals, stored prompts or Agent Builder",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-10-26"
+  },
+  {
+    "date": "2026-11-30",
+    "what": "OpenAI shuts down Agent Builder; migrate to the Agents SDK or ChatGPT Workspace Agents",
+    "who": "Teams with workflows built in Agent Builder",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-11-04"
+  },
+  {
+    "date": "2026-12-01",
+    "what": "OpenAI removes gpt-image-1-mini, gpt-image-1.5 and chatgpt-image-latest from the API",
+    "who": "Image generation API users",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-10-26"
+  },
+  {
+    "date": "2026-12-01",
+    "what": "Foundry Agent Service starts billing Copilot harness runtime and sandbox usage ($0.0994 per vCPU-hour, $0.0118 per GiB-hour)",
+    "who": "Teams using the Copilot harness in Foundry Agent Service",
+    "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+    "added": "2026-10-29"
+  },
+  {
+    "date": "2026-12-01",
+    "what": "Gemini 4 Carbon and Argon standard paid-tier prices double ($2.00/$10.00 to $4.00/$20.00 per 1M input/output tokens)",
+    "who": "Gemini API users on Gemini 4 Carbon or Argon",
+    "url": "https://aistudio.google.com/docs/pricing",
+    "added": "2026-11-15"
+  },
+  {
+    "date": "2026-12-01",
+    "what": "Gemini API: gemini-2.5-flash requests auto-route to gemini-3.5-flash-lite and gemini-2.5-pro to gemini-3.8-flash",
+    "who": "Gemini API users still on 2.5 models",
+    "url": "https://aistudio.google.com/docs/deprecations",
+    "added": "2026-11-16"
+  },
+  {
+    "date": "2026-12-02",
+    "what": "EU AI Act: Article 50(2) steps due for generative systems placed on market before 2 Aug 2026; new prohibitions on non-consensual intimate imagery and CSAM apply",
+    "who": "Providers of generative AI systems in the EU",
+    "url": "https://artificialintelligenceact.eu/implementation-timeline/",
+    "added": "2026-10-26"
+  },
+  {
+    "date": "2026-12-02",
+    "what": "GitHub Actions blocks pull_request_target by default in public repos unless an Actions event policy allows it",
+    "who": "Public repos on Free, Team and Enterprise Cloud",
+    "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2",
+    "added": "2026-11-03"
+  },
+  {
+    "date": "2026-12-08",
+    "what": "GitHub pauses Dependabot alerts on repositories with no activity in the past year (alerts archived, restored by a push or re-enabling)",
+    "who": "Owners of dormant repos on github.com and GHE Cloud with data residency",
+    "url": "https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories/",
+    "added": "2026-11-11"
+  },
+  {
+    "date": "2026-12-11",
+    "what": "OpenAI removes gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-pro, o3 and o3-pro from the API",
+    "who": "OpenAI API users on those models",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-10-26"
+  },
+  {
+    "date": "2026-12-14",
+    "what": "GitHub Copilot retires Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6 and Kimi K3",
+    "who": "Teams with Copilot workflows pinned to those models",
+    "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+    "added": "2026-11-14"
+  },
+  {
+    "date": "2026-12-18",
+    "what": "Gemini API shuts down gemini-2.5-flash-preview-tts, gemini-2.5-pro-preview-tts and gemini-3.1-flash-tts-preview (earliest possible date); replacements gemini-3.8-flash-tts or gemini-3.8-flash-lite-tts",
+    "who": "Teams using those Gemini TTS previews",
+    "url": "https://aistudio.google.com/docs/deprecations",
+    "added": "2026-11-16"
+  },
+  {
+    "date": "2026-12-18",
+    "what": "GitHub Copilot deprecates MAI-Code-1.1-Flash across all experiences (replacement: latest MAI Code Flash model)",
+    "who": "Copilot users and admins on MAI-Code-1.1-Flash",
+    "url": "https://github.blog/changelog/2026-11-17-upcoming-deprecation-of-mai-code-1-1-flash-in-december/",
+    "added": "2026-11-23"
+  },
+  {
+    "date": "2027-01-06",
+    "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts variants (replacement gpt-realtime-2.1-mini) and ends new self-serve fine-tuning jobs",
+    "who": "Teams using OpenAI TTS or fine-tuning",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-11-02"
+  },
+  {
+    "date": "2027-01-06",
+    "what": "OpenAI removes tts-1, tts-1-hd and gpt-4o-mini-tts (replacement gpt-realtime-2.1-mini); self-serve fine-tuning job creation restricted",
+    "who": "API users of OpenAI TTS and fine-tuning",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-11-23"
+  },
+  {
+    "date": "2027-01-08",
+    "what": "Amazon Bedrock end-of-life for Claude Opus 4.1 (us-east-1, us-east-2, us-west-2)",
+    "who": "Teams calling Claude Opus 4.1 through Bedrock",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
+    "added": "2026-11-09"
+  },
+  {
+    "date": "2027-01-14",
+    "what": "OpenAI removes GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini snapshots from the API",
+    "who": "OpenAI API users on those models",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-10-26"
+  },
+  {
+    "date": "2027-01-20",
+    "what": "OpenAI removes gpt-realtime, gpt-4o-realtime, gpt-audio and related audio models (replacements gpt-realtime-2.1, gpt-audio-1.5)",
+    "who": "Voice-agent teams on OpenAI realtime/audio models",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-11-02"
+  },
+  {
+    "date": "2027-01-28",
+    "what": "Vertex AI retires gemini-3.7-flash; replacement gemini-3.8-flash",
+    "who": "Vertex AI users on gemini-3.7-flash",
+    "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
+    "added": "2026-11-02"
+  },
+  {
+    "date": "2027-02-01",
+    "what": "Google begins technical enforcement of the Workspace AI Tools Addendum: agents must use Workspace MCP servers or the CLI instead of REST APIs (quota billing starts 2027-04-01)",
+    "who": "Teams whose agents call Workspace APIs",
+    "url": "https://cloud.google.com/blog/products/identity-security/deploying-agents-safely-in-your-enterprise/",
+    "added": "2026-11-25"
+  },
+  {
+    "date": "2027-02-10",
+    "what": "OpenAI retires gpt-image-2 and gpt-image-2-2026-04-21 (replacements gpt-image-2.6-sunburst or gpt-image-2.6-flare)",
+    "who": "Image API users",
+    "url": "https://developers.openai.com/api/docs/deprecations",
+    "added": "2026-11-16"
+  }
 ]

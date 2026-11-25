@@ -1,89 +1,5 @@
 [
  {
-  "date": "2026-10-25",
-  "slot": "top",
-  "title": "Microsoft Storm-0940 ARTEX ConnectWise compromise",
-  "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
- },
- {
-  "date": "2026-10-25",
-  "slot": "models",
-  "title": "NVIDIA Nemotron Labs Dory 1.0 4B looped model",
-  "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16"
- },
- {
-  "date": "2026-10-25",
-  "slot": "agents",
-  "title": "Google ADK 2.13.0 telemetry default change",
-  "url": "https://github.com/google/adk-python/releases"
- },
- {
-  "date": "2026-10-25",
-  "slot": "research",
-  "title": "LLM-as-a-Judge prompting strategy robustness study",
-  "url": "https://arxiv.org/abs/2610.31172"
- },
- {
-  "date": "2026-10-25",
-  "slot": "architecture",
-  "title": "InfoQ Actors for Agents talk",
-  "url": "https://www.infoq.com/presentations/actors-for-production-ai-agents/"
- },
- {
-  "date": "2026-10-25",
-  "slot": "regional",
-  "title": "MBZUAI Inception42 Jais 3",
-  "url": "https://gulfnews.com/uae/uae-launches-jais-3-arabic-native-ai-for-speech-writing-and-agents-1.500711935"
- },
- {
-  "date": "2026-10-25",
-  "slot": "quick",
-  "title": "Vercel fx Zig coding agent",
-  "url": "https://www.infoq.com/news/2026/10/vercel-zig-fx-agent/"
- },
- {
-  "date": "2026-10-25",
-  "slot": "quick",
-  "title": "XHToken Spark-X2.6-4B",
-  "url": "https://huggingface.co/XHToken/Spark-X2.6-4B"
- },
- {
-  "date": "2026-10-25",
-  "slot": "quick",
-  "title": "Amazon Polly generative engine upgrade",
-  "url": "https://aws.amazon.com/blogs/machine-learning/amazon-polly-delivers-a-major-upgrade-to-its-generative-engine/"
- },
- {
-  "date": "2026-10-25",
-  "slot": "quick",
-  "title": "Pydantic AI 2.61.0",
-  "url": "https://github.com/pydantic/pydantic-ai/releases"
- },
- {
-  "date": "2026-10-25",
-  "slot": "quick",
-  "title": "Anthropic Claude on Google Cloud Anthropic-managed GA",
-  "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud/"
- },
- {
-  "date": "2026-10-25",
-  "slot": "quick",
-  "title": "GitHub Copilot in Microsoft Teams",
-  "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
- },
- {
-  "date": "2026-10-25",
-  "slot": "quick",
-  "title": "Nutanix NVIDIA Supermicro Netris tie-ups",
-  "url": "https://analyticsindiamag.com/ai-news/nutanix-announces-ai-infrastructure-tie-ups-with-nvidia-supermicro-and-netris"
- },
- {
-  "date": "2026-10-25",
-  "slot": "quick",
-  "title": "RIFT KV cache compression for draft models",
-  "url": "https://arxiv.org/abs/2610.31098"
- },
- {
   "date": "2026-10-26",
   "slot": "top",
   "title": "PingCAP TiDB Cloud breach",
@@ -2740,5 +2656,89 @@
   "slot": "quick",
   "title": "AWS WAF AI Security",
   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/waf-ai-endpoint-discovery-protection/"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "top",
+  "title": "Microsoft Foundry agent egress controls GA and cost controls",
+  "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "models",
+  "title": "Aleph Alpha Kolibri 1.1 open MoE",
+  "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "agents",
+  "title": "iFood Remote Agents Platform coding agents across 15,000 repositories",
+  "url": "https://openai.com/business/customer-stories/ifood"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "research",
+  "title": "SupportChain multi-hop RAG with small readers",
+  "url": "https://arxiv.org/abs/2611.28519"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "people",
+  "title": "Simon Willison: three LLM inflection points",
+  "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "architecture",
+  "title": "JPMorganChase inference for enterprises QCon talk",
+  "url": "https://www.infoq.com/presentations/enterprise-ai-inference-architecture-costs/"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "quick",
+  "title": "Prism ML Ternary Bonsai 2.5 27B",
+  "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "quick",
+  "title": "inclusionAI Ling-3.2-air",
+  "url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "quick",
+  "title": "nginx HTTP/2 CVE-2026-123633 and CVE-2026-123007",
+  "url": "https://nginx.org/en/security_advisories.html"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "quick",
+  "title": "Anthropic MCP tasks, elicitation and skills over MCP",
+  "url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "quick",
+  "title": "Amazon Bedrock Trusted Access API",
+  "url": "https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "quick",
+  "title": "Google Workspace MCP servers and AI Tools Addendum",
+  "url": "https://cloud.google.com/blog/products/identity-security/deploying-agents-safely-in-your-enterprise/"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "quick",
+  "title": "CNCF VM survey",
+  "url": "https://www.infoq.com/news/2026/11/cncf-vm-ai-workloads/"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "quick",
+  "title": "Muted Distillation",
+  "url": "https://arxiv.org/abs/2611.28445"
  }
 ]

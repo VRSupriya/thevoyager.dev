@@ -306,5 +306,12 @@
   "week": 8,
   "title": "Half your 128K prefill is the indexer choosing tokens. A new paper lets 16 queries share one scan",
   "topic_key": "research:adindex-layer-adaptive-sparse-attention-indexing-group-distillation:vector-hybrid-graph-retrieval"
+ },
+ {
+  "date": "2026-11-25",
+  "track": "system",
+  "week": 8,
+  "title": "Search over 50 million products: a hybrid design where the filter, not the embedding, decides if it works",
+  "topic_key": "system:semantic-product-search-50m-items-e-commerce:vector-hybrid-graph-retrieval"
  }
 ]

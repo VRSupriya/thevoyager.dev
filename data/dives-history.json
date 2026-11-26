@@ -313,5 +313,12 @@
   "week": 8,
   "title": "Search over 50 million products: a hybrid design where the filter, not the embedding, decides if it works",
   "topic_key": "system:semantic-product-search-50m-items-e-commerce:vector-hybrid-graph-retrieval"
+ },
+ {
+  "date": "2026-11-26",
+  "track": "interview",
+  "week": 8,
+  "title": "Senior AI/ML Engineer, system design: your product search is great until the user ticks a filter",
+  "topic_key": "interview:system-design:google:senior-ai-ml-engineer:filtered-vector-search-selectivity-bands-hnsw-acorn-planner:vector-hybrid-graph-retrieval"
  }
 ]

@@ -1,0 +1,418 @@
+{
+ "date": "2026-11-26",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Microsoft ARTEX",
+   "event_date": "2026-11-25",
+   "status": "Advisory",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "published 25 November",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "Publication date: November 25, 2026 (page date and URL)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Microsoft has seen Crystal Typhoon and Salt Typhoon integrating ARTEX",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "Microsoft Threat Intelligence has observed both groups integrating ARTEX into their tooling, alongside Storm-0940, Storm-3358, Onyx Sleet, and Pearl Sleet",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "most reliable signal is behavioural; default user agents can be changed",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "The most reliable and durable signal of ARTEX activity is behavioral; threat actors and ARTEX agents frequently change these values",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "Microsoft's post doesn't mention US intelligence agencies / a CIA breach",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "Searched the full page for CIA, US intelligence, intelligence agencies, government breach: none. 'Government' appears only in a nav menu; 'nation-state' only in alert names and actor descriptions",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Affected: no product vulnerability; Fixed in: n/a; Severity: not stated",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "No CVE identifiers appear in the article. It also gives no severity rating for ARTEX itself",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Stopgap: WAF prevention mode with rate limiting, restrict outbound, phishing-resistant MFA",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "Switch the Application Gateway WAF to prevention mode; add rate limiting; restrict outbound connections from web servers; enforce phishing-resistant MFA for administrators",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: invalidate and replace secrets in code/config; turn on automatic attack disruption",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "Invalidate and replace any secret found in code or configuration files, including .env files; Enable automatic attack disruption in Microsoft Defender XDR",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "Some outlets have tied it to a US intelligence breach",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "Web search found no report linking ARTEX to a CIA or US intelligence breach (FBI FLASH-20261113-001 and CrowdStrike/Microsoft reports name no such victim)",
+     "verdict": "CORRECTED",
+     "fix": "The 'some outlets' claim could not be confirmed; no such report found. Drop it or name the outlet; keep that the Microsoft post doesn't say it."
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated in the advisory",
+     "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+     "quote": "Searched the whole Microsoft post (overview, detection, mitigation and hunting-query sections): no CVSS score or severity rating appears.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Amazon Transcribe Turbo",
+   "event_date": "2026-11-25",
+   "status": "Preview",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "public preview on 25 November in US East (Ohio), for batch and streaming",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/",
+     "quote": "Posted on: Nov 25, 2026. Turbo is now in public preview in US East (Ohio) for batch and streaming. BUT: English Turbo is generally available in most AWS Regions (batch)",
+     "verdict": "CORRECTED",
+     "fix": "Streaming Turbo (6 languages) and non-English batch are public preview in US East (Ohio); English batch Turbo is GA in most AWS Regions. 'One region and a preview label' overstates; say streaming/voice-agent features are preview in Ohio, English batch is GA."
+    },
+    {
+     "kind": "number",
+     "claim": "WER drops about 14% relative in English for streaming vs current production model",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/",
+     "quote": "Streaming word error rate drops ~14% relative in English",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "semantic turn-taking responds in about 615 ms with a 5% interruption rate",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/",
+     "quote": "It responds in about 615 ms ... a 5% interruption rate",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "runtime hints: menu routing 87% to 97%, AWS's own numbers",
+     "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/",
+     "quote": "On English customer service data, hints raise menu-routing accuracy from 87% to 97%",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Vercel Board",
+   "event_date": "2026-11-25",
+   "status": "Beta",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "status",
+     "claim": "Vercel calls it experimental",
+     "url": "https://vercel.com/blog/introducing-vercel-board",
+     "quote": "an experimental agentic primitive; docs: Board is available as an Experimental feature on all plans",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "claim is a lease of up to five minutes, renewed; second claimer gets task_claimed",
+     "url": "https://vercel.com/docs/board/concepts/tasks",
+     "quote": "A lease lasts up to 5 minutes. ... When two workers claim the same task, one claim succeeds. The other fails with task_claimed. (blog page itself shows only --lease 1h examples and does not mention task_claimed)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "channels sync with Slack, GitHub and Linear",
+     "url": "https://vercel.com/docs/board",
+     "quote": "Sync connects a thread with a Slack thread, a GitHub pull request or issue, or a Linear issue, in both directions. (launch blog names only Slack and GitHub)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "v0 software factory rebuilt on Board merges over 50% of PRs, Vercel's own claim",
+     "url": "https://vercel.com/blog/introducing-vercel-board",
+     "quote": "v0's rebuilt software factory merges over 50% of PRs",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Board grants don't apply on Slack, GitHub or Linear; private Slack channel synced into open board channel readable by whole team",
+     "url": "https://vercel.com/docs/board",
+     "quote": "A synced channel is as readable as the platform channel it syncs with. ... Board's grants don't apply on those platforms. (InfoQ: a private Slack channel synced into an open board channel is readable by the whole Vercel team)",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-24",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "number",
+     "claim": "100 instances from 78 open-source Python repos",
+     "url": "https://huggingface.co/papers/2611.32973",
+     "quote": "100 instances from 78 open-source Python repositories across 16 application categories",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Seven frontier agents average a 91.47% Head Pass Rate and 26.36% Fail-to-Pass Rate",
+     "url": "https://huggingface.co/papers/2611.32973",
+     "quote": "Across seven frontier coding agents ... agents achieve a 91.47% Head Pass Rate and 80.48% Change-focused Coverage alongside a 26.36% Fail-to-Pass Rate",
+     "verdict": "CORRECTED",
+     "fix": "Figures are right but the page does not say they are averages or define whether mean/median; say 'across seven agents' and drop 'average'. Also share text 'right spec about a quarter of the time' should read 'Fail-to-Pass Rate 26.36%'."
+    },
+    {
+     "kind": "number",
+     "claim": "localisation recall falls from 78.11% (file) to 51.29% (function)",
+     "url": "https://huggingface.co/papers/2611.32973",
+     "quote": "localization recall drops from 78.11% at the file level to 51.29% at the function level",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "new benchmark (date)",
+     "url": "https://huggingface.co/papers/2611.32973",
+     "quote": "Published Nov 24; submitted to Hugging Face Nov 25",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Philipp Schmid",
+   "event_date": "2026-11-25",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "post on 25 November",
+     "url": "https://www.philschmid.de/gemini-4-neon-context-engineering",
+     "quote": "Publication date: November 25, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "user-level GEMINI.md fits on one screen",
+     "url": "https://www.philschmid.de/gemini-4-neon-context-engineering",
+     "quote": "Now my user-level GEMINI.md fits on one screen.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "tool rules in typed JSON schemas with enums, no few-shot examples",
+     "url": "https://www.philschmid.de/gemini-4-neon-context-engineering",
+     "quote": "put clear parameter types, enums, and required fields directly into the tool JSON schema; Few-shot examples work on common inputs, but they narrow how the model handles edge cases.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "deleted most project AGENTS.md in favour of skills",
+     "url": "https://www.philschmid.de/gemini-4-neon-context-engineering",
+     "quote": "I deleted almost every project-level AGENTS.md and GEMINI.md I had.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "gives no measurements",
+     "url": "https://www.philschmid.de/gemini-4-neon-context-engineering",
+     "quote": "Searched whole page: no benchmarks or measurements; only a target 'Around 500k tokens is a good target for me before compacting'. He says 'That cut wasted thinking and raised accuracy' (qualitative)",
+     "verdict": "CORRECTED",
+     "fix": "Say he claims it cut wasted thinking and raised accuracy, without measurements."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "InfoQ Certified Architect Program",
+   "event_date": "2026-11-24",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "article on 24 November",
+     "url": "https://www.infoq.com/articles/llm-agent-architecture-evals-grounding/",
+     "quote": "Nov 24, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "six stages version, test, gate, shadow and canary, monitor, rollback",
+     "url": "https://www.infoq.com/articles/llm-agent-architecture-evals-grounding/",
+     "quote": "Version, Test, Gate, Shadow and canary, Monitor, Rollback",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "gates need sign-off from engineering, compliance, risk, legal depending on change type",
+     "url": "https://www.infoq.com/articles/llm-agent-architecture-evals-grounding/",
+     "quote": "approval from engineering, Compliance/AML, Risk, and Legal",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "system should refuse to draft when evidence is missing",
+     "url": "https://www.infoq.com/articles/llm-agent-architecture-evals-grounding/",
+     "quote": "should refuse to draft when the evidence is missing",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "absence",
+     "claim": "proposed design from architect programme; no measured results",
+     "url": "https://www.infoq.com/articles/llm-agent-architecture-evals-grounding/",
+     "quote": "Searched whole article: no measured results; only hypothetical figures (10% of customers flagged, $50 per case). Written by participants in the online InfoQ Certified Architect Program",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "Xiaomi MiMo-V2.6-Flash-MOPD",
+   "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-MOPD",
+   "event_date": "2026-10-19",
+   "quote": "License: mit; 309B total, 15B activated; 1M context; 'This checkpoint mitigates it' (repetition). Page: 'Also available in ... OpenRouter'; 'Updated Oct 19' belongs to the MiMo-V2.6 collection; no 'November' or '23' on page; OpenRouter mopd page gives no date",
+   "verdict": "CORRECTED",
+   "fix": "Licence, params, context, tool-call repetition verified. 'OpenRouter listed it on 23 November' is not in any source (OpenRouter's non-MOPD MiMo-V2.6-Flash lists 21 Sep 2026; mopd page has no date); 'Oct 19' is the collection's update date, not the model card's. Drop both dates or say release date not stated."
+  },
+  {
+   "name": "Lambda durable functions MicroVMs",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-microvm/",
+   "event_date": "2026-11-25",
+   "quote": "a developer preview ... Developer preview features may change, so do not use them for production workloads.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "ruflo MCP bridge",
+   "url": "https://osv.dev/vulnerability/GHSA-c4hm-4h84-2cf3",
+   "event_date": "2026-11-24",
+   "quote": "CVE-2026-59726; CVSS 10.0; exposed POST /mcp with no authentication; 3.16.3 first unaffected; Rotate OPENAI / GOOGLE / OPENROUTER / ANTHROPIC keys",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "LiteLLM GHSA-m8fp-3f3g-j5p7",
+   "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-m8fp-3f3g-j5p7",
+   "event_date": "2026-11-23",
+   "quote": "added it to the router's shared list of deployments under the same model name; CVSS 8.4; patched 1.103.0",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "k8s-mcp-server",
+   "url": "https://pkg.go.dev/vuln/GO-2026-7005",
+   "event_date": "2026-11-23",
+   "quote": "Missing authentication on default SSE/HTTP transport allows unauthenticated Kubernetes tool execution; fixed v1.1.0 (report is unreviewed)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Anthropic Messages API in Rust",
+   "url": "https://www.anthropic.com/research/migrating-api-to-rust",
+   "event_date": "2026-11-25",
+   "quote": "uses about 70% less CPU per request; memory used per request by more than 80%; public traffic moved to Rust in September 2026. CPU figure covers one region, memory all of production",
+   "verdict": "CORRECTED",
+   "fix": "Numbers and cutover month right; add that the 70% CPU figure is for one region while the 80% memory figure covers all production."
+  },
+  {
+   "name": "OpenAI Pando",
+   "url": "https://openai.com/index/scaling-git-at-openai/",
+   "event_date": "2026-11-02",
+   "quote": "Pando cut median push latency by nearly 5x; We're currently exploring ways to share the technology that makes Pando possible with our users. (no open-source/release statement on page)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Lambda 30-minute timeout",
+   "url": "https://www.infoq.com/news/2026/11/aws-lambda-30-minute-timeout/",
+   "event_date": "2026-11-25",
+   "quote": "1,800 seconds (30 minutes); previous 15 minutes; all commercial AWS Regions; standard pricing, no opt-in",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "GitHub issue statuses and repository boards",
+   "url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview",
+   "event_date": "2026-11-23",
+   "quote": "Seven statuses (Backlog, Todo, In progress, In review, Done, Not planned, Duplicate); six automations in total, only three involve pull request activity",
+   "verdict": "CORRECTED",
+   "fix": "Public preview and seven statuses verified; the six automations are not all driven by PR activity (three are). Say 'six automations, three of them driven by PR activity'."
+  },
+  {
+   "name": "ICLWorld",
+   "url": "https://huggingface.co/papers/2611.32649",
+   "event_date": "2026-11-25",
+   "quote": "design 160 tasks; Claude Opus 5.5 and GPT-6 Astra, succeed on 82% and 76% of computer-use runs; robot-use 27% and 26%",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Claude Duet reaches India",
+   "url": "https://analyticsindiamag.com/ai-news/anthropic-brings-claude-duet-ai-agent-to-india",
+   "event_date": "2026-11-25",
+   "quote": "Pro, Max, and Ultra subscribers join a waitlist, Team users get a public beta, Enterprise a private beta; all 35 languages incl. Hindi, Tamil, Telugu. Anthropic product page: 'Available in Pro, Max, and Ultra plans in the US, India, Indonesia, Brazil & Japan.' Launch article (21 Oct): 'starting today with ... users in the US'",
+   "verdict": "CORRECTED",
+   "fix": "'Anthropic's own page lists only the US' is wrong for claude.com/product/claude-duet, which lists US, India, Indonesia, Brazil & Japan (it also says Team and Enterprise are not included yet, contradicting AIM's Team/Enterprise beta). Only the 21 Oct launch article names only the US. Rewrite: Anthropic's product page lists India; AIM's Team/Enterprise betas are not on Anthropic's page."
+  },
+  {
+   "name": "Cashfree Wallet",
+   "url": "https://analyticsindiamag.com/ai-news/cashfree-launches-wallet-letting-ai-agents-pay-for-indian-users",
+   "event_date": "2026-11-24",
+   "quote": "Agents pay merchants only from the wallet, so they never see card or bank details; Agentpay MCP server; All payment data is stored in India; More than 100 personal agent and bot builders integrated the wallet at launch (agents can only pay bills for now)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Foodics MCP",
+   "url": "https://mcp.foodics.com/",
+   "event_date": "2026-11-26",
+   "quote": "Live; ChatGPT, Claude, Cursor, Gemini, Copilot; sales, orders, menu, inventory. No launch date on page; only '© 2026 Foodics'",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

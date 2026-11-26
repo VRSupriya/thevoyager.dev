@@ -1,71 +1,5 @@
 [
  {
-  "date": "2026-10-26",
-  "slot": "top",
-  "title": "PingCAP TiDB Cloud breach",
-  "url": "https://www.pingcap.com/trust-hub/security/security-update-october-2026/"
- },
- {
-  "date": "2026-10-26",
-  "slot": "models",
-  "title": "Anthropic Claude API 2026-10-21 removes sampling parameters",
-  "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21"
- },
- {
-  "date": "2026-10-26",
-  "slot": "agents",
-  "title": "Bayer Crop Science agentic decision engine on AgentCore",
-  "url": "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/"
- },
- {
-  "date": "2026-10-26",
-  "slot": "research",
-  "title": "CNN vs GPT-6 Astra and Fable 5.1 on skin lesions",
-  "url": "https://lynchlab.net/llm-skin-cancer"
- },
- {
-  "date": "2026-10-26",
-  "slot": "regional",
-  "title": "Chariot-1-ASR Realtime",
-  "url": "https://analyticsindiamag.com/ai-news/chariot-launches-speech-recognition-model-for-10-indian-languages"
- },
- {
-  "date": "2026-10-26",
-  "slot": "quick",
-  "title": "Nanbeige4.3-33B",
-  "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B"
- },
- {
-  "date": "2026-10-26",
-  "slot": "quick",
-  "title": "Carbon-X DNA chat model",
-  "url": "https://huggingface.co/HuggingFaceBio/Carbon-X"
- },
- {
-  "date": "2026-10-26",
-  "slot": "quick",
-  "title": "Google ML Drift",
-  "url": "https://www.infoq.com/news/2026/10/google-ml-drift/"
- },
- {
-  "date": "2026-10-26",
-  "slot": "quick",
-  "title": "GitHub Copilot usage metrics by client",
-  "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
- },
- {
-  "date": "2026-10-26",
-  "slot": "quick",
-  "title": "GitHub Apps enterprise installations GA",
-  "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available"
- },
- {
-  "date": "2026-10-26",
-  "slot": "quick",
-  "title": "LangChain company harness",
-  "url": "https://www.langchain.com/blog/components-building-company-harness"
- },
- {
   "date": "2026-10-27",
   "slot": "top",
   "title": "Cloudflare GLM-5.3 KV cache exposure (SGLang)",
@@ -2740,5 +2674,119 @@
   "slot": "quick",
   "title": "Muted Distillation",
   "url": "https://arxiv.org/abs/2611.28445"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "top",
+  "title": "Microsoft ARTEX agentic framework abused by threat actors",
+  "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "models",
+  "title": "Amazon Transcribe Turbo preview",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "agents",
+  "title": "Vercel Board for humans and coding agents",
+  "url": "https://vercel.com/blog/introducing-vercel-board"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "research",
+  "title": "SpecEngineeringBench coding agents as specification engineers",
+  "url": "https://huggingface.co/papers/2611.32973"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "people",
+  "title": "Philipp Schmid: context engineering for Gemini 4 Neon",
+  "url": "https://www.philschmid.de/gemini-4-neon-context-engineering"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "architecture",
+  "title": "InfoQ LLM agent evals, grounding and release gates for SAR drafting",
+  "url": "https://www.infoq.com/articles/llm-agent-architecture-evals-grounding/"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "regional",
+  "title": "Anthropic Claude Duet India",
+  "url": "https://analyticsindiamag.com/ai-news/anthropic-brings-claude-duet-ai-agent-to-india"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "regional",
+  "title": "Cashfree AgentPay wallet for AI agents",
+  "url": "https://analyticsindiamag.com/ai-news/cashfree-launches-wallet-letting-ai-agents-pay-for-indian-users"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "regional",
+  "title": "Foodics MCP",
+  "url": "https://mcp.foodics.com/"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "Xiaomi MiMo-V2.6-Flash-MOPD",
+  "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-MOPD"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "AWS Lambda durable functions MicroVMs",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-microvm/"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "ruflo MCP bridge CVE-2026-59726",
+  "url": "https://osv.dev/vulnerability/GHSA-c4hm-4h84-2cf3"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "LiteLLM GHSA-m8fp-3f3g-j5p7 deployment poisoning",
+  "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-m8fp-3f3g-j5p7"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "k8s-mcp-server missing authentication",
+  "url": "https://pkg.go.dev/vuln/GO-2026-7005"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "Anthropic Messages API migration to Rust",
+  "url": "https://www.anthropic.com/research/migrating-api-to-rust"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "OpenAI Pando Git backend",
+  "url": "https://openai.com/index/scaling-git-at-openai/"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "AWS Lambda 30-minute timeout",
+  "url": "https://www.infoq.com/news/2026/11/aws-lambda-30-minute-timeout/"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "GitHub issue statuses and repository boards",
+  "url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "quick",
+  "title": "ICLWorld benchmark",
+  "url": "https://huggingface.co/papers/2611.32649"
  }
 ]

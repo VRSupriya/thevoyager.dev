@@ -1,0 +1,389 @@
+{
+ "date": "2026-11-27",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "GMI Cloud",
+   "event_date": "2026-11-24",
+   "status": "Incident",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "GMI Cloud published a notice on 24 November",
+     "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+     "quote": "November 24, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "unauthorized party got in on 21-22 October and again from 27 October",
+     "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+     "quote": "on October 21 and 22, 2026, and again from October 27, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "About three days of prompts and responses retained, so 18 Oct to 18 Nov affected",
+     "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+     "quote": "about three days of request content",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Title: attackers read its prompt logs / treat what was in them as read",
+     "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+     "quote": "As a precaution, we are treating request content from this period as potentially exposed.",
+     "verdict": "CORRECTED",
+     "fix": "The notice does not say attackers read prompts; it says access to the logging system and that content is treated as potentially exposed. Reword headline to 'reached' / 'potentially exposed'. Only the researcher's test keys are confirmed misused."
+    },
+    {
+     "kind": "other",
+     "claim": "Test keys a researcher put in prompts were later used without authorization",
+     "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+     "quote": "test keys the researcher placed in prompts during this period were later used without authorization",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "Fixed in: system taken offline 22 Oct and rebuilt, a second access route closed on 18 November, prompt/response logging stopped",
+     "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+     "quote": "We took the affected system offline on October 22, 2026.",
+     "verdict": "CORRECTED",
+     "fix": "Offline 22 Oct, rebuilt in isolated environment, logging stopped: supported. 18 Nov is when compromised credentials were revoked and monitoring-interface access restricted (further access was 'through a separate route involving compromised credentials'); say 'credentials revoked on 18 November', not 'route closed'."
+    },
+    {
+     "kind": "absence",
+     "claim": "Severity: not stated; Stopgap: none beyond the step below",
+     "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+     "quote": "Searched whole page for severity, rating, CVSS, workaround, stopgap, interim: none found; only 'potentially exposed' and rotate advice",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "remediation",
+     "claim": "If compromised: rotate any credentials, API keys or tokens in prompts, then review recent usage",
+     "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+     "quote": "rotate them now and review their recent usage",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "NVIDIA Nemotron 3.5 Parse",
+   "event_date": "2026-11-26",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "NVIDIA's Hugging Face post (26 November)",
+     "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+     "quote": "Published November 26, 2026",
+     "verdict": "VERIFIED",
+     "fix": "Link: the brief's URL (ending 'fine-tunin') opens; HF truncates the slug. The 'fixed' ...fine-tuning URL returns 404, so keep the brief's URL as is."
+    },
+    {
+     "kind": "number",
+     "claim": "0.6B-parameter document parser",
+     "url": "https://huggingface.co/nvidia/Nemotron-3.5-Parse",
+     "quote": "630,800,496 unique trainable parameters",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "GRPO cut looping pages from 126 to 29",
+     "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+     "quote": "loop-flagged outputs fall from 126 to 29 pages",
+     "verdict": "VERIFIED",
+     "fix": "Source frames it as development checkpoints in a controlled SFT vs GRPO comparison."
+    },
+    {
+     "kind": "number",
+     "claim": "DFlash2 7.62x at concurrency 1 on one H200",
+     "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+     "quote": "DFlash2 increased throughput 7.62× at concurrency 1",
+     "verdict": "VERIFIED",
+     "fix": "Measured in the native single-pass benchmark, one H200, BF16."
+    },
+    {
+     "kind": "number",
+     "claim": "At concurrency 512 gain is 1.52x (20.44 vs 13.48 pages/s)",
+     "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+     "quote": "At 512, Parse 3.5 reaches 13.48 pages/s without speculation and 20.44 pages/s with DFlash2",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "Model link / licence context",
+     "url": "https://huggingface.co/nvidia/Nemotron-3.5-Parse",
+     "quote": "Governed by the OpenMDW License Agreement, version 1.1",
+     "verdict": "VERIFIED",
+     "fix": "Page opens."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "Pydantic Pax",
+   "event_date": "2026-11-25",
+   "status": "Beta",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Pydantic announced Pax on 25 November",
+     "url": "https://pydantic.dev/articles/pax-harness-beta",
+     "quote": "Pax: the harness beta, published November 25, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "/plugins disable coder turns it into a plain chat client; pax --agent my_agents:reviewer",
+     "url": "https://pydantic.dev/articles/pax-harness-beta",
+     "quote": "Turn `coder` off with `/plugins disable coder`",
+     "verdict": "VERIFIED",
+     "fix": "'plain chat client' wording not checked verbatim."
+    },
+    {
+     "kind": "other",
+     "claim": "Sessions can run locally or in E2B, Daytona or Modal sandboxes",
+     "url": "https://pydantic.dev/articles/pax-harness-beta",
+     "quote": "E2B, Daytona, Modal, and Docker all appear",
+     "verdict": "VERIFIED",
+     "fix": "Page lists more providers too (Docker, Render, Kubernetes etc.)."
+    },
+    {
+     "kind": "number",
+     "claim": "SWE81 runs put Pax at 58.5 on average, narrowly ahead of the other three harnesses that ran every model",
+     "url": "https://pydantic.dev/articles/pax-harness-beta",
+     "quote": "Pax had the highest average score of the four harnesses that ran every model, narrowly: 58.5",
+     "verdict": "VERIFIED",
+     "fix": "Others: OpenCode 58.2, deepagents-code 57.6, pi 57.3."
+    },
+    {
+     "kind": "attribution",
+     "claim": "single self-reported runs, and the post calls them preliminary",
+     "url": "https://pydantic.dev/articles/pax-harness-beta",
+     "quote": "Single runs from November.",
+     "verdict": "CORRECTED",
+     "fix": "The word 'preliminary' does not appear (searched whole page: preliminary, early, caveat, noisy). Post says 'Single runs from November', relaxed rescore for Sol/Opus, and 'Full methodology and reruns are coming with 1.0'. Say 'single runs; full methodology and reruns promised with 1.0'."
+    },
+    {
+     "kind": "status",
+     "claim": "Pax is beta (new)",
+     "url": "https://pydantic.dev/docs/ai/pax/",
+     "quote": "Pax is in beta, on the road to 1.0 alongside the Harness.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "uvx pydantic-ai-pax",
+     "url": "https://pydantic.dev/articles/pax-harness-beta",
+     "quote": "Run `uvx pydantic-ai-pax` to try Pax without installing it",
+     "verdict": "VERIFIED",
+     "fix": "Docs also warn Pax runs commands and edits files without sandbox or approval by default."
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-25",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Preprint from NVIDIA researchers (25 November)",
+     "url": "https://arxiv.org/abs/2611.34147",
+     "quote": "Submitted on 25 Nov 2026",
+     "verdict": "VERIFIED",
+     "fix": "arXiv page lists no affiliations; NVIDIA attribution comes from the HF page ('NVIDIA's open source agent harness') and repo owner nvidia-nemo."
+    },
+    {
+     "kind": "number",
+     "claim": "GPT 6.1 goes from 21% to 56% on OfficeQA Pro v2 at 32K",
+     "url": "https://huggingface.co/papers/2611.34147",
+     "quote": "GPT 6.1 nearly triples its score at a 32K budget on OfficeQA Pro v2",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "Kimi gains accuracy with up to 41% fewer input tokens",
+     "url": "https://arxiv.org/abs/2611.34147",
+     "quote": "Kimi gains with up to 41\\% fewer input tokens",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "KV cache reuse cuts prefill compute by up to 15% per request",
+     "url": "https://arxiv.org/abs/2611.34147",
+     "quote": "we cut prefill compute by up to 15\\% per request",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "other",
+     "claim": "The Hugging Face page links an NVIDIA GitHub repo",
+     "url": "https://huggingface.co/papers/2611.34147",
+     "quote": "https://github.com/nvidia-nemo/labs-OO-Agents",
+     "verdict": "VERIFIED",
+     "fix": "arXiv abstract page itself has no code link and no Comments field."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Dell",
+   "event_date": "2026-11-26",
+   "status": "Case study",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "attribution",
+     "claim": "At QCon AI, Dell's Rachel Shalom described fixing search that missed terms such as PowerScale and CloudIQ",
+     "url": "https://www.infoq.com/presentations/fine-tune-enterprise-rag-embeddings/",
+     "quote": "PowerScale or CloudIQ or PowerProtect",
+     "verdict": "VERIFIED",
+     "fix": "Page date Nov 26, 2026."
+    },
+    {
+     "kind": "other",
+     "claim": "three questions per chunk; hard negatives mined from top 20; Nomic Embed for Confluence, EmbeddingGemma for code; InfoNCE; 4 H100s",
+     "url": "https://www.infoq.com/presentations/fine-tune-enterprise-rag-embeddings/",
+     "quote": "We generated three questions for each chunk.",
+     "verdict": "VERIFIED",
+     "fix": "Top 20 mined, 7 kept for training."
+    },
+    {
+     "kind": "number",
+     "claim": "golden set of 300 expert-verified triples; re-embeds every two days",
+     "url": "https://www.infoq.com/presentations/fine-tune-enterprise-rag-embeddings/",
+     "quote": "a golden dataset of 300 SME-verified questions, answers, and sources",
+     "verdict": "VERIFIED",
+     "fix": "Used for evaluation. 'every two days': 'we re-embed all the changes every two days' (changes only)."
+    },
+    {
+     "kind": "number",
+     "claim": "right source found in at least 12% more cases and answers about 4% better",
+     "url": "https://www.infoq.com/presentations/fine-tune-enterprise-rag-embeddings/",
+     "quote": "at least in 12%",
+     "verdict": "CORRECTED",
+     "fix": "12% is source retrieval (recall@k); 4% is 'a little bit more than 4%' on an LLM-as-a-judge answer metric. 'about 4%' acceptable but say LLM-judged."
+    },
+    {
+     "kind": "absence",
+     "claim": "OpenAI embeddings weren't benchmarked because Dell doesn't allow sending that data to OpenAI",
+     "url": "https://www.infoq.com/presentations/fine-tune-enterprise-rag-embeddings/",
+     "quote": "we are not allowed to send data to OpenAI",
+     "verdict": "VERIFIED",
+     "fix": ""
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "MemT-1.0-Pro",
+   "url": "https://huggingface.co/MemTensor/MemT-1.0-Pro",
+   "event_date": "2026-11-20",
+   "quote": "Strong textual-memory systems remain ahead overall",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "MemT-1.0-Pro (size and licence)",
+   "url": "https://huggingface.co/MemTensor/MemT-1.0-Pro",
+   "event_date": "2026-11-20",
+   "quote": "released under the OpenMDW-1.1 license",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "LiteLLM MCP stdio (ZDI-26-1031)",
+   "url": "https://www.zerodayinitiative.com/advisories/ZDI-26-1031/",
+   "event_date": "2026-11-18",
+   "quote": "Authentication is required to exploit this vulnerability.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Claude Code permission replies",
+   "url": "https://arxiv.org/abs/2611.32195",
+   "event_date": "2026-11-24",
+   "quote": "Claude Code checks only updates that add or replace allow rules",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Anthropic Siren",
+   "url": "https://safeguards.anthropic.com/2026/siren/",
+   "event_date": "2026-11-24",
+   "quote": "The Claude 5.5 series and Claude Mythos 5.2 reach outside in 21% to 32% of scenarios",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Codex CLI 0.172.0",
+   "url": "https://github.com/openai/codex/releases",
+   "event_date": "2026-11-24",
+   "quote": "Optional stdio MCP servers with cached tool lists now start on their first tool call by default.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "LangSmith agent lake",
+   "url": "https://www.langchain.com/blog/the-agent-lake",
+   "event_date": "2026-11-24",
+   "quote": "ingests traces from billions of agent runs per month",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "LangChain ISO/IEC 42001",
+   "url": "https://www.langchain.com/blog/ai-governance-iso-iec-42001-langsmith",
+   "event_date": "2026-11-24",
+   "quote": "every GA LangSmith feature that runs inference on a model we manage",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "MGMem",
+   "url": "https://arxiv.org/abs/2611.33174",
+   "event_date": "2026-10-21",
+   "quote": "outperforms matched-protocol baselines on LoCoMo without generative indexing calls",
+   "verdict": "REMOVED"
+  },
+  {
+   "name": "Chariot-1 (India)",
+   "url": "https://dataconomy.com/2026/11/26/india-launches-homegrown-chariot-1-ai-foundation-models/",
+   "event_date": "2026-11-26",
+   "quote": "11-billion-parameter mixture-of-experts model",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "BharatGen Patram 1.5 (India)",
+   "url": "https://analyticsindiamag.com/ai-news/bharatgen-launches-patram-15-a-7b-vision-language-model-for-document-processing",
+   "event_date": "2026-11-26",
+   "quote": "seven-billion-parameter vision-language model",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Philipp Schmid on MCP",
+   "url": "https://www.philschmid.de/mcp-2027",
+   "event_date": "2026-11-26",
+   "quote": "MCP Events (beta) three delivery modes: webhook (events/subscribe), push (events/stream), poll (events/poll); typed stubs from outputSchema",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

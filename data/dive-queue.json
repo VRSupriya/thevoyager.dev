@@ -44,5 +44,12 @@
   "title": "Coral execution rails for agents",
   "url": "https://github.com/withcoral/coral",
   "why": "Covered on the Hacker News front page (Show HN) with real architecture: V8 isolate per program, policy-checked tool calls, credential injection outside the sandbox."
+ },
+ {
+  "date": "2026-11-27",
+  "kind": "paper",
+  "title": "Letting Models Manage Their Own Context: Where We Stand",
+  "url": "https://arxiv.org/abs/2611.34147",
+  "why": "Changes how AI systems are built (model-driven context management, KV-cache reuse); code linked from NVIDIA's GitHub"
  }
 ]

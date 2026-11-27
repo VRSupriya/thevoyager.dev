@@ -1,83 +1,5 @@
 [
  {
-  "date": "2026-10-27",
-  "slot": "top",
-  "title": "Cloudflare GLM-5.3 KV cache exposure (SGLang)",
-  "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
- },
- {
-  "date": "2026-10-27",
-  "slot": "models",
-  "title": "OpenAI GPT-6.1 Terra",
-  "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
- },
- {
-  "date": "2026-10-27",
-  "slot": "agents",
-  "title": "Forever Security AGENTS.md Downloads hijack of Codex and Claude Code",
-  "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder"
- },
- {
-  "date": "2026-10-27",
-  "slot": "research",
-  "title": "Compaction benchmarks (Salle et al.)",
-  "url": "https://arxiv.org/abs/2610.31778"
- },
- {
-  "date": "2026-10-27",
-  "slot": "people",
-  "title": "Simon Willison: webframe evaluation",
-  "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/"
- },
- {
-  "date": "2026-10-27",
-  "slot": "architecture",
-  "title": "Ubicloud vLLM tool-call accuracy and constrained decoding",
-  "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm"
- },
- {
-  "date": "2026-10-27",
-  "slot": "quick",
-  "title": "KRAFTON Raon-1-mini-preview",
-  "url": "https://huggingface.co/KRAFTON/Raon-1-mini-preview"
- },
- {
-  "date": "2026-10-27",
-  "slot": "quick",
-  "title": "OpenAI Decisions API",
-  "url": "https://developers.openai.com/api/docs/guides/decisions"
- },
- {
-  "date": "2026-10-27",
-  "slot": "quick",
-  "title": "LiteLLM 1.107.0 root cause",
-  "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
- },
- {
-  "date": "2026-10-27",
-  "slot": "quick",
-  "title": "MLflow CVE-2026-53995",
-  "url": "https://osv.dev/vulnerability/GHSA-wqmh-qccw-pqwf"
- },
- {
-  "date": "2026-10-27",
-  "slot": "quick",
-  "title": "Anthropic S-1 training pause disclosure",
-  "url": "https://www.investing.com/news/stock-market-news/anthropic-discloses-monthlong-training-pause-ai-security-breaches-in-ipo-filing-4973293"
- },
- {
-  "date": "2026-10-27",
-  "slot": "quick",
-  "title": "SPECMEM speculative tool calling",
-  "url": "https://arxiv.org/abs/2610.31840"
- },
- {
-  "date": "2026-10-27",
-  "slot": "quick",
-  "title": "Continual Learning Exam benchmark",
-  "url": "https://huggingface.co/papers/2610.33956"
- },
- {
   "date": "2026-10-28",
   "slot": "top",
   "title": "LiteLLM proxy internal_user to proxy_admin RCE",
@@ -2788,5 +2710,95 @@
   "slot": "quick",
   "title": "ICLWorld benchmark",
   "url": "https://huggingface.co/papers/2611.32649"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "top",
+  "title": "GMI Cloud intruder in prompt logs behind OpenRouter endpoints",
+  "url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "models",
+  "title": "NVIDIA Nemotron 3.5 Parse faster document parsing",
+  "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "agents",
+  "title": "Pydantic Pax terminal coding agent",
+  "url": "https://pydantic.dev/articles/pax-harness-beta"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "research",
+  "title": "NVIDIA model-managed context preprint",
+  "url": "https://arxiv.org/abs/2611.34147"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "architecture",
+  "title": "Dell embedding fine-tuning for agentic search QCon AI",
+  "url": "https://www.infoq.com/presentations/fine-tune-enterprise-rag-embeddings/"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "regional",
+  "title": "Chariot-1 foundation models IndiaAI Mission",
+  "url": "https://dataconomy.com/2026/11/26/india-launches-homegrown-chariot-1-ai-foundation-models/"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "regional",
+  "title": "BharatGen Patram 1.5",
+  "url": "https://analyticsindiamag.com/ai-news/bharatgen-launches-patram-15-a-7b-vision-language-model-for-document-processing"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "quick",
+  "title": "MemTensor MemT-1.0-Pro",
+  "url": "https://huggingface.co/MemTensor/MemT-1.0-Pro"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "quick",
+  "title": "LiteLLM MCP stdio command injection CVE-2026-136535",
+  "url": "https://www.zerodayinitiative.com/advisories/ZDI-26-1031/"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "quick",
+  "title": "Claude Code permission replies rewrite policy preprint",
+  "url": "https://arxiv.org/abs/2611.32195"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "quick",
+  "title": "Anthropic Siren sandbox escape measurement",
+  "url": "https://safeguards.anthropic.com/2026/siren/"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "quick",
+  "title": "OpenAI Codex CLI 0.172.0",
+  "url": "https://github.com/openai/codex/releases"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "quick",
+  "title": "Philipp Schmid MCP for 2027",
+  "url": "https://www.philschmid.de/mcp-2027"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "quick",
+  "title": "LangChain LangSmith agent lake",
+  "url": "https://www.langchain.com/blog/the-agent-lake"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "quick",
+  "title": "LangChain ISO/IEC 42001 certification",
+  "url": "https://www.langchain.com/blog/ai-governance-iso-iec-42001-langsmith"
  }
 ]

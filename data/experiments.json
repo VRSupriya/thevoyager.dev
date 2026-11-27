@@ -306,5 +306,12 @@
   "source_url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
   "hypothesis": "One week of Audit mode shows the agent reaches few unexpected domains, so Enforce is safe to turn on.",
   "status": "suggested"
+ },
+ {
+  "date": "2026-11-27",
+  "title": "Scan prompt and trace logs for pasted secrets",
+  "source_url": "https://www.gmicloud.ai/en/blog/security-incident-affecting-gmi-cloud-endpoints-on-openrouter",
+  "hypothesis": "Some secrets (keys, tokens, .env fragments) are present in recent prompt or trace logs sent to third-party inference providers.",
+  "status": "suggested"
  }
 ]

@@ -320,5 +320,12 @@
   "week": 8,
   "title": "Senior AI/ML Engineer, system design: your product search is great until the user ticks a filter",
   "topic_key": "interview:system-design:google:senior-ai-ml-engineer:filtered-vector-search-selectivity-bands-hnsw-acorn-planner:vector-hybrid-graph-retrieval"
+ },
+ {
+  "date": "2026-11-27",
+  "track": "github",
+  "week": 8,
+  "title": "Coral: the agent writes the program, and the gateway checks every call it makes",
+  "topic_key": "github:withcoral-coral-code-mode-dispatch-time-policy-enforcement-approvals:vector-hybrid-graph-retrieval"
  }
 ]

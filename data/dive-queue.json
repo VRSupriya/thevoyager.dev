@@ -1,13 +1,5 @@
 [
  {
-  "date": "2026-11-05",
-  "kind": "repo",
-  "title": "Anthropic FlashProve",
-  "url": "https://github.com/anthropics/FlashProve",
-  "why": "Major lab with code released; changes how third-party inference could be audited (covered by AINews, Rundown, HN)",
-  "used": "2026-11-06"
- },
- {
   "date": "2026-11-12",
   "kind": "paper",
   "title": "ADIndex: layer-adaptive sparse attention indexing",
@@ -43,7 +35,8 @@
   "kind": "repo",
   "title": "Coral execution rails for agents",
   "url": "https://github.com/withcoral/coral",
-  "why": "Covered on the Hacker News front page (Show HN) with real architecture: V8 isolate per program, policy-checked tool calls, credential injection outside the sandbox."
+  "why": "Covered on the Hacker News front page (Show HN) with real architecture: V8 isolate per program, policy-checked tool calls, credential injection outside the sandbox.",
+  "used": "2026-11-27"
  },
  {
   "date": "2026-11-27",

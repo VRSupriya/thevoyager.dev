@@ -1,48 +1,55 @@
 [
- {
-  "date": "2026-11-12",
-  "kind": "paper",
-  "title": "ADIndex: layer-adaptive sparse attention indexing",
-  "url": "https://arxiv.org/abs/2611.12956",
-  "why": "changes how long-context serving is built; B300/SGLang numbers on DeepSeek-V3.2 and GLM-5.1",
-  "used": "2026-11-24"
- },
- {
-  "date": "2026-11-13",
-  "kind": "repo",
-  "title": "NVIDIA Agent Substrate",
-  "url": "https://github.com/agent-substrate/substrate",
-  "why": "changes how agent runtimes are built (checkpoint/restore sessions on warm Kubernetes pods); donated to CNCF Sandbox",
-  "used": "2026-11-20"
- },
- {
-  "date": "2026-11-17",
-  "kind": "paper",
-  "title": "More Agents, More Samples, or More Thinking? (PACE)",
-  "url": "https://arxiv.org/abs/2611.17610",
-  "why": "changes how agent systems are built: multi-agent setups rarely beat matched-budget baselines; code released (github.com/mahmoudsajjadi/pace)",
-  "used": "2026-11-17"
- },
- {
-  "date": "2026-11-18",
-  "kind": "paper",
-  "title": "K2-Horizon: A Frontier Fleet of Open Source Language Models",
-  "url": "https://arxiv.org/abs/2611.21003",
-  "why": "from a major lab with code and weights released (MBZUAI IFM; weights, training code and data links on Hugging Face)"
- },
- {
-  "date": "2026-11-19",
-  "kind": "repo",
-  "title": "Coral execution rails for agents",
-  "url": "https://github.com/withcoral/coral",
-  "why": "Covered on the Hacker News front page (Show HN) with real architecture: V8 isolate per program, policy-checked tool calls, credential injection outside the sandbox.",
-  "used": "2026-11-27"
- },
- {
-  "date": "2026-11-27",
-  "kind": "paper",
-  "title": "Letting Models Manage Their Own Context: Where We Stand",
-  "url": "https://arxiv.org/abs/2611.34147",
-  "why": "Changes how AI systems are built (model-driven context management, KV-cache reuse); code linked from NVIDIA's GitHub"
- }
+  {
+    "date": "2026-11-12",
+    "kind": "paper",
+    "title": "ADIndex: layer-adaptive sparse attention indexing",
+    "url": "https://arxiv.org/abs/2611.12956",
+    "why": "changes how long-context serving is built; B300/SGLang numbers on DeepSeek-V3.2 and GLM-5.1",
+    "used": "2026-11-24"
+  },
+  {
+    "date": "2026-11-13",
+    "kind": "repo",
+    "title": "NVIDIA Agent Substrate",
+    "url": "https://github.com/agent-substrate/substrate",
+    "why": "changes how agent runtimes are built (checkpoint/restore sessions on warm Kubernetes pods); donated to CNCF Sandbox",
+    "used": "2026-11-20"
+  },
+  {
+    "date": "2026-11-17",
+    "kind": "paper",
+    "title": "More Agents, More Samples, or More Thinking? (PACE)",
+    "url": "https://arxiv.org/abs/2611.17610",
+    "why": "changes how agent systems are built: multi-agent setups rarely beat matched-budget baselines; code released (github.com/mahmoudsajjadi/pace)",
+    "used": "2026-11-17"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "paper",
+    "title": "K2-Horizon: A Frontier Fleet of Open Source Language Models",
+    "url": "https://arxiv.org/abs/2611.21003",
+    "why": "from a major lab with code and weights released (MBZUAI IFM; weights, training code and data links on Hugging Face)"
+  },
+  {
+    "date": "2026-11-19",
+    "kind": "repo",
+    "title": "Coral execution rails for agents",
+    "url": "https://github.com/withcoral/coral",
+    "why": "Covered on the Hacker News front page (Show HN) with real architecture: V8 isolate per program, policy-checked tool calls, credential injection outside the sandbox.",
+    "used": "2026-11-27"
+  },
+  {
+    "date": "2026-11-27",
+    "kind": "paper",
+    "title": "Letting Models Manage Their Own Context: Where We Stand",
+    "url": "https://arxiv.org/abs/2611.34147",
+    "why": "Changes how AI systems are built (model-driven context management, KV-cache reuse); code linked from NVIDIA's GitHub"
+  },
+  {
+    "date": "2026-11-28",
+    "kind": "paper",
+    "title": "DFly2: Turbocharging Long-Context Speculative Decoding by Sharing the Target's Sparsity",
+    "url": "https://arxiv.org/abs/2611.34776",
+    "why": "Major lab with code and weights released (Tencent AngelSpec); changes how long-context serving is built"
+  }
 ]

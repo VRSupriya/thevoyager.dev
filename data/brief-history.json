@@ -1,107 +1,5 @@
 [
  {
-  "date": "2026-10-28",
-  "slot": "top",
-  "title": "LiteLLM proxy internal_user to proxy_admin RCE",
-  "url": "https://osv.dev/vulnerability/GHSA-7hp6-4w63-5g45"
- },
- {
-  "date": "2026-10-28",
-  "slot": "models",
-  "title": "Liquid AI LFM3 small models",
-  "url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
- },
- {
-  "date": "2026-10-28",
-  "slot": "agents",
-  "title": "MCP C# SDK 2.0 stateless HTTP",
-  "url": "https://www.infoq.com/news/2026/10/MCP-CSharp-SDK-Stateless/"
- },
- {
-  "date": "2026-10-28",
-  "slot": "people",
-  "title": "LangChain Content Studio design agent",
-  "url": "https://www.langchain.com/blog/design-agent"
- },
- {
-  "date": "2026-10-28",
-  "slot": "architecture",
-  "title": "Momento KV cache talk at QCon AI",
-  "url": "https://www.infoq.com/presentations/llm-inference-kv-cache/"
- },
- {
-  "date": "2026-10-28",
-  "slot": "regional",
-  "title": "Sarvam five-year defence AI MoU",
-  "url": "https://analyticsindiamag.com/ai-news/sarvam-signs-5-year-defence-ai-deal-covering-army-navy-and-air-force"
- },
- {
-  "date": "2026-10-28",
-  "slot": "regional",
-  "title": "Maya Research Maya 2 Native TTS",
-  "url": "https://analyticsindiamag.com/ai-news/maya-research-releases-open-weight-speech-model-supporting-12-languages"
- },
- {
-  "date": "2026-10-28",
-  "slot": "regional",
-  "title": "Dubai Chambers Chamber AI Hub",
-  "url": "https://gulfnews.com/business/dubai-launches-worlds-first-chamber-led-agentic-ai-marketplace-1.500724627"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "Baidu Unlimited-OCR-2",
-  "url": "https://huggingface.co/baidu/Unlimited-OCR-2"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "Entire Git Forge",
-  "url": "https://analyticsindiamag.com/ai-news/former-github-ceo-launches-git-platform-built-for-ai-agents"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "vLLM code_revision RCE CVE-2026-114053",
-  "url": "https://osv.dev/vulnerability/GHSA-h3rc-6mm3-gc2m"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "MCP Python SDK token audience advisory",
-  "url": "https://osv.dev/vulnerability/GHSA-w4fh-qvv9-3v23"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "MLflow unauthenticated RCE GHSA-26p8",
-  "url": "https://osv.dev/vulnerability/GHSA-26p8-2jq9-3vq9"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "Cloudflare Auto Router",
-  "url": "https://www.infoq.com/news/2026/10/cloudflare-auto-router/"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "GitHub Copilot assisted permissions GA",
-  "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "AWS agents triage Linux kernel CVEs",
-  "url": "https://www.infoq.com/news/2026/10/aws-ai-agents-linux-kernel-cves/"
- },
- {
-  "date": "2026-10-28",
-  "slot": "quick",
-  "title": "Google Cloud IAM Helper agent skills",
-  "url": "https://cloud.google.com/blog/products/identity-security/scale-agents-securely-with-iam-helper-agent-skills-and-mcp-tools/"
- },
- {
   "date": "2026-10-29",
   "slot": "top",
   "title": "GitHub Copilot Fusion model routing",
@@ -2800,5 +2698,107 @@
   "slot": "quick",
   "title": "LangChain ISO/IEC 42001 certification",
   "url": "https://www.langchain.com/blog/ai-governance-iso-iec-42001-langsmith"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "top",
+  "title": "Tencent DFly2 speculative decoding (AngelSpec)",
+  "url": "https://github.com/Tencent/AngelSpec"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "models",
+  "title": "ai-sage GigaChat4 708B-A41B",
+  "url": "https://huggingface.co/ai-sage/GigaChat4-708B-A41B"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "agents",
+  "title": "PyTorch GreenLight AI reviewer approvals",
+  "url": "https://github.com/pytorch/test-infra/tree/main/greenlight"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "research",
+  "title": "SkillsBench audit: what skill lift measures",
+  "url": "https://arxiv.org/abs/2611.33943"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "people",
+  "title": "Pragmatic Engineer: how Anthropic builds software",
+  "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "architecture",
+  "title": "Google Workspace MCP servers and CLI for agents",
+  "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "regional",
+  "title": "UAE Cabinet Mira concierge agent and agentic AI strategy",
+  "url": "https://gulfnews.com/uae/government/uae-cabinet-chaired-by-mohammed-bin-rashid-approves-the-uae-government-concierge-agent-mira-1.500760957"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "regional",
+  "title": "Sarvam-105B-1711 open weights",
+  "url": "https://www.sarvam.ai/blogs/sarvam-105b-1711"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "regional",
+  "title": "UAE nine-partner agentic AI training for 80,000 employees",
+  "url": "https://gulfnews.com/uae/uae-launches-strategic-technology-partnerships-to-equip-over-80000-government-employees-with-agentic-ai-skills-1.500763153"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "quick",
+  "title": "KRAFTON Raon-1-mini",
+  "url": "https://huggingface.co/KRAFTON/Raon-1-mini"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "quick",
+  "title": "inclusionAI LingSante-3.1-flash",
+  "url": "https://huggingface.co/inclusionAI/LingSante-3.1-flash"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "quick",
+  "title": "LiteLLM bulk-update plaintext password GHSA-p377-4hwj-f3fh",
+  "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-p377-4hwj-f3fh"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "quick",
+  "title": "bigcommerce-api-mcp CVE-2026-138034",
+  "url": "https://www.strix.ai/cve/CVE-2026-138034"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "quick",
+  "title": "Inkling 2 Mini 101 tok/s in vLLM",
+  "url": "https://runtimenotes.com/blog/getting-101-tok-s-from-inkling-2-mini-in-vllm-on-one-gb10/"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "quick",
+  "title": "Microsoft Ignite agent governance",
+  "url": "https://www.infoq.com/news/2026/11/microsoft-ignite-2026-recap/"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "quick",
+  "title": "Amazon Neptune Graph Sessions",
+  "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-neptune-graph-sessions-generally-available"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "quick",
+  "title": "Google DeepCrossAttention",
+  "url": "https://research.google/blog/supercharging-transformer-residual-connections/"
  }
 ]

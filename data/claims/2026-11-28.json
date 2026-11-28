@@ -1,0 +1,464 @@
+{
+ "date": "2026-11-28",
+ "items": [
+  {
+   "slot": "top",
+   "vendor": "Tencent AngelSpec DFly2",
+   "event_date": "2026-11-26",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Tencent released DFly2 on 26 November",
+     "url": "https://github.com/Tencent/AngelSpec",
+     "quote": "We open-source DFly2 in full",
+     "verdict": "VERIFIED",
+     "fix": "README news entry is dated 2026/11/26; weights, training code and technical report."
+    },
+    {
+     "kind": "number",
+     "claim": "2.87x faster decode on long context, DeepSeek-V4.1-Flash; 2.11x end to end on the same run",
+     "url": "https://github.com/Tencent/AngelSpec",
+     "quote": "DeepSeek-V4.1-Flash ... Long (avg) 2.87× / 2.11×",
+     "verdict": "VERIFIED",
+     "fix": "Table is decoding / end-to-end; 2.87x is the Long (avg) column, not a maximum."
+    },
+    {
+     "kind": "number",
+     "claim": "Telegram headline: DFly2 makes long-context decoding up to 2.9x faster",
+     "url": "https://github.com/Tencent/AngelSpec",
+     "quote": "Hy4 flash ... ALB 4.55× / 1.35×; DeepSeek-V4.1-Flash ALB 3.82× / 1.25×",
+     "verdict": "CORRECTED",
+     "fix": "2.87x is the DeepSeek-V4.1-Flash long-context average, not an upper bound (individual decode cells reach 3.23x on CodeSpan 64K and 3.82x on ALB for DeepSeek, 4.55x for Hy4 flash). Say 'about 2.9x on average on long-context sets' or drop 'up to'. Same for the share line 'up to 2.87x'."
+    },
+    {
+     "kind": "number",
+     "claim": "README's own end-to-end column is lower: 1.50x on the agentic test for the same model",
+     "url": "https://github.com/Tencent/AngelSpec",
+     "quote": "DeepSeek-V4.1-Flash ... Agentic (avg) 3.10× / 1.50×",
+     "verdict": "VERIFIED",
+     "fix": "Decode 3.10x vs end to end 1.50x."
+    },
+    {
+     "kind": "status",
+     "claim": "Those runs are greedy at concurrency 1",
+     "url": "https://github.com/Tencent/AngelSpec",
+     "quote": "Speedup over autoregressive decoding, greedy at a concurrency of one, as decoding / end-to-end:",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "The paper adds that at high concurrency throughput is 62% and 81% higher on two 64K test sets",
+     "url": "https://arxiv.org/abs/2611.34776",
+     "quote": "its throughput is 62% and 81% higher on two 64K sets",
+     "verdict": "CORRECTED",
+     "fix": "Abstract: at high concurrency on DS-V4.1-Flash, at matched per-user decode speed. Add 'at matched per-user decode speed, DeepSeek-V4.1-Flash only'; no comparison baseline named in the quoted clause beyond that."
+    },
+    {
+     "kind": "absence",
+     "claim": "the repo doesn't name a licence in its README",
+     "url": "https://github.com/Tencent/AngelSpec",
+     "quote": "This project is released under [LICENSE]",
+     "verdict": "VERIFIED",
+     "fix": "Searched README for 'license': only a link to the LICENSE file and a badge labelled 'AngelSpec License'; no licence type named in body text. The LICENSE file itself was not opened."
+    },
+    {
+     "kind": "other",
+     "claim": "Checkpoints cover DeepSeek-V4.1-Flash, GLM-5.3-Flash and Hy4 flash, with vLLM configs for the first two",
+     "url": "https://github.com/Tencent/AngelSpec",
+     "quote": "configs/vllm_dsv41_flash_dfly2.yaml ... configs/vllm_glm53_flash_dfly2.yaml",
+     "verdict": "VERIFIED",
+     "fix": "No vLLM config listed for Hy4 flash."
+    }
+   ]
+  },
+  {
+   "slot": "models",
+   "vendor": "Sber ai-sage GigaChat4",
+   "event_date": "2026-11-20",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "ai-sage put GigaChat4 on Hugging Face on 20 November in two sizes",
+     "url": "https://huggingface.co/api/models/ai-sage/GigaChat4-708B-A41B",
+     "quote": "createdAt: 2026-11-20T12:15:30.000Z",
+     "verdict": "VERIFIED",
+     "fix": "37B-A4B createdAt is 2026-11-20T14:13:00Z. Model cards and the GitHub repo give no release date."
+    },
+    {
+     "kind": "licence",
+     "claim": "708B model uses an MIT licence",
+     "url": "https://huggingface.co/ai-sage/GigaChat4-708B-A41B",
+     "quote": "GigaChat 4 is released under the MIT License.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "licence",
+     "claim": "37B-A4B is licensed for non-commercial use by individuals only",
+     "url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B/blob/main/LICENSE.txt",
+     "quote": "Using the model or Derivatives to generate outputs for commercial purposes is prohibited.",
+     "verdict": "VERIFIED",
+     "fix": "Name is 'Noncommercial License for individuals 1.0'; organisations (charitable, educational, public research, government) excluded."
+    },
+    {
+     "kind": "number",
+     "claim": "708B model activates 41B parameters per token, 1,048,576-token context",
+     "url": "https://huggingface.co/ai-sage/GigaChat4-708B-A41B",
+     "quote": "708B total parameters and 41B active parameters per token",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "37B-A4B runs on a single H100 80GB",
+     "url": "https://huggingface.co/ai-sage/GigaChat4-37B-A4B",
+     "quote": "can be deployed on a single H100 80GB GPU (TP1)",
+     "verdict": "VERIFIED",
+     "fix": "FP8 model."
+    },
+    {
+     "kind": "other",
+     "claim": "3:1 mix of Gated DeltaNet linear attention and DeepSeek Sparse Attention",
+     "url": "https://huggingface.co/ai-sage/GigaChat4-708B-A41B",
+     "quote": "interleaves GatedDeltaNet and DSA layers in a 3:1 ratio",
+     "verdict": "VERIFIED",
+     "fix": "'which is how a million tokens stays affordable' is the brief's interpretation, not stated on the card."
+    },
+    {
+     "kind": "number",
+     "claim": "developers report 80.89 on SWE-bench Verified in reasoning mode",
+     "url": "https://huggingface.co/ai-sage/GigaChat4-708B-A41B",
+     "quote": "SWE-bench Verified (7-hour timeout) | 80.89",
+     "verdict": "VERIFIED",
+     "fix": "Self-reported on model card; instant mode 80.82; 7-hour timeout."
+    },
+    {
+     "kind": "other",
+     "claim": "vLLM needs a pinned commit rather than a release; SGLang supports it natively",
+     "url": "https://huggingface.co/ai-sage/GigaChat4-708B-A41B",
+     "quote": "git checkout --detach c0c90837262bf3059b3d7b20bf120ffbe197a785",
+     "verdict": "VERIFIED",
+     "fix": "SGLang: 'GigaChat 4 is natively supported in SGLang'."
+    },
+    {
+     "kind": "number",
+     "claim": "the big model wants two 8xH100 nodes",
+     "url": "https://huggingface.co/ai-sage/GigaChat4-708B-A41B",
+     "quote": "two nodes with eight H100 80GB GPUs each (TP16)",
+     "verdict": "VERIFIED",
+     "fix": "FP8 deployment."
+    }
+   ]
+  },
+  {
+   "slot": "agents",
+   "vendor": "PyTorch GreenLight",
+   "event_date": "2026-11-27",
+   "status": "Open-source release",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Linked InfoQ page is the GreenLight article",
+     "url": "https://www.infoq.com/news/2026/11/uber-agent-spend-steady/",
+     "quote": "Meta Brings Code Review Auto-Approval More Mainstream with PyTorch GreenLight (Nov 27, 2026)",
+     "verdict": "VERIFIED",
+     "fix": "The URL slug ('uber-agent-spend-steady') does not match the title but the page content is the GreenLight article by Andrew Hoblitzell, Nov 27, 2026."
+    },
+    {
+     "kind": "number",
+     "claim": "diff-risk percentile by author: runbook-generated up to the 50th, other bots up to the 20th, human-authored only up to the 5th",
+     "url": "https://www.infoq.com/news/2026/11/uber-agent-spend-steady/",
+     "quote": "Allowlisted runbooks can land diffs up to the 50th percentile of risk, other AI and bot sources stop at the 20th, and human-authored diffs default to the 5th.",
+     "verdict": "CORRECTED",
+     "fix": "Human gate is a default ('default to the 5th'), runbooks are 'allowlisted runbooks'. The GreenLight repo page does not state these numbers; cite InfoQ only. Say 'by default'."
+    },
+    {
+     "kind": "number",
+     "claim": "A review confidence of at least 8 out of 10 is needed too",
+     "url": "https://www.infoq.com/news/2026/11/uber-agent-spend-steady/",
+     "quote": "a confidence score of at least 8 out of 10",
+     "verdict": "CORRECTED",
+     "fix": "InfoQ attributes this to 'the paper' (Meta's RADAR). The GreenLight repo page does not mention an 8/10 threshold. Say 'RADAR's paper requires'."
+    },
+    {
+     "kind": "other",
+     "claim": "Scans every five minutes as an AWS Lambda",
+     "url": "https://github.com/pytorch/test-infra/tree/main/greenlight",
+     "quote": "the scheduled scan runs as an AWS Lambda (`greenlight-scan`) on a 5-minute EventBridge schedule",
+     "verdict": "VERIFIED",
+     "fix": "InfoQ confirms the five-minute scan but Lambda is not mentioned in the portion of the InfoQ page read (first ~200k of 246k chars); Lambda comes from the repo."
+    },
+    {
+     "kind": "other",
+     "claim": "a reverted PR is dropped from every path permanently",
+     "url": "https://github.com/pytorch/test-infra/tree/main/greenlight",
+     "quote": "A reverted PR is dropped from every path, permanently.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "status",
+     "claim": "Approving PRs only from maintainers who already hold approval rights; everyone else gets shadow-mode reviews that never become approvals",
+     "url": "https://github.com/pytorch/test-infra/tree/main/greenlight",
+     "quote": "A review is recorded in shadow when the verdict's record-time eligibility check fails.",
+     "verdict": "VERIFIED",
+     "fix": "Eligible = approved_by login in pytorch/pytorch merge_rules.yaml. InfoQ: 'maintainers who already have approval rights on the affected files'."
+    },
+    {
+     "kind": "attribution",
+     "claim": "GreenLight is the open-source cousin of Meta's RADAR",
+     "url": "https://www.infoq.com/news/2026/11/uber-agent-spend-steady/",
+     "quote": "PyTorch's open-source version of Meta's RADAR",
+     "verdict": "VERIFIED",
+     "fix": "RADAR = Risk Aware Diff Auto Review. Repo page itself does not mention RADAR."
+    }
+   ]
+  },
+  {
+   "slot": "research",
+   "vendor": "-",
+   "event_date": "2026-11-25",
+   "status": "Research",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "A preprint posted on 25 November",
+     "url": "https://arxiv.org/abs/2611.33943",
+     "quote": "Submitted on 25 Nov 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "SkillsBench reported curated skills raise pass rates by about 16.6 percentage points",
+     "url": "https://arxiv.org/abs/2611.33943",
+     "quote": "human-curated skills can raise the passing rate by about 16.6 percentage points (pp) on average",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "went through the source and 7,554 public trials; four tasks had placeholder skill folders; harness added 48 built-in skills in most runs",
+     "url": "https://arxiv.org/abs/2611.33943",
+     "quote": "analysed 7,554 public trials to form 1,421 paired",
+     "verdict": "VERIFIED",
+     "fix": "Also: 'four tasks contained placeholder skill directories'; 'a certain execution harness additionally added 48 built-in skills in most runs'."
+    },
+    {
+     "kind": "number",
+     "claim": "with at most three runs per condition, 58% of cells couldn't have shown a decrease",
+     "url": "https://arxiv.org/abs/2611.33943",
+     "quote": "arithmetically, 58% of the cells could not have shown a decrease",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "number",
+     "claim": "A gating strategy that seemed to gain 2-3 points still showed 4-7 after labels were shuffled",
+     "url": "https://arxiv.org/abs/2611.33943",
+     "quote": "even after shuffling condition labels to remove any skill effect, it still achieves an increase of 4-7 pp",
+     "verdict": "VERIFIED",
+     "fix": "Logs showed 'seems to improve by 2-3 pp'."
+    },
+    {
+     "kind": "absence",
+     "claim": "Code and audit ledgers are public, so you can rerun it",
+     "url": "https://arxiv.org/abs/2611.33943",
+     "quote": "Code, audit ledgers, and reproduction scripts",
+     "verdict": "VERIFIED",
+     "fix": "Comments field links https://github.com/rrrrr4788/skillsbench-lift-reanalysis. Repo contents not opened."
+    }
+   ]
+  },
+  {
+   "slot": "people",
+   "vendor": "Pragmatic Engineer / Anthropic",
+   "event_date": "2026-11-25",
+   "status": "Commentary",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "Gergely Orosz's 25 November piece",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in",
+     "quote": "Nov 25, 2026",
+     "verdict": "VERIFIED",
+     "fix": "Podcast-style piece with guest Katelyn Lesse (Anthropic platform engineering); the claims are hers, as the company describes it."
+    },
+    {
+     "kind": "attribution",
+     "claim": "An internal Claude classifier triages every pull request: whether a human must look, how many reviewers, and which team",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in",
+     "quote": "Claude routes the PR to the right teams.",
+     "verdict": "VERIFIED",
+     "fix": "Page: classifier runs on all PRs and decides whether human review is needed, how many, which team; low-risk mechanical changes can skip human review."
+    },
+    {
+     "kind": "attribution",
+     "claim": "A Claude agent is paged before humans for API on-call and filters alerts into incidents or noise",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in",
+     "quote": "A Claude agent is paged before a human for API oncall.",
+     "verdict": "VERIFIED",
+     "fix": "Agent sorts alerts as real or noise; handling real incidents without humans is a goal, not done."
+    },
+    {
+     "kind": "number",
+     "claim": "Teams stay at five to eight people and keep their own on-call rotations",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in",
+     "quote": "Teams at Anthropic are still two-pizza teams of around 5-8 people.",
+     "verdict": "VERIFIED",
+     "fix": "Source: 'Teams still own systems, and get paged.'"
+    },
+    {
+     "kind": "attribution",
+     "claim": "the piece says planning takes about as long as before",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in",
+     "quote": "planning time has not changed much from",
+     "verdict": "VERIFIED",
+     "fix": "Whole page visible, no paywall marker; full transcript linked, not read."
+    }
+   ]
+  },
+  {
+   "slot": "architecture",
+   "vendor": "Google Workspace",
+   "event_date": "2026-11-24",
+   "status": "Policy",
+   "freshness_exception": null,
+   "vendor_cap_exception": null,
+   "claims": [
+    {
+     "kind": "date",
+     "claim": "In a post dated 24 November",
+     "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+     "quote": "November 24, 2026",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "date",
+     "claim": "Technical enforcement begins on 1 February 2027",
+     "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+     "quote": "Technical enforcement begins on February 1, 2027.",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "attribution",
+     "claim": "AI agents must use Workspace MCP servers or the Workspace CLI rather than calling REST APIs directly",
+     "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+     "quote": "AI agents or similar access tools must use Workspace MCP servers or the Workspace CLI to access Workspace data",
+     "verdict": "VERIFIED",
+     "fix": ""
+    },
+    {
+     "kind": "price",
+     "claim": "the new Standard and Scaled usage tiers start billing on 1 April 2027",
+     "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+     "quote": "Standard tier: No cost, with published usage quotas (rate limits).",
+     "verdict": "CORRECTED",
+     "fix": "Only the Scaled tier bills, from 1 April 2027 (Gmail, Calendar and Drive APIs, usage above daily free allowances). Standard is no cost."
+    },
+    {
+     "kind": "status",
+     "claim": "The servers and CLI are generally available now",
+     "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+     "quote": "Rolling out to all in 2 weeks",
+     "verdict": "CORRECTED",
+     "fix": "Labelled GA, but the rollout section says 'Rolling out to all in 2 weeks' for Rapid Release and Scheduled Release domains. Say 'GA, rolling out to all domains over about two weeks'."
+    }
+   ]
+  }
+ ],
+ "quick": [
+  {
+   "name": "KRAFTON Raon-1-mini",
+   "url": "https://huggingface.co/KRAFTON/Raon-1-mini",
+   "event_date": "2026-11-24",
+   "quote": "released under the Apache 2.0 license; 262,144 tokens of context; 28,783,231,202 parameters; createdAt 2026-11-24",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "LingSante-3.1-flash",
+   "url": "https://huggingface.co/inclusionAI/LingSante-3.1-flash",
+   "event_date": "2026-11-19",
+   "quote": "activates 25 billion parameters per token; It is not a medical device (createdAt 2026-11-19, license mit)",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "LiteLLM bulk-update password flaw",
+   "url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-p377-4hwj-f3fh",
+   "event_date": "2026-11-24",
+   "quote": "Affected >= 1.83.0, < 1.104.0; patched 1.104.0; Reset the password for each user it returns.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "bigcommerce-api-mcp CVE-2026-138034",
+   "url": "https://www.strix.ai/cve/CVE-2026-138034",
+   "event_date": "2026-11-27",
+   "quote": "the /sse and /messages routes skip the authenticateRequest middleware",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Inkling 2 Mini 101 tok/s",
+   "url": "https://runtimenotes.com/blog/getting-101-tok-s-from-inkling-2-mini-in-vllm-on-one-gb10/",
+   "event_date": "2026-11-27",
+   "quote": "knapcio's own SGLang recipe led at 112.0.",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Microsoft Ignite agent governance",
+   "url": "https://www.infoq.com/news/2026/11/microsoft-ignite-2026-recap/",
+   "event_date": "2026-11-26",
+   "quote": "Agent 365 tools registry GA; Azure AI Gateway GA; Entra MCP Firewall Preview",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "Amazon Neptune Graph Sessions",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-neptune-graph-sessions-generally-available",
+   "event_date": "2026-11-27",
+   "quote": "scales to zero automatically after 15 minutes",
+   "verdict": "VERIFIED"
+  },
+  {
+   "name": "DeepCrossAttention",
+   "url": "https://research.google/blog/supercharging-transformer-residual-connections/",
+   "event_date": "2026-11-23",
+   "quote": "a standard fixed-width transformer needed 42 layers; DCA reached lower perplexity with only 30 layers (post tested C4 and LM1B large-scale benchmarks)",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "UAE Mira concierge agent",
+   "url": "https://gulfnews.com/uae/government/uae-cabinet-chaired-by-mohammed-bin-rashid-approves-the-uae-government-concierge-agent-mira-1.500760957",
+   "event_date": "2026-11-25",
+   "quote": "Mira will be available to everyone using UAE Government services from March 2027.",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "Sarvam-105B-1711",
+   "url": "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+   "event_date": "2026-11-22",
+   "quote": "a new open-weight checkpoint of Sarvam 105B; high-volume work such as customer support, voice agents and agentic tasks",
+   "verdict": "CORRECTED"
+  },
+  {
+   "name": "UAE federal agentic AI training",
+   "url": "https://gulfnews.com/uae/uae-launches-strategic-technology-partnerships-to-equip-over-80000-government-employees-with-agentic-ai-skills-1.500763153",
+   "event_date": "2026-11-27",
+   "quote": "more than 80,000 employees with Agentic AI skills",
+   "verdict": "VERIFIED"
+  }
+ ]
+}

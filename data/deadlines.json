@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-11-27",
-    "what": "TRAI comments and counter-comments due on draft guidelines for responsible use of AI in telecom networks and services",
-    "who": "Telecom licensees and vendors serving India",
-    "url": "https://www.trai.gov.in/",
-    "added": "2026-11-06"
-  },
-  {
     "date": "2026-11-30",
     "what": "Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) retires on the Claude API; replacement claude-sonnet-5-5",
     "who": "Claude API users on Sonnet 4.5",
@@ -152,6 +145,13 @@
     "who": "Teams whose agents call Workspace APIs",
     "url": "https://cloud.google.com/blog/products/identity-security/deploying-agents-safely-in-your-enterprise/",
     "added": "2026-11-25"
+  },
+  {
+    "date": "2027-02-01",
+    "what": "Google begins technical enforcement: AI agents and similar tools must use Workspace MCP servers or the Workspace CLI instead of calling Workspace REST APIs directly (Standard/Scaled billing from 2027-04-01)",
+    "who": "Teams running agents that call Gmail, Drive or Calendar APIs",
+    "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+    "added": "2026-11-28"
   },
   {
     "date": "2027-02-10",

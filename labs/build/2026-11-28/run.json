@@ -1,0 +1,262 @@
+{
+ "lab": "labs/build/2026-11-28",
+ "ran_at": "2026-11-28T03:22:40+00:00",
+ "seconds": 15.0,
+ "passed": true,
+ "gates": [
+  {
+   "metric": "recall10/int8",
+   "op": ">=",
+   "value": 0.95,
+   "label": "recall@10 of int8 vectors against exact search, no rescoring",
+   "observed": 0.982,
+   "passed": true
+  },
+  {
+   "metric": "recall10/binary",
+   "op": "<=",
+   "value": 0.5,
+   "label": "recall@10 of 1-bit vectors at 64 dimensions, no rescoring",
+   "observed": 0.317,
+   "passed": true
+  },
+  {
+   "metric": "recall10/binary+rescore",
+   "op": ">",
+   "value": 0.4,
+   "label": "binary recall@10 with 3x oversampling and full-precision rescoring (above the no-rescore figure's 0.317 in our run)",
+   "observed": 0.501,
+   "passed": true
+  },
+  {
+   "metric": "hit10/identifier/vector",
+   "op": "<=",
+   "value": 0.4,
+   "label": "identifier queries answered by vector search alone",
+   "observed": 0.17,
+   "passed": true
+  },
+  {
+   "metric": "hit10/identifier/rrf",
+   "op": ">=",
+   "value": 0.9,
+   "label": "identifier queries answered by rank fusion",
+   "observed": 1.0,
+   "passed": true
+  },
+  {
+   "metric": "hit10/meaning/bm25",
+   "op": "<=",
+   "value": 0.2,
+   "label": "meaning queries answered by keyword search alone",
+   "observed": 0.05,
+   "passed": true
+  },
+  {
+   "metric": "hit10/meaning/rrf",
+   "op": ">=",
+   "value": 0.55,
+   "label": "meaning queries answered by rank fusion",
+   "observed": 0.7,
+   "passed": true
+  },
+  {
+   "metric": "filter/10pct/postfilter/results",
+   "op": "between",
+   "value": [
+    2,
+    6
+   ],
+   "label": "rows returned of 10 when the filter matches 10% and results are filtered after the search",
+   "observed": 3.79,
+   "passed": true
+  },
+  {
+   "metric": "filter/1pct/postfilter/results",
+   "op": "<=",
+   "value": 1,
+   "label": "rows returned of 10 at a 1% filter, filtered after the search",
+   "observed": 0.24,
+   "passed": true
+  },
+  {
+   "metric": "filter/10pct/inscan/results",
+   "op": ">=",
+   "value": 9,
+   "label": "rows returned of 10 at a 10% filter when the filter is tested during the scan",
+   "observed": 9.99,
+   "passed": true
+  },
+  {
+   "metric": "filter/1pct/inscan/recall10",
+   "op": "<=",
+   "value": 0.5,
+   "label": "recall@10 at a 1% filter even when the filter is tested during the scan (the index can't see enough matches)",
+   "observed": 0.184,
+   "passed": true
+  }
+ ],
+ "metrics": {
+  "seconds": 14.9,
+  "recall10/int8": 0.982,
+  "recall10/binary": 0.317,
+  "recall10/int8+rescore": 1.0,
+  "recall10/binary+rescore": 0.501,
+  "bytes_per_vector/float32": 256,
+  "bytes_per_vector/int8": 64,
+  "bytes_per_vector/binary": 8.0,
+  "compression/int8": 4,
+  "compression/binary": 32,
+  "hit10/meaning/vector": 0.72,
+  "hit10/meaning/bm25": 0.05,
+  "hit10/meaning/rrf": 0.7,
+  "hit10/identifier/vector": 0.17,
+  "hit10/identifier/bm25": 1.0,
+  "hit10/identifier/rrf": 1.0,
+  "filter/50pct/postfilter/results": 10.0,
+  "filter/50pct/postfilter/recall10": 0.948,
+  "filter/50pct/inscan/results": 10.0,
+  "filter/50pct/inscan/recall10": 0.948,
+  "filter/10pct/postfilter/results": 3.79,
+  "filter/10pct/postfilter/recall10": 0.377,
+  "filter/10pct/inscan/results": 9.99,
+  "filter/10pct/inscan/recall10": 0.763,
+  "filter/1pct/postfilter/results": 0.24,
+  "filter/1pct/postfilter/recall10": 0.024,
+  "filter/1pct/inscan/results": 2.13,
+  "filter/1pct/inscan/recall10": 0.184
+ },
+ "config": {
+  "seed": 7,
+  "n": 5000,
+  "dim": 64,
+  "queries": 100,
+  "python": "3.11.18"
+ },
+ "curve": [],
+ "experiments": [
+  {
+   "name": "seed_2",
+   "label": "another random world (seed 2)",
+   "args": [
+    "--seed",
+    "2"
+   ],
+   "exit_code": 0,
+   "seconds": 14.7,
+   "metrics": {
+    "seconds": 14.7,
+    "recall10/int8": 0.98,
+    "recall10/binary": 0.316,
+    "recall10/int8+rescore": 1.0,
+    "recall10/binary+rescore": 0.501,
+    "bytes_per_vector/float32": 256,
+    "bytes_per_vector/int8": 64,
+    "bytes_per_vector/binary": 8.0,
+    "compression/int8": 4,
+    "compression/binary": 32,
+    "hit10/meaning/vector": 0.73,
+    "hit10/meaning/bm25": 0.05,
+    "hit10/meaning/rrf": 0.66,
+    "hit10/identifier/vector": 0.17,
+    "hit10/identifier/bm25": 1.0,
+    "hit10/identifier/rrf": 1.0,
+    "filter/50pct/postfilter/results": 10.0,
+    "filter/50pct/postfilter/recall10": 0.96,
+    "filter/50pct/inscan/results": 10.0,
+    "filter/50pct/inscan/recall10": 0.96,
+    "filter/10pct/postfilter/results": 4.1,
+    "filter/10pct/postfilter/recall10": 0.408,
+    "filter/10pct/inscan/results": 9.94,
+    "filter/10pct/inscan/recall10": 0.791,
+    "filter/1pct/postfilter/results": 0.53,
+    "filter/1pct/postfilter/recall10": 0.053,
+    "filter/1pct/inscan/results": 3.08,
+    "filter/1pct/inscan/recall10": 0.227
+   }
+  },
+  {
+   "name": "small_corpus",
+   "label": "2,000 items instead of 5,000",
+   "args": [
+    "--n",
+    "2000"
+   ],
+   "exit_code": 0,
+   "seconds": 4.7,
+   "metrics": {
+    "seconds": 4.7,
+    "recall10/int8": 0.99,
+    "recall10/binary": 0.365,
+    "recall10/int8+rescore": 1.0,
+    "recall10/binary+rescore": 0.592,
+    "bytes_per_vector/float32": 256,
+    "bytes_per_vector/int8": 64,
+    "bytes_per_vector/binary": 8.0,
+    "compression/int8": 4,
+    "compression/binary": 32,
+    "hit10/meaning/vector": 0.81,
+    "hit10/meaning/bm25": 0.1,
+    "hit10/meaning/rrf": 0.74,
+    "hit10/identifier/vector": 0.33,
+    "hit10/identifier/bm25": 1.0,
+    "hit10/identifier/rrf": 1.0,
+    "filter/50pct/postfilter/results": 10.0,
+    "filter/50pct/postfilter/recall10": 0.903,
+    "filter/50pct/inscan/results": 10.0,
+    "filter/50pct/inscan/recall10": 0.903,
+    "filter/10pct/postfilter/results": 4.07,
+    "filter/10pct/postfilter/recall10": 0.402,
+    "filter/10pct/inscan/results": 10.0,
+    "filter/10pct/inscan/recall10": 0.622,
+    "filter/1pct/postfilter/results": 0.42,
+    "filter/1pct/postfilter/recall10": 0.042,
+    "filter/1pct/inscan/results": 1.79,
+    "filter/1pct/inscan/recall10": 0.168
+   }
+  },
+  {
+   "name": "dim_128",
+   "label": "128 dimensions: does 1-bit quantization improve?",
+   "args": [
+    "--dim",
+    "128"
+   ],
+   "exit_code": 0,
+   "seconds": 25.6,
+   "metrics": {
+    "seconds": 25.6,
+    "recall10/int8": 0.986,
+    "recall10/binary": 0.353,
+    "recall10/int8+rescore": 1.0,
+    "recall10/binary+rescore": 0.594,
+    "bytes_per_vector/float32": 512,
+    "bytes_per_vector/int8": 128,
+    "bytes_per_vector/binary": 16.0,
+    "compression/int8": 4,
+    "compression/binary": 32,
+    "hit10/meaning/vector": 0.99,
+    "hit10/meaning/bm25": 0.01,
+    "hit10/meaning/rrf": 0.97,
+    "hit10/identifier/vector": 0.43,
+    "hit10/identifier/bm25": 1.0,
+    "hit10/identifier/rrf": 1.0,
+    "filter/50pct/postfilter/results": 10.0,
+    "filter/50pct/postfilter/recall10": 0.997,
+    "filter/50pct/inscan/results": 10.0,
+    "filter/50pct/inscan/recall10": 0.997,
+    "filter/10pct/postfilter/results": 4.15,
+    "filter/10pct/postfilter/recall10": 0.415,
+    "filter/10pct/inscan/results": 10.0,
+    "filter/10pct/inscan/recall10": 0.94,
+    "filter/1pct/postfilter/results": 0.35,
+    "filter/1pct/postfilter/recall10": 0.035,
+    "filter/1pct/inscan/results": 2.94,
+    "filter/1pct/inscan/recall10": 0.224
+   }
+  }
+ ],
+ "environment": {
+  "runner_python": "3.11.18"
+ }
+}

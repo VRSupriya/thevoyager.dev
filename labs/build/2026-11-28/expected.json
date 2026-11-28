@@ -1,0 +1,24 @@
+{
+  "title": "Build: a retrieval lab for quantization, hybrid fusion and filtered search (synthetic vectors)",
+  "post": "build/2026-11-28",
+  "command": ["run.py"],
+  "timeout_minutes": 10,
+  "gates": [
+    {"metric": "recall10/int8", "op": ">=", "value": 0.95, "label": "recall@10 of int8 vectors against exact search, no rescoring"},
+    {"metric": "recall10/binary", "op": "<=", "value": 0.5, "label": "recall@10 of 1-bit vectors at 64 dimensions, no rescoring"},
+    {"metric": "recall10/binary+rescore", "op": ">", "value": 0.4, "label": "binary recall@10 with 3x oversampling and full-precision rescoring (above the no-rescore figure's 0.317 in our run)"},
+    {"metric": "hit10/identifier/vector", "op": "<=", "value": 0.4, "label": "identifier queries answered by vector search alone"},
+    {"metric": "hit10/identifier/rrf", "op": ">=", "value": 0.9, "label": "identifier queries answered by rank fusion"},
+    {"metric": "hit10/meaning/bm25", "op": "<=", "value": 0.2, "label": "meaning queries answered by keyword search alone"},
+    {"metric": "hit10/meaning/rrf", "op": ">=", "value": 0.55, "label": "meaning queries answered by rank fusion"},
+    {"metric": "filter/10pct/postfilter/results", "op": "between", "value": [2, 6], "label": "rows returned of 10 when the filter matches 10% and results are filtered after the search"},
+    {"metric": "filter/1pct/postfilter/results", "op": "<=", "value": 1, "label": "rows returned of 10 at a 1% filter, filtered after the search"},
+    {"metric": "filter/10pct/inscan/results", "op": ">=", "value": 9, "label": "rows returned of 10 at a 10% filter when the filter is tested during the scan"},
+    {"metric": "filter/1pct/inscan/recall10", "op": "<=", "value": 0.5, "label": "recall@10 at a 1% filter even when the filter is tested during the scan (the index can't see enough matches)"}
+  ],
+  "experiments": [
+    {"name": "seed_2", "args": ["--seed", "2"], "label": "another random world (seed 2)"},
+    {"name": "small_corpus", "args": ["--n", "2000"], "label": "2,000 items instead of 5,000"},
+    {"name": "dim_128", "args": ["--dim", "128"], "label": "128 dimensions: does 1-bit quantization improve?"}
+  ]
+}

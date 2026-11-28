@@ -1,0 +1,12 @@
+[1] quantization, 5000 vectors x 64 dims, recall@10 vs exact search (100 queries)
+    int8    alone 0.982   with rescoring (oversample 3) 1.000   bytes/vector 64 (float32: 256)
+    binary  alone 0.317   with rescoring (oversample 3) 0.501   bytes/vector 8 (float32: 256)
+[2] hybrid, share of queries whose target is in the top 10
+    meaning    vector 0.72  bm25 0.05  rrf 0.70
+    identifier vector 0.17  bm25 1.00  rrf 1.00
+[3] filters, IVF with 4 probes: results returned (of 10) and recall@10 against exact filtered search
+    50pct  post-filter 10.00 rows, recall 0.948   in-scan 10.00 rows, recall 0.948
+    10pct  post-filter  3.79 rows, recall 0.377   in-scan  9.99 rows, recall 0.763
+    1pct   post-filter  0.24 rows, recall 0.024   in-scan  2.13 rows, recall 0.184
+
+wrote /home/user/thevoyager.dev/labs/build/2026-11-28/results.json in 14.9s
